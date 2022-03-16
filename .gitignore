@@ -11,3 +11,4 @@ coverage
 local
 !/.yarn/cache
 **/prisma/client
+me

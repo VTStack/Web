@@ -1,0 +1,90 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+  output = "client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String         @id @default(uuid())
+  email        String         @unique
+  password     String
+  groups       Group[]
+  invites      Invite[]
+  GroupMembers GroupMembers[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([email, password])
+  @@map("user")
+}
+
+model Group {
+  id      String  @id @default(uuid())
+  name    String
+  ownerId String? @map("user_id")
+
+  members GroupMembers[]
+  invites Invite[]
+  movie   Movie[]
+
+  User      User?    @relation(fields: [ownerId], references: [id])
+  createdAt DateTime @default(now()) @map("created_at")
+
+
+  @@unique([name, ownerId])
+}
+
+model GroupMembers {
+  id      String @id @default(uuid())
+  Group   Group  @relation(fields: [groupId], references: [id])
+  groupId String @map("group_id")
+  userId  String @map("user_id")
+  User    User   @relation(fields: [userId], references: [id])
+  role    Int    @default(0)
+
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+
+  @@unique([userId, groupId])
+}
+
+model Invite {
+  id String @id @default(uuid())
+
+  Group   Group  @relation(fields: [groupId], references: [id])
+  groupId String @map("group_id")
+
+  InviteOwner   User   @relation(fields: [inviteOwnerId], references: [id])
+  inviteOwnerId String @map("invite_owner_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // @@unique([inviteOwnerId, groupId])
+}
+
+model Movie {
+  id            String  @id @default(uuid())
+  title         String
+  overview      String
+  groupId       String  @map("group_id")
+  group         Group   @relation(fields: [groupId], references: [id])
+  backdrop_path String
+  poster_path   String
+  release_date  String
+  movie_id      Int
+  adult         Boolean
+  ytKey         String  @map("youtube_key")
+
+  createdAt DateTime @default(now())
+
+  @@unique([movie_id, groupId])
+}

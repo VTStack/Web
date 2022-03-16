@@ -1,0 +1,40 @@
+{
+  "root": "libs/thunder/themes",
+  "sourceRoot": "libs/thunder/themes",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/thunder/themes",
+        "entryFile": "libs/thunder/themes/src/public_api.ts",
+        "tsConfig": "libs/thunder/themes/tsconfig.lib.json",
+        "assets": ["libs/thunder/themes/README.md"],
+        "project": "libs/thunder/themes/package.json"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/thunder/themes/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/thunder/themes"],
+      "options": {
+        "jestConfig": "libs/thunder/themes/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "commitMessageFormat": "chore(${projectName}): release version ${version}"
+      }
+    }
+  },
+  "tags": ["scope:thunder", "type:other"]
+}
