@@ -1,0 +1,45 @@
+# CONFIG FOR https://starship.rs
+
+add_newline = false
+
+format='[\[](bright-black) $username[@](red)$hostname [\]]( bright-black) [::](bright-black) $time [>>](bright-black) $directory$nodejs$rust $character'
+# continuation_prompt = "▶"
+continuation_prompt = "[::](bright-black) "
+
+# GENERAL
+[character]
+success_symbol = "[λ](yellow)"
+error_symbol="[µ](red)"
+
+[status]
+disabled=false
+
+[time]
+disabled = false
+format = '[$time](dimmed)'
+
+[username]
+disabled = false
+show_always = true
+format = "[$user](blue)"
+
+[hostname]
+ssh_only=false
+format="[$hostname](dimmed blue)"
+
+[directory]
+truncate_to_repo = true
+use_os_path_sep = false
+format = "[$path](cyan)"
+# GENERAL-END
+
+# LANGS
+[nodejs]
+disabled=false
+format=".[js](yellow)"
+
+[rust]
+format=".[rs]($style)"
+version_format=""
+style="bold red"
+# LANGS-END
