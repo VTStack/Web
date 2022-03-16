@@ -9,6 +9,15 @@ tmp
 !/other/config/starship.toml
 coverage
 local
-!/.yarn/cache
 **/prisma/client
 me
+
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+.github/config
