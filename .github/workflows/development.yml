@@ -1,0 +1,26 @@
+name: Pull Request Guard
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    paths-ignore:
+      - '*.md'
+      - '.vscode/**'
+      - 'LICENSE'
+      - '.github/CODEOWNERS'
+      - '.dockerignore'
+      - 'scripts/**'
+
+jobs:
+  check:
+    name: Check pull-request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn install --immutable
+      - run: yarn nx run-many --target=postinstall --parallel=2 --all
+      - run: yarn nx affected --target=lint --parallel=2
+      - run: yarn nx affected --target=test --parallel=2

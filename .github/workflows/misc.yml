@@ -1,0 +1,18 @@
+name: 'First Interaction'
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  Issues:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: |
+            # Hi contributer!
+
+            Thanks for submitting this first issue. You can expect a response in about 24 hours!
+            > If not, email me [here](mailto:vincent.nathan.thomas@gmail.com)
