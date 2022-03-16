@@ -1,0 +1,3 @@
+{
+  "conventionalCommits.scopes": ["readme", "config", "tmp", "merge", "deps"]
+}
