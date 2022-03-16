@@ -1,0 +1,3 @@
+cd "C:/Users/vincent/coding/Codebase"
+
+npm run nx -- run-many --target=$1 --projects=$2
