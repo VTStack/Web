@@ -1,0 +1,66 @@
+{
+  "root": "packages/algos",
+  "sourceRoot": "packages/algos/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/algos",
+        "tsConfig": "packages/algos/tsconfig.lib.json",
+        "project": "packages/algos/package.json",
+        "entryFile": "packages/algos/src/public_api.ts",
+        "optimization": true,
+        "sourceMap": false,
+        "compiler": "swc",
+        "assets": [
+          { "glob": "packages/algos/*.md", "input": ".", "output": "." },
+          { "glob": "packages/algos/.npmrc", "input": ".", "output": "." }
+        ]
+      },
+      "configurations": {
+        "dev": {
+          "watch": true
+        }
+      }
+    },
+
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/algos/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/algos"],
+      "options": {
+        "jestConfig": "packages/algos/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "commitMessageFormat": "chore(${projectName}): release version ${version}",
+        "releaseAs": "patch"
+      }
+    },
+    "publish": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "outputPath": "dist/packages/algos",
+        "command": "sh ./scripts/publish.sh algos"
+      }
+    }
+  },
+  "tags": []
+}
