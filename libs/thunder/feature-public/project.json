@@ -1,0 +1,84 @@
+{
+  "root": "libs/thunder/feature-public",
+  "sourceRoot": "libs/thunder/feature-public",
+  "projectType": "library",
+  "tags": ["scope:thunder", "type:feature"],
+  "targets": {
+    "build": {
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "dependencies"
+        }
+      ],
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/thunder/feature-public",
+        "tsConfig": "libs/thunder/feature-public/tsconfig.lib.json",
+        "project": "libs/thunder/feature-public/package.json",
+        "entryFile": "libs/thunder/feature-public/src/public_api.tsx",
+        "external": [
+          "react/jsx-runtime",
+          "@v-thomas/libs/thunder/core-ui",
+          "@v-thomas/libs/thunder/data-access"
+        ],
+        "globals": [
+          { "moduleId": "react-router-dom", "global": "react-router-dom" },
+          { "moduleId": "framer-motion", "global": "framer-motion" },
+          { "moduleId": "react-hook-form", "global": "react-hook-form" },
+          { "moduleId": "joi", "global": "joi" },
+          { "moduleId": "react-redux", "global": "react-redux" },
+          { "moduleId": "@hookform/resolvers/joi", "global": "@hookform/resolvers/joi" },
+
+          {
+            "moduleId": "@v-thomas/libs/thunder/data-access",
+            "global": "@v-thomas/libs/thunder/data-access"
+          },
+          {
+            "moduleId": "@v-thomas/libs/thunder/core-ui",
+            "global": "@v-thomas/libs/thunder/core-ui"
+          }
+        ],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/thunder/feature-public/README.md",
+            "input": ".",
+            "output": "."
+          },
+          "libs/thunder/feature-public/assets"
+        ]
+      }
+    },
+    "install": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx pnpm install",
+        "cwd": "libs/thunder/feature-public"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/thunder/feature-public/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/thunder/feature-public"],
+      "options": {
+        "jestConfig": "libs/thunder/feature-public/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "commitMessageFormat": "chore(${projectName}): release version ${version}"
+      }
+    }
+  }
+}

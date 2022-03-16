@@ -1,0 +1,61 @@
+{
+  "root": "apps/thunder",
+  "projectType": "application",
+  "sourceRoot": "apps/thunder/src",
+  "tags": ["scope:thunder", "type:app"],
+  "targets": {
+    "install": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "yarn",
+        "cwd": "apps/thunder"
+      }
+    },
+    "serve": {
+      "executor": "nx-plugin-vite:serve",
+      "options": {
+        "configFile": "apps/thunder/vite.config.ts",
+        "port": 3000,
+        "host": true,
+        "https": false,
+        "root": "apps/thunder"
+      }
+    },
+    "deploy": {
+      "executor": "@netlify-builder/deploy:deploy",
+      "options": {
+        "outputPath": "dist/apps/thunder",
+        "siteId": "16d309af-627a-471e-a5ec-8d739bbeb358",
+        "noBuild": true
+      }
+    },
+    "preview": {
+      "executor": "nx-plugin-vite:preview",
+      "options": {
+        "configFile": "apps/thunder/vite.config.ts"
+      }
+    },
+    "build": {
+      "executor": "nx-plugin-vite:build",
+      "defaultConfiguration": "production",
+      "configurations": {
+        "production": {
+          "outDir": "dist/apps/thunder",
+          "configFile": "apps/thunder/vite.prod.config.ts",
+          "watch": false,
+          "write": true,
+          "emitAtRootLevel": true,
+          "manifest": true
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "apps/thunder/jest.config.js",
+        "passWithNoTests": true,
+        "bail": true
+      }
+    }
+  }
+}

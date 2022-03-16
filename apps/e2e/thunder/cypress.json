@@ -1,0 +1,12 @@
+{
+  "fileServerFolder": ".",
+  "fixturesFolder": "./src/fixtures",
+  "integrationFolder": "./src/integration",
+  "modifyObstructiveCode": false,
+  "supportFile": "./src/support/index.ts",
+  "pluginsFile": false,
+  "video": true,
+  "videosFolder": "../../../dist/cypress/apps/e2e/thunder/videos",
+  "screenshotsFolder": "../../../dist/cypress/apps/e2e/thunder/screenshots",
+  "chromeWebSecurity": false
+}

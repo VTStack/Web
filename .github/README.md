@@ -64,18 +64,14 @@ Apps are divided into 4 library-types. These apps are not developed like monolit
 |  | **Apps** | ⚡ **Done** | 🚧 **In Development** | 🤔 **Planning to build** |
 | **Thunder** | _Movie Reviewer App_ |  | 👷🏾 |  |
 | **Honey** | _Subscription Handler_ |  |  | 🚦 |
-| **me** | _Me in a presentation_ |  | 👷🏾 |  |
 | **Butler** | _New tab extention_ |  |  | 🚦 |
 |  | **Servers** | ⚡ **Done** | 🚧 **In Development** | 🤔 **Planning to build** |
 | **Thunderbolt** | _Server to Thunder_ |  | 👷🏾 |  |
-| **PasswrdSupplier** | _Server to Passwrd_ | ✔️ |  |  |
-| **NightClubguard** | _Server to Clubguard_ |  |  | 🚦 |
+| **Nightclubguard** | _Server to Clubguard_ |  |  | 🚦 |
 |  | **Packages** | ⚡ **Done** | 🚧 **In Development** | 🤔 **Planning to build** |
-| **Passwrd** | Password Manager CLI | ✔️ |  |  |
 | **Structer** | _Data Structures_ |  | 👷🏾 |  |
 | **Algos** | _General simple algorithms_ |  | 👷🏾 |  |
 |  | **Other software** | ⚡ **Done** | 🚧 **In Development** | 🤔 **Planning to build** |
-| **Lancer** | _Profile Page_ (README) | ✔️ |  |  |
 | **Clubguard** | _Auth Discord Bot_ |  |  | 🚦 |
 
 </div>

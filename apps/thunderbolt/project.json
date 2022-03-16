@@ -1,0 +1,88 @@
+{
+  "root": "apps/thunderbolt",
+  "sourceRoot": "apps/thunderbolt/src",
+  "projectType": "application",
+  "targets": {
+    "install": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "cwd": "apps/thunderbolt",
+        "command": "yarn"
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "apps/thunderbolt/dist",
+        "main": "apps/thunderbolt/src/main.ts",
+        "tsConfig": "apps/thunderbolt/tsconfig.app.json",
+        "assets": ["apps/thunderbolt/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "webpackConfig": "apps/thunderbolt/webpack.config.js",
+          "fileReplacements": [
+            {
+              "replace": "apps/thunderbolt/src/environments/environment.ts",
+              "with": "apps/thunderbolt/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "thunderbolt:build",
+        "watch": true,
+        "port": 3400
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/thunderbolt/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/thunderbolt"],
+      "options": {
+        "jestConfig": "apps/thunderbolt/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "docker": {
+      "executor": "@nx-tools/nx-docker:build",
+      "options": {
+        "context": "apps/thunderbolt",
+        "push": false,
+        "tags": ["ghcr.io/vincentthomas06/thunderbolt:latest"]
+      }
+    },
+    "prisma": {
+      "executor": "@nrwl/workspace:run-commands",
+      "defaultConfiguration": "push",
+      "configurations": {
+        "push": {
+          "cwd": "apps/thunderbolt",
+          "command": "npm run prisma -- db push"
+        },
+        "g": {
+          "cwd": "apps/thunderbolt",
+          "command": "npm run prisma -- generate"
+        },
+        "studio": {
+          "cwd": "apps/thunderbolt",
+          "command": "npm run prisma -- studio"
+        }
+      }
+    }
+  },
+  "tags": []
+}
