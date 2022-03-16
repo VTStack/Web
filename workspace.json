@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "projects": {
+    "algos": "packages/algos",
+    "me": "apps/me",
+    "passwrd": "packages/passwrd",
+    "passwrdsupplier": "apps/passwrdsupplier",
+    "structer": "packages/structer",
+    "thunder": "apps/thunder",
+    "thunder-core-ui": "libs/thunder/core-ui",
+    "thunder-core-ui-e2e": "apps/e2e/core-ui",
+    "thunder-data-access": "libs/thunder/data-access",
+    "thunder-e2e": "apps/e2e/thunder",
+    "thunder-feature-app": "libs/thunder/feature-app",
+    "thunder-feature-public": "libs/thunder/feature-public",
+    "thunder-shell": "libs/thunder/shell",
+    "thunder-themes": "libs/thunder/themes",
+    "thunderbolt": "apps/thunderbolt"
+  }
+}

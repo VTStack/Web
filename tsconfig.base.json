@@ -1,0 +1,37 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": "./",
+    "rootDir": ".",
+    "allowUnreachableCode": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "pretty": true,
+    "removeComments": true,
+    "newLine": "lf",
+    "paths": {
+      "@v-thomas/libs/thunder/core-ui": ["./libs/thunder/core-ui/src/public_api.ts"],
+      "@v-thomas/libs/thunder/data-access": ["./libs/thunder/data-access/src/public_api.ts"],
+      "@v-thomas/libs/thunder/feature-app": ["./libs/thunder/feature-app/src/public_api.tsx"],
+      "@v-thomas/libs/thunder/feature-public": ["./libs/thunder/feature-public/src/public_api.tsx"],
+      "@v-thomas/libs/thunder/shell": ["./libs/thunder/shell/src/public_api.tsx"],
+      "@v-thomas/libs/thunder/themes": ["libs/thunder/themes/src/public_api.ts"],
+      "@v-thomas/root/*": ["./*"],
+      "@v-thomas/testing": ["libs/test-build-not-publish/src/index.ts"]
+    }
+  }
+}

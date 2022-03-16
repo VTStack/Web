@@ -1,0 +1,50 @@
+{
+  "npmScope": "v-thomas",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "cli": {
+    "packageManager": "yarn"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "test", "lint", "package", "prepare", "install"],
+        "accessToken": "M2JlZWYzN2ItYmExMC00MmE0LWE1MjktYjhlNDI5OGUzYWNlfHJlYWQtd3JpdGU=",
+        "useDaemonProcess": true
+      }
+    }
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "workspaceLayout": {
+    "libsDir": "libs",
+    "appsDir": "apps"
+  },
+  "targetDependencies": {
+    "prepare": [
+      {
+        "target": "prepare",
+        "projects": "dependencies"
+      }
+    ],
+    "package": [
+      {
+        "target": "package",
+        "projects": "dependencies"
+      }
+    ],
+    "test": [
+      {
+        "target": "test",
+        "projects": "dependencies"
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+dist
+node_modules
+.env
+.env.*
+.*.env
+tmp
+*.old
+/other/config/*
+!/other/config/starship.toml
+coverage
+local
+!/.yarn/cache
+**/prisma/client
