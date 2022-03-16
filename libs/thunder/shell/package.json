@@ -1,0 +1,10 @@
+{
+  "name": "@v-thomas/thunder-shell",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "notistack": "^3.0.0-alpha.2",
+    "react": "^17.0.2",
+    "react-router-dom": "^6.2.2",
+    "styled-components": "^5.3.3"
+  }
+}

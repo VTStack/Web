@@ -1,0 +1,28 @@
+{
+  "root": "apps/e2e/core-ui",
+  "sourceRoot": "apps/e2e/core-ui/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/e2e/core-ui/cypress.json",
+        "devServerTarget": "thunder-core-ui:storybook"
+      },
+      "configurations": {
+        "ci": {
+          "devServerTarget": "thunder-core-ui:storybook:ci"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/e2e/core-ui/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["thunder-core-ui"]
+}

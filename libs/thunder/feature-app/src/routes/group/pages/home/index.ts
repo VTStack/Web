@@ -1,0 +1,1 @@
+export { GroupHomePage } from './home';
