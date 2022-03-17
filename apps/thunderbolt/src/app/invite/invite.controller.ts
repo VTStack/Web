@@ -9,7 +9,7 @@ export class InviteController {
   constructor(private readonly invite: InviteService) {}
 
   @Post('create')
-  async createInvite(@Query('group_id') groupId: string, @Req() req: any) {
+  async createInvite(@Query('group_id') groupId: string, @Req() req: { user: { id: string } }) {
     return await this.invite.createLink(groupId, req.user.id).catch(e => {
       console.log(e);
       throw new ConflictException(
@@ -20,7 +20,7 @@ export class InviteController {
   }
 
   @Get()
-  async getInvite(@Query('invite_id') inviteId: string, @Req() req: any) {
+  async getInvite(@Query('invite_id') inviteId: string, @Req() req: { user: { id: string } }) {
     const data = await this.invite.getInviteById(inviteId);
     if (data.inviteOwnerId === req.user.id) {
       throw new ConflictException({
@@ -32,13 +32,13 @@ export class InviteController {
   }
 
   @Get('user_invites')
-  async getUserInvites(@Req() req: any, @Query('group_id') groupId: string) {
+  async getUserInvites(@Req() req: { user: { id: string } }, @Query('group_id') groupId: string) {
     const data = await this.invite.getUserInvitesInGroup(req.user.id, groupId);
     return data;
   }
 
   @Delete('remove_invite')
-  async removeInvites(@Req() req: any, @Query('invite_id') inviteId: string) {
+  async removeInvites(@Query('invite_id') inviteId: string) {
     console.log(inviteId);
     const data = await this.invite.removeInvite(inviteId);
     return data;

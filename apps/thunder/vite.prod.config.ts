@@ -20,13 +20,13 @@ export default defineConfig({
   plugins: [
     tsconfigPaths({ root: '../../' }),
     react({ jsxRuntime: 'automatic', exclude: ['**/*.spec.tsx', '**/*.stories.tsx'], include: '**/*.tsx' }),
+    terser(),
     visualizer({
       sourcemap: false,
       projectRoot: '../../dist/apps/thunder',
       filename: 'apps/thunder/local/stats.html',
       template: 'sunburst'
-    }),
-    terser()
+    })
   ],
   envDir: '../../',
 

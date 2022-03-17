@@ -70,7 +70,7 @@ export class InviteService {
         }
       });
       return data;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.log(error);
       throw new ConflictException({ statusCode: 409 }, Messages['Already a member in group']);
     }

@@ -1,5 +1,5 @@
 import styled, { ThemeProvider } from 'styled-components';
-import { DarkTheme } from '@v-thomas/libs/thunder/themes';
+import { DarkTheme } from '@v-thomas/shared/themes';
 import { StrictMode } from 'react';
 import { App } from './router';
 import { SnackbarProvider } from 'notistack';

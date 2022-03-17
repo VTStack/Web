@@ -2,7 +2,7 @@
 import { HttpService } from '@nestjs/axios';
 import { Body, Controller, Get, Param, Post, Query, UseGuards } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
-import { Movie } from 'prisma/client';
+import { Movie } from '../../../prisma/client';
 import { catchError, map, Observable, of } from 'rxjs';
 import { AccessGuard } from '../auth/guards/access.guard';
 import { API_KEY } from '../constants/API_KEYS';
