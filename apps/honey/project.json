@@ -1,0 +1,57 @@
+{
+  "root": "apps/honey",
+  "sourceRoot": "apps/honey/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "nx-plugin-vite:build",
+      "options": {
+        "outDir": "dist/apps/honey",
+
+        "write": true,
+        "emitAtRootLevel": true
+      },
+      "configurations": {
+        "development": {
+          "configFile": "apps/honey/vite.config.ts"
+        },
+        "production": {
+          "configFile": "apps/honey/vite.prod.config.ts",
+          "manifest": true
+        }
+      }
+    },
+    "serve": {
+      "executor": "nx-plugin-vite:serve",
+      "options": {
+        "configFile": "apps/honey/vite.config.ts",
+        "port": 3000,
+        "root": "apps/honey",
+        "host": false,
+        "https": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/honey/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/honey"],
+      "options": {
+        "jestConfig": "apps/honey/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "preview": {
+      "executor": "nx-plugin-vite:preview",
+      "options": {
+        "configFile": "apps/honey/vite.config.ts"
+      }
+    }
+  },
+  "tags": ["scope:honey"]
+}

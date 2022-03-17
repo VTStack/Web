@@ -15,8 +15,16 @@
         "sourceMap": false,
         "compiler": "swc",
         "assets": [
-          { "glob": "packages/algos/*.md", "input": ".", "output": "." },
-          { "glob": "packages/algos/.npmrc", "input": ".", "output": "." }
+          {
+            "glob": "packages/algos/*.md",
+            "input": ".",
+            "output": "."
+          },
+          {
+            "glob": "packages/algos/.npmrc",
+            "input": ".",
+            "output": "."
+          }
         ]
       },
       "configurations": {
@@ -25,7 +33,6 @@
         }
       }
     },
-
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],

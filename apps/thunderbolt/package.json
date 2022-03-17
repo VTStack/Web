@@ -4,11 +4,14 @@
   "description": "This is the backend for movie",
   "author": "VincentThomas",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": {
     "url": "https://github.com/VincentThomas06/Codebase.git",
     "directory": "apps/thunderbolt",
     "type": "git"
+  },
+  "engines": {
+    "node": "14 || 16"
   },
   "scripts": {
     "postinstall": "prisma generate",
@@ -16,9 +19,9 @@
     "postbuild": "rimraf ./dist/tsconfig.build.tsbuildinfo",
     "build:prod": "nest build --webpack --webpackPath webpack.config.js && npm run postbuild",
     "build:dev": "nest build",
-    "prestart": "prisma db push --skip-generate",
+    "prstart": "prisma db push --skip-generate",
     "start:prod": "node dist/main",
-    "start:dev": "npm run prestart && npx nest start --watch",
+    "start:dev": "npx nest start --watch",
     "start:webpack": "npm run prestart && npx nest build --webpack --webpackPath webpack-hmr.config.js --watch",
     "start:debug": "npx nest start --debug --watch",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -35,7 +38,6 @@
     "@nestjs/common": "^8.4.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/jwt": "^8.0.0",
-    "@nestjs/microservices": "8.3.1",
     "@nestjs/passport": "^8.1.0",
     "@nestjs/platform-express": "^8.0.0",
     "@prisma/client": "^3.11.0",

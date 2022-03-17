@@ -24,13 +24,30 @@
           "@v-thomas/libs/thunder/data-access"
         ],
         "globals": [
-          { "moduleId": "react-router-dom", "global": "react-router-dom" },
-          { "moduleId": "framer-motion", "global": "framer-motion" },
-          { "moduleId": "react-hook-form", "global": "react-hook-form" },
-          { "moduleId": "joi", "global": "joi" },
-          { "moduleId": "react-redux", "global": "react-redux" },
-          { "moduleId": "@hookform/resolvers/joi", "global": "@hookform/resolvers/joi" },
-
+          {
+            "moduleId": "react-router-dom",
+            "global": "react-router-dom"
+          },
+          {
+            "moduleId": "framer-motion",
+            "global": "framer-motion"
+          },
+          {
+            "moduleId": "react-hook-form",
+            "global": "react-hook-form"
+          },
+          {
+            "moduleId": "joi",
+            "global": "joi"
+          },
+          {
+            "moduleId": "react-redux",
+            "global": "react-redux"
+          },
+          {
+            "moduleId": "@hookform/resolvers/joi",
+            "global": "@hookform/resolvers/joi"
+          },
           {
             "moduleId": "@v-thomas/libs/thunder/data-access",
             "global": "@v-thomas/libs/thunder/data-access"

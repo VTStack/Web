@@ -43,7 +43,7 @@ export function InvitePage() {
     <Modal width="auto" isOpen={true}>
       <Row gap="1">
         <Title>
-          Invite to group <Code>{state.group?.name}</Code>
+          Invite to group <Code padding="0.5rem">{state.group?.name}</Code>
         </Title>
 
         <Text>You have been invited to {state.group?.name}. Do you want to join?</Text>

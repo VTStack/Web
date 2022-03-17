@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 
 import Modal from './modal';
 import { ThemeProvider } from 'styled-components';
-import { DarkTheme } from '@v-thomas/libs/thunder/themes';
+import { DarkTheme } from '@v-thomas/shared/themes';
 
 describe('Modal', () => {
   it('should render successfully', () => {

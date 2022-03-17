@@ -30,8 +30,16 @@
         "format": ["esm", "umd"],
         "compiler": "swc",
         "assets": [
-          { "glob": "packages/structer/*.md", "input": ".", "output": "." },
-          { "glob": "packages/structer/.npmrc", "input": ".", "output": "." }
+          {
+            "glob": "packages/structer/*.md",
+            "input": ".",
+            "output": "."
+          },
+          {
+            "glob": "packages/structer/.npmrc",
+            "input": ".",
+            "output": "."
+          }
         ]
       }
     },

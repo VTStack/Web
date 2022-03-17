@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 
 import { MovieSearchCard } from './movie-search-card';
-import { DarkTheme } from '@v-thomas/libs/thunder/themes';
+import { DarkTheme } from '@v-thomas/shared/themes';
 describe('MovieSearchCard', () => {
   it('should render successfully', () => {
     const { baseElement } = render(

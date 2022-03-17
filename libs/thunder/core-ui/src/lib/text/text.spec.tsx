@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { DarkTheme } from '@v-thomas/libs/thunder/themes';
+import { DarkTheme } from '@v-thomas/shared/themes';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Text } from './text';

@@ -1,0 +1,28 @@
+{
+  "root": "apps/e2e/honey",
+  "sourceRoot": "apps/e2e/honey/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/e2e/honey/cypress.json",
+        "devServerTarget": "honey:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "honey:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/e2e/honey/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["honey"]
+}

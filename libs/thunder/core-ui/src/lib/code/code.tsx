@@ -4,7 +4,7 @@ import styled from 'styled-components';
 /* eslint-disable-next-line */
 interface CodeProps {
   children: ReactNode;
-  padding: string;
+  padding?: string;
 }
 
 const StyledCode = styled.code`
