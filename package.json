@@ -9,7 +9,8 @@
   "workspaces": [
     "apps/*",
     "packages/*",
-    "libs/*"
+    "libs/*",
+    "apps/tmp/*"
   ],
   "engines": {
     "node": "16 || 14"

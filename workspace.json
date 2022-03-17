@@ -2,9 +2,11 @@
   "version": 2,
   "projects": {
     "algos": "packages/algos",
-    "me": "apps/me",
-    "passwrd": "packages/passwrd",
-    "passwrdsupplier": "apps/passwrdsupplier",
+    "honey-e2e": "apps/e2e/honey",
+    "honey": "apps/honey",
+    "honey-feature-app": "libs/honey/feature-app",
+    "honey-shell": "libs/honey/shell",
+    "shared-theme": "libs/shared/theme",
     "structer": "packages/structer",
     "thunder": "apps/thunder",
     "thunder-core-ui": "libs/thunder/core-ui",
@@ -14,7 +16,6 @@
     "thunder-feature-app": "libs/thunder/feature-app",
     "thunder-feature-public": "libs/thunder/feature-public",
     "thunder-shell": "libs/thunder/shell",
-    "thunder-themes": "libs/thunder/themes",
     "thunderbolt": "apps/thunderbolt"
   }
 }

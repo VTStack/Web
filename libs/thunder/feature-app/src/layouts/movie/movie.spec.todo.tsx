@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { DarkTheme } from '@v-thomas/libs/thunder/themes';
+import { DarkTheme } from '@v-thomas/shared/themes';
 import { SnackbarProvider } from 'notistack';
 import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';

@@ -1,31 +1,31 @@
 {
-  "root": "libs/thunder/themes",
-  "sourceRoot": "libs/thunder/themes",
+  "root": "libs/shared/theme",
+  "sourceRoot": "libs/shared/theme",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/thunder/themes",
-        "entryFile": "libs/thunder/themes/src/public_api.ts",
-        "tsConfig": "libs/thunder/themes/tsconfig.lib.json",
-        "assets": ["libs/thunder/themes/README.md"],
-        "project": "libs/thunder/themes/package.json"
+        "outputPath": "dist/libs/shared/theme",
+        "entryFile": "libs/shared/theme/src/public_api.ts",
+        "tsConfig": "libs/shared/theme/tsconfig.lib.json",
+        "assets": ["libs/shared/theme/README.md"],
+        "project": "libs/shared/theme/package.json"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/thunder/themes/**/*.ts"]
+        "lintFilePatterns": ["libs/shared/theme/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/thunder/themes"],
+      "outputs": ["coverage/libs/shared/theme"],
       "options": {
-        "jestConfig": "libs/thunder/themes/jest.config.js",
+        "jestConfig": "libs/shared/theme/jest.config.js",
         "passWithNoTests": true
       }
     },

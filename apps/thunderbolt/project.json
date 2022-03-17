@@ -19,8 +19,21 @@
         "tsConfig": "apps/thunderbolt/tsconfig.app.json",
         "assets": ["apps/thunderbolt/src/assets"]
       },
+      "defaultConfiguration": "production",
       "configurations": {
         "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "webpackConfig": "apps/thunderbolt/webpack.config.js",
+          "fileReplacements": [
+            {
+              "replace": "apps/thunderbolt/src/environments/environment.ts",
+              "with": "apps/thunderbolt/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "development": {
           "optimization": true,
           "extractLicenses": true,
           "inspect": false,

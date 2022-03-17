@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { TitleTest } from './title';
 import { ThemeProvider } from 'styled-components';
-import { DarkTheme } from '@v-thomas/libs/thunder/themes';
+import { DarkTheme } from '@v-thomas/shared/themes';
 
 describe('Title', () => {
   it('should render successfully', () => {

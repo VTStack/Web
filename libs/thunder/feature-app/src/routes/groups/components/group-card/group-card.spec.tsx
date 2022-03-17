@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { DarkTheme } from '@v-thomas/libs/thunder/themes';
+import { DarkTheme } from '@v-thomas/shared/themes';
 import { GroupCard } from './group-card';
 
 describe('GroupCard', () => {

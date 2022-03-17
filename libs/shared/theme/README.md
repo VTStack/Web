@@ -1,4 +1,4 @@
-<h1 align="center">This is <code>thunder-themes</code> 👋</h1>
+<h1 align="center">This is <code>shared-theme</code> 👋</h1>
 <p>
   <a href="https://github.com/VincentThomas06/Codebase/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square" />
@@ -11,11 +11,13 @@
 ### 🏠 [Homepage](https://github.com/VincentThomas06/Codebase#readme)
 
 ### 🤔 What is this?
+
 This is a library for the project [thunder](https://github.com/VincentThomas06/Codebase/tree/main/apps/thunder#readme). This provides the color values in the entire app.
 
 ### 🔧 Used by
-* [`thunder-feature-app`](https://github.com/VincentThomas06/Codebase/tree/main/libs/thunder/feature-app#readme)
-* [`thunder-feature-public`](https://github.com/VincentThomas06/Codebase/tree/main/libs/thunder/feature-public#readme)
+
+- [`thunder-feature-app`](https://github.com/VincentThomas06/Codebase/tree/main/libs/thunder/feature-app#readme)
+- [`thunder-feature-public`](https://github.com/VincentThomas06/Codebase/tree/main/libs/thunder/feature-public#readme)
 
 ## Author
 

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { DarkTheme } from '@v-thomas/libs/thunder/themes';
+import { DarkTheme } from '@v-thomas/shared/themes';
 import { ThemeProvider } from 'styled-components';
 
 import { Card } from './card';
