@@ -3,7 +3,7 @@ import { url } from '../url';
 
 export const getAllMovies = async (groupId: string) => {
   try {
-    const { data: result } = await axios.get(url + `/api/groups/${groupId}/movies`);
+    const { data: result } = await axios.get(url + `/groups/${groupId}/movies`);
     return [result, null];
   } catch (e: unknown) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -15,11 +15,11 @@ export const getAllMovies = async (groupId: string) => {
 export const getMovieRecommendations = async (groupId: string, searchString?: string) => {
   try {
     if (!searchString) {
-      const { data: result } = await axios.get(url + `/api/groups/${groupId}/movies/recommendations`);
+      const { data: result } = await axios.get(url + `/groups/${groupId}/movies/recommendations`);
       return [result, null];
     }
     const { data: result } = await axios.get(
-      url + `/api/groups/${groupId}/movies/recommendations?query=${searchString}`
+      url + `/groups/${groupId}/movies/recommendations?query=${searchString}`
     );
     return [result, null];
   } catch (e) {
@@ -29,7 +29,7 @@ export const getMovieRecommendations = async (groupId: string, searchString?: st
 
 export const getMovieFromId = async (movieId: string, groupId: string) => {
   try {
-    const { data: result } = await axios.get(url + `/api/groups/${groupId}/movies`, {
+    const { data: result } = await axios.get(url + `/groups/${groupId}/movies`, {
       params: { movie_id: movieId }
     });
     return [result, null];
@@ -40,7 +40,7 @@ export const getMovieFromId = async (movieId: string, groupId: string) => {
 
 export const getMoviePreview = async (movieId: string, groupId: string) => {
   try {
-    const { data: result } = await axios.get(url + `/api/groups/${groupId}/movies/preview`, {
+    const { data: result } = await axios.get(url + `/groups/${groupId}/movies/preview`, {
       params: { movie_id: movieId }
     });
     return [result, null];
@@ -51,7 +51,7 @@ export const getMoviePreview = async (movieId: string, groupId: string) => {
 
 export const getExistingMoviesBySearch = async (groupId: string, searchTerm: string) => {
   try {
-    const { data: result } = await axios.get(url + `/api/groups/${groupId}/movies/search`, {
+    const { data: result } = await axios.get(url + `/groups/${groupId}/movies/search`, {
       params: { search: searchTerm }
     });
     return [result, null];

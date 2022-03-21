@@ -22,11 +22,7 @@ const MainContainer = styled.div`
     display: flex;
   }
   @media screen and (max-width: 800px) {
-    padding-inline: 1rem;
-
     flex-direction: column;
-    /* grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr; */
   }
   min-height: 100%;
 `;
@@ -38,9 +34,8 @@ const LeftContainer = styled.div`
 
   position: relative;
   top: 0;
-
   background-color: ${({ theme }) => theme.background.secondary};
-  padding: 3rem;
+  padding: 2rem;
   @media screen and (max-width: 960px) {
     padding: 0;
     margin: 0;
@@ -48,11 +43,10 @@ const LeftContainer = styled.div`
   }
 `;
 const MoviePod = styled.div`
-  top: 3rem;
-  position: sticky;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  height: 100%;
   @media screen and (max-width: 960px) {
     align-items: center;
     position: static;
@@ -79,11 +73,8 @@ const View = styled.div`
 
 const Poster = styled.img`
   border-radius: 10px;
-  width: 100%;
-
-  @media screen and (max-width: 960px) {
-    width: 40%;
-    min-width: 250px;
+  @media screen and (min-width: 1400px) {
+    height: 100%;
   }
 `;
 

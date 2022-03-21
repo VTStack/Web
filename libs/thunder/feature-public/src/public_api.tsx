@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import { Footer } from './components/footer/footer';
 import { Navbar } from './components/navbar';
@@ -19,7 +19,8 @@ const PublicRoot = () => {
       <Navbar />
       <main>
         <Routes>
-          <Route index element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<Navigate replace={true} to="/home" />} />
           <Route path="/pricing" element={<Pricing />} />
         </Routes>
       </main>

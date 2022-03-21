@@ -2,7 +2,7 @@ import axios from 'axios';
 import { url } from '../url';
 
 export const signUp = async (email: string, password: string) => {
-  return await axios.post(url + '/api/auth/signup', {
+  return await axios.post(url + '/auth/signup', {
     email,
     password
   });
@@ -10,7 +10,7 @@ export const signUp = async (email: string, password: string) => {
 
 export const signIn = async (email: string, password: string) => {
   try {
-    const { data: response } = await axios.post(url + '/api/auth/login', {
+    const { data: response } = await axios.post(url + '/auth/login', {
       email,
       password
     });
@@ -23,7 +23,7 @@ export const signIn = async (email: string, password: string) => {
 
 export const signOut = async () => {
   try {
-    const { data: response } = await axios.post(url + '/api/auth/logout');
+    const { data: response } = await axios.post(url + '/auth/logout');
     return [response, null];
   } catch (e) {
     return [null, e];
@@ -32,7 +32,7 @@ export const signOut = async () => {
 
 export const checkAuth = async () => {
   try {
-    const { data: result } = await axios.get(url + '/api/auth/status');
+    const { data: result } = await axios.get(url + '/auth/status');
     return result.status === 'AUTHED';
   } catch {
     return false;
@@ -40,6 +40,6 @@ export const checkAuth = async () => {
 };
 
 export const getUser = async () => {
-  const { data: result } = await axios.get(url + '/api/auth/user');
+  const { data: result } = await axios.get(url + '/auth/user');
   return result;
 };

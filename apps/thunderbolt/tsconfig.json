@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "declaration": true,
+    "declaration": false,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2017",
-    "sourceMap": true,
+    "target": "ES2017",
+    "sourceMap": false,
+    "lib": ["es2017", "ESNext"],
     "outDir": "./dist",
     "baseUrl": "./",
+    "esModuleInterop": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
     "noImplicitAny": false,
@@ -17,5 +19,6 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["**/prisma"]
 }

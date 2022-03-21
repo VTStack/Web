@@ -38,9 +38,9 @@ export function SignInButton({
 
   const dispatch = useDispatch();
 
-  const isAuthed = useUser()[1];
+  // const isAuthed = useUser()[1];
 
-  const router = useNavigate();
+  // const router = useNavigate();
 
   const state = useSelector(selectAuthState);
 
@@ -49,9 +49,9 @@ export function SignInButton({
     dispatch(closeModal());
   };
 
-  useEffect(() => {
-    if (isAuthed) router('/app');
-  }, [isAuthed, router]);
+  // useEffect(() => {
+  // if (isAuthed) router('/app');
+  // }, [isAuthed, router]);
 
   const passwordError = formErrors?.['password']?.message;
   const emailError = formErrors?.['email']?.message;

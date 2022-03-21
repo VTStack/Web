@@ -26,7 +26,7 @@ export const invitesAdapter = createEntityAdapter<InvitesEntity>();
 
 /**
  * Export an effect using createAsyncThunk from
- * the Redux Toolkit: https://redux-toolkit.js.org/api/createAsyncThunk
+ * the Redux Toolkit: https://redux-toolkit.js.org/createAsyncThunk
  *
  * e.g.
  * ```
@@ -100,7 +100,7 @@ export const invitesReducer = invitesSlice.reducer;
  * }, [dispatch]);
  * ```
  *
- * See: https://react-redux.js.org/next/api/hooks#usedispatch
+ * See: https://react-redux.js.org/next/hooks#usedispatch
  */
 export const invitesActions = invitesSlice.actions;
 
@@ -116,7 +116,7 @@ export const invitesActions = invitesSlice.actions;
  * const entities = useSelector(selectAllInvites);
  * ```
  *
- * See: https://react-redux.js.org/next/api/hooks#useselector
+ * See: https://react-redux.js.org/next/hooks#useselector
  */
 const { selectAll, selectEntities } = invitesAdapter.getSelectors();
 

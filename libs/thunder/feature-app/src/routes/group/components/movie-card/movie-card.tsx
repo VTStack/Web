@@ -19,6 +19,7 @@ const Container = styled(Card)`
   display: grid;
   grid-template-rows: auto 1fr;
   border-radius: 0.25rem;
+  padding: 0;
 `;
 
 const LowerContainer = styled.div`

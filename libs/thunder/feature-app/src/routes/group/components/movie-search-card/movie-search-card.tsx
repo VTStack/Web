@@ -8,6 +8,7 @@ export interface MovieSearchCardProps {
 }
 
 const SMovieSearchCard = styled(Card)`
+  padding: 0;
   display: flex;
 
   flex-direction: row;

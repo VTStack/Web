@@ -36,7 +36,7 @@ export function InvitePage() {
   }
 
   async function decline() {
-    router('../../groups');
+    // router('../../groups');
   }
 
   return (

@@ -11,9 +11,6 @@ import { createGroup, getAllGroups } from '../../public_api';
 
 export const GROUPS_FEATURE_KEY = 'groups';
 
-/*
- * Update these interfaces according to your requirements.
- */
 export interface GroupsEntity {
   id: string;
   name: string;

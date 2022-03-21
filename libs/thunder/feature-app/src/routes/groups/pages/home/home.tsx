@@ -16,7 +16,7 @@ export function GroupsHomePage() {
       <Navbar
         title="Groups"
         leftButtons={
-          <Button variant="text" onClick={() => router('../..')}>
+          <Button variant="text" onClick={() => router('/home')}>
             To Home
           </Button>
         }

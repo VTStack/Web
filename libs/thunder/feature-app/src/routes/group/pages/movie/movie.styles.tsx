@@ -1,6 +1,6 @@
 import { Row } from '@v-thomas/libs/thunder/core-ui';
-import { ForwardRefComponent, HTMLMotionProps, motion } from 'framer-motion';
-import styled, { StyledComponent } from 'styled-components';
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
 const Container = styled(motion.div)`
   padding: 2rem;
@@ -9,7 +9,12 @@ const Container = styled(motion.div)`
   background: ${({ theme }) => theme.background.secondary};
   border-radius: 5px;
   gap: 1rem;
+
   display: block;
+
+  @media screen and (max-width: 800px) {
+    padding: 1rem;
+  }
 `;
 
 export const MainContainer = styled(Row)`
