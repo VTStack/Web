@@ -13,7 +13,11 @@ const Styles = styled.div`
   margin: 0;
 `;
 
+if (window.location.hostname !== 'localhost' && /cloudfront\.net$/.test(window.location.hostname))
+  window.location.href = '//movie.v-thomas.xyz';
+
 export const Root = () => {
+  console.log(window.location);
   return (
     <StrictMode>
       <ThemeProvider theme={DarkTheme}>

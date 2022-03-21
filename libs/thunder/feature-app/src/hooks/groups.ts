@@ -9,18 +9,18 @@ import {
   selectAllGroups
 } from '@v-thomas/libs/thunder/data-access';
 
-export const useGroups = (
-  all?: boolean
-): { groups: GroupsEntity[]; clearGroups: () => void; allGroups: GroupsState } => {
+export const useGroups = (): { groups: GroupsEntity[]; clearGroups: () => void; allGroups: GroupsState } => {
   const dispatch = useDispatch();
   const state = useSelector(selectAllGroups);
   const allState = useSelector(getGroupsState);
 
-  const status = allState.loadingStatus === 'LOADED';
+  const { loadingStatus } = allState;
 
   useLayoutEffect(() => {
-    if (!state.length && !status) dispatch(fetchGroups());
-  }, [dispatch, state.length, status]);
+    if (loadingStatus === 'NOT_LOADED') {
+      dispatch(fetchGroups());
+    }
+  }, [loadingStatus, dispatch]);
 
   return { groups: state, clearGroups: () => dispatch(clearGroups()), allGroups: allState };
 };

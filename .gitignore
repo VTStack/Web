@@ -21,3 +21,4 @@ me
 !.yarn/versions
 
 .github/config
+.aws

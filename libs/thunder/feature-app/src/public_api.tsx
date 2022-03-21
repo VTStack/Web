@@ -10,10 +10,14 @@ export { INVITE_FEATURE_KEY, inviteReducer } from '@v-thomas/libs/thunder/data-a
 
 const Root = styled.div`
   padding: 2rem;
+
+  @media screen and (max-width: 800px) {
+    padding: 0.5rem;
+  }
 `;
 
 const FeatureApp = () => {
-  useAuth();
+  useAuth('/');
 
   return (
     <Root>
@@ -21,7 +25,7 @@ const FeatureApp = () => {
         <Route path="groups" element={<GroupsHomePage />} />
         <Route path="group/:groupId/*" element={<GroupRoute />} />
 
-        <Route path="/" element={<Navigate to="groups" replace />} />
+        {/* <Route index element={<Navigate to="groups" replace />} /> */}
         <Route path="group" element={<Navigate to="/app/groups" />} />
 
         <Route path="/invite/*" element={<InviteRoute />} />

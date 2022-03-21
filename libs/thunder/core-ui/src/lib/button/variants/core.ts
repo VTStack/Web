@@ -26,7 +26,7 @@ export const CoreButton = styled(motion.button)`
     font-size: ${({ size }: Props) => {
       const digit = parseInt(size || '1.15');
 
-      return (digit / 1.25).toString() + 'rem';
+      return (digit / 1.15).toString() + 'rem';
     }};
   }
 `;

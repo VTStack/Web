@@ -2,6 +2,7 @@ import { Title } from '@v-thomas/libs/thunder/core-ui';
 import { InviteButton } from '../invite/button/button';
 import { ReactNode } from 'react';
 import { Container, LeftContainer, NavLinks, Middle } from './navbar.styles';
+import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface NavbarProps {
@@ -11,11 +12,16 @@ export interface NavbarProps {
   middle?: ReactNode;
 }
 
+const NavbarTitle = styled(Title)`
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
+`;
 export function Navbar({ title, leftButtons, rightButtons, middle }: NavbarProps) {
   return (
     <Container>
       <LeftContainer>
-        <Title>{title}</Title>
+        <NavbarTitle>{title}</NavbarTitle>
         {leftButtons}
       </LeftContainer>
       {middle && <Middle>{middle}</Middle>}

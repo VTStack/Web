@@ -19,11 +19,6 @@
             "glob": "packages/algos/*.md",
             "input": ".",
             "output": "."
-          },
-          {
-            "glob": "packages/algos/.npmrc",
-            "input": ".",
-            "output": "."
           }
         ]
       },
