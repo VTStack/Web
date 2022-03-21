@@ -31,7 +31,7 @@ export function Navbar() {
         {isAuthed ? (
           <>
             <SignOutButton />
-            <Button onClick={() => router('/app')}>To Lobby</Button>
+            <Button onClick={() => router('/app/groups')}>To Lobby</Button>
           </>
         ) : (
           <>

@@ -34,11 +34,6 @@
             "glob": "packages/structer/*.md",
             "input": ".",
             "output": "."
-          },
-          {
-            "glob": "packages/structer/.npmrc",
-            "input": ".",
-            "output": "."
           }
         ]
       }

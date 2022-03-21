@@ -69,8 +69,8 @@ export default defineConfig({
     open: true,
 
     proxy: {
-      '/api': {
-        target: 'http://localhost:3200',
+      '/movie': {
+        target: 'http://localhost:5000',
         changeOrigin: true
       }
     }

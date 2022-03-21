@@ -23,13 +23,13 @@ export const useGroup = (): {
   // TODO: This function
   useEffect(() => {
     async function main() {
-      if (!group) {
+      if (allGroups.loadingStatus === 'NOT_LOADED') {
         const error = (await getGroupFromId(groupId))[1];
         if (error === 403) dispatch(throwGroupNotFound());
       }
     }
     main();
-  }, [group, groupId, dispatch]);
+  }, [groupId, allGroups.loadingStatus, dispatch]);
 
   const getGroupByField = (payload: any): any => {
     const { value, field }: { field: 'name' | 'id' | 'createdAt'; value: string } = payload;

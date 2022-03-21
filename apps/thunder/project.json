@@ -22,11 +22,15 @@
       }
     },
     "deploy": {
-      "executor": "@netlify-builder/deploy:deploy",
+      "executor": "@nrwl/workspace:run-commands",
       "options": {
+        "commands": [
+          "nx build thunder",
+          "aws s3 sync ./dist/apps/thunder s3://app-thunder --delete --acl public-read --exclude index.html",
+          "aws s3 sync ./dist/apps/thunder s3://app-thunder --acl public-read"
+        ],
         "outputPath": "dist/apps/thunder",
-        "siteId": "16d309af-627a-471e-a5ec-8d739bbeb358",
-        "noBuild": true
+        "parallel": false
       }
     },
     "preview": {

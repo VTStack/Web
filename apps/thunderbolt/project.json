@@ -11,50 +11,31 @@
       }
     },
     "build": {
-      "executor": "@nrwl/node:webpack",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": ["apps/thunderbolt/dist"],
       "options": {
-        "outputPath": "apps/thunderbolt/dist",
+        "cwd": "apps/thunderbolt",
+        "commands": ["npm run build"],
+        "parallel": false
+      }
+    },
+    "build-bug": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["apps/thunderbolt/dist"],
+      "options": {
+        "tsConfig": "apps/thunderbolt/tsconfig.json",
         "main": "apps/thunderbolt/src/main.ts",
-        "tsConfig": "apps/thunderbolt/tsconfig.app.json",
-        "assets": ["apps/thunderbolt/src/assets"]
-      },
-      "defaultConfiguration": "production",
-      "configurations": {
-        "production": {
-          "optimization": true,
-          "extractLicenses": true,
-          "inspect": false,
-          "webpackConfig": "apps/thunderbolt/webpack.config.js",
-          "fileReplacements": [
-            {
-              "replace": "apps/thunderbolt/src/environments/environment.ts",
-              "with": "apps/thunderbolt/src/environments/environment.prod.ts"
-            }
-          ]
-        },
-        "development": {
-          "optimization": true,
-          "extractLicenses": true,
-          "inspect": false,
-          "webpackConfig": "apps/thunderbolt/webpack.config.js",
-          "fileReplacements": [
-            {
-              "replace": "apps/thunderbolt/src/environments/environment.ts",
-              "with": "apps/thunderbolt/src/environments/environment.prod.ts"
-            }
-          ]
-        }
+        "outputPath": "dist/apps/thunderbolt"
       }
     },
     "serve": {
-      "executor": "@nrwl/node:node",
+      "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "buildTarget": "thunderbolt:build",
-        "watch": true,
-        "port": 3400
+        "command": "npm run start:dev",
+        "cwd": "apps/thunderbolt"
       }
     },
+
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
@@ -74,8 +55,12 @@
       "executor": "@nx-tools/nx-docker:build",
       "options": {
         "context": "apps/thunderbolt",
-        "push": false,
-        "tags": ["ghcr.io/vincentthomas06/thunderbolt:latest"]
+        "push": true,
+        "tags": [
+          "649534857523.dkr.ecr.eu-north-1.amazonaws.com/codebase:thunderbolt",
+          "codebase:thunderbolt"
+        ],
+        "builder": "builder"
       }
     },
     "prisma": {

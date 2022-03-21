@@ -39,7 +39,7 @@ export const HomePage = () => (
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}>
-        MovieReviewer allows you to easily share series and other movies!
+        A movie platform to cure your boredom.
       </Text>
       <ButtonContainer>
         <motion.div

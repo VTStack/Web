@@ -25,6 +25,12 @@ const Form = styled.form`
   }
 `;
 
+const RemoveAtSmall = styled.div`
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
+`;
+
 export function GroupHomePage() {
   const { movies, clearMovies } = useMovies();
   const { group, clearGroups } = useGroup();
@@ -70,21 +76,25 @@ export function GroupHomePage() {
               }}>
               To Lobby
             </Button>
-            <Button
-              variant="text"
-              onClick={() => {
-                clearMovies();
-                clearGroups();
-                router('/');
-              }}>
-              To Home
-            </Button>
+            <RemoveAtSmall>
+              <Button
+                variant="text"
+                onClick={() => {
+                  clearMovies();
+                  clearGroups();
+                  router('/');
+                }}>
+                To Home
+              </Button>
+            </RemoveAtSmall>
           </>
         }
         middle={
-          <Form onSubmit={handleSubmit(onSubmit)}>
-            <Input {...register('search')} />
-          </Form>
+          <RemoveAtSmall>
+            <Form onSubmit={handleSubmit(onSubmit)}>
+              <Input {...register('search')} />
+            </Form>
+          </RemoveAtSmall>
         }
       />
       <Divider />

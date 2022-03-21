@@ -5,7 +5,7 @@ import { url } from '../url';
 export const addMovieToGroup = async (movie: ApiMovieModel, groupId: DBGroupModel['id']) => {
   try {
     const id = movie.id;
-    const { data: result } = await axios.post(url + `/api/groups/${groupId}/movies`, {
+    const { data: result } = await axios.post(url + `/groups/${groupId}/movies`, {
       ...movie,
       movie_id: id
     });
@@ -19,7 +19,7 @@ export const addMovieToGroup = async (movie: ApiMovieModel, groupId: DBGroupMode
 
 export const getGroupFromId = async (groupId: string) => {
   try {
-    const { data: group } = await axios.get(url + `/api/groups/${groupId}`);
+    const { data: group } = await axios.get(url + `/groups/${groupId}`);
     return [group, null];
   } catch (e: unknown) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -30,7 +30,7 @@ export const getGroupFromId = async (groupId: string) => {
 
 export const createGroup = async (groupName: DBGroupModel['name']) => {
   try {
-    const { data: result } = await axios.post(url + '/api/groups', {}, { params: { name: groupName } });
+    const { data: result } = await axios.post(url + '/groups', {}, { params: { name: groupName } });
     return [result, null];
   } catch (e) {
     return [null, e];
