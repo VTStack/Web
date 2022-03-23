@@ -2,20 +2,20 @@
   "version": 2,
   "projects": {
     "algos": "packages/algos",
-    "honey-e2e": "apps/e2e/honey",
     "honey": "apps/honey",
+    "honey-e2e": "apps/e2e/honey",
     "honey-feature-app": "libs/honey/feature-app",
     "honey-shell": "libs/honey/shell",
-    "shared-theme": "libs/shared/theme",
+    "shared-core-ui": "libs/shared/core-ui",
     "structer": "packages/structer",
     "thunder": "apps/thunder",
-    "thunder-core-ui": "libs/thunder/core-ui",
     "thunder-core-ui-e2e": "apps/e2e/core-ui",
     "thunder-data-access": "libs/thunder/data-access",
     "thunder-e2e": "apps/e2e/thunder",
     "thunder-feature-app": "libs/thunder/feature-app",
     "thunder-feature-public": "libs/thunder/feature-public",
     "thunder-shell": "libs/thunder/shell",
+    "thunder-theme": "libs/thunder/theme",
     "thunderbolt": "apps/thunderbolt"
   }
 }

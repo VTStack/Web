@@ -1,5 +1,5 @@
-import { Button, Card, Code, Col, Modal, Text, Title } from '@v-thomas/libs/thunder/core-ui';
-import { createInviteLink, getUserInvites, removeInvite, ROLE } from '@v-thomas/libs/thunder/data-access';
+import { Button, Card, Code, Col, Modal, Text, Title } from '@v-thomas/shared/core-ui';
+import { createInviteLink, getUserInvites, removeInvite, ROLE } from '@v-thomas/thunder/data-access';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import { Col, Divider, Link, Text } from '@v-thomas/libs/thunder/core-ui';
+import { Col, Divider, Link, Text } from '@v-thomas/shared/core-ui';
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer``;

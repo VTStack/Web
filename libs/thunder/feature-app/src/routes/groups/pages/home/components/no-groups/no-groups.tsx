@@ -1,4 +1,4 @@
-import { Text, Title } from '@v-thomas/libs/thunder/core-ui';
+import { Text, Title } from '@v-thomas/shared/core-ui';
 import styled from 'styled-components';
 import { CreateGroupButton } from '../../../../components/create-group/create-group';
 

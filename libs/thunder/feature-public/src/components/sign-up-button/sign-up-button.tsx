@@ -1,5 +1,5 @@
 import Cross from '../../../../feature-public/assets/x.svg';
-import { Button, Col, Input, Link, Modal, Text, Title } from '@v-thomas/libs/thunder/core-ui';
+import { Button, Col, Input, Link, Modal, Text, Title } from '@v-thomas/shared/core-ui';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +10,7 @@ import {
   updateEmail,
   updatePassword,
   signUpUser
-} from '@v-thomas/libs/thunder/data-access';
+} from '@v-thomas/thunder/data-access';
 
 const Form = styled.form`
   display: flex;
@@ -39,7 +39,10 @@ export function SignUpButton({
 
   return (
     <>
-      <Button variant={type} onClick={() => dispatch(toggleSignUpModal({ type: 'OPEN' }))}>
+      <Button
+        variant={type}
+        onClick={() => dispatch(toggleSignUpModal({ type: 'OPEN' }))}
+        id="sign-up-button">
         {text}
       </Button>
       <Modal isOpen={state.signUp} width="45" gap="1">
@@ -58,6 +61,7 @@ export function SignUpButton({
           <Input
             type="text"
             placeholder="Email"
+            id="auth-email-input"
             {...register('email', {
               required: true,
               onChange: ({ currentTarget: { value } }) => {
@@ -70,6 +74,7 @@ export function SignUpButton({
             placeholder="Password"
             type="password"
             autoComplete="on"
+            id="auth-password-input"
             {...register('password', {
               required: true,
               onChange: ({ currentTarget: { value } }) => dispatch(updatePassword(value))

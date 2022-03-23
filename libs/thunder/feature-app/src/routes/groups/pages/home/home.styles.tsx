@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { GroupsEntity } from '@v-thomas/libs/thunder/data-access';
+import { GroupsEntity } from '@v-thomas/thunder/data-access';
 import GroupCard from '../../components/group-card/group-card';
 
 const SGrid = styled(motion.div)`

@@ -69,7 +69,7 @@ export default defineConfig({
     open: true,
 
     proxy: {
-      '/movie': {
+      '/thunder': {
         target: 'http://localhost:5000',
         changeOrigin: true
       }

@@ -9,7 +9,7 @@ async function bootstrap(): Promise<void> {
     }
   });
   app.use(cookieParser());
-  app.setGlobalPrefix('/movie');
+  app.setGlobalPrefix('/thunder');
 
   await app.listen(5000);
 }

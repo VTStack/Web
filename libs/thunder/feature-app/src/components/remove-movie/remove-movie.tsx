@@ -1,4 +1,4 @@
-import { Button } from '@v-thomas/libs/thunder/core-ui';
+import { Button } from '@v-thomas/shared/core-ui';
 
 /* eslint-disable-next-line */
 export interface RemoveMovieProps {

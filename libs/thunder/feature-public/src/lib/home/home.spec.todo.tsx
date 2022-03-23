@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { DarkTheme } from '@v-thomas/shared/themes';
+import { DarkTheme } from '@v-thomas/thunder/theme';
 import { ThemeProvider } from 'styled-components';
 
 import { HomePage } from './home';

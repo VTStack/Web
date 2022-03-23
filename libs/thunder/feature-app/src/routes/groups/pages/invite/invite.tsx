@@ -1,10 +1,10 @@
-import { Button, Code, Modal, Row, Text, Title } from '@v-thomas/libs/thunder/core-ui';
+import { Button, Code, Modal, Row, Text, Title } from '@v-thomas/shared/core-ui';
 import { motion } from 'framer-motion';
 import { useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { fetchInvite, getInviteState } from '@v-thomas/libs/thunder/data-access';
+import { fetchInvite, getInviteState } from '@v-thomas/thunder/data-access';
 
 const BtnContainer = styled(motion.div)`
   display: flex;

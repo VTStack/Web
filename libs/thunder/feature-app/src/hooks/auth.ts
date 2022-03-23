@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUser, getUserState, clearAuthErrors } from '@v-thomas/libs/thunder/data-access';
+import { fetchUser, getUserState, clearAuthErrors } from '@v-thomas/thunder/data-access';
 import { useNavigate } from 'react-router-dom';
 
 export const useAuth = (location = '/') => {

@@ -1,10 +1,10 @@
-import { Button, Code, Modal, Row, Text, Title } from '@v-thomas/libs/thunder/core-ui';
+import { Button, Code, Modal, Row, Text, Title } from '@v-thomas/shared/core-ui';
 import { motion } from 'framer-motion';
 import { useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { addMember, fetchInvite, getInviteState } from '@v-thomas/libs/thunder/data-access';
+import { addMember, fetchInvite, getInviteState } from '@v-thomas/thunder/data-access';
 import InviteOwner from './components/invite-owner/invite-owner';
 
 const BtnContainer = styled(motion.div)`
@@ -32,7 +32,7 @@ export function InvitePage() {
   }
 
   async function decline() {
-    // router('../../groups');
+    router('../../groups');
   }
 
   return (

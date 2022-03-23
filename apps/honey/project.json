@@ -7,7 +7,6 @@
       "executor": "nx-plugin-vite:build",
       "options": {
         "outDir": "dist/apps/honey",
-
         "write": true,
         "emitAtRootLevel": true
       },
