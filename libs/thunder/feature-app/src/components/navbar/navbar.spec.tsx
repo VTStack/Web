@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 
 import { Navbar } from './navbar';
-import { DarkTheme } from '@v-thomas/shared/themes';
+import { DarkTheme } from '@v-thomas/thunder/theme';
 import { ThemeProvider } from 'styled-components';
 
 describe('Navbar', () => {

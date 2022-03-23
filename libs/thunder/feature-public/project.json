@@ -18,11 +18,7 @@
         "tsConfig": "libs/thunder/feature-public/tsconfig.lib.json",
         "project": "libs/thunder/feature-public/package.json",
         "entryFile": "libs/thunder/feature-public/src/public_api.tsx",
-        "external": [
-          "react/jsx-runtime",
-          "@v-thomas/libs/thunder/core-ui",
-          "@v-thomas/libs/thunder/data-access"
-        ],
+        "external": ["react/jsx-runtime", "@v-thomas/shared/core-ui", "@v-thomas/thunder/data-access"],
         "globals": [
           {
             "moduleId": "react-router-dom",
@@ -49,12 +45,12 @@
             "global": "@hookform/resolvers/joi"
           },
           {
-            "moduleId": "@v-thomas/libs/thunder/data-access",
-            "global": "@v-thomas/libs/thunder/data-access"
+            "moduleId": "@v-thomas/thunder/data-access",
+            "global": "@v-thomas/thunder/data-access"
           },
           {
-            "moduleId": "@v-thomas/libs/thunder/core-ui",
-            "global": "@v-thomas/libs/thunder/core-ui"
+            "moduleId": "@v-thomas/shared/core-ui",
+            "global": "@v-thomas/shared/core-ui"
           }
         ],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",

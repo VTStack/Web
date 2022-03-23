@@ -1,5 +1,5 @@
 // import { Navigate, Outlet } from '@tanstack/react-location';
-import { checkAuth } from '@v-thomas/libs/thunder/data-access';
+import { checkAuth } from '@v-thomas/thunder/data-access';
 import { AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import styled from 'styled-components';

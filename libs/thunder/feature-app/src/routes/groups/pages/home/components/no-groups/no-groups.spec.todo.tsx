@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
-import { DarkTheme } from '@v-thomas/shared/themes';
+import { DarkTheme } from '@v-thomas/thunder/theme';
 import { NoGroups } from './no-groups';
 
 describe('NoGroups', () => {

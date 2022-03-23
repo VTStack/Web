@@ -7,7 +7,8 @@ import {
   EntityState,
   PayloadAction
 } from '@reduxjs/toolkit';
-import { addMovieToGroup, getAllMovies, getExistingMoviesBySearch } from '../../public_api';
+import { getAllMovies, getExistingMoviesBySearch } from '../../lib/movies';
+import { addMovieToGroup } from '../../lib/group';
 
 import { ApiMovieModel } from '../../types';
 

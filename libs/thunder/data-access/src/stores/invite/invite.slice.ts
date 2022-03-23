@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { addMemberToGroup, getInviteFromId } from '../../public_api';
+import { addMemberToGroup, getInviteFromId } from '../../lib/invites';
 
 export const INVITE_FEATURE_KEY = 'invite';
 

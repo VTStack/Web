@@ -1,7 +1,7 @@
 import { useCallback, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { ApiMovieModel } from '@v-thomas/libs/thunder/data-access';
+import { ApiMovieModel } from '@v-thomas/thunder/data-access';
 import {
   AddMovie,
   clearMovies,
@@ -10,7 +10,7 @@ import {
   MoviesEntity,
   MoviesState,
   selectAllMovies
-} from '@v-thomas/libs/thunder/data-access';
+} from '@v-thomas/thunder/data-access';
 
 export const useMovies = (
   all?: boolean

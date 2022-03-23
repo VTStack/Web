@@ -1,6 +1,6 @@
-import { Card, Title } from '@v-thomas/libs/thunder/core-ui';
+import { Card, Title } from '@v-thomas/shared/core-ui';
 import { useNavigate } from 'react-router-dom';
-import { GroupsEntity } from '@v-thomas/libs/thunder/data-access';
+import { GroupsEntity } from '@v-thomas/thunder/data-access';
 
 export interface GroupCardProps {
   group: GroupsEntity;

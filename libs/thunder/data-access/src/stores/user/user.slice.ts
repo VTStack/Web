@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction, Slice } from '@reduxjs/toolkit';
-import { getUser, signIn, signOut, signUp } from '../../public_api';
+import { getUser, signIn, signOut, signUp } from '../../lib/auth';
 
 export const USER_FEATURE_KEY = 'user';
 

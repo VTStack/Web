@@ -1,9 +1,9 @@
-import { Button, Col, Input, Modal, Title } from '@v-thomas/libs/thunder/core-ui';
+import { Button, Col, Input, Modal, Title } from '@v-thomas/shared/core-ui';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { useToggle } from '../../../../hooks/other';
-import { addGroup } from '@v-thomas/libs/thunder/data-access';
+import { addGroup } from '@v-thomas/thunder/data-access';
 import X from '../../../../../assets/x.svg';
 
 const Form = styled.form`

@@ -19,10 +19,15 @@
         "project": "libs/thunder/data-access/package.json",
         "entryFile": "libs/thunder/data-access/src/public_api.ts",
         "external": ["react/jsx-runtime"],
+        "deleteOutputPath": true,
         "globals": [
           {
             "global": "axios",
             "moduleId": "axios"
+          },
+          {
+            "global": "@reduxjs/toolkit",
+            "moduleId": "@reduxjs/toolkit"
           }
         ],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",

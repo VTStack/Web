@@ -7,11 +7,11 @@
       "executor": "@nrwl/cypress:cypress",
       "options": {
         "cypressConfig": "apps/e2e/core-ui/cypress.json",
-        "devServerTarget": "thunder-core-ui:storybook"
+        "devServerTarget": "shared-core-ui:storybook"
       },
       "configurations": {
         "ci": {
-          "devServerTarget": "thunder-core-ui:storybook:ci"
+          "devServerTarget": "shared-core-ui:storybook:ci"
         }
       }
     },
@@ -24,5 +24,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["thunder-core-ui"]
+  "implicitDependencies": ["shared-core-ui"]
 }

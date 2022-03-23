@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserState, fetchUser } from '@v-thomas/libs/thunder/data-access';
+import { getUserState, fetchUser } from '@v-thomas/thunder/data-access';
 import { useEffect } from 'react';
 
 export const useUser = () => {

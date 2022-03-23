@@ -1,4 +1,4 @@
-import { Title } from '@v-thomas/libs/thunder/core-ui';
+import { Title } from '@v-thomas/shared/core-ui';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Container, LeftContainer, NavLinks } from './navbar.styles';

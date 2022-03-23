@@ -1,4 +1,4 @@
-import { Button, Title } from '@v-thomas/libs/thunder/core-ui';
+import { Button, Title } from '@v-thomas/shared/core-ui';
 import { NavLinks, Navbar as SNavbar } from './navbar.styles';
 import { SignInButton } from '../sign-in-button/sign-in-button';
 import { SignUpButton } from '../sign-up-button/sign-up-button';

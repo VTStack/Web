@@ -1,4 +1,4 @@
-import { Card, Title } from '@v-thomas/libs/thunder/core-ui';
+import { Card, Title } from '@v-thomas/shared/core-ui';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 

@@ -1,16 +1,16 @@
 import { Navbar } from '../../components/navbar/navbar';
 import MovieCard from '../../components/movie-card/movie-card';
-import { Button, Input } from '@v-thomas/libs/thunder/core-ui';
+import { Button, Input } from '@v-thomas/shared/core-ui';
 import { Grid, GridAnimation } from './home.styles';
 import { useGroup, useMovies } from '../../../../hooks';
 import { useNavigate } from 'react-router-dom';
-import { Divider } from '@v-thomas/libs/thunder/core-ui';
+import { Divider } from '@v-thomas/shared/core-ui';
 import NoMovies from './components/no-movies/no-movies';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchGroupMovies, getMovieBySearch } from '@v-thomas/libs/thunder/data-access';
+import { fetchGroupMovies, getMovieBySearch } from '@v-thomas/thunder/data-access';
 
 const Container = styled.div`
   display: grid;
@@ -68,14 +68,6 @@ export function GroupHomePage() {
         }
         leftButtons={
           <>
-            <Button
-              variant="text"
-              onClick={() => {
-                clearMovies();
-                router('../..');
-              }}>
-              To Lobby
-            </Button>
             <RemoveAtSmall>
               <Button
                 variant="text"
@@ -87,6 +79,14 @@ export function GroupHomePage() {
                 To Home
               </Button>
             </RemoveAtSmall>
+            <Button
+              variant="text"
+              onClick={() => {
+                clearMovies();
+                router('../..');
+              }}>
+              To Lobby
+            </Button>
           </>
         }
         middle={

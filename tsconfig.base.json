@@ -24,16 +24,15 @@
     "removeComments": true,
     "newLine": "lf",
     "paths": {
-      "@v-thomas/libs/honey/feature-app": ["libs/honey/feature-app/src/public_api.tsx"],
-      "@v-thomas/libs/honey/shell": ["libs/honey/shell/src/public_api.tsx"],
-      "@v-thomas/libs/thunder/core-ui": ["./libs/thunder/core-ui/src/public_api.ts"],
-      "@v-thomas/libs/thunder/data-access": ["./libs/thunder/data-access/src/public_api.ts"],
-      "@v-thomas/libs/thunder/feature-app": ["./libs/thunder/feature-app/src/public_api.tsx"],
-      "@v-thomas/libs/thunder/feature-public": ["./libs/thunder/feature-public/src/public_api.tsx"],
-      "@v-thomas/libs/thunder/shell": ["./libs/thunder/shell/src/public_api.tsx"],
-      "@v-thomas/root/*": ["./*"],
-      "@v-thomas/shared/themes": ["libs/shared/theme/src/public_api.ts"],
-      "@v-thomas/testing": ["libs/test-build-not-publish/src/index.ts"]
+      "@v-thomas/honey/feature-app": ["libs/honey/feature-app/src/public_api.tsx"],
+      "@v-thomas/honey/shell": ["libs/honey/shell/src/public_api.tsx"],
+      "@v-thomas/shared/core-ui": ["./libs/shared/core-ui/src/public_api.ts"],
+      "@v-thomas/thunder/data-access": ["./libs/thunder/data-access/src/public_api.ts"],
+      "@v-thomas/thunder/feature-app": ["./libs/thunder/feature-app/src/public_api.tsx"],
+      "@v-thomas/thunder/feature-public": ["./libs/thunder/feature-public/src/public_api.tsx"],
+      "@v-thomas/thunder/shell": ["./libs/thunder/shell/src/public_api.tsx"],
+      "@v-thomas/thunder/theme": ["libs/thunder/theme/src/public_api.ts"],
+      "@v-thomas/root/*": ["./*"]
     }
   }
 }

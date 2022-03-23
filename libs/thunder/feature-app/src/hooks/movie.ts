@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMovies } from '.';
-import { initialMoviesState, MoviesEntity } from '@v-thomas/libs/thunder/data-access';
+import { initialMoviesState, MoviesEntity } from '@v-thomas/thunder/data-access';
 
 export const useMovie = (
   movieId: string

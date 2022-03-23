@@ -1,5 +1,5 @@
 import Cross from '../../../../feature-public/assets/x.svg';
-import { Button, Col, Input, Link, Modal, Text, Title } from '@v-thomas/libs/thunder/core-ui';
+import { Button, Col, Input, Link, Modal, Text, Title } from '@v-thomas/shared/core-ui';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
@@ -13,7 +13,7 @@ import {
   toggleSignUpModal,
   updateEmail,
   updatePassword
-} from '@v-thomas/libs/thunder/data-access';
+} from '@v-thomas/thunder/data-access';
 import { useUser } from '../../hooks/user';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -58,7 +58,10 @@ export function SignInButton({
 
   return (
     <>
-      <Button variant={type} onClick={() => dispatch(toggleSignInModal({ type: 'OPEN' }))}>
+      <Button
+        variant={type}
+        onClick={() => dispatch(toggleSignInModal({ type: 'OPEN' }))}
+        id="sign-in-button">
         {text}
       </Button>
       <Modal isOpen={state.signIn} width="45" gap="1">

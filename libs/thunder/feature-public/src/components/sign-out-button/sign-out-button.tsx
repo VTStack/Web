@@ -1,6 +1,6 @@
-import { Button } from '@v-thomas/libs/thunder/core-ui';
+import { Button } from '@v-thomas/shared/core-ui';
 import { useDispatch } from 'react-redux';
-import { signOutUser } from '@v-thomas/libs/thunder/data-access';
+import { signOutUser } from '@v-thomas/thunder/data-access';
 
 /* eslint-disable-next-line */
 export interface SignOutButtonProps {}

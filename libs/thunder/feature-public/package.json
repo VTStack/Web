@@ -1,5 +1,6 @@
 {
-  "name": "@v-thomas/libs-thunder-feature-public",
+  "name": "@v-thomas/thunder-feature-public",
+  "private": true,
   "version": "0.0.1",
   "peerDependencies": {
     "@testing-library/react": "^12.1.4",

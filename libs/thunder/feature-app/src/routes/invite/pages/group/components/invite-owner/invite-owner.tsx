@@ -1,4 +1,4 @@
-import { Modal, Row, Text, Title } from '@v-thomas/libs/thunder/core-ui';
+import { Modal, Row, Text, Title } from '@v-thomas/shared/core-ui';
 
 /* eslint-disable-next-line */
 export interface InviteOwnerProps {}
