@@ -2,7 +2,7 @@ import { render } from 'react-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
-import { Root } from '@v-thomas/libs/thunder/shell';
+import { Root } from '@v-thomas/thunder/shell';
 import './globals.css';
 
 import {
@@ -16,9 +16,9 @@ import {
   moviesReducer,
   INVITE_FEATURE_KEY,
   inviteReducer
-} from '@v-thomas/libs/thunder/data-access';
+} from '@v-thomas/thunder/data-access';
 
-import { INVITES_FEATURE_KEY, invitesReducer } from '@v-thomas/libs/thunder/data-access';
+import { INVITES_FEATURE_KEY, invitesReducer } from '@v-thomas/thunder/data-access';
 
 const store = configureStore({
   reducer: {

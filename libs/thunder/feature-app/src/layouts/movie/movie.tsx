@@ -1,4 +1,4 @@
-import { Button, Divider } from '@v-thomas/libs/thunder/core-ui';
+import { Button, Divider } from '@v-thomas/shared/core-ui';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Navbar } from '../../routes/group/components/navbar';

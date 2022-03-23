@@ -7,7 +7,7 @@ import {
   GroupsEntity,
   GroupsState,
   selectAllGroups
-} from '@v-thomas/libs/thunder/data-access';
+} from '@v-thomas/thunder/data-access';
 
 export const useGroups = (): { groups: GroupsEntity[]; clearGroups: () => void; allGroups: GroupsState } => {
   const dispatch = useDispatch();

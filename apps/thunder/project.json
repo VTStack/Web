@@ -24,11 +24,7 @@
     "deploy": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "commands": [
-          "nx build thunder",
-          "aws s3 sync ./dist/apps/thunder s3://app-thunder --delete --acl public-read --exclude index.html",
-          "aws s3 sync ./dist/apps/thunder s3://app-thunder --acl public-read"
-        ],
+        "command": "sh ./scripts/thunder/deploy.sh",
         "outputPath": "dist/apps/thunder",
         "parallel": false
       }

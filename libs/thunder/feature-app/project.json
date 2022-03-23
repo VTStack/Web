@@ -18,11 +18,7 @@
         "tsConfig": "libs/thunder/feature-app/tsconfig.lib.json",
         "project": "libs/thunder/feature-app/package.json",
         "entryFile": "libs/thunder/feature-app/src/public_api.tsx",
-        "external": [
-          "react/jsx-runtime",
-          "@v-thomas/libs/thunder/core-ui",
-          "@v-thomas/libs/thunder/data-access"
-        ],
+        "external": ["react/jsx-runtime", "@v-thomas/shared/core-ui", "@v-thomas/thunder/data-access"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "swc",
         "deleteOutputPath": true,
@@ -36,12 +32,12 @@
         ],
         "globals": [
           {
-            "moduleId": "@v-thomas/libs/thunder/data-access",
-            "global": "@v-thomas/libs/thunder/data-access"
+            "moduleId": "@v-thomas/thunder/data-access",
+            "global": "@v-thomas/thunder/data-access"
           },
           {
-            "moduleId": "@v-thomas/libs/thunder/core-ui",
-            "global": "@v-thomas/libs/thunder/core-ui"
+            "moduleId": "@v-thomas/shared/core-ui",
+            "global": "@v-thomas/shared/core-ui"
           }
         ]
       }

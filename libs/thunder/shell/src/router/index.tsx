@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
-const FeatureApp = lazy(() => import('@v-thomas/libs/thunder/feature-app'));
-const PublicRoot = lazy(() => import('@v-thomas/libs/thunder/feature-public'));
+const FeatureApp = lazy(() => import('@v-thomas/thunder/feature-app'));
+const PublicRoot = lazy(() => import('@v-thomas/thunder/feature-public'));
 
 export function App() {
   return (

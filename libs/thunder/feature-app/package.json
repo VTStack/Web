@@ -1,5 +1,6 @@
 {
-  "name": "@v-thomas/libs-thunder-feature-app",
+  "name": "@v-thomas/thunder-feature-app",
+  "private": true,
   "version": "0.0.1",
   "dependencies": {
     "@emotion/react": "^11.8.1",

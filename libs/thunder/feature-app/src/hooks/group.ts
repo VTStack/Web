@@ -2,8 +2,8 @@
 import { useEffect, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useGroups } from '.';
-import { getGroupFromId } from '@v-thomas/libs/thunder/data-access';
-import { GroupsEntity, GroupsState, throwGroupNotFound } from '@v-thomas/libs/thunder/data-access';
+import { getGroupFromId } from '@v-thomas/thunder/data-access';
+import { GroupsEntity, GroupsState, throwGroupNotFound } from '@v-thomas/thunder/data-access';
 import { useParams } from 'react-router-dom';
 
 export const useGroup = (): {

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { useGroup } from '../../hooks';
-import { clearGroupErrors } from '@v-thomas/libs/thunder/data-access';
+import { clearGroupErrors } from '@v-thomas/thunder/data-access';
 import { GroupHomePage } from './pages/home';
 import { GroupMoviePage } from './pages/movie/movie';
 import { GroupSearchPage } from './pages/search/search';

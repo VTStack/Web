@@ -1,5 +1,6 @@
 {
-  "name": "@v-thomas/libs-thunder-data-access",
+  "name": "@v-thomas/thunder-data-access",
+  "private": true,
   "version": "0.0.1",
   "type": "commonjs",
   "peerDependencies": {

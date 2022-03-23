@@ -1,4 +1,4 @@
-import { Text, Title } from '@v-thomas/libs/thunder/core-ui';
+import { Text, Title } from '@v-thomas/shared/core-ui';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { SignInButton } from '../../components/sign-in-button/sign-in-button';
@@ -43,13 +43,13 @@ export const HomePage = () => (
       </Text>
       <ButtonContainer>
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.25 }}>
           <SignUpButton type="contained" text="Sign up!" />
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
+          initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.5 }}>
           <SignInButton text="Sign in" />

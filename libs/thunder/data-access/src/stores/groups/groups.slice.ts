@@ -7,7 +7,8 @@ import {
   EntityState,
   PayloadAction
 } from '@reduxjs/toolkit';
-import { createGroup, getAllGroups } from '../../public_api';
+import { getAllGroups } from '../../lib/groups';
+import { createGroup } from '../../lib/group';
 
 export const GROUPS_FEATURE_KEY = 'groups';
 

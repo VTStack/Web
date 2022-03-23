@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 
 import { MovieNavbar } from './movie-navbar';
-import { DarkTheme } from '@v-thomas/shared/themes';
+import { DarkTheme } from '@v-thomas/thunder/theme';
 
 describe('MovieNavbar', () => {
   it('should render successfully', () => {
