@@ -15,7 +15,7 @@ export function GroupMoviePage() {
       <MainContainer gap="2" variants={IslandContainerVariant} initial="hidden" animate="show" exit="exit">
         <HeaderContainer variants={IslandVariant} animate="animate" initial="initial">
           <Title>{movie?.title}</Title>
-          <Text>{movie?.overview}</Text>
+          <Text restrictWidth>{movie?.overview}</Text>
         </HeaderContainer>
         <ReviewContainer variants={IslandVariant} animate="animate" initial="initial">
           <Title size="1.2">Rating a movie, coming soon...</Title>

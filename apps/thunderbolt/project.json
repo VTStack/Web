@@ -25,7 +25,8 @@
       "options": {
         "tsConfig": "apps/thunderbolt/tsconfig.json",
         "main": "apps/thunderbolt/src/main.ts",
-        "outputPath": "dist/apps/thunderbolt"
+        "outputPath": "dist/apps/thunderbolt",
+        "webpackConfig": "apps/thunderbolt/webpack.config.js"
       }
     },
     "serve": {

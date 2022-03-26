@@ -1,4 +1,4 @@
-import { Button, Divider } from '@v-thomas/shared/core-ui';
+import { Button, Divider, Link, Text } from '@v-thomas/shared/core-ui';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Navbar } from '../../routes/group/components/navbar';
@@ -21,7 +21,7 @@ const MainContainer = styled.div`
   @media screen and (max-width: 960px) {
     display: flex;
   }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 920px) {
     flex-direction: column;
   }
   min-height: 100%;
@@ -30,42 +30,35 @@ const MainContainer = styled.div`
 const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
 
+  width: max(400px, 20%);
   position: relative;
   top: 0;
-  background-color: ${({ theme }) => theme.background.secondary};
-  padding: 2rem;
-  @media screen and (max-width: 960px) {
+  width: 100%;
+
+  padding: 2rem 3rem 2rem 3rem;
+  @media screen and (max-width: 1400px) {
     padding: 0;
     margin: 0;
     background-color: unset;
+    width: auto;
   }
 `;
-const MoviePod = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  height: 100%;
+
+const InfoPod = styled.div`
+  background: ${({ theme }) => theme.background.secondary};
+  padding: 1rem;
+  width: 300px;
+  border-radius: 5px;
+  display: grid;
+
+  grid-template-columns: 1fr;
+
   @media screen and (max-width: 960px) {
-    align-items: center;
-    position: static;
-    max-width: 100%;
+    display: none;
   }
 `;
-// const InfoPod = styled.div`
-//   background: ${({ theme }) => theme.background.third};
-//   padding: 1rem;
-//   width: 300px;
-//   border-radius: 5px;
-//   display: grid;
-
-//   grid-template-columns: 1fr;
-
-//   @media screen and (max-width: 960px) {
-//     display: none;
-//   }
-// `;
 
 const View = styled.div`
   max-width: 100%;
@@ -73,8 +66,10 @@ const View = styled.div`
 
 const Poster = styled.img`
   border-radius: 10px;
-  @media screen and (min-width: 1400px) {
-    height: 100%;
+  object-fit: cover;
+  @media screen and (max-width: 920px) {
+    width: min(100%, 300px);
+    margin: 0 auto;
   }
 `;
 
@@ -114,13 +109,15 @@ export function MovieLayout({ children, poster, title }: MovieProps) {
       <Divider />
       <MainContainer>
         <LeftContainer>
-          <MoviePod>
+          {poster ? (
             <Poster src={`https://image.tmdb.org/t/p/w300${poster}`} alt="" />
-            {/* <InfoPod>
-              <Link onClick={toTop}>Go to top</Link>
-              <Link onClick={toBottom}>Go to bottom</Link>
-            </InfoPod> */}
-          </MoviePod>
+          ) : (
+            <Text>Loading image...</Text>
+          )}
+          <InfoPod>
+            <Link>Go to top</Link>
+            <Link>Go to bottom</Link>
+          </InfoPod>
         </LeftContainer>
         <View>{children}</View>
       </MainContainer>

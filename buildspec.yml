@@ -1,0 +1,26 @@
+# Do not change version. This is the version of aws buildspec, not the version of your buldspec file.
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - echo Installing
+      - yarn
+  pre_build:
+    commands:
+      - echo Installing source yarn dependencies...
+      - yarn run nx affected --target=test
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the dist folder
+      - yarn run nx affected --target=build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - 'dist/**/*'
+    - 'node_modules/**/*'
+    - '**/dist/*'

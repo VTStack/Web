@@ -10,7 +10,7 @@ describe('MovieSearchCard', () => {
         <MovieSearchCard
           movie={{ title: 'sj' }}
           onAdd={() => {
-            console.log('tesing');
+            // console.log('tesing');
           }}
         />
       </ThemeProvider>

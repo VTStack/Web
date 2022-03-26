@@ -7,16 +7,6 @@ export class MoviesService {
   constructor(private readonly db: PrismaService) {}
 
   async getAll(groupId: string) {
-    // const { movie } = await this.db.group.findUnique({
-    //   where: {
-    //     id: groupId,
-    //   },
-    //   include: {
-    //     movie: true,
-
-    //   },
-    //   order
-    // });
     const movie = await this.db.movie.findMany({
       where: {
         group: {

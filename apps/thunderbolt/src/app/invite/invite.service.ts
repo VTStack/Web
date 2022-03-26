@@ -5,14 +5,10 @@ import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class InviteService {
-  constructor(
-    private readonly db: PrismaService // private readonly group: GroupsService,
-  ) {}
+  constructor(private readonly db: PrismaService) {}
 
   async createLink(groupId: string, userId: string) {
     try {
-      console.log(userId, groupId);
-      console.log(await this.db.invite.findMany({}));
       const data = await this.db.invite.create({
         data: {
           groupId,
@@ -71,7 +67,6 @@ export class InviteService {
       });
       return data;
     } catch (error: unknown) {
-      console.log(error);
       throw new ConflictException({ statusCode: 409 }, Messages['Already a member in group']);
     }
   }

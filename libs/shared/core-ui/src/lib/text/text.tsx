@@ -1,16 +1,14 @@
 import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 
-/* eslint-disable-next-line */
 interface TextProps {
   restrictWidth?: boolean;
   bold?: boolean;
-  [key: string]: any;
 }
 
-export const Text = styled(motion.p)`
-  color: ${({ theme }: TextProps) => theme.text.secondary};
-  ${({ restrictWidth }: TextProps) => {
+export const Text = styled(motion.p)<TextProps>`
+  color: ${({ theme }) => theme.text.secondary};
+  ${({ restrictWidth }) => {
     return restrictWidth
       ? css`
           max-width: 75ch;
@@ -18,10 +16,14 @@ export const Text = styled(motion.p)`
       : null;
   }}
 
-  ${({ bold }: TextProps) => {
-    return css`
-      font-weight: 500;
-    `;
+  ${({ bold }) => {
+    if (bold) {
+      return css`
+        font-weight: 500;
+      `;
+    } else {
+      return null;
+    }
   }}
 
 

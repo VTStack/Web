@@ -46,8 +46,7 @@ export function GroupHomePage() {
 
   useEffect(() => {
     if (!search.length && group) dispatch(fetchGroupMovies({ payload: { groupId: group.id } }));
-    setLastSearch(null);
-  }, [search, dispatch, group]);
+  }, [search, dispatch, group, lastSearch]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function onSubmit({ search: searchTerm }: any) {

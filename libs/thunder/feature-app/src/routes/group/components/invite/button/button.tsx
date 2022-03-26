@@ -33,13 +33,13 @@ export function InviteButton(props: ButtonProps) {
       if (isOpen) {
         const userInvites = await getUserInvites(groupId);
         if (getUserInvites.length) {
-          console.log(await createInviteLink(groupId, ROLE.USER));
-          console.log('USER already has invites', userInvites);
+          // console.log(await createInviteLink(groupId, ROLE.USER));
+          // console.log('USER already has invites', userInvites);
         }
         setInvites(userInvites);
         // const [data, errorCode] = await createInviteLink(groupId, 'USER');
-        console.log(userInvites);
-        console.log(userInvites);
+        // console.log(userInvites);
+        // console.log(userInvites);
         // if (errorCode === 409) {
         //   setError(true);
         // } else {
@@ -50,7 +50,7 @@ export function InviteButton(props: ButtonProps) {
     main();
   }, [isOpen, groupId]);
   function testing(id: string) {
-    console.log(id);
+    // console.log(id);
     removeInvite(id);
   }
 

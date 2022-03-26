@@ -92,7 +92,9 @@ export function SignUpButton({
             <Link
               onClick={() => {
                 dispatch(toggleSignUpModal({ type: 'CLOSE' }));
-                dispatch(toggleSignInModal({ type: 'OPEN' }));
+                setTimeout(() => {
+                  dispatch(toggleSignInModal({ type: 'OPEN' }));
+                }, 250);
               }}>
               Sign in!
             </Link>

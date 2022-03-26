@@ -4,6 +4,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import { visualizer } from 'rollup-plugin-visualizer';
 import react from '@vitejs/plugin-react';
 import { terser } from 'rollup-plugin-terser';
+import strip from '@rollup/plugin-strip';
 
 const renderChunks = (deps: Record<string, string>) => {
   const chunks = {};
@@ -26,7 +27,8 @@ export default defineConfig({
       projectRoot: '../../dist/apps/thunder',
       filename: 'apps/thunder/local/stats.html',
       template: 'sunburst'
-    })
+    }),
+    strip({ debugger: true })
   ],
   envDir: '../../',
 
@@ -54,7 +56,8 @@ export default defineConfig({
         generatedCode: 'es5',
         strict: true,
         esModule: false,
-        format: 'es'
+        format: 'es',
+        plugins: []
       },
 
       treeshake: {

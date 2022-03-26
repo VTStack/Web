@@ -33,7 +33,6 @@ export const addMember = createAsyncThunk(
   async (action: { payload: { inviteId: string } }, thunkAPI) => {
     const { inviteId } = action.payload;
     const [member, error] = await addMemberToGroup(inviteId);
-    console.log('ERROR', error);
     // if (error) return thunkAPI.rejectWithValue({ type: 'OWNER_OF_INVITE' });
     return member;
   }
