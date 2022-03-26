@@ -5,6 +5,7 @@
   "targets": {
     "build": {
       "executor": "nx-plugin-vite:build",
+      "defaultConfiguration": "production",
       "options": {
         "outDir": "dist/apps/honey",
         "write": true,
@@ -24,10 +25,7 @@
       "executor": "nx-plugin-vite:serve",
       "options": {
         "configFile": "apps/honey/vite.config.ts",
-        "port": 3000,
-        "root": "apps/honey",
-        "host": false,
-        "https": false
+        "root": "apps/honey"
       }
     },
     "lint": {

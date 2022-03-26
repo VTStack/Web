@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpService } from '@nestjs/axios';
-import { Body, Controller, Get, Param, Post, Query, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Param, Post, Query, UseGuards } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
 import { Movie } from '../../../prisma/client';
 import { catchError, map, Observable, of } from 'rxjs';
@@ -17,6 +17,7 @@ export class MoviesController {
   constructor(private readonly movies: MoviesService, private readonly http: HttpService) {}
 
   @Get(['', 'all'])
+  @HttpCode(200)
   @UseGuards(AccessGuard)
   async getAll(@Param('id') groupId: string, @Query('movie_id') movieId: string) {
     if (groupId && !movieId) {

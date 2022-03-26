@@ -1,16 +1,16 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import cookieParser from 'cookie-parser';
-
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule, {
     cors: {
-      origin: ['http://localhost:3000', 'https://movie.v-thomas.xyz']
+      origin: ['http://localhost:3000', 'https://movie.v-thomas.xyz'],
+      credentials: true
     }
   });
   app.use(cookieParser());
   app.setGlobalPrefix('/thunder');
 
-  await app.listen(5000);
+  app.listen(3200);
 }
 bootstrap();

@@ -5,6 +5,8 @@ import { App } from './router';
 import { SnackbarProvider } from 'notistack';
 import { HashRouter } from 'react-router-dom';
 
+import '@v-thomas/shared/web-utils';
+
 const Styles = styled.div`
   background-color: ${({ theme }: { theme: { background: { primary: string } } }) =>
     theme.background.primary};
@@ -17,7 +19,6 @@ if (window.location.hostname !== 'localhost' && /cloudfront\.net$/.test(window.l
   window.location.href = '//movie.v-thomas.xyz';
 
 export const Root = () => {
-  console.log(window.location);
   return (
     <StrictMode>
       <ThemeProvider theme={DarkTheme}>

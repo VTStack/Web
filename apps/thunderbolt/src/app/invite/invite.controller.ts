@@ -11,7 +11,6 @@ export class InviteController {
   @Post('create')
   async createInvite(@Query('group_id') groupId: string, @Req() req: { user: { id: string } }) {
     return await this.invite.createLink(groupId, req.user.id).catch(e => {
-      console.log(e);
       throw new ConflictException(
         { error: true, errorCode: HttpStatus.CONFLICT },
         Messages['Already a member in group']
@@ -39,7 +38,6 @@ export class InviteController {
 
   @Delete('remove_invite')
   async removeInvites(@Query('invite_id') inviteId: string) {
-    console.log(inviteId);
     const data = await this.invite.removeInvite(inviteId);
     return data;
   }

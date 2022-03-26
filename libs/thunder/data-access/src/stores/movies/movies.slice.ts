@@ -37,10 +37,13 @@ export const moviesAdapter = createEntityAdapter<MoviesEntity>();
 
 export const fetchGroupMovies = createAsyncThunk(
   'movies/fetchStatus',
-  async (action: { payload: { groupId: string } }, thunkAPI: any) => {
+  async (action: { payload: { groupId: string } }, thunkAPI) => {
     const { groupId } = action.payload;
-    const [movies, error] = await getAllMovies(groupId);
-    return error ? thunkAPI.rejectWithValue(error.toString()) : movies;
+    const { movies: movieState }: any = thunkAPI.getState();
+    if (movieState.loadingStatus === 'LOADING') {
+      const [movies, error] = await getAllMovies(groupId);
+      return error ? thunkAPI.rejectWithValue(error.toString()) : movies;
+    }
   }
 );
 

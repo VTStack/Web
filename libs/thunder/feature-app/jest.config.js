@@ -4,10 +4,10 @@ module.exports = {
     '^.+\\.[tj]sx?$': ['@swc/jest', { jsc: { transform: { react: { runtime: 'automatic' } } } }]
   },
   moduleNameMapper: {
-    '^.+\\.svg$': 'jest-svg-transformer'
+    '^.+/.svg$': 'jest-svg-transformer'
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../../coverage/libs/thunder/feature-app',
-  displayName: 'Thunder App Feature',
+  displayName: 'thunder-feature-app',
   testEnvironment: 'jsdom'
 };

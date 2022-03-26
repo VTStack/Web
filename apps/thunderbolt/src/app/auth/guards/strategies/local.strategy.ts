@@ -20,7 +20,6 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     if (!user) {
       throw new UnauthorizedException();
     }
-    // const { password, ...result } = user;
     delete user.password;
     return user;
   }

@@ -10,11 +10,14 @@ export const signUp = async (email: string, password: string) => {
 
 export const signIn = async (email: string, password: string) => {
   try {
-    const { data: response } = await axios.post(url + '/auth/login', {
-      email,
-      password
-    });
-    document.cookie = 'access_token=' + response.access_token + '; ; expires=Thu, 18 Dec 2022 12:00:00 UTC';
+    const { data: response } = await axios.post(
+      url + '/auth/login',
+      {
+        email,
+        password
+      },
+      { withCredentials: true }
+    );
     return [response, null];
   } catch (e) {
     return [null, e];
@@ -23,7 +26,7 @@ export const signIn = async (email: string, password: string) => {
 
 export const signOut = async () => {
   try {
-    const { data: response } = await axios.post(url + '/auth/logout');
+    const { data: response } = await axios.post(url + '/auth/logout', {}, { withCredentials: true });
     return [response, null];
   } catch (e) {
     return [null, e];
@@ -32,7 +35,7 @@ export const signOut = async () => {
 
 export const checkAuth = async () => {
   try {
-    const { data: result } = await axios.get(url + '/auth/status');
+    const { data: result } = await axios.get(url + '/auth/status', { withCredentials: true });
     return result.status === 'AUTHED';
   } catch {
     return false;
@@ -40,6 +43,6 @@ export const checkAuth = async () => {
 };
 
 export const getUser = async () => {
-  const { data: result } = await axios.get(url + '/auth/user');
+  const { data: result } = await axios.get(url + '/auth/user', { withCredentials: true });
   return result;
 };

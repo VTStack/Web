@@ -11,7 +11,7 @@ describe('invites reducer', () => {
   });
 
   it('should handle fetchInvitess', () => {
-    let state = invitesReducer(undefined, fetchInvites.pending(null, null));
+    let state = invitesReducer(undefined, fetchInvites.pending(''));
 
     expect(state).toEqual(
       expect.objectContaining({
@@ -21,23 +21,25 @@ describe('invites reducer', () => {
       })
     );
 
-    state = invitesReducer(state, fetchInvites.fulfilled([{ id: 1 }], null, null));
+    state = invitesReducer(state, fetchInvites.fulfilled([], ''));
 
     expect(state).toEqual(
       expect.objectContaining({
         loadingStatus: 'loaded',
         error: null,
-        entities: { 1: { id: 1 } }
+        entities: {},
+        ids: []
       })
     );
 
-    state = invitesReducer(state, fetchInvites.rejected(new Error('Uh oh'), null, null));
+    state = invitesReducer(state, fetchInvites.rejected(new Error('Uh oh'), ''));
 
     expect(state).toEqual(
       expect.objectContaining({
         loadingStatus: 'error',
         error: 'Uh oh',
-        entities: { 1: { id: 1 } }
+        entities: {},
+        ids: []
       })
     );
   });

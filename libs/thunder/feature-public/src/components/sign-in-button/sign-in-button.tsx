@@ -14,9 +14,6 @@ import {
   updateEmail,
   updatePassword
 } from '@v-thomas/thunder/data-access';
-import { useUser } from '../../hooks/user';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 
 const schema = Joi.object({
   email: Joi.string().email({ tlds: { allow: false } }),
@@ -112,7 +109,9 @@ export function SignInButton({
             <Link
               onClick={() => {
                 dispatch(toggleSignInModal({ type: 'CLOSE' }));
-                dispatch(toggleSignUpModal({ type: 'OPEN' }));
+                setTimeout(() => {
+                  dispatch(toggleSignUpModal({ type: 'OPEN' }));
+                }, 250);
               }}>
               Sign Up!
             </Link>

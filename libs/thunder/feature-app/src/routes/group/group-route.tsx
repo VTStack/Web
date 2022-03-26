@@ -21,7 +21,7 @@ export function GroupRoute() {
   useEffect(() => {
     if (allGroups?.error === 'NOT_FOUND') {
       enqueueSnackbar({ message: 'Oh no you little naughty naughty! No access here', variant: 'error' });
-      // router('/app/groups', { replace: true });
+      router('/app/groups', { replace: true });
       dispatch(clearGroupErrors());
     }
   }, [allGroups, enqueueSnackbar, dispatch, router]);

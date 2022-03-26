@@ -1,0 +1,32 @@
+{
+  "root": "libs/shared/web-utils",
+  "sourceRoot": "libs/shared/web-utils/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/web-utils",
+        "main": "libs/shared/web-utils/src/public_api.ts",
+        "tsConfig": "libs/shared/web-utils/tsconfig.lib.json",
+        "assets": ["libs/shared/web-utils/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/shared/web-utils/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/web-utils"],
+      "options": {
+        "jestConfig": "libs/shared/web-utils/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:other platform:web"]
+}

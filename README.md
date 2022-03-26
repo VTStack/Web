@@ -1,55 +1,11 @@
-<h1 align="center">🧑‍💻 Codebase</h1>
+# 🧑‍💻 Codebase
 
-<p align="center">This is all of my Codebase cramped into one monorepo.
+This is all of my Codebase cramped into one monorepo.
 Its a mix of websites, servers, libraries and packages!
-</p>
-<div align="center">
 
-[![](https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=Jira&logoColor=white)](https://v-thomas.atlassian.net/jira/software/projects/CODE/boards/1)
-![Amazon Aws](https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-
-<!-- 
-  <img src="https://img.shields.io/github/repo-size/VincentThomas06/Codebase?color=red&label=codebase&style=flat-square" />
-  <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/VincentThomas06/Codebase?color=orange&style=flat-square"> 
-  <img src="https://img.shields.io/github/commit-activity/m/VincentThomas06/Codebase?style=flat-square"/>
-  <img alt="GitHub" src="https://img.shields.io/github/license/VincentThomas06/Codebase?style=flat-square">
- -->
-
-</div>
-
-<details align="right" class="details">
-  <summary><b>Quick Links <big>💨</big></b></summary>
-
-<h3>
-  <a href="#tech-stack-and-langs-used">Tech Stack
-  & Langs used</a>
-  <span><big> · </big></span>
-  <a href="#projects">Projects</a>
-</h3>
-</details>
-
-<details align="left" class="details">
-  <summary><b>External navigation <big>🗺️</big></b></summary>
-
-<h3>
-  <a href="SECURITY.md#reporting-a-vulnerability">Security Issue?</a>
-  <span><big> · </big></span>
-  <a href="https://github.com/VincentThomas06/.github/blob/main/CODE_OF_CONDUCT.md">Rules</a>
-</h3>
-</details>
+### [Structure](#frontend-sructure) **·** [Projects](#🔧-projects)
 
 ---
-
-<h2 id="tech-stack-and-langs-used"><b>👨🏾‍💻 Tech Stack and langs used</b></h2>
-
-  <h3 id="techstack">Tech stack</h3>
-
-| Type of software |          Technology          |
-| ---------------- | :--------------------------: |
-| 🌐 Web           |  ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)|
-| 🕸 Servers        | ![](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white) |
-
 
 ## Frontend Sructure
 
@@ -62,7 +18,7 @@ Apps are divided into 4 library-types. These apps are not developed like monolit
 
 ---
 
-<h2 id="projects"><b>🔧 Projects</b></h2>
+## 🔧 Projects
 
 | 🕶️ Alias              | 🏷️ Name                   |              |                           |                           |
 | --------------------- | -------------------------- | :----------: | :-----------------------: | :-----------------------: |
@@ -78,13 +34,5 @@ Apps are divided into 4 library-types. These apps are not developed like monolit
 | **Algos**             | _General simple algorithms_|               |           👷🏾             |                           |
 | **Other software**    |                            | ⚡ **Done**  | 🚧 **In Development**    | 🤔 **Planning to build**  |
 | **Clubguard**         | _Auth Discord Bot_         |               |                          |             🚦            |
-
-</div>
-
-<!-- 
-## 📝 License
-
-Copyright © 2022 [Vincent Thomas](https://github.com/VincentThomas06).<br /> This project is [MIT](https://github.com/VincentThomas06/Codebase/blob/main/LICENSE) licensed.
--->
 
 ---

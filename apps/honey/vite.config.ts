@@ -66,6 +66,7 @@ export default defineConfig({
   publicDir: './src/assets',
 
   server: {
-    open: true
+    open: true,
+    port: 4000
   }
 });
