@@ -1,4 +1,8 @@
-const getCollections = () => JSON.parse(window.atob(localStorage.getItem('collections') || '{}'));
+const getCollections = () => {
+  if (localStorage.getItem('collections')) {
+    return JSON.parse(window.atob(localStorage.getItem('collections') || '{}'));
+  } else return { ids: [], data: [] };
+};
 export function useCollection(collectionId: string) {
   const { ids, data }: { ids: string[]; data: any } = getCollections();
   const id = ids.filter(v => v === collectionId).at(0);

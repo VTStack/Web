@@ -1,18 +1,22 @@
 dist
 node_modules
+coverage
+
 .env
 .env.*
 .*.env
+
 tmp
+*.tmp
 *.old
+
 /other/config/*
 !/other/config/starship.toml
-coverage
+
 local
 **/prisma/client
 me
 
-/.yarn/*
-!/.yarn/releases
+.yarn
 
 .aws

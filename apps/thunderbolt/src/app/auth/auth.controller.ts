@@ -14,14 +14,15 @@ export class AuthController {
     const token = this.auth.generateToken(req.user);
     res.cookie('access_token', token, {
       httpOnly: true,
-      sameSite: 'none',
-      domain: 'hello.com'
+      secure: true
+      // expires: new Date()
     });
     // eslint-disable-next-line camelcase
     return { access_token: token };
   }
 
   @Post('logout')
+  @HttpCode(200)
   @UseAuth('jwt')
   async signOut(@Res({ passthrough: true }) res: Response) {
     res.clearCookie('access_token');
@@ -45,7 +46,6 @@ export class AuthController {
   @UseAuth('jwt')
   async getUser(@Req() req: Request, @Query('user_id') userId?: string) {
     if (!userId) return req.user;
-
     return await this.auth.getUserById(userId);
   }
 }

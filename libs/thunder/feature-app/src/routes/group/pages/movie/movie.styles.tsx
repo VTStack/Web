@@ -10,8 +10,6 @@ const Container = styled(motion.div)`
   border-radius: 5px;
   gap: 1rem;
 
-  display: block;
-
   @media screen and (max-width: 800px) {
     padding: 1rem;
   }

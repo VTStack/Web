@@ -23,7 +23,6 @@
         "compiler": "swc",
         "extractCss": true,
         "assets": [
-          "libs/thunder/shell/src/styles/globals.css",
           {
             "glob": "libs/thunder/shell/README.md",
             "input": ".",

@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { dependencies } from './package.json';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react';
+import eslint from '@rollup/plugin-eslint';
 
 const renderChunks = (deps: Record<string, string>) => {
   const chunks = {};
@@ -70,7 +71,7 @@ export default defineConfig({
 
     proxy: {
       '/thunder': {
-        target: 'http://localhost:5000',
+        target: 'http://localhost:3200',
         changeOrigin: true
       }
     }
