@@ -1,4 +1,15 @@
-import { ConflictException, Controller, Delete, Get, HttpStatus, Post, Query, Req } from '@nestjs/common';
+import {
+  BadGatewayException,
+  BadRequestException,
+  ConflictException,
+  Controller,
+  Delete,
+  Get,
+  HttpStatus,
+  Post,
+  Query,
+  Req
+} from '@nestjs/common';
 import { Messages } from '../constants/MESSAGES';
 import { UseAuth } from '../decorators/guard';
 import { InviteService } from './invite.service';
@@ -20,14 +31,19 @@ export class InviteController {
 
   @Get()
   async getInvite(@Query('invite_id') inviteId: string, @Req() req: { user: { id: string } }) {
-    const data = await this.invite.getInviteById(inviteId);
-    if (data.inviteOwnerId === req.user.id) {
-      throw new ConflictException({
-        message: Messages['User owns this invite'],
-        statusCode: 409
-      });
+    try {
+      const data = await this.invite.getInviteById(inviteId);
+      if (data.inviteOwnerId === req.user.id) {
+        throw new ConflictException({
+          message: Messages['User owns this invite'],
+          statusCode: 409
+        });
+      }
+      return data;
+    } catch (e: any) {
+      if (e.message === 'USER_OWNS_INVITE') throw e;
+      throw new BadRequestException({ message: Messages['Already exists'], statusCode: 400 });
     }
-    return data;
   }
 
   @Get('user_invites')

@@ -1,4 +1,4 @@
-import { Link } from '@v-thomas/shared/core-ui';
+import { Link } from '@v-thomas/shared/ui';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 

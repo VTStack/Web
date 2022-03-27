@@ -1,4 +1,4 @@
-<h1 align="center">This is <code>shared-core-ui</code> 👋</h1>
+<h1 align="center">This is <code>shared-ui</code> 👋</h1>
 <p>
   <a href="https://github.com/VincentThomas06/Codebase/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square" />

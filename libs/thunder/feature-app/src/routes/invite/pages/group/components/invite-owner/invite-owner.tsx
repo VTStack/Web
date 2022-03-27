@@ -1,9 +1,6 @@
-import { Modal, Row, Text, Title } from '@v-thomas/shared/core-ui';
+import { Modal, Row, Text, Title } from '@v-thomas/shared/ui';
 
-/* eslint-disable-next-line */
-export interface InviteOwnerProps {}
-
-export function InviteOwner(props: InviteOwnerProps) {
+export function InviteOwner() {
   return (
     <Modal isOpen={true} width="30">
       <Row gap="1">

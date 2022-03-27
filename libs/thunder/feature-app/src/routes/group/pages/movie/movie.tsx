@@ -1,4 +1,4 @@
-import { Text, Title } from '@v-thomas/shared/core-ui';
+import { Text, Title } from '@v-thomas/shared/ui';
 import { useParams } from 'react-router-dom';
 import { useMovie } from '../../../../hooks';
 import { MovieLayout } from '../../../../layouts/movie/movie';

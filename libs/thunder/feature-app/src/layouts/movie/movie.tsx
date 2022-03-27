@@ -1,10 +1,11 @@
-import { Button, Divider, Link, Text } from '@v-thomas/shared/core-ui';
+import { Button, Divider, Link, Text } from '@v-thomas/shared/ui';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Navbar } from '../../routes/group/components/navbar';
 import { useNavigate } from 'react-router-dom';
 import RemoveMovieButton from '../../components/remove-movie/remove-movie';
 import { useSnackbar } from 'notistack';
+import * as React from 'react';
 
 export interface MovieProps {
   children: ReactNode;

@@ -1,4 +1,4 @@
-import { Title } from '@v-thomas/shared/core-ui';
+import { Title } from '@v-thomas/shared/ui';
 import styled from 'styled-components';
 import Navbar from '../../components/navbar/navbar';
 

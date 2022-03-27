@@ -1,0 +1,1 @@
+node ./node_modules/size-limit/bin.js

@@ -1,4 +1,5 @@
 import { ConflictException, Injectable } from '@nestjs/common';
+import { MESSAGES } from '@nestjs/core/constants';
 import { Messages } from '../constants/MESSAGES';
 import { Roles } from '../constants/ROLES';
 import { PrismaService } from '../prisma/prisma.service';
@@ -15,20 +16,17 @@ export class InviteService {
           inviteOwnerId: userId
         }
       });
-
       data.id = Buffer.from(data.id).toString('base64');
 
       return data;
-    } catch (e: unknown) {
-      throw Error('error');
+    } catch (e: any) {
+      throw Error(e);
     }
   }
   async getInviteById(inviteId: string) {
-    const normalized = Buffer.from(inviteId, 'base64').toString('ascii');
-
     const invite = await this.db.invite.findFirst({
       where: {
-        id: normalized
+        id: inviteId
       },
       include: {
         Group: true,
@@ -71,29 +69,52 @@ export class InviteService {
     }
   }
   async getUserInvitesInGroup(userId: string, groupId: string) {
-    const user = await this.db.user.findMany({
+    const user = await this.db.invite.findMany({
       where: {
-        id: userId,
-        groups: {
-          some: {
-            id: groupId
-          }
-        }
+        groupId,
+        inviteOwnerId: userId
       },
-      select: {
-        invites: {
+      include: {
+        Group: {
+          select: {
+            name: true,
+            ownerId: true,
+            createdAt: true
+          }
+        },
+        InviteOwner: {
           select: {
             id: true,
-            groupId: true,
+            _count: true,
             createdAt: true,
-            Group: {
-              select: { name: true }
-            }
+            email: true
           }
         }
       }
+      // where: {
+      //   id: userId,
+      //   groups: {
+      //     some: {
+      //       id: groupId
+      //     }
+      //   }
+      // },
+      // select: {
+      //   invites: {
+      //     select: {
+      //       id: true,
+      //       groupId: true,
+      //       createdAt: true,
+      //       Group: {
+      //         select: { name: true }
+      //       }
+      //     }
+      //   }
+      // }
     });
-    return user.map(v => v.invites)[0];
+    console.log('USER invite', user);
+    return user;
+    // return user.map(v => v.invites)[0];
   }
 
   async removeInvite(inviteId: string) {

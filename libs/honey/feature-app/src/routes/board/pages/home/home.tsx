@@ -1,4 +1,4 @@
-import { Card, Col, Row, Title, Text, Code } from '@v-thomas/shared/core-ui';
+import { Card, Col, Row, Title, Text, Code } from '@v-thomas/shared/ui';
 import styled from 'styled-components';
 import { Chart } from 'chart.js';
 import { useEffect } from 'react';

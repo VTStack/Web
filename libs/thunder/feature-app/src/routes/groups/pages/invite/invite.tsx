@@ -1,4 +1,4 @@
-import { Button, Code, Modal, Row, Text, Title } from '@v-thomas/shared/core-ui';
+import { Button, Code, Modal, Row, Text, Title } from '@v-thomas/shared/ui';
 import { motion } from 'framer-motion';
 import { useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
