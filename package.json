@@ -2,15 +2,21 @@
   "name": "root",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "yarn@3.2.0",
   "size-limit": [
     {
       "path": "dist/apps/thunder/**",
       "limit": "200 kB"
+    },
+    {
+      "path": "dist/apps/honey/**",
+      "limit": "170 kB"
     }
   ],
   "scripts": {
     "nx": "nx",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "size-limit": "sh ./scripts/test-bundle.sh"
   },
   "workspaces": [
     "apps/*",
@@ -125,6 +131,5 @@
     "rxjs": "^7.0.0",
     "styled-components": "5.3.3",
     "tslib": "^2.0.0"
-  },
-  "packageManager": "yarn@3.2.0"
+  }
 }

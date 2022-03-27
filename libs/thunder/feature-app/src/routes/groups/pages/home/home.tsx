@@ -1,6 +1,6 @@
 import { GroupGrid } from './home.styles';
 import { Navbar } from '../../../../components/navbar';
-import { Button, Divider } from '@v-thomas/shared/core-ui';
+import { Button, Divider } from '@v-thomas/shared/ui';
 import { useGroups } from '../../../../hooks/groups';
 import { useNavigate } from 'react-router-dom';
 import { CreateGroupButton } from '../../components/create-group/create-group';

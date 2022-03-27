@@ -1,6 +1,6 @@
 {
-  "root": "libs/shared/core-ui",
-  "sourceRoot": "libs/shared/core-ui/src",
+  "root": "libs/shared/ui",
+  "sourceRoot": "libs/shared/ui/src",
   "projectType": "library",
   "tags": ["scope:thunder", "type:ui"],
   "targets": {
@@ -14,16 +14,16 @@
       "executor": "@nrwl/web:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/shared/core-ui",
-        "tsConfig": "libs/shared/core-ui/tsconfig.lib.json",
-        "project": "libs/shared/core-ui/package.json",
-        "entryFile": "libs/shared/core-ui/src/public_api.ts",
+        "outputPath": "dist/libs/shared/ui",
+        "tsConfig": "libs/shared/ui/tsconfig.lib.json",
+        "project": "libs/shared/ui/package.json",
+        "entryFile": "libs/shared/ui/src/public_api.ts",
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "babel",
         "assets": [
           {
-            "glob": "libs/shared/core-ui/README.md",
+            "glob": "libs/shared/ui/README.md",
             "input": ".",
             "output": "."
           }
@@ -34,15 +34,15 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/shared/core-ui/**/*.{ts,tsx,js,jsx}"],
+        "lintFilePatterns": ["libs/shared/ui/**/*.{ts,tsx,js,jsx}"],
         "fix": true
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/shared/core-ui"],
+      "outputs": ["coverage/libs/shared/ui"],
       "options": {
-        "jestConfig": "libs/shared/core-ui/jest.config.js",
+        "jestConfig": "libs/shared/ui/jest.config.js",
         "passWithNoTests": true
       }
     },
@@ -52,7 +52,7 @@
         "uiFramework": "@storybook/react",
         "port": 4400,
         "config": {
-          "configFolder": "libs/shared/core-ui/.storybook"
+          "configFolder": "libs/shared/ui/.storybook"
         }
       },
       "configurations": {
@@ -68,7 +68,7 @@
         "uiFramework": "@storybook/react",
         "outputPath": "dist/storybook/thunder-core-ui",
         "config": {
-          "configFolder": "libs/shared/core-ui/.storybook"
+          "configFolder": "libs/shared/ui/.storybook"
         }
       },
       "configurations": {

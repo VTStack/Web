@@ -1,5 +1,5 @@
 import Cross from '../../../../feature-public/assets/x.svg';
-import { Button, Col, Input, Link, Modal, Text, Title } from '@v-thomas/shared/core-ui';
+import { Button, Col, Input, Link, Modal, Text, Title } from '@v-thomas/shared/ui';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';

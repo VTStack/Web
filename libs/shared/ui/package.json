@@ -1,5 +1,5 @@
 {
-  "name": "@v-thomas/libs/shared/core-ui",
+  "name": "@v-thomas/shared/ui",
   "version": "0.0.1",
   "private": true,
   "peerDependencies": {

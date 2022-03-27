@@ -1,4 +1,4 @@
-import { Button, Card, Text, Title } from '@v-thomas/shared/core-ui';
+import { Button, Card, Text, Title } from '@v-thomas/shared/ui';
 import styled from 'styled-components';
 
 /* eslint-disable-next-line */

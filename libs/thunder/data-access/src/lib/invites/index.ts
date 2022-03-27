@@ -11,7 +11,7 @@ type Role = 'ADMIN' | 'USER';
 export async function createInviteLink(groupId: string, role: Role): Promise<[string | null, number | null]> {
   try {
     const { data } = await axios.post(
-      url + `/invite/create?group_id=${groupId}?role=${role}`,
+      url + `/invite/create?group_id=${groupId}&role=${role}`,
       {},
       { withCredentials: true }
     );
@@ -46,6 +46,7 @@ export async function getUserInvites(groupId: string) {
   const { data: response } = await axios.get(url + '/invite/user_invites?group_id=' + groupId, {
     withCredentials: true
   });
+  console.log('INVINTES', response);
   return response;
 }
 

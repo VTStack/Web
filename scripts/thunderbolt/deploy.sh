@@ -2,7 +2,9 @@ ssh -i "/c/Users/vincent/.ssh/WebServeraws.pem" ec2-user@ec2-16-170-222-121.eu-n
 cd Codebase \
 git pull \
 yarn \
-nx affected --target=test \
-nx affected --target=build \
-nx affected --target=deploy \
+npm run nx -- test thunderbolt \
+nx build thunderbolt \
+cd dist/apps/thunderbolt
+pm2 stop -n thunderbolt
+pm2 start ./main.js
 "

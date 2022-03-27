@@ -1,4 +1,4 @@
-import { Button, Modal, Row, Text, Title } from '@v-thomas/shared/core-ui';
+import { Button, Modal, Row, Text, Title } from '@v-thomas/shared/ui';
 import { useNavigate } from 'react-router-dom';
 
 export function MainError() {

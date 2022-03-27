@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useReducer } from 'react';
 import { getMovieRecommendations } from '@v-thomas/thunder/data-access';
 import MovieSearchCard from '../../components/movie-search-card/movie-search-card';
-import { Button, Col, Input, Title } from '@v-thomas/shared/core-ui';
+import { Button, Col, Input, Title } from '@v-thomas/shared/ui';
 import { useForm } from 'react-hook-form';
 import { useSnackbar } from 'notistack';
 import { useDispatch } from 'react-redux';

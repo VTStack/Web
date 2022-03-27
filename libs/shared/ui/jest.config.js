@@ -18,5 +18,5 @@ module.exports = {
     ]
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/shared/core-ui'
+  coverageDirectory: '../../../coverage/libs/shared/ui'
 };

@@ -15,7 +15,7 @@ export class GroupsService {
   constructor(private readonly db: PrismaService, private readonly invite: InviteService) {}
 
   async getAll(userId: string) {
-    return await this.db.group.findMany({
+    const user = await this.db.group.findMany({
       where: {
         OR: [
           {
@@ -37,6 +37,8 @@ export class GroupsService {
         ]
       }
     });
+    console.log('USER', user);
+    return user;
   }
 
   async getById(id: string) {

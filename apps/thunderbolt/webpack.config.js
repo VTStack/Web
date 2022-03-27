@@ -1,5 +1,6 @@
 // eslint-disable-next-line node/no-unpublished-require
 const TerserPlugin = require('terser-webpack-plugin');
+const { resolve } = require('path');
 
 module.exports = (options, webpack) => {
   const lazyImports = ['@nestjs/microservices/microservices-module', '@nestjs/websockets/socket-module'];
@@ -9,6 +10,11 @@ module.exports = (options, webpack) => {
     externals: ['util/types'],
     entry: {
       main: `./src/main.ts`
+    },
+    mode: 'production',
+    output: {
+      filename: 'main.js',
+      path: resolve(process.cwd() + '/../../dist/apps/thunderbolt')
     },
 
     resolve: {
