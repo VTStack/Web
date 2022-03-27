@@ -1,10 +1,10 @@
 import { Navbar } from '../../components/navbar/navbar';
 import MovieCard from '../../components/movie-card/movie-card';
-import { Button, Input } from '@v-thomas/shared/core-ui';
+import { Button, Input } from '@v-thomas/shared/ui';
 import { Grid, GridAnimation } from './home.styles';
 import { useGroup, useMovies } from '../../../../hooks';
 import { useNavigate } from 'react-router-dom';
-import { Divider } from '@v-thomas/shared/core-ui';
+import { Divider } from '@v-thomas/shared/ui';
 import NoMovies from './components/no-movies/no-movies';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';

@@ -15,8 +15,9 @@ tmp
 
 local
 **/prisma/client
-me
 
 .yarn
+!/.yarn/releases
 
 .aws
+buildspec.yml

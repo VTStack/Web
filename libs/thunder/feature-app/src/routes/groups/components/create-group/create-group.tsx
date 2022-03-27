@@ -1,4 +1,4 @@
-import { Button, Col, Input, Modal, Title } from '@v-thomas/shared/core-ui';
+import { Button, Col, Input, Modal, Title } from '@v-thomas/shared/ui';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';

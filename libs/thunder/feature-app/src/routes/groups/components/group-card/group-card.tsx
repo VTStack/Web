@@ -1,4 +1,4 @@
-import { Card, Title } from '@v-thomas/shared/core-ui';
+import { Card, Title } from '@v-thomas/shared/ui';
 import { useNavigate } from 'react-router-dom';
 import { GroupsEntity } from '@v-thomas/thunder/data-access';
 

@@ -22,7 +22,7 @@ model User {
 
   createdAt DateTime @default(now()) @map("created_at")
 
-  @@unique([email, password])
+  // @@unique([email, password])
   @@map("user")
 }
 
@@ -39,7 +39,7 @@ model Group {
   createdAt DateTime @default(now()) @map("created_at")
 
 
-  @@unique([name, ownerId])
+  // @@unique([name, ownerId])
 }
 
 model GroupMembers {
@@ -54,7 +54,7 @@ model GroupMembers {
   createdAt DateTime @default(now()) @map("created_at")
 
 
-  @@unique([userId, groupId])
+  // @@unique([userId, groupId])
 }
 
 model Invite {
@@ -86,5 +86,5 @@ model Movie {
 
   createdAt DateTime @default(now())
 
-  @@unique([movie_id, groupId])
+  // @@unique([movie_id, groupId])
 }
