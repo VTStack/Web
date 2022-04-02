@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 
 import { Input } from './input';
 
-import { DarkTheme } from '@v-thomas/thunder/theme';
+import { DarkTheme } from '@v-thomas/shared/theme';
 import { ThemeProvider } from 'styled-components';
 
 describe('Input', () => {

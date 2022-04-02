@@ -27,8 +27,10 @@ export const groupsAdapter = createEntityAdapter<GroupsEntity>();
 
 export const fetchGroups = createAsyncThunk('groups/fetchStatus', async (_, thunkAPI) => {
   const [groups, error] = await getAllGroups();
-  if (error) return thunkAPI.rejectWithValue(error.toJSON().message);
-  return groups;
+  if (error) {
+    thunkAPI.dispatch(throwGroupNotFound());
+  }
+  return error ? thunkAPI.rejectWithValue(error.toString()) : groups;
 });
 
 export const addGroup = createAsyncThunk('groups/addGroup', async (action: any, thunkAPI) => {
@@ -69,6 +71,7 @@ export const groupsSlice = createSlice({
         state.loadingStatus = 'LOADING';
       })
       .addCase(fetchGroups.fulfilled, (state: GroupsState, action: PayloadAction<GroupsEntity[]>) => {
+        console.log(action.payload);
         groupsAdapter.setAll(state, action.payload);
         state.loadingStatus = 'LOADED';
       })
@@ -81,6 +84,9 @@ export const groupsSlice = createSlice({
       groupsAdapter.addOne(state, action.payload);
 
       state.loadingStatus = 'LOADED';
+    });
+    builder.addCase(addGroup.rejected, (state, action) => {
+      state.loadingStatus = 'ERROR';
     });
   }
 });

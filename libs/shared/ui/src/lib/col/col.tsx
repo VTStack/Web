@@ -1,15 +1,13 @@
 import styled, { css } from 'styled-components';
 
-interface Inputs {
+export interface ColProps {
   gap?: string;
 }
 
-export const Col = styled.div`
+export const Col = styled.div<ColProps>`
   display: flex;
   flex-direction: row;
-
-  /* gap: ${({ gap = '1' }: Inputs) => `${gap}rem`}; */
-  ${({ gap }: Inputs) =>
+  ${({ gap }) =>
     gap === 'auto'
       ? css`
           justify-content: space-between;

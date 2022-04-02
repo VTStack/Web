@@ -67,7 +67,7 @@ export default defineConfig({
   publicDir: './src/assets',
 
   server: {
-    open: true,
+    open: false,
 
     proxy: {
       '/thunder': {

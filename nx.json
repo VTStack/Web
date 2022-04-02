@@ -4,7 +4,8 @@
     "defaultBase": "main"
   },
   "cli": {
-    "packageManager": "yarn"
+    "packageManager": "yarn",
+    "defaultCollection": "@nrwl/react"
   },
   "tasksRunnerOptions": {
     "default": {
