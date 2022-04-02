@@ -1,0 +1,40 @@
+{
+  "root": "libs/shared/theme",
+  "sourceRoot": "libs/shared/theme",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/theme",
+        "entryFile": "libs/shared/theme/src/public_api.ts",
+        "tsConfig": "libs/shared/theme/tsconfig.lib.json",
+        "assets": ["libs/shared/theme/README.md"],
+        "project": "libs/shared/theme/package.json"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/shared/theme/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/theme"],
+      "options": {
+        "jestConfig": "libs/shared/theme/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "commitMessageFormat": "chore(${projectName}): release version ${version}"
+      }
+    }
+  },
+  "tags": ["scope:thunder", "type:other"]
+}

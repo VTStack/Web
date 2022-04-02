@@ -46,20 +46,20 @@
         "node/no-empty-function": "off",
         "node/no-unsupported-features/es-syntax": "off",
         "node/no-missing-require": "off",
-        "node/shebang": "off",
+        "node/shebang": "warn",
         "no-dupe-class-members": "off",
         "require-atomic-updates": "off",
         "node/no-unpublished-import": [
-          "off",
+          "error",
           {
             "allowModules": [],
             "convertPath": null,
-            "tryExtensions": [".js", ".json", ".node"]
+            "tryExtensions": [".js", ".json", ".node", ".ts"]
           }
         ]
       },
       "parserOptions": {
-        "ecmaVersion": 2018,
+        "ecmaVersion": "latest",
         "sourceType": "module"
       }
     },

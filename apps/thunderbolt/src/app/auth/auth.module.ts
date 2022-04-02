@@ -7,6 +7,7 @@ import { JwtStrategy } from './guards/strategies/jwt.strategy';
 import { PrismaModule } from '../prisma/prisma.module';
 import { MembersModule } from '../members/members.module';
 import { AccessGuard } from './guards/access.guard';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   controllers: [AuthController],
@@ -16,7 +17,8 @@ import { AccessGuard } from './guards/access.guard';
       signOptions: { expiresIn: '15m' }
     }),
     PrismaModule,
-    MembersModule
+    MembersModule,
+    HttpModule
   ],
   providers: [AuthService, LocalStrategy, AccessGuard, JwtStrategy],
   exports: [JwtModule, AccessGuard, MembersModule, PrismaModule]

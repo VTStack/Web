@@ -16,8 +16,6 @@
       "options": {
         "configFile": "apps/thunder/vite.config.ts",
         "port": 3000,
-        "host": true,
-        "https": false,
         "root": "apps/thunder"
       }
     },

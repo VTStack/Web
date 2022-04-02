@@ -8,16 +8,14 @@
     "honey-shell": "libs/honey/shell",
     "honey-theme": "libs/honey/theme",
     "shared-core-ui-e2e": "apps/e2e/core-ui",
+    "shared-theme": "libs/shared/theme",
     "shared-ui": "libs/shared/ui",
     "shared-web-utils": "libs/shared/web-utils",
     "structer": "packages/structer",
     "thunder": "apps/thunder",
+    "thunder-app": "libs/thunder/app",
     "thunder-data-access": "libs/thunder/data-access",
     "thunder-e2e": "apps/e2e/thunder",
-    "thunder-feature-app": "libs/thunder/feature-app",
-    "thunder-feature-public": "libs/thunder/feature-public",
-    "thunder-shell": "libs/thunder/shell",
-    "thunder-theme": "libs/thunder/theme",
     "thunderbolt": "apps/thunderbolt"
   }
 }

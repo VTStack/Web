@@ -19,13 +19,13 @@ declare namespace Cypress {
 
 //
 // -- This is a parent command --
-Cypress.Commands.add('login', async () => {
-  const { email, password } = await import('../fixtures/example.json');
-  cy.visit('/');
-  cy.get('#sign-up-button').click();
-  cy.get('#auth-email-input').type(email);
-  cy.get('#auth-password-input').type(password);
-});
+// Cypress.Commands.add('login', async () => {
+//   const { email, password } = await import('../fixtures/example.json');
+//   cy.visit('/');
+//   cy.get('#sign-up-button').click();
+//   cy.get('#auth-email-input').type(email);
+//   cy.get('#auth-password-input').type(password);
+// });
 //
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })

@@ -2,7 +2,6 @@ import { Body, Controller, Get, HttpCode, Post, Query, Req, Res } from '@nestjs/
 import { UseAuth } from '../decorators/guard';
 import { Request, Response } from 'express';
 import { AuthService } from './auth.service';
-
 @Controller('auth')
 export class AuthController {
   constructor(private readonly auth: AuthService) {}

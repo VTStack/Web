@@ -2,7 +2,7 @@ import { render } from 'react-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
-import { Root } from '@v-thomas/thunder/shell';
+import App from '@v-thomas/thunder/app';
 import './globals.css';
 
 import {
@@ -36,7 +36,7 @@ const store = configureStore({
 
 render(
   <Provider store={store}>
-    <Root />
+    <App />
   </Provider>,
   document.getElementById('root')
 );
