@@ -6,23 +6,17 @@ export interface DividerProps {
   marginUnder?: boolean;
 }
 
-const StyledDivider = styled.div`
+export const Divider = styled.div<DividerProps>`
   background-color: ${({ theme = {} }) => theme?.background?.third};
   height: 1px;
   margin: 0 auto;
 
   margin-block: 2rem;
-  ${({ marginUnder = true }: DividerProps) =>
+  ${({ marginUnder = true }) =>
     marginUnder
       ? null
       : css`
           margin-bottom: 0;
         `}
-  width: ${({ width }: DividerProps) => width || '97.5%'};
+  width: ${({ width }) => width || '97.5%'};
 `;
-
-export function Divider(props: DividerProps) {
-  return <StyledDivider {...props} />;
-}
-
-export default Divider;

@@ -2,15 +2,5 @@
   "name": "@v-thomas/thunder-data-access",
   "private": true,
   "version": "0.0.1",
-  "type": "commonjs",
-  "peerDependencies": {
-    "@reduxjs/toolkit": "^1.8.0",
-    "axios": "^0.26.1"
-  },
-  "dependencies": {
-    "axios": "^0.26.1"
-  },
-  "devDependencies": {
-    "@reduxjs/toolkit": "^1.8.0"
-  }
+  "type": "commonjs"
 }

@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite';
-import { dependencies } from './package.json';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react';
 
@@ -43,8 +42,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-router-dom', 'react-dom'],
-          ...renderChunks(dependencies)
+          vendor: ['react', 'react-router-dom', 'react-dom']
         },
 
         compact: false,

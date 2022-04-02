@@ -1,24 +1,25 @@
 // eslint-disable-next-line node/no-unpublished-require
 const TerserPlugin = require('terser-webpack-plugin');
 const { resolve } = require('path');
+const { cwd } = require('process');
 
 module.exports = (options, webpack) => {
   const lazyImports = ['@nestjs/microservices/microservices-module', '@nestjs/websockets/socket-module'];
 
   return {
-    ...options,
     externals: ['util/types'],
-    entry: {
-      main: `./src/main.ts`
-    },
+
     mode: 'production',
-    output: {
-      filename: 'main.js',
-      path: resolve(process.cwd() + '/../../dist/apps/thunderbolt')
-    },
+    ...options,
+    // entry: { main: resolve(cwd(), './src/main.ts') },
+
+    // output: {
+    //   filename: 'main.js',
+    //   path: resolve(cwd() + '/../../dist/apps/thunderbolt')
+    // },
 
     resolve: {
-      extensions: ['.ts', '.js']
+      extensions: ['.ts', '.js', '.json']
     },
     optimization: {
       minimize: true,
@@ -36,10 +37,11 @@ module.exports = (options, webpack) => {
       ...options.plugins,
       new webpack.IgnorePlugin({
         checkResource(resource) {
-          if (lazyImports.includes(resource)) {
+          if (lazyImports.findIndex(resource) !== -1) {
             try {
               require.resolve(resource);
             } catch (err) {
+              console.log(err);
               return true;
             }
           }

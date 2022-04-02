@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 
 import { Button } from './button';
-import { DarkTheme } from '@v-thomas/thunder/theme';
+import { DarkTheme } from '@v-thomas/shared/theme';
 import { ThemeProvider } from 'styled-components';
 
 describe('Button', () => {

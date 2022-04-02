@@ -28,7 +28,7 @@ export interface MoviesEntity {
 }
 
 export interface MoviesState extends EntityState<MoviesEntity> {
-  loadingStatus: 'NOT_LOADING' | 'LOADING' | 'LOADED' | 'ERROR';
+  loadingStatus: 'NOT_LOADED' | 'LOADING' | 'LOADED' | 'ERROR';
   error: string | null;
   groupId: string | null;
 }
@@ -37,13 +37,12 @@ export const moviesAdapter = createEntityAdapter<MoviesEntity>();
 
 export const fetchGroupMovies = createAsyncThunk(
   'movies/fetchStatus',
-  async (action: { payload: { groupId: string } }, thunkAPI) => {
+  async (action: { payload: { groupId: string; clearMovies?: boolean } }, thunkAPI) => {
     const { groupId } = action.payload;
-    const { movies: movieState }: any = thunkAPI.getState();
-    if (movieState.loadingStatus === 'LOADING') {
-      const [movies, error] = await getAllMovies(groupId);
-      return error ? thunkAPI.rejectWithValue(error.toString()) : movies;
-    }
+    const { movies: movieState }: { movies: MoviesState } = thunkAPI.getState() as any;
+    console.log(movieState);
+    const [movies, error] = await getAllMovies(groupId);
+    return error ? thunkAPI.rejectWithValue(error.toString()) : movies;
   }
 );
 
@@ -76,7 +75,7 @@ export const getMovieBySearch = createAsyncThunk(
 );
 
 export const initialMoviesState: MoviesState = moviesAdapter.getInitialState({
-  loadingStatus: 'NOT_LOADING',
+  loadingStatus: 'NOT_LOADED',
   error: null,
   groupId: null
 });
@@ -90,20 +89,22 @@ export const moviesSlice = createSlice({
       state.groupId = null;
       state.entities = {};
       state.error = null;
-      state.loadingStatus = 'NOT_LOADING';
+      state.loadingStatus = 'NOT_LOADED';
     }
   },
   extraReducers: (builder: any) => {
     builder
-      .addCase(fetchGroupMovies.pending, (state: MoviesState) => {
-        state.loadingStatus = 'LOADING';
+      .addCase(fetchGroupMovies.pending, (state: MoviesState, action: PayloadAction<MoviesEntity[]>) => {
+        if (Object.keys(state.entities).length === 0 && state.ids.length === 0) {
+          state.loadingStatus = 'LOADING';
+        }
+
         state.error = null;
       })
       .addCase(fetchGroupMovies.fulfilled, (state: MoviesState, action: PayloadAction<MoviesEntity[]>) => {
         const groupId = window.location.hash.split('/')[3];
         state.loadingStatus = 'LOADED';
-
-        if (groupId) moviesAdapter.setAll(state, action.payload);
+        if (groupId && action.payload) moviesAdapter.setAll(state || initialMoviesState, action.payload);
       })
       .addCase(fetchGroupMovies.rejected, (state: MoviesState, action: any) => {
         state.loadingStatus = 'ERROR';

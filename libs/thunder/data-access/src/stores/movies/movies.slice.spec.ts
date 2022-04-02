@@ -3,7 +3,7 @@ import { moviesAdapter, moviesReducer, MoviesState, clearMovies, fetchGroupMovie
 describe('movies reducer', () => {
   it('should handle initial state', () => {
     const expected = moviesAdapter.getInitialState({
-      loadingStatus: 'NOT_LOADING',
+      loadingStatus: 'NOT_LOADED',
       error: null,
       groupId: null
     } as MoviesState);
