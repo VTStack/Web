@@ -1,26 +1,24 @@
-import { Navbar } from '../../components/navbar/navbar';
+import { PrivateNavbar } from '@v-thomas/thunder/ui';
+import { fetchGroupMovies, getMovieBySearch } from '@v-thomas/thunder/data-access';
+
+import { Divider, Title, Button, Input } from '@v-thomas/shared/ui';
+
 import MovieCard from '../../components/movie-card/movie-card';
-import { Button, Input } from '@v-thomas/shared/ui';
 import { Container, Form, Grid, GridAnimation, RemoveAtSmall } from './home.styles';
+import { NoMovies } from './components/no-movies';
 import { useGroup, useMovies } from '../../../../../hooks';
+
 import { useNavigate } from 'react-router-dom';
-import { Divider, Title } from '@v-thomas/shared/ui';
-import NoMovies from './components/no-movies/no-movies';
-import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchGroupMovies, getMovieBySearch, groupsAdapter } from '@v-thomas/thunder/data-access';
 
 export function GroupHomePage() {
   const { movies, clearMovies, movieState } = useMovies();
   const { group, allGroups } = useGroup();
   const router = useNavigate();
-
   const { register, watch, handleSubmit } = useForm();
-
   const [lastSearch, setLastSearch] = useState<null | string>('');
-
   const dispatch = useDispatch();
 
   const search = watch('search', '');
@@ -40,7 +38,7 @@ export function GroupHomePage() {
 
   return (
     <Container>
-      <Navbar
+      <PrivateNavbar
         title={group?.name}
         rightButtons={
           <Button variant="text" onClick={() => router('../search')}>

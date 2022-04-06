@@ -20,7 +20,7 @@
         "entryFile": "libs/shared/ui/src/public_api.ts",
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-        "compiler": "babel",
+        "compiler": "swc",
         "assets": [
           {
             "glob": "libs/shared/ui/README.md",

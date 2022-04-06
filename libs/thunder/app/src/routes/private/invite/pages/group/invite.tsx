@@ -1,17 +1,10 @@
 import { Button, Code, Modal, Row, Text, Title } from '@v-thomas/shared/ui';
-import { motion } from 'framer-motion';
 import { useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import styled from 'styled-components';
 import { addMember, fetchInvite, getInviteState, selectAllInvites } from '@v-thomas/thunder/data-access';
 import InviteOwner from './components/invite-owner/invite-owner';
-
-const BtnContainer = styled(motion.div)`
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-`;
+import { ButtonContainer } from '@v-thomas/thunder/ui';
 
 export function InvitePage() {
   const dispatch = useDispatch();
@@ -23,10 +16,8 @@ export function InvitePage() {
   const router = useNavigate();
   const invite = useSelector(selectAllInvites);
   useLayoutEffect(() => void dispatch(fetchInvite({ payload: { inviteId } })), [dispatch, inviteId]);
-  console.log(state.error);
   if (state.error === 'OWNER_OF_INVITE') return <InviteOwner />;
   if (state.error === 'INVITE_NOT_FOUND') return <div>invite not found</div>;
-  console.log(invite);
   async function accept() {
     dispatch(addMember({ payload: { inviteId } }));
     // router(`/app/group/${invite.}`);
@@ -45,12 +36,12 @@ export function InvitePage() {
 
         <Text>You have been invited to {state.group?.name}. Do you want to join?</Text>
 
-        <BtnContainer style={{ marginLeft: 'auto' }}>
+        <ButtonContainer style={{ marginLeft: 'auto' }}>
           <Button variant="outlined" onClick={decline}>
             Decline
           </Button>
           <Button onClick={accept}>Accept</Button>
-        </BtnContainer>
+        </ButtonContainer>
       </Row>
     </Modal>
   );

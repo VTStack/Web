@@ -1,0 +1,43 @@
+{
+  "root": "libs/honey/app",
+  "sourceRoot": "libs/honey/app/src",
+  "projectType": "library",
+  "tags": ["scope:honey"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/honey/app",
+        "tsConfig": "libs/honey/app/tsconfig.lib.json",
+        "project": "libs/honey/app/package.json",
+        "entryFile": "libs/honey/app/src/public_api.tsx",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/honey/app/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/honey/app/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/honey/app"],
+      "options": {
+        "jestConfig": "libs/honey/app/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

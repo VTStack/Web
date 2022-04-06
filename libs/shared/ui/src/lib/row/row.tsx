@@ -3,20 +3,21 @@ import { motion } from 'framer-motion';
 
 export interface RowInputs {
   gap?: string;
+  padding?: string;
 }
 
 export const Row = styled(motion.div)`
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  ${({ gap = '1' }: RowInputs) => {
-    if (gap !== 'auto') {
-      return css`
-        gap: ${gap}rem;
-        justify-content: space-between;
-      `;
-    } else return null;
-  }};
+  flex-direction: row;
+  ${({ gap = '1' }: RowInputs) =>
+    gap !== 'auto'
+      ? css`
+          gap: ${gap}rem !important;
+        `
+      : css`
+          justify-content: space-between;
+        `};
+  padding: ${({ padding = '0' }: RowInputs) => `${padding}rem`};
 `;
 
 export function RowTest(props: RowInputs) {

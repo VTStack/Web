@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import { dependencies } from './package.json';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react';
-import eslint from '@rollup/plugin-eslint';
 
 const renderChunks = (deps: Record<string, string>) => {
   const chunks = {};
@@ -20,7 +19,7 @@ export default defineConfig({
     // reactRefresh({ include: '../../libs/thunder' }),
     tsconfigPaths({ root: '../../' }),
     react({
-      exclude: /\.stories\.(t|j)sx$/,
+      exclude: /(\.stories\.(t|j)sx$|\.spec\W.(t|j)sx$)/,
       include: '**/*.tsx',
       jsxRuntime: 'automatic',
       fastRefresh: true,
@@ -48,7 +47,7 @@ export default defineConfig({
           ...renderChunks(dependencies)
         },
 
-        compact: false,
+        compact: true,
         generatedCode: 'es5',
         strict: false,
         esModule: false

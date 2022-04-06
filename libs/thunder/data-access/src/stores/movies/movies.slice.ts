@@ -40,7 +40,6 @@ export const fetchGroupMovies = createAsyncThunk(
   async (action: { payload: { groupId: string; clearMovies?: boolean } }, thunkAPI) => {
     const { groupId } = action.payload;
     const { movies: movieState }: { movies: MoviesState } = thunkAPI.getState() as any;
-    console.log(movieState);
     const [movies, error] = await getAllMovies(groupId);
     return error ? thunkAPI.rejectWithValue(error.toString()) : movies;
   }

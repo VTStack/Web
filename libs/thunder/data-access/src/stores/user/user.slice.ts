@@ -9,10 +9,12 @@ export interface UserState {
   id?: string | null;
   email?: string | null;
   createdAt?: string | null;
+  hasAuthedInSession?: boolean;
 }
 export const initialUserState: UserState = {
   loadingStatus: 'NOT_LOADED',
-  error: null
+  error: null,
+  hasAuthedInSession: false
 };
 
 export const fetchUser = createAsyncThunk('user/fetchUser', async (_, thunkAPI) => {
@@ -52,7 +54,15 @@ export const userSlice: Slice = createSlice({
   name: USER_FEATURE_KEY,
   initialState: initialUserState,
   reducers: {
-    clearAuthErrors: state => void (state.error = null)
+    clearAuthErrors: state => void (state.error = null),
+    removeAuthed: (state: UserState): UserState => ({
+      ...state,
+      loadingStatus: 'NOT_AUTHED',
+      email: null,
+      createdAt: null,
+      id: null,
+      error: null
+    })
   },
   extraReducers: builder => {
     builder
@@ -87,7 +97,8 @@ export const userSlice: Slice = createSlice({
           error: null,
           id,
           email,
-          createdAt
+          createdAt,
+          hasAuthedInSession: true
         };
       })
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -99,10 +110,13 @@ export const userSlice: Slice = createSlice({
         state.loadingStatus = 'LOADING';
       })
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      .addCase(signOutUser.fulfilled, (state: UserState, action: any): UserState => {
+      .addCase(signOutUser.fulfilled, (state: UserState): UserState => {
         return {
-          loadingStatus: 'AUTHED',
-          error: null
+          loadingStatus: 'NOT_AUTHED',
+          error: null,
+          createdAt: null,
+          email: null,
+          id: null
         };
       })
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -115,6 +129,6 @@ export const userSlice: Slice = createSlice({
 
 export const userReducer = userSlice.reducer;
 
-export const { clearAuthErrors } = userSlice.actions;
+export const { clearAuthErrors, removeAuthed } = userSlice.actions;
 
 export const getUserState = (rootState: Record<string, UserState>): UserState => rootState[USER_FEATURE_KEY];

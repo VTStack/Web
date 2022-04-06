@@ -71,7 +71,6 @@ export const groupsSlice = createSlice({
         state.loadingStatus = 'LOADING';
       })
       .addCase(fetchGroups.fulfilled, (state: GroupsState, action: PayloadAction<GroupsEntity[]>) => {
-        console.log(action.payload);
         groupsAdapter.setAll(state, action.payload);
         state.loadingStatus = 'LOADED';
       })

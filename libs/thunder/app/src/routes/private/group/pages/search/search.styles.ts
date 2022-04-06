@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Col } from '@v-thomas/shared/ui';
+import { Row } from '@v-thomas/shared/ui';
 import { motion } from 'framer-motion';
 
-export const SearchContainer = styled(Col)`
+export const SearchContainer = styled(Row)`
   width: 100%;
   & > * {
     width: 100%;
