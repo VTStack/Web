@@ -1,4 +1,4 @@
-import { Button, Col, Input, Modal, Title } from '@v-thomas/shared/ui';
+import { Button, Row, Input, Modal, Title } from '@v-thomas/shared/ui';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
@@ -32,10 +32,10 @@ export function CreateGroupButton() {
       </Button>
       <Modal isOpen={isOpen} width="30" onClickAway={toggleOpen}>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <Col>
+          <Row>
             <Title>Create Group</Title>
             {/* <img src={X} alt="" onClick={toggleOpen} style={{ cursor: 'pointer' }} /> */}x
-          </Col>
+          </Row>
           <Input {...register('groupName')} />
           <Button type="submit">Submit</Button>
         </Form>

@@ -1,9 +1,8 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Footer } from './components/footer/footer';
-import { Navbar } from './components/navbar';
-import { HomePage } from './home';
-import { Pricing } from './pricing';
+import { PublicFooter, PublicNavbar } from '@v-thomas/thunder/ui';
+import { HomePage } from './pages/home';
+import { usePublicAuth } from '../../hooks/auth';
 
 const Root = styled.div`
   width: 100vw;
@@ -13,23 +12,17 @@ const Root = styled.div`
   padding: 1.5rem;
 `;
 
-const Center = styled.div`
-  width: 100%;
-  height: 100%;
-`;
-
 export const PublicRootRoutes = () => {
+  usePublicAuth();
+
   return (
     <Root>
-      <Navbar />
-      <Center>
-        <Routes>
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/" element={<Navigate replace={true} to="/home" />} />
-          <Route path="/pricing" element={<Pricing />} />
-        </Routes>
-      </Center>
-      <Footer />
+      <PublicNavbar />
+      <Routes>
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<Navigate replace={true} to="/home" />} />
+      </Routes>
+      <PublicFooter />
     </Root>
   );
 };

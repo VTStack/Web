@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Props } from '../button';
 import { motion } from 'framer-motion';
+
 export const CoreButton = styled(motion.button)`
   color: ${({ theme }) => theme.color.primary};
 

@@ -1,7 +1,7 @@
-import { Button, Card, Text, Title } from '@v-thomas/shared/ui';
+import { ButtonContainer } from '@v-thomas/thunder/ui';
+import { Button, Card, Row, Text, Title } from '@v-thomas/shared/ui';
 import styled from 'styled-components';
 
-/* eslint-disable-next-line */
 export interface MovieSearchCardProps {
   movie: unknown;
   onAdd: () => void;
@@ -14,24 +14,11 @@ const SMovieSearchCard = styled(Card)`
   flex-direction: row;
 `;
 
-const Image = styled.img`
-  width: 200px;
-  height: 300px;
-`;
-
-const Container = styled.div`
+const Container = styled(Row)`
   padding: 2rem;
   display: flex;
   flex-direction: column;
   position: relative;
-`;
-
-const BtnContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  align-items: center;
-  margin-top: auto;
 `;
 
 export function MovieSearchCard({ movie, onAdd }: MovieSearchCardProps) {
@@ -39,16 +26,18 @@ export function MovieSearchCard({ movie, onAdd }: MovieSearchCardProps) {
 
   return (
     <SMovieSearchCard>
-      <Image src={poster} alt="" />
-      <Container>
-        <Title>{(movie as any).title}</Title>
-        <Text>{(movie as any).overview}</Text>
-        <BtnContainer>
+      <img src={poster} alt="" width="200" height="300" />
+      <Row padding="2" gap="1rem">
+        <div>
+          <Title>{(movie as any).title}</Title>
+          <Text>{(movie as any).overview}</Text>
+        </div>
+        <ButtonContainer>
           <Button variant="text" onClick={onAdd}>
             Add To group
           </Button>
-        </BtnContainer>
-      </Container>
+        </ButtonContainer>
+      </Row>
     </SMovieSearchCard>
   );
 }

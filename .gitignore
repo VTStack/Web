@@ -20,4 +20,3 @@ local
 !/.yarn/releases
 
 .aws
-buildspec.yml

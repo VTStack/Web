@@ -24,14 +24,17 @@
     "removeComments": true,
     "newLine": "lf",
     "paths": {
-      "@v-thomas/honey/shell": ["libs/honey/shell/src/public_api.tsx"],
-      "@v-thomas/honey/theme": ["libs/honey/theme/src/public_api.ts"],
+      "@v-thomas/honey/app": ["libs/honey/app/src/public_api.tsx"],
+      "@v-thomas/media/*": ["media/*"],
       "@v-thomas/root/*": ["*"],
+      "@v-thomas/shared/styles": ["libs/shared/styles/globals.css"],
       "@v-thomas/shared/theme": ["libs/shared/theme/src/public_api.ts"],
       "@v-thomas/shared/ui": ["libs/shared/ui/src/public_api.ts"],
       "@v-thomas/shared/web-utils": ["libs/shared/web-utils/src/public_api.ts"],
       "@v-thomas/thunder/app": ["libs/thunder/app/src/public_api.tsx"],
-      "@v-thomas/thunder/data-access": ["libs/thunder/data-access/src/public_api.ts"]
+      "@v-thomas/thunder/assets/*": ["libs/thunder/assets/*"],
+      "@v-thomas/thunder/data-access": ["libs/thunder/data-access/src/public_api.ts"],
+      "@v-thomas/thunder/ui": ["libs/thunder/ui/src/public_api.ts"]
     }
   }
 }

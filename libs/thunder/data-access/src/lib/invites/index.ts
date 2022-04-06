@@ -46,7 +46,6 @@ export async function getUserInvites(groupId: string) {
   const { data: response } = await axios.get(url + '/invite/user_invites?group_id=' + groupId, {
     withCredentials: true
   });
-  console.log('INVINTES', response);
   return response;
 }
 

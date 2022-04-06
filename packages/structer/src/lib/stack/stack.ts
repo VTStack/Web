@@ -1,5 +1,6 @@
 export class Stack {
   #array: unknown[];
+
   constructor(array: unknown[] = []) {
     this.#array = array;
   }

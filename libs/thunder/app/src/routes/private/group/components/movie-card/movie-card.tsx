@@ -8,9 +8,7 @@ export function MovieCard({ movie, duration = 0 }: MovieCardProps) {
 
   const router = useNavigate();
 
-  const gotoMovie = () => {
-    router(movie.id);
-  };
+  const gotoMovie = () => router(movie.id);
 
   return (
     <Container

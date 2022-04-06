@@ -9,7 +9,7 @@ export const ContainedButton = styled(CoreButton)`
   }
 
   &[disabled] {
-    background-color: ${({ theme }) => theme.text.secondary};
+    background-color: ${({ theme }) => theme.text.third};
     cursor: not-allowed;
   }
 `;

@@ -3,10 +3,10 @@
   "projects": {
     "algos": "packages/algos",
     "honey": "apps/honey",
+    "honey-app": "libs/honey/app",
     "honey-e2e": "apps/e2e/honey",
-    "honey-feature-app": "libs/honey/feature-app",
-    "honey-shell": "libs/honey/shell",
-    "honey-theme": "libs/honey/theme",
+    "me": "apps/me",
+    "me-e2e": "apps/me-e2e",
     "shared-core-ui-e2e": "apps/e2e/core-ui",
     "shared-theme": "libs/shared/theme",
     "shared-ui": "libs/shared/ui",
@@ -16,6 +16,7 @@
     "thunder-app": "libs/thunder/app",
     "thunder-data-access": "libs/thunder/data-access",
     "thunder-e2e": "apps/e2e/thunder",
+    "thunder-ui": "libs/thunder/ui",
     "thunderbolt": "apps/thunderbolt"
   }
 }

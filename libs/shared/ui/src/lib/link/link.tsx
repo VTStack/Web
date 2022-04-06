@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ReactNode } from 'react';
 
 import { Link as NavLink } from 'react-router-dom';
@@ -7,9 +7,10 @@ export interface LinkProps {
   to?: string;
   onClick?: () => void;
   external?: boolean;
+  noLine?: boolean;
 }
 
-const StyledLink = styled(NavLink)`
+const StyledLink = styled(NavLink)<LinkProps>`
   color: ${({ theme }) => theme.color.primary};
   text-decoration: none;
 
@@ -18,22 +19,24 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-const StyledA = styled.a`
+const StyledA = styled.a<LinkProps>`
   color: ${({ theme }) => theme.color.primary};
   text-decoration: none;
 
-  &:hover {
-    text-decoration: underline;
-  }
+  ${({ noLine }) =>
+    !noLine &&
+    css`
+      &:hover {
+        text-decoration: underline;
+      }
+    `}
 `;
 
-export function Link({ to, children, onClick, external }: LinkProps) {
+export function Link({ children, external, ...props }: LinkProps) {
   return !external ? (
-    <StyledLink to={to || '#'} {...{ onClick: onClick }}>
-      {children}
-    </StyledLink>
+    <StyledLink {...(props as any)}>{children}</StyledLink>
   ) : (
-    <StyledA href={to} {...{ onClick: onClick }}>
+    <StyledA href={props.to} {...props} target="_blank">
       {children}
     </StyledA>
   );
