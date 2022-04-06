@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import AwayListener from 'react-click-away-listener';
-import { Row } from '../../public_api';
+import { Col } from '../../public_api';
 import { AnimatePresence, motion } from 'framer-motion';
 
 /* eslint-disable-next-line */
@@ -42,7 +42,7 @@ export function Modal({ isOpen, children, width, onClickAway = () => void 0, gap
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 1.05, opacity: 0 }}
               transition={{ duration: 0.25 }}>
-              <Row gap={gap}>{children}</Row>
+              <Col gap={gap}>{children}</Col>
             </Inner>
           </AwayListener>
         </Background>

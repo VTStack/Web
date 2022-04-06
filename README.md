@@ -5,25 +5,10 @@
 
 <br />
 
-# 🧑‍💻 Codebase
+🧑‍💻 Codebase
+===========
 
-</div>
-
-<p align="center">
-This is all of my Codebase cramped into one monorepo.
-Its a mix of websites, servers, libraries and packages!
-</p>
-
-<div align="center">
-
-### [Tech used](#tech-used) **·** [Structure](#frontend-sructure) **·** [Projects](#projects)
-
-</div>
-
-
-<div align="center" id="tech-used">
-
-<br />
+<div id="tech-used"></div>
 
 ![](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
 ![](https://img.shields.io/badge/nestjs-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
@@ -31,22 +16,17 @@ Its a mix of websites, servers, libraries and packages!
 ![Prisma ORM](https://img.shields.io/badge/prisma-1B222D?style=for-the-badge&logo=prisma&logoColor=white)
 
 ![](https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white)
-![](https://shields.io/badge/-Nx-blue?style=for-the-badge&logo=nx)
 ![](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
+
+### [Tech used](#tech-used) **·** [Structure](#frontend-sructure) **·** [Projects](#projects)
+
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Cascadia+Code&duration=7000&center=true&vCenter=true&lines=Hi!+I'm+Vincent.;This+is+where+i+host+my+projects.;Give+it+a+star+if+you+liked+it+%F0%9F%98%8A)](https://git.io/typing-svg)
 
 </div>
 
 ---
-<!--
-# Idea!!
 
-**<https://projects.v-thomas.xyz>**
-
-modal about which projects i have deployed
--->
-
-
-## Frontend Sructure
+## 👷🏻 Frontend Sructure
 
 Apps are divided into 4 library-types. These apps are not developed like monoliths but will be bundled together for ease of deployment.
 
@@ -67,6 +47,7 @@ All these library types are scoped to the projects they belong to **unless** the
 | **Thunder**           | _Movie Reviewer App_       |               |           👷🏾             |                           |
 | **Honey**             | _Subscription Handler_     |               |                          |            🚦             |
 | **Butler**            | _New tab extention_        |               |                          |            🚦             |
+| **Me**                | _Portfolio_                |               |           👷🏾              |                           |
 |   **Servers**         |                            | ⚡ **Done**   | 🚧 **In Development**    | 🤔 **Planning to build** |
 | **Thunderbolt**       | _Server to Thunder_        |               |            👷🏾            |                           |
 | **Nightclubguard**    | _Server to Clubguard_      |               |                          |            🚦             |
@@ -75,5 +56,10 @@ All these library types are scoped to the projects they belong to **unless** the
 | **Algos**             | _General simple algorithms_|               |           👷🏾             |                           |
 | **Other software**    |                            | ⚡ **Done**  | 🚧 **In Development**    | 🤔 **Planning to build**  |
 | **Clubguard**         | _Auth Discord Bot_         |               |                          |             🚦            |
+
+---
+
+## 📜 Licensing
+This repository is under the MIT license.
 
 ---

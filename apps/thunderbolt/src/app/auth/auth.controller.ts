@@ -14,7 +14,6 @@ export class AuthController {
     res.cookie('access_token', token, {
       httpOnly: true,
       secure: true
-      // expires: new Date()
     });
     // eslint-disable-next-line camelcase
     return { access_token: token };
@@ -43,7 +42,7 @@ export class AuthController {
 
   @Get('user')
   @UseAuth('jwt')
-  async getUser(@Req() req: Request, @Query('user_id') userId?: string) {
+  async getUser(@Req() req: any, @Query('user_id') userId?: string) {
     if (!userId) return req.user;
     return await this.auth.getUserById(userId);
   }

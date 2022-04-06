@@ -23,7 +23,6 @@ export const fetchInvite = createAsyncThunk(
   async (action: { payload: { inviteId: string } }, thunkAPI) => {
     const { inviteId } = action.payload;
     const [invite, error] = await getInviteFromId(inviteId);
-    console.log(error.toJSON());
     if (error.toJSON().status === 409) return thunkAPI.rejectWithValue({ type: 'OWNER_OF_INVITE' });
     if (error.toJSON().status === 400) return thunkAPI.rejectWithValue({ type: 'INVITE_NOT_FOUND' });
     return invite;
@@ -55,7 +54,6 @@ export const inviteSlice = createSlice({
         state.loadingStatus = 'LOADING';
       })
       .addCase(fetchInvite.fulfilled, (state: InviteState, action: PayloadAction<any>) => {
-        console.log(action.payload);
         const { inviteOwnerId, Group, InviteOwner } = action.payload;
         state.ownerId = inviteOwnerId;
         state.group = {

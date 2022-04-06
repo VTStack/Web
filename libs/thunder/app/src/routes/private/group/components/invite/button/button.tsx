@@ -1,14 +1,11 @@
-import { Button, Card, Code, Col, Modal, Row, Text, Title } from '@v-thomas/shared/ui';
-import { createInviteLink, getUserInvites, removeInvite, ROLE } from '@v-thomas/thunder/data-access';
-import { motion } from 'framer-motion';
+import { Button, Card, Row, Modal, Text, Title, Col } from '@v-thomas/shared/ui';
+import { createInviteLink, getUserInvites, ROLE } from '@v-thomas/thunder/data-access';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
 import { removeInvite as RemoveInvite } from '@v-thomas/thunder/data-access';
 import { useSnackbar } from 'notistack';
 import * as React from 'react';
-import { ButtonContainer } from './button.styles';
-
+import { ButtonContainer } from '@v-thomas/thunder/ui';
 export function InviteButton() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -30,7 +27,6 @@ export function InviteButton() {
   async function createInvite() {
     const [data] = await createInviteLink(groupId, ROLE.USER);
     const userInvites = await getUserInvites(groupId);
-    console.log(data, userInvites);
     setInvites(userInvites);
   }
   function toggleOpen() {
@@ -74,23 +70,21 @@ export function InviteButton() {
         {!invites.length ? (
           <Text>You don't have any invite links. Would you like to create one?</Text>
         ) : (
-          invites.map((v: any, index: number) => {
-            return (
-              <Card key={index} style={{ cursor: 'unset' }}>
-                <Col>
-                  <Row gap="0.5" style={{ cursor: 'pointer' }} onClick={() => copyInviteLink(index)}>
-                    <Title size="1.3">{v.Group.name}</Title>
-                    <Text>Created at: {new Date(v.createdAt).toDateString()}</Text>
-                  </Row>
-                  <Button variant="outlined" onClick={() => removeInvite(index)}>
-                    remove
-                  </Button>
-                </Col>
-              </Card>
-            );
-          })
+          invites.map((v: any, index: number) => (
+            <Card key={index} style={{ cursor: 'unset' }}>
+              <Col>
+                <Row gap="0.5" style={{ cursor: 'pointer' }} onClick={() => copyInviteLink(index)}>
+                  <Title size="1.3">{v.Group.name}</Title>
+                  <Text>Created at: {new Date(v.createdAt).toDateString()}</Text>
+                </Row>
+                <Button variant="outlined" onClick={() => removeInvite(index)}>
+                  Remove
+                </Button>
+              </Col>
+            </Card>
+          ))
         )}
-        <ButtonContainer>
+        <ButtonContainer gap="1">
           <Button onClick={() => setIsOpen(val => !val)} variant="text">
             close
           </Button>

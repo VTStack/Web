@@ -9,6 +9,7 @@ export class Queue {
     this.#array.unshift(value);
     return this.#array;
   }
+
   pop() {
     return this.#array.pop();
   }

@@ -1,11 +1,10 @@
-import { Navbar } from '../../components/navbar';
+import { PrivateNavbar } from '@v-thomas/thunder/ui';
 import { useEffect, useReducer } from 'react';
 import { getMovieRecommendations } from '@v-thomas/thunder/data-access';
 import MovieSearchCard from '../../components/movie-search-card/movie-search-card';
 import { Button, Input, Title } from '@v-thomas/shared/ui';
 import { useForm } from 'react-hook-form';
 import { useSnackbar } from 'notistack';
-import { useDispatch } from 'react-redux';
 import { useGroup, useMovies } from '../../../../../hooks';
 import { searchReducer } from './search.reducers';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -51,14 +50,13 @@ export function GroupSearchPage() {
   }, [movie, groupId, movieState]);
 
   const addMovie = async (index: number) => {
-    console.log(movies.movies[index]);
     AddMovie(movies.movies[index]);
     enqueueSnackbar({ message: 'Added movie!', variant: 'success' });
   };
 
   return (
     <Container>
-      <Navbar
+      <PrivateNavbar
         title={group?.name}
         leftButtons={
           <Button variant="text" onClick={() => router('..')}>

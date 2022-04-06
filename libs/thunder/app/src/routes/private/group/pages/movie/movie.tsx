@@ -1,7 +1,7 @@
 import { Text, Title } from '@v-thomas/shared/ui';
 import { useParams } from 'react-router-dom';
 import { useMovie } from '../../../../../hooks';
-import { MovieLayout } from '../../../../../layouts/movie/movie';
+import { MovieLayout } from '@v-thomas/thunder/ui';
 import { MainContainer, Preview, HeaderContainer, PreviewContainer, ReviewContainer } from './movie.styles';
 import { IslandContainerVariant, IslandVariant } from './movie.variants';
 

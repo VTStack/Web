@@ -28,10 +28,8 @@ export const useMovies = (
   const movies = useSelector(selectAllMovies);
 
   const checkgroupMovies = useCallback(() => {
-    if (rootMovies.groupId !== groupId && rootMovies.loadingStatus === 'NOT_LOADED') {
-      console.log(rootMovies);
+    if (rootMovies.groupId !== groupId && rootMovies.loadingStatus === 'NOT_LOADED')
       dispatch(fetchGroupMovies({ payload: { groupId } }));
-    }
   }, [groupId, rootMovies, dispatch]);
 
   const addMovie = (movie: ApiMovieModel) => {

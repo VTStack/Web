@@ -6,14 +6,12 @@ export interface ColProps {
 
 export const Col = styled.div<ColProps>`
   display: flex;
-  flex-direction: row;
-  ${({ gap }) =>
-    gap === 'auto'
+  flex-direction: column;
+  justify-content: space-between;
+  ${({ gap = '1' }) =>
+    gap !== 'auto'
       ? css`
-          justify-content: space-between;
+          gap: ${gap}rem !important;
         `
-      : css`
-          justify-content: space-between;
-          gap: ${gap};
-        `}
+      : null};
 `;

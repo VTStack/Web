@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
 import App from '@v-thomas/thunder/app';
-import './globals.css';
+import '@v-thomas/shared/styles/globals.css';
 
 import {
   AUTH_FEATURE_KEY,
@@ -33,7 +33,7 @@ const store = configureStore({
   devTools: import.meta.env.DEV,
   enhancers: []
 });
-
+console.log(Provider);
 render(
   <Provider store={store}>
     <App />

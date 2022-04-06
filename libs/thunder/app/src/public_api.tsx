@@ -18,7 +18,7 @@ const Root = styled.div`
 `;
 
 if (window.location.hostname !== 'localhost' && /cloudfront\.net$/.test(window.location.hostname))
-  window.location.href = '//movie.v-thomas.xyz';
+  window.location.href = '//movie.v-thomas.me';
 
 const Styles = styled.div`
   background-color: ${({ theme }: { theme: { background: { primary: string } } }) =>
