@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 export interface ColProps {
   gap?: string;
+  padding?: string;
 }
 
 export const Col = styled.div<ColProps>`
@@ -14,4 +15,5 @@ export const Col = styled.div<ColProps>`
           gap: ${gap}rem !important;
         `
       : null};
+  padding: ${({ padding = '0' }) => `${padding}rem`};
 `;

@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 /* eslint-disable-next-line */
-interface CodeProps {
+export interface CodeProps {
   children: ReactNode;
   padding?: string;
 }

@@ -1,10 +1,7 @@
-import { Button, Title } from '@v-thomas/shared/ui';
+import { Title } from '@v-thomas/shared/ui';
 import { NavLinks, Navbar as SNavbar } from './navbar.styles';
 import { SignInButton } from '../../auth/sign-in-button/sign-in-button';
 import { SignUpButton } from '../../auth/sign-up-button/sign-up-button';
-import { SignOutButton } from '@v-thomas/thunder/ui';
-import { useUser } from '../../../../../app/src/hooks/user';
-import { useNavigate } from 'react-router-dom';
 
 const NavbarAni = {
   initial: { opacity: 0, y: -10 },
@@ -18,27 +15,14 @@ const NavbarAni = {
 };
 
 export function PublicNavbar() {
-  const isAuthed = useUser()[1];
-
-  const router = useNavigate();
-
   return (
     <SNavbar>
       <Title size="1.8" variants={NavbarAni} initial="initial" animate="animate" exit="exit">
         Movie Reviewer
       </Title>
       <NavLinks variants={NavbarAni} initial="initial" animate="animate" exit="exit">
-        {isAuthed ? (
-          <>
-            <SignOutButton />
-            <Button onClick={() => router('/app/groups')}>To Lobby</Button>
-          </>
-        ) : (
-          <>
-            <SignInButton />
-            <SignUpButton />
-          </>
-        )}
+        <SignInButton />
+        <SignUpButton />
       </NavLinks>
     </SNavbar>
   );

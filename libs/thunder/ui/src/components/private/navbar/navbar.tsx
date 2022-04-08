@@ -3,6 +3,7 @@ import { InviteButton } from '../../../../../app/src/routes/private/group/compon
 import { ReactNode } from 'react';
 import { Container, LeftContainer, NavLinks, Middle } from './navbar.styles';
 import styled from 'styled-components';
+import UserAvatar from '../user-avatar/user-avatar';
 
 interface NavbarProps {
   title: string;
@@ -27,6 +28,7 @@ export function PrivateNavbar({ title, leftButtons, rightButtons, middle }: Navb
       <NavLinks>
         {rightButtons}
         <InviteButton />
+        <UserAvatar />
       </NavLinks>
     </Container>
   );

@@ -2,7 +2,7 @@
   "name": "@v-thomas/thunderbolt",
   "version": "0.0.1",
   "description": "This is the backend for thunder",
-  "author": "VincentThomas",
+  "author": "Vincent Thomas",
   "private": true,
   "license": "MIT",
   "repository": {
@@ -39,9 +39,8 @@
     "@nestjs/passport": "^8.1.0",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/platform-fastify": "^8.4.3",
-    "@prisma/client": "dev",
+    "@prisma/client": "^3.9.2",
     "@vendia/serverless-express": "^4.5.4",
-    "aws-lambda": "^1.0.7",
     "axios": "^0.26.1",
     "cookie-parser": "^1.4.6",
     "express": "^4.17.3",
@@ -49,11 +48,9 @@
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "point-of-view": "^5.1.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0",
-    "serverless": "^3.10.0"
+    "rxjs": "^7.2.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
@@ -77,7 +74,7 @@
     "jest": "^27.2.5",
     "prettier": "^2.3.2",
     "prettier-linter-helpers": "^1.0.0",
-    "prisma": "dev",
+    "prisma": "^3.9.2",
     "run-script-webpack-plugin": "^0.0.11",
     "serverless-offline": "^8.5.0",
     "serverless-plugin-optimize": "^4.2.1-rc.1",

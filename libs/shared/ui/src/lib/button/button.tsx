@@ -2,11 +2,14 @@ import { ReactNode } from 'react';
 import { ContainedButton } from './variants/contained';
 import { OutlinedButton } from './variants/outlined';
 import { TextButton } from './variants/text';
-import { AlwaysOutlinedButton } from './variants/always-outlined';
+import { HoverOutlinedButton } from './variants/hover-outlined';
+
+export type SharedButtonVariants = 'contained' | 'outlined' | 'text' | 'hover-outlined';
+
 export interface Props {
   shadow?: `${string}px`;
   size?: string;
-  variant?: 'outlined' | 'text' | 'contained' | 'always-outlined';
+  variant?: SharedButtonVariants;
   onClick?: (e: Record<string, unknown>) => void;
   children: ReactNode;
   [key: string]: unknown;
@@ -20,10 +23,10 @@ export function Button({ variant = 'contained', children, ...props }: Props) {
       return <TextButton {...props}>{children}</TextButton>;
     case 'contained':
       return <ContainedButton {...props}>{children}</ContainedButton>;
+    case 'hover-outlined':
+      return <HoverOutlinedButton {...props}>{children}</HoverOutlinedButton>;
     case 'outlined':
       return <OutlinedButton {...props}>{children}</OutlinedButton>;
-    case 'always-outlined':
-      return <AlwaysOutlinedButton {...props}>{children}</AlwaysOutlinedButton>;
     default:
       return <ContainedButton {...props}>{children}</ContainedButton>;
   }

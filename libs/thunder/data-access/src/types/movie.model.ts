@@ -1,5 +1,5 @@
 export interface DBMovieModel {
-  id: number;
+  id: string;
 
   title: string;
   overview: string;

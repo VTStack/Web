@@ -32,11 +32,13 @@ const StyledA = styled.a<LinkProps>`
     `}
 `;
 
-export function Link({ children, external, ...props }: LinkProps) {
+export function Link({ children, external, to = '#', ...props }: LinkProps) {
   return !external ? (
-    <StyledLink {...(props as any)}>{children}</StyledLink>
+    <StyledLink {...props} to={to}>
+      {children}
+    </StyledLink>
   ) : (
-    <StyledA href={props.to} {...props} target="_blank">
+    <StyledA href={to} {...props} target="_blank">
       {children}
     </StyledA>
   );

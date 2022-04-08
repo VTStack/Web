@@ -1,5 +1,3 @@
-import './globals.css';
-
 const style = `
   font-weight: bold;
   color: red;

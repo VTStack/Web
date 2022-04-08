@@ -2,7 +2,7 @@ import { Title } from '@v-thomas/shared/ui';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 
-interface NavbarProps {
+export interface NavbarProps {
   buttons: ReactNode;
   title: string;
 }
