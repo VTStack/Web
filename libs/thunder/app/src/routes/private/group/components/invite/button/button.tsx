@@ -1,11 +1,9 @@
-import { Button, Card, Row, Modal, Text, Title, Col } from '@v-thomas/shared/ui';
+import { Button, Card, Row, Modal, Text, Title, Col, ButtonContainer } from '@v-thomas/shared/ui';
 import { createInviteLink, getUserInvites, ROLE } from '@v-thomas/thunder/data-access';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { removeInvite as RemoveInvite } from '@v-thomas/thunder/data-access';
 import { useSnackbar } from 'notistack';
-import * as React from 'react';
-import { ButtonContainer } from '@v-thomas/thunder/ui';
 export function InviteButton() {
   const [isOpen, setIsOpen] = useState(false);
 

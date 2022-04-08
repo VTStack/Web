@@ -1,5 +1,5 @@
 import Cross from '@v-thomas/thunder/assets/x-mark.svg';
-import { Button, Input, Link, Modal, Text, Title, Col, Row } from '@v-thomas/shared/ui';
+import { Button, Input, Link, Modal, Text, Title, Col, Row, SharedButtonVariants } from '@v-thomas/shared/ui';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,8 +9,13 @@ import {
   toggleSignUpModal,
   updateEmail,
   updatePassword,
-  signUpUser
+  signUpUser,
+  getUserState
 } from '@v-thomas/thunder/data-access';
+import Joi from 'joi';
+import { joiResolver } from '@hookform/resolvers/joi';
+import { ErrorMsg } from '../sign-in-button/sign-in-button.styles';
+import { Helmet } from 'react-helmet-async';
 
 const Form = styled.form`
   display: flex;
@@ -19,11 +24,16 @@ const Form = styled.form`
   gap: 1rem;
 `;
 
+const schema = Joi.object({
+  email: Joi.string().email({ tlds: { allow: false } }),
+  password: Joi.string().min(7)
+});
+
 export function SignUpButton({
   type = 'contained',
   text = 'Sign Up'
 }: {
-  type?: 'contained' | 'outlined' | 'text';
+  type?: SharedButtonVariants;
   text?: string;
 }) {
   const onSubmit = (v: { email: string; password: string }) => {
@@ -35,7 +45,14 @@ export function SignUpButton({
 
   const dispatch = useDispatch();
 
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors: formErrors }
+  } = useForm({ resolver: joiResolver(schema) });
+
+  const passwordError = formErrors?.['password']?.message;
+  const emailError = formErrors?.['email']?.message;
 
   return (
     <>
@@ -46,6 +63,9 @@ export function SignUpButton({
         {text}
       </Button>
       <Modal isOpen={state.signUp} width="45" gap="1">
+        <Helmet>
+          <title>Movie | Sign up</title>
+        </Helmet>
         <Row gap="auto" style={{ width: '100%' }}>
           <Title>Sign up today</Title>
           <img
@@ -70,6 +90,8 @@ export function SignUpButton({
             })}
             value={state.email}
           />
+          {emailError && <ErrorMsg> {emailError}</ErrorMsg>}
+
           <Input
             placeholder="Password"
             type="password"
@@ -81,6 +103,8 @@ export function SignUpButton({
             })}
             value={state.password}
           />
+          {passwordError && <ErrorMsg> {passwordError}</ErrorMsg>}
+
           <Button>SUBMIT</Button>
         </Form>
         <Row gap="auto">

@@ -4,7 +4,7 @@ type dataTypes = 'INVITE';
 
 type actionType = `${Operations}_${dataTypes}`;
 
-interface inviteState {
+export interface inviteState {
   invite: {
     id: string;
   };

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 
-interface TextProps {
+export interface TextProps {
   restrictWidth?: boolean;
   bold?: boolean;
 }

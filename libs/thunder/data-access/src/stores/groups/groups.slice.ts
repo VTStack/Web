@@ -27,9 +27,7 @@ export const groupsAdapter = createEntityAdapter<GroupsEntity>();
 
 export const fetchGroups = createAsyncThunk('groups/fetchStatus', async (_, thunkAPI) => {
   const [groups, error] = await getAllGroups();
-  if (error) {
-    thunkAPI.dispatch(throwGroupNotFound());
-  }
+  if (error) thunkAPI.dispatch(throwGroupNotFound());
   return error ? thunkAPI.rejectWithValue(error.toString()) : groups;
 });
 

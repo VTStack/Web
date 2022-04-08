@@ -7,7 +7,7 @@ import {
   EntityState,
   PayloadAction
 } from '@reduxjs/toolkit';
-import { getAllMovies, getExistingMoviesBySearch } from '../../lib/movies';
+import { getAllMovies, getExistingMoviesBySearch, removeMovieById } from '../../lib/movies';
 import { addMovieToGroup } from '../../lib/group';
 
 import { ApiMovieModel } from '../../types';
@@ -54,6 +54,15 @@ export const AddMovie = createAsyncThunk(
     return movies;
   }
 );
+export const removeMovie = createAsyncThunk(
+  'movies/removeMovie',
+  async (action: { payload: { movieId: number; groupId: string } }, thunk) => {
+    const { movieId, groupId } = action.payload;
+    const [movies, error] = await removeMovieById(movieId, groupId);
+    if (error) return thunk.rejectWithValue(error);
+    return movies;
+  }
+);
 
 export const getMovieBySearch = createAsyncThunk(
   'movie/bySearch',
@@ -94,10 +103,8 @@ export const moviesSlice = createSlice({
   extraReducers: (builder: any) => {
     builder
       .addCase(fetchGroupMovies.pending, (state: MoviesState, action: PayloadAction<MoviesEntity[]>) => {
-        if (Object.keys(state.entities).length === 0 && state.ids.length === 0) {
+        if (Object.keys(state.entities).length === 0 && state.ids.length === 0)
           state.loadingStatus = 'LOADING';
-        }
-
         state.error = null;
       })
       .addCase(fetchGroupMovies.fulfilled, (state: MoviesState, action: PayloadAction<MoviesEntity[]>) => {
@@ -122,6 +129,19 @@ export const moviesSlice = createSlice({
         state.loadingStatus = 'ERROR';
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
+        state.error = action.error.message;
+      });
+    builder
+      .addCase(removeMovie.pending, (state: MoviesState) => {
+        state.loadingStatus = 'LOADING';
+      })
+      .addCase(removeMovie.fulfilled, (state: MoviesState, action: PayloadAction<MoviesEntity>) => {
+        moviesAdapter.removeOne(state, action.payload.id);
+        state.loadingStatus = 'LOADED';
+      })
+      .addCase(removeMovie.rejected, (state: MoviesState, action: any) => {
+        state.loadingStatus = 'ERROR';
+
         state.error = action.error.message;
       });
     builder.addCase(getMovieBySearch.fulfilled, (state: MoviesState, action: PayloadAction<any>) => {
@@ -151,6 +171,6 @@ const { selectAll, selectEntities } = moviesAdapter.getSelectors();
 export const getMoviesState = (rootState: Record<string, MoviesState>): MoviesState =>
   rootState[MOVIES_FEATURE_KEY];
 
-export const selectAllMovies = createSelector(getMoviesState, selectAll);
+export const selectAllMovies: any = createSelector(getMoviesState, selectAll);
 
-export const selectMoviesEntities = createSelector(getMoviesState, selectEntities);
+export const selectMoviesEntities: any = createSelector(getMoviesState, selectEntities);

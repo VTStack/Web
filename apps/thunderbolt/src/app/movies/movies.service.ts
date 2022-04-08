@@ -54,6 +54,15 @@ export class MoviesService {
     return data;
   }
 
+  async removeMovie(movieId: string) {
+    const data = await this.db.movie.delete({
+      where: {
+        id: movieId
+      }
+    });
+    return data;
+  }
+
   async getBySearchTerm(searchTerm: string) {
     const data = await this.db.movie.findMany({
       where: {

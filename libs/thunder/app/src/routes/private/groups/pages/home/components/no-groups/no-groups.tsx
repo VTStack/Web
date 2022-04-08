@@ -16,7 +16,7 @@ export function NoGroups() {
     <Container>
       <Title>You dont have any groups!</Title>
       <Text>You can create a group here:</Text>
-      <CreateGroupButton />
+      <CreateGroupButton variant="outlined" />
     </Container>
   );
 }

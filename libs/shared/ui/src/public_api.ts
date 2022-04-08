@@ -10,3 +10,4 @@ export * from './lib/title/title';
 export * from './lib/col/col';
 export * from './lib/row/row';
 export * from './lib/code/code';
+export * from './lib/button-container';

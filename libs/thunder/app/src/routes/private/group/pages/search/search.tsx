@@ -10,6 +10,7 @@ import { searchReducer } from './search.reducers';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as React from 'react';
 import { Container, Grid, SearchContainer } from './search.styles';
+import { Helmet } from 'react-helmet-async';
 
 export function GroupSearchPage() {
   const { groupId }: any = useParams();
@@ -55,30 +56,35 @@ export function GroupSearchPage() {
   };
 
   return (
-    <Container>
-      <PrivateNavbar
-        title={group?.name}
-        leftButtons={
-          <Button variant="text" onClick={() => router('..')}>
-            Go back
-          </Button>
-        }
-      />
-      <SearchContainer>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Input {...register('movie')} />
-          <Button variant="outlined" type="submit">
-            Search Movies
-          </Button>
-        </form>
-      </SearchContainer>
-      {movies.popular && <Title>Popular movies</Title>}
-      <Grid initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        {movies?.movies?.map((movie: any, index: number) => (
-          <MovieSearchCard key={index} movie={movie} onAdd={() => addMovie(index)} />
-        ))}
-        {movieState?.loadingStatus === 'LOADING' && <Title>Loading...</Title>}
-      </Grid>
-    </Container>
+    <>
+      <Helmet>
+        <title>Movie | Search</title>
+      </Helmet>
+      <Container>
+        <PrivateNavbar
+          title={group?.name}
+          leftButtons={
+            <Button variant="text" onClick={() => router('..')}>
+              Go back
+            </Button>
+          }
+        />
+        <SearchContainer>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Input {...register('movie')} />
+            <Button variant="outlined" type="submit">
+              Search Movies
+            </Button>
+          </form>
+        </SearchContainer>
+        {movies.popular && <Title>Popular movies</Title>}
+        <Grid initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          {movies?.movies?.map((movie: any, index: number) => (
+            <MovieSearchCard key={index} movie={movie} onAdd={() => addMovie(index)} />
+          ))}
+          {movieState?.loadingStatus === 'LOADING' && <Title>Loading...</Title>}
+        </Grid>
+      </Container>
+    </>
   );
 }

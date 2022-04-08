@@ -9,13 +9,13 @@ export interface RowInputs {
 export const Row = styled(motion.div)`
   display: flex;
   flex-direction: row;
-  ${({ gap = '1' }: RowInputs) =>
-    gap !== 'auto'
+  ${({ gap = 'auto' }: RowInputs) =>
+    gap === 'auto'
       ? css`
-          gap: ${gap}rem !important;
+          justify-content: space-between;
         `
       : css`
-          justify-content: space-between;
+          gap: ${gap}rem !important;
         `};
   padding: ${({ padding = '0' }: RowInputs) => `${padding}rem`};
 `;

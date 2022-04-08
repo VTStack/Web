@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 
 /* eslint-disable-next-line */
-interface CardProps {
+export interface CardProps {
   width?: string;
   height?: string;
   padding?: string;

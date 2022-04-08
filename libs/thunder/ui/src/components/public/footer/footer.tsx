@@ -1,6 +1,5 @@
 import { Divider, Link, Text, Col, Row } from '@v-thomas/shared/ui';
 import styled from 'styled-components';
-import { ButtonContainer } from '@v-thomas/thunder/ui';
 const StyledFooter = styled.footer``;
 
 const FooterText = styled(Text)`
@@ -18,9 +17,9 @@ export function PublicFooter() {
             Vincent Thomas
           </Link>
         </FooterText>
-        <ButtonContainer gap="3">
+        <Row gap="2.5">
           <FooterText>
-            <Link to="https://github.com/VincentThomas06/Codebase/blob/main/LICENSE" external>
+            <Link to="https://github.com/VincentThomas06/Codebase/blob/main/.github/LICENSE" external>
               MIT License
             </Link>
           </FooterText>
@@ -29,7 +28,7 @@ export function PublicFooter() {
               Contact me
             </Link>
           </FooterText>
-        </ButtonContainer>
+        </Row>
       </Row>
     </StyledFooter>
   );

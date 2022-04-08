@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpService } from '@nestjs/axios';
-import { Body, Controller, Get, HttpCode, Param, Post, Query, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Query, UseGuards } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
 import { Movie } from '../../../prisma/client';
 import { catchError, map, Observable, of } from 'rxjs';
@@ -27,6 +27,11 @@ export class MoviesController {
       const movies = await this.movies.getById(movieId);
       return movies;
     }
+  }
+
+  @Delete()
+  async removeMovie(@Param('movie_id') movieId: string) {
+    return await this.movies.removeMovie(movieId);
   }
 
   @Post()
