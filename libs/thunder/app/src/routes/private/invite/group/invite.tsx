@@ -1,10 +1,9 @@
-import { Button, Code, Modal, Row, Text, Title } from '@v-thomas/shared/ui';
+import { Button, Code, Modal, Row, Text, Title, ButtonContainer } from '@v-thomas/shared/ui';
 import { useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { addMember, fetchInvite, getInviteState, selectAllInvites } from '@v-thomas/thunder/data-access';
 import InviteOwner from './components/invite-owner/invite-owner';
-import { ButtonContainer } from '@v-thomas/thunder/ui';
 
 export function InvitePage() {
   const dispatch = useDispatch();

@@ -10,11 +10,13 @@ export interface UserState {
   email?: string | null;
   createdAt?: string | null;
   hasAuthedInSession?: boolean;
+  avatar: null | string;
 }
 export const initialUserState: UserState = {
   loadingStatus: 'NOT_LOADED',
   error: null,
-  hasAuthedInSession: false
+  hasAuthedInSession: false,
+  avatar: null
 };
 
 export const fetchUser = createAsyncThunk('user/fetchUser', async (_, thunkAPI) => {
@@ -28,15 +30,6 @@ export const fetchUser = createAsyncThunk('user/fetchUser', async (_, thunkAPI) 
 
 type Action = { payload: { email: string; password: string } };
 
-export const signUpUser = createAsyncThunk('user/signUpUser', async (action: Action) => {
-  const { payload } = action;
-
-  const { email, password } = payload;
-
-  await signUp(email, password);
-
-  return await getUser();
-});
 export const signInUser = createAsyncThunk('user/signInUser', async (action: Action, thunkAPI) => {
   const { payload } = action;
 
@@ -45,6 +38,16 @@ export const signInUser = createAsyncThunk('user/signInUser', async (action: Act
   if (response && response.toJSON().status === 401) {
     return thunkAPI.rejectWithValue('WRONG_CREDENTIALS');
   }
+  return await getUser();
+});
+
+export const signUpUser = createAsyncThunk('user/signUpUser', async (action: Action) => {
+  const { payload } = action;
+
+  const { email, password } = payload;
+
+  await signUp(email, password);
+  await signIn(email, password);
   return await getUser();
 });
 
@@ -70,11 +73,13 @@ export const userSlice: Slice = createSlice({
         state.loadingStatus = 'LOADING';
       })
       .addCase(fetchUser.fulfilled, (state: UserState, action: PayloadAction<UserState>): UserState => {
-        const { createdAt, email, id } = action.payload;
+        const { createdAt, email, id, avatar } = action.payload;
 
         return {
+          ...state,
           loadingStatus: 'AUTHED',
           error: null,
+          avatar,
           createdAt,
           id,
           email
@@ -93,6 +98,7 @@ export const userSlice: Slice = createSlice({
       .addCase(signInUser.fulfilled, (state: UserState, action: any) => {
         const { id, email, createdAt } = action.payload;
         return {
+          ...state,
           loadingStatus: 'AUTHED',
           error: null,
           id,
@@ -112,6 +118,7 @@ export const userSlice: Slice = createSlice({
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .addCase(signOutUser.fulfilled, (state: UserState): UserState => {
         return {
+          ...state,
           loadingStatus: 'NOT_AUTHED',
           error: null,
           createdAt: null,
@@ -119,11 +126,35 @@ export const userSlice: Slice = createSlice({
           id: null
         };
       })
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .addCase(signOutUser.rejected, (state: UserState, action: any) => {
         state.loadingStatus = 'ERROR';
         state.error = action.error.message;
       });
+    builder
+      .addCase(signUpUser.pending, state => {
+        state.loadingStatus = 'LOADING';
+      })
+      .addCase(
+        signUpUser.fulfilled,
+        (state: UserState, action: PayloadAction<UserState>): UserState => ({
+          ...action.payload,
+          loadingStatus: 'AUTHED',
+          error: null
+        })
+      )
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .addCase(
+        signUpUser.rejected,
+        (state: UserState, action: any): UserState => ({
+          ...state,
+          loadingStatus: 'ERROR',
+          error: action.error.message,
+          email: null,
+          avatar: null,
+          createdAt: null,
+          id: null
+        })
+      );
   }
 });
 

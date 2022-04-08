@@ -1,9 +1,9 @@
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
 import App from '@v-thomas/thunder/app';
-import '@v-thomas/shared/styles/globals.css';
+import '@v-thomas/shared/styles';
 
 import {
   AUTH_FEATURE_KEY,
@@ -29,14 +29,12 @@ const store = configureStore({
     [GROUPS_FEATURE_KEY]: groupsReducer,
     [AUTH_FEATURE_KEY]: authReducer
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware(),
-  devTools: import.meta.env.DEV,
+  middleware: (getDefaultMiddleware: any) => getDefaultMiddleware(),
+  devTools: import.meta.env.DEV as any,
   enhancers: []
 });
-console.log(Provider);
-render(
+createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <App />
-  </Provider>,
-  document.getElementById('root')
+  </Provider>
 );

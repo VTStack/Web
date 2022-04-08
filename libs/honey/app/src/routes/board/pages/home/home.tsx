@@ -96,7 +96,6 @@ export function HomePage() {
       }
     ]
   };
-  console.log(data);
   return (
     <Grid>
       <Header>

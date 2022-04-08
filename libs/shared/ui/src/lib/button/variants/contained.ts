@@ -7,9 +7,4 @@ export const ContainedButton = styled(CoreButton)`
   &:hover {
     background-color: ${({ theme }) => theme.color.primaryHover};
   }
-
-  &[disabled] {
-    background-color: ${({ theme }) => theme.text.third};
-    cursor: not-allowed;
-  }
 `;

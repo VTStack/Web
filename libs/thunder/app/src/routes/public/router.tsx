@@ -1,15 +1,16 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { PublicFooter, PublicNavbar } from '@v-thomas/thunder/ui';
+import { PublicFooter } from '@v-thomas/thunder/ui';
 import { HomePage } from './pages/home';
 import { usePublicAuth } from '../../hooks/auth';
+import { NotFoundPage } from '../other/404';
 
 const Root = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  max-width: 100vw;
+  min-height: 100vh;
   padding: 1.5rem;
+  display: grid;
+  grid-template-rows: 1fr auto;
 `;
 
 export const PublicRootRoutes = () => {
@@ -17,10 +18,10 @@ export const PublicRootRoutes = () => {
 
   return (
     <Root>
-      <PublicNavbar />
       <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/" element={<Navigate replace={true} to="/home" />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <PublicFooter />
     </Root>

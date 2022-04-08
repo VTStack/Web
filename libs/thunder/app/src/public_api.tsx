@@ -1,8 +1,8 @@
 import { ThemeProvider } from 'styled-components';
 import { DarkTheme } from '@v-thomas/shared/theme';
-import { StrictMode } from 'react';
+import { StrictMode, useEffect } from 'react';
 import { SnackbarProvider } from 'notistack';
-import { HashRouter } from 'react-router-dom';
+import { HashRouter, MemoryRouter } from 'react-router-dom';
 import '@v-thomas/shared/web-utils';
 import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
@@ -11,7 +11,7 @@ import { PublicRootRoutes } from './routes/public/router';
 export { GROUPS_FEATURE_KEY, groupsReducer } from '@v-thomas/thunder/data-access';
 export { MOVIES_FEATURE_KEY, moviesReducer } from '@v-thomas/thunder/data-access';
 export { INVITE_FEATURE_KEY, inviteReducer } from '@v-thomas/thunder/data-access';
-
+import { HelmetProvider } from 'react-helmet-async';
 const Root = styled.div`
   min-height: 100vh;
   min-width: 100vw;
@@ -33,16 +33,19 @@ export default () => {
     <StrictMode>
       <ThemeProvider theme={DarkTheme}>
         <SnackbarProvider maxSnack={3}>
-          <Styles>
-            <HashRouter>
-              <Root>
-                <Routes>
-                  <Route path="/app/*" element={<PrivateRootRoutes />} />
-                  <Route path="*" element={<PublicRootRoutes />} />
-                </Routes>
-              </Root>
-            </HashRouter>
-          </Styles>
+          {/* @ts-ignore */}
+          <HelmetProvider>
+            <Styles>
+              <HashRouter>
+                <Root>
+                  <Routes>
+                    <Route path="/app/*" element={<PrivateRootRoutes />} />
+                    <Route path="*" element={<PublicRootRoutes />} />
+                  </Routes>
+                </Root>
+              </HashRouter>
+            </Styles>
+          </HelmetProvider>
         </SnackbarProvider>
       </ThemeProvider>
     </StrictMode>

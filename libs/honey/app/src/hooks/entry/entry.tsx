@@ -5,7 +5,6 @@ const getEntries = () => {
   if (!localStorage.getItem('entries'))
     localStorage.setItem('entries', JSON.stringify([{ colId: '', entries: [] }]));
 
-  console.log(JSON.parse(localStorage.getItem('entries') || '[]'));
   return JSON.parse(localStorage.getItem('entries') as string);
 };
 const modEntries = ({ entries, colId }: any) => {
@@ -17,7 +16,6 @@ export function useEntry(entryId: string | number) {
   const id = ids.filter(v => v === entryId).at(0);
 
   const entry = data.filter(v => v.id === id).at(0);
-  console.log(data, entry, id);
 
   const updateEntries = ({
     name,

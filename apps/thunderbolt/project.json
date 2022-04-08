@@ -78,6 +78,10 @@
         "studio": {
           "cwd": "apps/thunderbolt",
           "command": "npm run prisma -- studio"
+        },
+        "migrate": {
+          "cwd": "apps/thunderbolt",
+          "command": "npm run prisma -- migrate dev -n migration"
         }
       }
     }

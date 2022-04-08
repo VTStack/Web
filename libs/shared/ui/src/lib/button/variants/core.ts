@@ -30,4 +30,12 @@ export const CoreButton = styled(motion.button)`
       return (digit / 1.15).toString() + 'rem';
     }};
   }
+
+  &[disabled] {
+    background-color: ${({ theme }) => theme.text.third} !important;
+    color: black !important;
+    cursor: not-allowed;
+    outline: none;
+    border: none;
+  }
 `;

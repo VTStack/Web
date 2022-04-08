@@ -1,5 +1,4 @@
-import { ButtonContainer } from '@v-thomas/thunder/ui';
-import { Button, Card, Row, Text, Title } from '@v-thomas/shared/ui';
+import { Button, Card, Col, Row, Text, Title, ButtonContainer } from '@v-thomas/shared/ui';
 import styled from 'styled-components';
 
 export interface MovieSearchCardProps {
@@ -27,7 +26,7 @@ export function MovieSearchCard({ movie, onAdd }: MovieSearchCardProps) {
   return (
     <SMovieSearchCard>
       <img src={poster} alt="" width="200" height="300" />
-      <Row padding="2" gap="1rem">
+      <Col padding="2" gap="1rem">
         <div>
           <Title>{(movie as any).title}</Title>
           <Text>{(movie as any).overview}</Text>
@@ -37,7 +36,7 @@ export function MovieSearchCard({ movie, onAdd }: MovieSearchCardProps) {
             Add To group
           </Button>
         </ButtonContainer>
-      </Row>
+      </Col>
     </SMovieSearchCard>
   );
 }

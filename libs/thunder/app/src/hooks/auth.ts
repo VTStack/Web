@@ -10,8 +10,7 @@ export const useAuth = (location = '/') => {
 
   useEffect(() => {
     if (state.loadingStatus === 'NOT_LOADED' && !state.error && !state?.id) dispatch(fetchUser());
-
-    if (state.loadingStatus === 'NOT_AUTHED') {
+    if (state.loadingStatus === 'NOT_AUTHED' || state.loadingStatus === 'ERROR') {
       dispatch(clearAuthErrors({}));
       router(location);
     }

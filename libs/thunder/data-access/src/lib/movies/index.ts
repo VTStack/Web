@@ -67,3 +67,17 @@ export const getExistingMoviesBySearch = async (groupId: string, searchTerm: str
     return [null, e];
   }
 };
+
+export const removeMovieById = async (movieId: any, groupId: string) => {
+  try {
+    const { data: result } = await axios.delete(url + `/groups/${groupId}/movies`, {
+      params: {
+        movie_id: movieId
+      },
+      withCredentials: true
+    });
+    return [result, null];
+  } catch (e) {
+    return [null, e];
+  }
+};

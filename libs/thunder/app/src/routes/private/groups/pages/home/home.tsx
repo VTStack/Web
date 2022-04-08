@@ -1,21 +1,27 @@
 import { GroupGrid } from './home.styles';
 import { Navbar } from '../../../../../components/navbar';
-import { Button, Divider } from '@v-thomas/shared/ui';
+import { Button, Divider, Title } from '@v-thomas/shared/ui';
 import { useGroups } from '../../../../../hooks/groups';
 import { useNavigate } from 'react-router-dom';
 import { CreateGroupButton } from '../../components/create-group/create-group';
 import { NoGroups } from './components/no-groups/no-groups';
 import { clearGroups, signOutUser } from '@v-thomas/root/libs/thunder/data-access/src/public_api';
 import { useDispatch } from 'react-redux';
+import { Helmet } from 'react-helmet-async';
+import { useUser } from '../../../../../hooks/user';
 
 export function GroupsHomePage() {
   const router = useNavigate();
 
-  const { groups } = useGroups();
+  const { groups, allGroups } = useGroups();
   const dispatch = useDispatch();
+  const [userState]: any = useUser();
 
   return (
     <>
+      <Helmet>
+        <title>Movie | {userState.loadingStatus === 'LOADING' ? 'Loading...' : 'Lobby'}</title>
+      </Helmet>
       <Navbar
         title="Groups"
         leftButtons={
@@ -25,15 +31,24 @@ export function GroupsHomePage() {
               dispatch(clearGroups());
               dispatch(signOutUser());
               router('/');
-            }}>
+            }}
+            disabled={userState.loadingStatus !== 'AUTHED'}>
             Sign out
           </Button>
         }
-        rightButtons={<CreateGroupButton />}
+        rightButtons={userState.loadingStatus === 'AUTHED' && <CreateGroupButton />}
       />
 
       <Divider />
-      {groups.length ? <GroupGrid groups={groups} /> : <NoGroups />}
+      {allGroups.loadingStatus === 'LOADED' ? (
+        groups.length ? (
+          <GroupGrid groups={groups} />
+        ) : (
+          <NoGroups />
+        )
+      ) : (
+        <Title>Loading...</Title>
+      )}
     </>
   );
 }

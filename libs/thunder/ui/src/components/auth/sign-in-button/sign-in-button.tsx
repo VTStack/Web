@@ -1,5 +1,5 @@
 import Cross from '@v-thomas/thunder/assets/x-mark.svg';
-import { Button, Input, Link, Modal, Text, Title, Col, Row } from '@v-thomas/shared/ui';
+import { Button, Input, Link, Modal, Text, Title, Col, Row, SharedButtonVariants } from '@v-thomas/shared/ui';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import * as Joi from 'joi';
@@ -15,7 +15,7 @@ import {
   updateEmail,
   updatePassword
 } from '@v-thomas/thunder/data-access';
-import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const schema = Joi.object({
   email: Joi.string().email({ tlds: { allow: false } }),
@@ -23,10 +23,10 @@ const schema = Joi.object({
 });
 
 export function SignInButton({
-  type = 'outlined',
+  type = 'hover-outlined',
   text = 'Sign in'
 }: {
-  type?: 'outlined' | 'contained' | 'text';
+  type?: SharedButtonVariants;
   text?: string;
 }) {
   const {
@@ -47,19 +47,24 @@ export function SignInButton({
   const passwordError = formErrors?.['password']?.message;
   const emailError = formErrors?.['email']?.message;
 
-  useEffect(() => {
-    console.log(formErrors, state, userState);
-  }, [formErrors, state, userState]);
+  // useEffect(() => {
+  //   console.log(formErrors, state, userState);
+  // }, [formErrors, state, userState]);
 
   return (
     <>
       <Button
         variant={type}
-        onClick={() => dispatch(toggleSignInModal({ type: 'OPEN' }))}
+        onClick={() => {
+          dispatch(toggleSignInModal({ type: 'OPEN' }));
+        }}
         id="sign-in-button">
         {text}
       </Button>
       <Modal isOpen={state.signIn} width="45" gap="1">
+        <Helmet>
+          <title>Movie | Sign in</title>
+        </Helmet>
         <Row gap="auto" style={{ width: '100%' }}>
           <Title>Sign in</Title>
           <img
