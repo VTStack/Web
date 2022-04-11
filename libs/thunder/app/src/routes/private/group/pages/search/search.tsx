@@ -12,6 +12,8 @@ import * as React from 'react';
 import { Container, Grid, SearchContainer } from './search.styles';
 import { Helmet } from 'react-helmet-async';
 
+import { useQueryState } from 'react-router-use-location-state';
+
 export function GroupSearchPage() {
   const { groupId }: any = useParams();
 
@@ -20,11 +22,14 @@ export function GroupSearchPage() {
   const [movies, dispatchState] = useReducer(searchReducer, {});
 
   const { addMovie: AddMovie, movieState } = useMovies();
+  const [movieSearch, setMovieSearch] = useQueryState(
+    'movieSearch',
+    new URLSearchParams().get('movieSearch') || ''
+  );
 
   const router = useNavigate();
 
   const { enqueueSnackbar } = useSnackbar();
-
   const onSubmit = async ({ movie }: { movie?: string }) => {
     const [recommendations] = await getMovieRecommendations(groupId, movie);
     const movieIds: any[] = [];
@@ -37,10 +42,13 @@ export function GroupSearchPage() {
   const { register, watch, handleSubmit } = useForm();
 
   const movie = watch('movie', '');
+  useEffect(() => {
+    setMovieSearch(movie);
+  }, [movie]);
 
   useEffect(() => {
     async function main() {
-      if (movie === '') {
+      if (movieSearch === '') {
         const [movies] = await getMovieRecommendations(groupId);
         const movieIds: any[] = [];
         Object.values(movieState?.entities || {}).map((v: any) => movieIds.push(v?.movie_id));
@@ -48,7 +56,7 @@ export function GroupSearchPage() {
       }
     }
     main();
-  }, [movie, groupId, movieState]);
+  }, [movieSearch, groupId, movieState]);
 
   const addMovie = async (index: number) => {
     AddMovie(movies.movies[index]);

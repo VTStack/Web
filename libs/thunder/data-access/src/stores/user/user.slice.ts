@@ -34,21 +34,27 @@ export const signInUser = createAsyncThunk('user/signInUser', async (action: Act
   const { payload } = action;
 
   const { email, password } = payload;
-  const response = (await signIn(email, password))[1];
+  const response: any = (await signIn(email, password))[1];
   if (response && response.toJSON().status === 401) {
     return thunkAPI.rejectWithValue('WRONG_CREDENTIALS');
   }
   return await getUser();
 });
 
-export const signUpUser = createAsyncThunk('user/signUpUser', async (action: Action) => {
+export const signUpUser = createAsyncThunk('user/signUpUser', async (action: Action, thunkAPI) => {
   const { payload } = action;
 
   const { email, password } = payload;
 
-  await signUp(email, password);
-  await signIn(email, password);
-  return await getUser();
+  const error = (await signUp(email, password))[1];
+  if (!error) {
+    await signIn(email, password);
+    return await getUser();
+  }
+  const status = error.toJSON().status;
+  if (status === 400) {
+    return thunkAPI.rejectWithValue('ALREADY_EXISTS');
+  }
 });
 
 export const signOutUser = createAsyncThunk('user/signOutUser', signOut);
@@ -148,11 +154,7 @@ export const userSlice: Slice = createSlice({
         (state: UserState, action: any): UserState => ({
           ...state,
           loadingStatus: 'ERROR',
-          error: action.error.message,
-          email: null,
-          avatar: null,
-          createdAt: null,
-          id: null
+          error: action.payload
         })
       );
   }

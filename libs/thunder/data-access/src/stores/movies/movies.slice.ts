@@ -108,7 +108,7 @@ export const moviesSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchGroupMovies.fulfilled, (state: MoviesState, action: PayloadAction<MoviesEntity[]>) => {
-        const groupId = window.location.hash.split('/')[3];
+        const groupId = window.location.pathname.split('/')[3];
         state.loadingStatus = 'LOADED';
         if (groupId && action.payload) moviesAdapter.setAll(state || initialMoviesState, action.payload);
       })

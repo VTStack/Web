@@ -2,7 +2,7 @@ import { ThemeProvider } from 'styled-components';
 import { DarkTheme } from '@v-thomas/shared/theme';
 import { StrictMode, useEffect } from 'react';
 import { SnackbarProvider } from 'notistack';
-import { HashRouter, MemoryRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter, MemoryRouter } from 'react-router-dom';
 import '@v-thomas/shared/web-utils';
 import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
@@ -36,14 +36,14 @@ export default () => {
           {/* @ts-ignore */}
           <HelmetProvider>
             <Styles>
-              <HashRouter>
+              <BrowserRouter>
                 <Root>
                   <Routes>
                     <Route path="/app/*" element={<PrivateRootRoutes />} />
                     <Route path="*" element={<PublicRootRoutes />} />
                   </Routes>
                 </Root>
-              </HashRouter>
+              </BrowserRouter>
             </Styles>
           </HelmetProvider>
         </SnackbarProvider>

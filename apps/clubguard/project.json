@@ -1,0 +1,60 @@
+{
+  "root": "apps/clubguard",
+  "sourceRoot": "apps/clubguard/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/clubguard",
+        "main": "apps/clubguard/src/main.ts",
+        "tsConfig": "apps/clubguard/tsconfig.app.json",
+        "assets": ["apps/clubguard/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/clubguard/src/environments/environment.ts",
+              "with": "apps/clubguard/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "clubguard:build",
+        "watch": true
+      }
+    },
+    "deploy-commands": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "cwd": "apps/clubguard",
+        "command": "npx ts-node ./src/app/deploy-commands.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/clubguard/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/clubguard"],
+      "options": {
+        "jestConfig": "apps/clubguard/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:clubguard type:app"]
+}

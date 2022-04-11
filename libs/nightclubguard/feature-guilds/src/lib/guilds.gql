@@ -1,0 +1,18 @@
+type Guild {
+  guildId: String
+  ok: Boolean
+  error: String
+}
+
+type Query {
+  guild(guildId: String!): Guild
+}
+
+type RemoveGuildOutput {
+  ok: Boolean
+}
+
+type Mutation {
+  createGuild(guildId: String!): Guild!
+  removeGuild(guildId: String!): RemoveGuildOutput
+}

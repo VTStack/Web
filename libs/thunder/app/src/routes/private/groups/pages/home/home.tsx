@@ -9,6 +9,7 @@ import { clearGroups, signOutUser } from '@v-thomas/root/libs/thunder/data-acces
 import { useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 import { useUser } from '../../../../../hooks/user';
+import { UserAvatar } from '@v-thomas/root/libs/thunder/ui/src/components';
 
 export function GroupsHomePage() {
   const router = useNavigate();
@@ -19,6 +20,7 @@ export function GroupsHomePage() {
 
   return (
     <>
+      {/* @ts-ignore */}
       <Helmet>
         <title>Movie | {userState.loadingStatus === 'LOADING' ? 'Loading...' : 'Lobby'}</title>
       </Helmet>
@@ -36,7 +38,13 @@ export function GroupsHomePage() {
             Sign out
           </Button>
         }
-        rightButtons={userState.loadingStatus === 'AUTHED' && <CreateGroupButton />}
+        rightButtons={
+          userState.loadingStatus === 'AUTHED' && (
+            <>
+              <CreateGroupButton /> <UserAvatar />
+            </>
+          )
+        }
       />
 
       <Divider />
