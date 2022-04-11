@@ -1,0 +1,33 @@
+{
+  "root": "libs/nightclubguard/feature-auth",
+  "sourceRoot": "libs/nightclubguard/feature-auth/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/nightclubguard/feature-auth",
+        "tsConfig": "libs/nightclubguard/feature-auth/tsconfig.lib.json",
+        "packageJson": "libs/nightclubguard/feature-auth/package.json",
+        "main": "libs/nightclubguard/feature-auth/src/public_api.ts",
+        "assets": ["libs/nightclubguard/feature-auth/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/nightclubguard/feature-auth/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/nightclubguard/feature-auth"],
+      "options": {
+        "jestConfig": "libs/nightclubguard/feature-auth/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

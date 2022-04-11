@@ -10,12 +10,14 @@ import {
   updateEmail,
   updatePassword,
   signUpUser,
-  getUserState
+  getUserState,
+  clearAuthErrors
 } from '@v-thomas/thunder/data-access';
 import Joi from 'joi';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { ErrorMsg } from '../sign-in-button/sign-in-button.styles';
 import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 
 const Form = styled.form`
   display: flex;
@@ -43,16 +45,27 @@ export function SignUpButton({
 
   const state = useSelector(selectAuthModalState);
 
+  const userState = useSelector(getUserState);
+
   const dispatch = useDispatch();
 
   const {
     register,
     handleSubmit,
-    formState: { errors: formErrors }
+    formState: { errors: formErrors },
+    watch
   } = useForm({ resolver: joiResolver(schema) });
 
   const passwordError = formErrors?.['password']?.message;
   const emailError = formErrors?.['email']?.message;
+
+  const email = watch('email');
+
+  useEffect(() => {
+    if (userState.error === 'ALREADY_EXISTS') {
+      dispatch(clearAuthErrors({}));
+    }
+  }, [email]);
 
   return (
     <>
@@ -63,6 +76,7 @@ export function SignUpButton({
         {text}
       </Button>
       <Modal isOpen={state.signUp} width="45" gap="1">
+        {/* @ts-ignore */}
         <Helmet>
           <title>Movie | Sign up</title>
         </Helmet>
@@ -104,6 +118,9 @@ export function SignUpButton({
             value={state.password}
           />
           {passwordError && <ErrorMsg> {passwordError}</ErrorMsg>}
+          {userState.error === 'ALREADY_EXISTS' && (
+            <ErrorMsg>This user already exists. Try another email</ErrorMsg>
+          )}
 
           <Button>SUBMIT</Button>
         </Form>

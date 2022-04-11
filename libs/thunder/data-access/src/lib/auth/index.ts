@@ -1,11 +1,16 @@
 import axios from 'axios';
 import { url } from '../url';
 
-export const signUp = async (email: string, password: string) => {
-  return await axios.post(url + '/auth/signup', {
-    email,
-    password
-  });
+export const signUp = async (email: string, password: string): Promise<[any, any]> => {
+  try {
+    const data = await axios.post(url + '/auth/signup', {
+      email,
+      password
+    });
+    return [data, null];
+  } catch (e) {
+    return [null, e];
+  }
 };
 
 export const signIn = async (email: string, password: string) => {

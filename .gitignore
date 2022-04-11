@@ -20,3 +20,4 @@ local
 !/.yarn/releases
 
 .aws
+*prod*

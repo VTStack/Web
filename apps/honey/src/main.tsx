@@ -1,5 +1,5 @@
-import * as ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { HoneyShell } from '@v-thomas/honey/app';
 // import './globals.css';
 
-ReactDOM.render(<HoneyShell />, document.getElementById('root'));
+createRoot(document.getElementById('root') as Element).render(<HoneyShell />);

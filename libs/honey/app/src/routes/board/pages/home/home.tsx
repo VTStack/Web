@@ -23,6 +23,7 @@ import { PolarArea } from 'react-chartjs-2';
 import { useCollection } from '../../../../hooks/collection';
 import { useParams } from 'react-router-dom';
 import { useEntry } from '../../../../hooks/entry/entry';
+import { addCollection, getCollection, getCollections } from '@v-thomas/honey/data-access';
 Chart.register(
   BarController,
   ArcElement,
@@ -76,48 +77,55 @@ export function HomePage() {
   //     })
   //   );
   // }, []);
-  const { colId }: any = useParams();
-  const collection = useCollection(parseInt(colId));
-  const { data, updateEntries } = useEntry(colId);
-  const data1 = {
-    labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue'],
-    datasets: [
-      {
-        label: 'My First Dataset',
-        data: [11, 16, 7, 3, 14],
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(75, 192, 192)',
-          'rgb(255, 205, 86)',
-          'rgb(201, 203, 207)',
-          'rgb(54, 162, 235)',
-          'orange'
-        ]
-      }
-    ]
-  };
+  const collection = getCollection('0 testing');
+  // addCollection({ name: 'tesitng', description: 'fdjklfdskjl', id: '0' });
+  // const { colId }: any = useParams();
+  // const collection = useCollection(parseInt(colId));
+  // const { data, updateEntries } = useEntry(colId);
+  // const data1 = {
+  //   labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue'],
+  //   datasets: [
+  //     {
+  //       label: 'My First Dataset',
+  //       data: [11, 16, 7, 3, 14],
+  //       backgroundColor: [
+  //         'rgb(255, 99, 132)',
+  //         'rgb(75, 192, 192)',
+  //         'rgb(255, 205, 86)',
+  //         'rgb(201, 203, 207)',
+  //         'rgb(54, 162, 235)',
+  //         'orange'
+  //       ]
+  //     }
+  //   ]
+  // };
+  console.log(collection);
   return (
     <Grid>
       <Header>
-        <Card style={{ padding: '2rem' }}>
-          <Row>
-            <Title>Collection {collection.name}</Title>
-            <Text>{collection.description}</Text>
-          </Row>
+        <Card noHover>
+          {collection && (
+            <Row padding={'1'}>
+              <Title>Collection {collection.name}</Title>
+              <Text>{collection.description}</Text>
+            </Row>
+          )}
         </Card>
-        <div>
+        {/* <div>
           <PolarArea data={data1}></PolarArea>
-        </div>
+        </div> */}
       </Header>
       <Divider style={{ margin: '0.5rem' }} />
       <Col gap="1" style={{ justifyContent: 'unset' }}>
         <Row gap="auto">
           <Title>Expenses</Title>
-          <Card style={{ padding: '0.5rem' }}>
-            <Row gap="1rem">
+          <Card noHover>
+            <Row gap="1">
               <Button
                 variant="outlined"
-                onClick={() => updateEntries({ name: 'testing', description: 'tesing desc', price: '432' })}>
+                onClick={() => {
+                  addCollection({ name: 'jklkl', description: 'fdjklfdskjl' });
+                }}>
                 CREATE
               </Button>
               <Button variant="outlined">MODIFY</Button>
@@ -128,7 +136,7 @@ export function HomePage() {
           <Card key={index}>
             <Row>
               <Title>{v.name}</Title>
-              <img src={CloseImage} alt="" /> 
+              <img src={CloseImage} alt="" />
             </Row>
           </Card>
         ))} */}
