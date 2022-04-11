@@ -22,11 +22,13 @@ const Background = styled.div`
 export function UserAvatar() {
   const user = useUser()[0];
 
-  return (
-    <Background>
-      <Img src={(user as any).avatar} alt="" />
-    </Background>
-  );
+  if ((user as any).avatar) {
+    return (
+      <Background>
+        <Img src={(user as any).avatar} alt="" />
+      </Background>
+    );
+  } else return null;
 }
 
 export default UserAvatar;

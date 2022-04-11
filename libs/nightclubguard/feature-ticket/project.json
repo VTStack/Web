@@ -1,0 +1,33 @@
+{
+  "root": "libs/nightclubguard/feature-ticket",
+  "sourceRoot": "libs/nightclubguard/feature-ticket/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/nightclubguard/feature-ticket",
+        "tsConfig": "libs/nightclubguard/feature-ticket/tsconfig.lib.json",
+        "packageJson": "libs/nightclubguard/feature-ticket/package.json",
+        "main": "libs/nightclubguard/feature-ticket/src/index.ts",
+        "assets": ["libs/nightclubguard/feature-ticket/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/nightclubguard/feature-ticket/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/nightclubguard/feature-ticket"],
+      "options": {
+        "jestConfig": "libs/nightclubguard/feature-ticket/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

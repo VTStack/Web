@@ -8,6 +8,7 @@ export interface RowInputs {
 
 export const Row = styled(motion.div)`
   display: flex;
+  align-items: center;
   flex-direction: row;
   ${({ gap = 'auto' }: RowInputs) =>
     gap === 'auto'

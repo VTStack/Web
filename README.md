@@ -45,17 +45,18 @@ All these library types are scoped to the projects they belong to **unless** the
 | --------------------- | -------------------------- | :----------: | :-----------------------: | :-----------------------: |
 | **Apps**              |                            |  ⚡ **Done** |     🚧 **In Development** | 🤔 **Planning to build** |
 | **Thunder**           | _Movie Reviewer App_       |               |           👷🏾             |                           |
-| **Honey**             | _Subscription Handler_     |               |                          |            🚦             |
+| **Honey**             | _Subscription Handler_     |               |           👷🏾             |                           |
 | **Butler**            | _New tab extention_        |               |                          |            🚦             |
 | **Me**                | _Portfolio_                |               |           👷🏾              |                           |
+| **Club**              | _Dashboard for Clubguard_  |               |             👷🏾             |                         |
 |   **Servers**         |                            | ⚡ **Done**   | 🚧 **In Development**    | 🤔 **Planning to build** |
 | **Thunderbolt**       | _Server to Thunder_        |               |            👷🏾            |                           |
-| **Nightclubguard**    | _Server to Clubguard_      |               |                          |            🚦             |
+| **Nightclubguard**    | _Server to Clubguard_      |               |             👷🏾             |                         |
 |   **Packages**        |                            | ⚡ **Done**   | 🚧 **In Development**    | 🤔 **Planning to build** |
 | **Structer**          | _Data Structures_          |               |           👷🏾             |                           |
 | **Algos**             | _General simple algorithms_|               |           👷🏾             |                           |
 | **Other software**    |                            | ⚡ **Done**  | 🚧 **In Development**    | 🤔 **Planning to build**  |
-| **Clubguard**         | _Auth Discord Bot_         |               |                          |             🚦            |
+| **Clubguard**         | _Multipurpose Discord Bot_         |               |           👷🏾             |                         |
 
 ---
 

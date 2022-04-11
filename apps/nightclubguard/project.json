@@ -1,0 +1,54 @@
+{
+  "root": "apps/nightclubguard",
+  "sourceRoot": "apps/nightclubguard/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/nightclubguard",
+        "main": "apps/nightclubguard/src/main.ts",
+        "tsConfig": "apps/nightclubguard/tsconfig.app.json",
+        "assets": ["apps/nightclubguard/src/assets"],
+        "watch": true
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/nightclubguard/src/environments/environment.ts",
+              "with": "apps/nightclubguard/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "nightclubguard:build",
+        "watch": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nightclubguard/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/nightclubguard"],
+      "options": {
+        "jestConfig": "apps/nightclubguard/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:server scope:nightclubguard"]
+}

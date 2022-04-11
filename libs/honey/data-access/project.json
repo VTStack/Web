@@ -1,0 +1,43 @@
+{
+  "root": "libs/honey/data-access",
+  "sourceRoot": "libs/honey/data-access/src",
+  "projectType": "library",
+  "tags": ["scope:honey type:data-access"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/honey/data-access",
+        "tsConfig": "libs/honey/data-access/tsconfig.lib.json",
+        "project": "libs/honey/data-access/package.json",
+        "entryFile": "libs/honey/data-access/src/public_api.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/honey/data-access/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/honey/data-access/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/honey/data-access"],
+      "options": {
+        "jestConfig": "libs/honey/data-access/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

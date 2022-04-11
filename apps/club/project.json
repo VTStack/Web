@@ -1,0 +1,71 @@
+{
+  "root": "apps/club",
+  "sourceRoot": "apps/club/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "swc",
+        "outputPath": "dist/apps/club",
+        "index": "apps/club/src/index.html",
+        "baseHref": "/",
+        "main": "apps/club/src/main.tsx",
+        "polyfills": "apps/club/src/polyfills.ts",
+        "tsConfig": "apps/club/tsconfig.app.json",
+        "assets": ["apps/club/src/favicon.ico", "apps/club/src/assets"],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/club/src/environments/environment.ts",
+              "with": "apps/club/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "club:build",
+        "hmr": true,
+        "proxyConfig": "apps/club/proxy.conf.json"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "club:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/club/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/club"],
+      "options": {
+        "jestConfig": "apps/club/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:app scope:club"]
+}

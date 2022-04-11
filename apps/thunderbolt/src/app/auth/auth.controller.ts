@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, Post, Query, Req, Res } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Get, HttpCode, Post, Query, Req, Res } from '@nestjs/common';
 import { UseAuth } from '../decorators/guard';
 import { Request, Response } from 'express';
 import { AuthService } from './auth.service';
@@ -30,8 +30,13 @@ export class AuthController {
   @Post('signup')
   async signup(@Body() body: { email: string; password: string }) {
     const { email, password } = body;
-    const user = await this.auth.createUser(email, password);
-    return user;
+    try {
+      const user = await this.auth.createUser(email, password);
+      return user;
+    } catch (e) {
+      console.log(e);
+      throw new BadRequestException({ message: 'User already exists' }, 'User already exists');
+    }
   }
 
   @Get('status')
