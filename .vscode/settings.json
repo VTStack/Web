@@ -1,3 +1,4 @@
 {
-  "conventionalCommits.scopes": ["readme", "config", "tmp", "merge", "deps"]
+  "conventionalCommits.scopes": ["readme", "config", "tmp", "merge", "deps"],
+  "editor.tabSize": 5
 }

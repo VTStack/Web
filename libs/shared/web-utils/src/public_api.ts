@@ -30,3 +30,5 @@ vincent.nathan.thomas@gmail.com
 `,
   linkStyle
 );
+
+export {};

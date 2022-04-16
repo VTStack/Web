@@ -1,4 +1,4 @@
-import { Card, Row, Title, Text, Code, Button, Divider, Col } from '@v-thomas/shared/ui';
+import { Card, Row, Title, Text, Button, Divider, Col } from '@v-thomas/shared/ui';
 import styled from 'styled-components';
 import {
   Chart,
@@ -16,14 +16,9 @@ import {
   BubbleController,
   PolarAreaController,
   Tooltip,
-  PieController,
-  Legend
+  PieController
 } from 'chart.js';
-import { PolarArea } from 'react-chartjs-2';
-import { useCollection } from '../../../../hooks/collection';
-import { useParams } from 'react-router-dom';
-import { useEntry } from '../../../../hooks/entry/entry';
-import { addCollection, getCollection, getCollections } from '@v-thomas/honey/data-access';
+import { addCollection, getCollection } from '@v-thomas/honey/data-access';
 Chart.register(
   BarController,
   ArcElement,

@@ -38,13 +38,6 @@
         ]
       }
     },
-    "version": {
-      "executor": "@jscutlery/semver:version",
-      "options": {
-        "commitMessageFormat": "chore(${projectName}): release version ${version}",
-        "releaseAs": "patch"
-      }
-    },
     "publish": {
       "executor": "ngx-deploy-npm:deploy",
       "options": {

@@ -1,17 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction, Slice } from '@reduxjs/toolkit';
+import { UserState } from '@v-thomas/thunder/types';
 import { getUser, signIn, signOut, signUp } from '../../lib/auth';
 
 export const USER_FEATURE_KEY = 'user';
 
-export interface UserState {
-  loadingStatus: 'NOT_LOADED' | 'NOT_AUTHED' | 'LOADING' | 'AUTHED' | 'WRONG_CREDENTIALS' | 'ERROR';
-  error?: string | null;
-  id?: string | null;
-  email?: string | null;
-  createdAt?: string | null;
-  hasAuthedInSession?: boolean;
-  avatar: null | string;
-}
 export const initialUserState: UserState = {
   loadingStatus: 'NOT_LOADED',
   error: null,

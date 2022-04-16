@@ -1,0 +1,43 @@
+{
+  "root": "libs/thunder/hooks",
+  "sourceRoot": "libs/thunder/hooks/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/thunder/hooks",
+        "tsConfig": "libs/thunder/hooks/tsconfig.lib.json",
+        "project": "libs/thunder/hooks/package.json",
+        "entryFile": "libs/thunder/hooks/src/public_api.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/thunder/hooks/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/thunder/hooks/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/thunder/hooks"],
+      "options": {
+        "jestConfig": "libs/thunder/hooks/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

@@ -1,8 +1,7 @@
 {
   "root": true,
-  "ignorePatterns": ["**/dist", "**/node_modules", "**/prisma/client/*"],
-  "plugins": ["@nrwl/nx", "node", "prettier"],
-  "extends": ["eslint:recommended", "plugin:node/recommended", "prettier"],
+  "plugins": ["@nrwl/nx", "prettier"],
+  "extends": ["eslint:recommended", "prettier"],
   "rules": {
     "prettier/prettier": "error",
     "block-scoped-var": "error",
@@ -14,6 +13,7 @@
     "eol-last": "error",
     "prefer-arrow-callback": "error",
     "no-trailing-spaces": "error",
+    "node/shebang": "off",
     "quotes": ["warn", "single", { "avoidEscape": true }],
     "no-restricted-properties": [
       "error",
@@ -38,6 +38,7 @@
         "@typescript-eslint/no-warning-comments": "off",
         "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/ban-ts-comment": 0,
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/ban-types": "off",
@@ -46,11 +47,10 @@
         "node/no-empty-function": "off",
         "node/no-unsupported-features/es-syntax": "off",
         "node/no-missing-require": "off",
-        "node/shebang": "warn",
         "no-dupe-class-members": "off",
         "require-atomic-updates": "off",
         "node/no-unpublished-import": [
-          "error",
+          0,
           {
             "allowModules": [],
             "convertPath": null,
@@ -70,7 +70,7 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": [],
+            "allow": ["@v-thomas/shared/assets"],
             "depConstraints": [
               {
                 "sourceTag": "*",

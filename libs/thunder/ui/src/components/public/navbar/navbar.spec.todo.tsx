@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Navbar from './navbar';
+import { PublicNavbar } from './navbar';
 
 describe('Navbar', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Navbar />);
+    const { baseElement } = render(<PublicNavbar />);
     expect(baseElement).toBeTruthy();
   });
 });

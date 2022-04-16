@@ -11,27 +11,9 @@ import { getAllMovies, getExistingMoviesBySearch, removeMovieById } from '../../
 import { addMovieToGroup } from '../../lib/group';
 
 import { ApiMovieModel } from '../../types';
+import { MoviesEntity, MoviesState } from '@v-thomas/thunder/types';
 
 export const MOVIES_FEATURE_KEY = 'movies';
-
-export interface MoviesEntity {
-  id: string;
-  title: string;
-  overview: string;
-  groupId: string;
-  backdrop_path: string;
-  poster_path: string;
-  release_date: string;
-  movie_id: string;
-  adult: string;
-  ytKey: string;
-}
-
-export interface MoviesState extends EntityState<MoviesEntity> {
-  loadingStatus: 'NOT_LOADED' | 'LOADING' | 'LOADED' | 'ERROR';
-  error: string | null;
-  groupId: string | null;
-}
 
 export const moviesAdapter = createEntityAdapter<MoviesEntity>();
 
@@ -39,7 +21,6 @@ export const fetchGroupMovies = createAsyncThunk(
   'movies/fetchStatus',
   async (action: { payload: { groupId: string; clearMovies?: boolean } }, thunkAPI) => {
     const { groupId } = action.payload;
-    const { movies: movieState }: { movies: MoviesState } = thunkAPI.getState() as any;
     const [movies, error] = await getAllMovies(groupId);
     return error ? thunkAPI.rejectWithValue(error.toString()) : movies;
   }

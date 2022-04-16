@@ -6,21 +6,13 @@ import {
   EntityState,
   PayloadAction
 } from '@reduxjs/toolkit';
+import { InvitesEntity, InvitesState } from '@v-thomas/thunder/types';
 
 export const INVITES_FEATURE_KEY = 'invites';
 
 /*
  * Update these interfaces according to your requirements.
  */
-export interface InvitesEntity {
-  id: number;
-  createdAt: string;
-}
-
-export interface InvitesState extends EntityState<InvitesEntity> {
-  loadingStatus: 'not loaded' | 'loading' | 'loaded' | 'error';
-  error: string | null;
-}
 
 export const invitesAdapter = createEntityAdapter<InvitesEntity>();
 

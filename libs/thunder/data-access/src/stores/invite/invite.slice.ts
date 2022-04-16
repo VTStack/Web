@@ -1,22 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { InviteState } from '@v-thomas/thunder/types';
 import { addMemberToGroup, getInviteFromId } from '../../lib/invites';
 
 export const INVITE_FEATURE_KEY = 'invite';
-
-export interface InviteState {
-  loadingStatus: 'NOT_LOADED' | 'LOADING' | 'LOADED' | 'ERROR';
-  error: string | null;
-  ownerId?: string;
-  user?: {
-    id: string;
-    email: string;
-  };
-  group?: {
-    id: string;
-    name: string;
-  };
-}
 
 export const fetchInvite = createAsyncThunk(
   'invite/fetchStatus',

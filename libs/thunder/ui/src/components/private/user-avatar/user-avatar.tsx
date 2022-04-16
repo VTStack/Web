@@ -1,4 +1,3 @@
-import { useUser } from '@v-thomas/root/libs/thunder/app/src/hooks/user';
 import styled from 'styled-components';
 
 /* eslint-disable-next-line */
@@ -19,13 +18,11 @@ const Background = styled.div`
   background: ${({ theme }) => theme.background.third};
 `;
 
-export function UserAvatar() {
-  const user = useUser()[0];
-
-  if ((user as any).avatar) {
+export function UserAvatar({ avatar }: { avatar: string | null }) {
+  if (avatar) {
     return (
       <Background>
-        <Img src={(user as any).avatar} alt="" />
+        <Img src={avatar} alt="" />
       </Background>
     );
   } else return null;

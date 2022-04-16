@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { ReactNode } from 'react';
 
 import { Link as NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
 export interface LinkProps {
   children: ReactNode;
   to?: string;
@@ -19,7 +20,7 @@ const StyledLink = styled(NavLink)<LinkProps>`
   }
 `;
 
-const StyledA = styled.a<LinkProps>`
+const StyledA = styled(motion.a)<LinkProps>`
   color: ${({ theme }) => theme.color.primary};
   text-decoration: none;
 
