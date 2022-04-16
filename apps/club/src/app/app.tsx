@@ -1,16 +1,10 @@
-import styled from 'styled-components';
-import NxWelcome from './nx-welcome';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
+import client from './client';
 
 export function App() {
-  return (
-    <StyledApp>
-      <NxWelcome title="club" />
-    </StyledApp>
-  );
+  console.log(client.auth.user());
+  // const { data, loading, error } = useQuery(testing);
+  // console.log(data, loading, error);
+  return <h1>hello</h1>;
 }
 
 export default App;

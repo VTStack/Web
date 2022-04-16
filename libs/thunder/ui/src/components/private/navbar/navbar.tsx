@@ -1,5 +1,5 @@
 import { Title } from '@v-thomas/shared/ui';
-import { InviteButton } from '../../../../../app/src/routes/private/group/components/invite/button/button';
+import { InviteButton } from '../invite-button/button';
 import { ReactNode } from 'react';
 import { Container, LeftContainer, NavLinks, Middle } from './navbar.styles';
 import styled from 'styled-components';
@@ -10,6 +10,8 @@ interface NavbarProps {
   leftButtons?: ReactNode;
   rightButtons?: ReactNode;
   middle?: ReactNode;
+  avatar: string | null;
+  inviteButton?: boolean;
 }
 
 const NavbarTitle = styled(Title)`
@@ -17,7 +19,14 @@ const NavbarTitle = styled(Title)`
     display: none;
   }
 `;
-export function PrivateNavbar({ title, leftButtons, rightButtons, middle }: NavbarProps) {
+export function PrivateNavbar({
+  title,
+  leftButtons,
+  rightButtons,
+  middle,
+  avatar,
+  inviteButton = false
+}: NavbarProps) {
   return (
     <Container>
       <LeftContainer>
@@ -27,8 +36,8 @@ export function PrivateNavbar({ title, leftButtons, rightButtons, middle }: Navb
       {middle && <Middle>{middle}</Middle>}
       <NavLinks>
         {rightButtons}
-        <InviteButton />
-        <UserAvatar />
+        {inviteButton && <InviteButton />}
+        <UserAvatar avatar={avatar} />
       </NavLinks>
     </Container>
   );

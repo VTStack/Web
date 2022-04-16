@@ -3,3 +3,6 @@
 .git/**
 **/node_modules/**
 *.md
+/apps/about/node_modules
+/apps/about/public
+/apps/about/.cache

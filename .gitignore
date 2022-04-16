@@ -21,3 +21,7 @@ local
 
 .aws
 *prod*
+/apps/about/node_modules
+/apps/about/public
+/apps/about/.cache
+vite*config

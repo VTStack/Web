@@ -3,8 +3,9 @@ import { ContainedButton } from './variants/contained';
 import { OutlinedButton } from './variants/outlined';
 import { TextButton } from './variants/text';
 import { HoverOutlinedButton } from './variants/hover-outlined';
+import { NoStyleButton } from './variants/no-style';
 
-export type SharedButtonVariants = 'contained' | 'outlined' | 'text' | 'hover-outlined';
+export type SharedButtonVariants = 'contained' | 'outlined' | 'text' | 'hover-outlined' | 'no-style';
 
 export interface Props {
   shadow?: `${string}px`;
@@ -13,11 +14,16 @@ export interface Props {
   onClick?: (e: Record<string, unknown>) => void;
   children: ReactNode;
   [key: string]: unknown;
-  id?: any;
+  id?: string | number;
   disabled?: boolean;
+  noStyle?: boolean;
 }
 
-export function Button({ variant = 'contained', children, ...props }: Props) {
+export function Button({ variant = 'contained', children, noStyle = false, ...props }: Props) {
+  console.log(noStyle);
+  if (noStyle) {
+    return <NoStyleButton {...props}>{children}</NoStyleButton>;
+  }
   switch (variant) {
     case 'text':
       return <TextButton {...props}>{children}</TextButton>;

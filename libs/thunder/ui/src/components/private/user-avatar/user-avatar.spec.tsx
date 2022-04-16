@@ -4,7 +4,7 @@ import UserAvatar from './user-avatar';
 
 describe('UserAvatar', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<UserAvatar />);
+    const { baseElement } = render(<UserAvatar avatar={'testing'} />);
     expect(baseElement).toBeTruthy();
   });
 });

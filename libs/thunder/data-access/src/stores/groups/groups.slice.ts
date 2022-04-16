@@ -9,19 +9,9 @@ import {
 } from '@reduxjs/toolkit';
 import { getAllGroups } from '../../lib/groups';
 import { createGroup } from '../../lib/group';
+import { GroupsEntity, GroupsState } from '@v-thomas/thunder/types';
 
 export const GROUPS_FEATURE_KEY = 'groups';
-
-export interface GroupsEntity {
-  id: string;
-  name: string;
-  createdAt: string;
-}
-
-export interface GroupsState extends EntityState<GroupsEntity> {
-  loadingStatus: 'NOT_LOADED' | 'LOADING' | 'LOADED' | 'ERROR';
-  error: string | null;
-}
 
 export const groupsAdapter = createEntityAdapter<GroupsEntity>();
 

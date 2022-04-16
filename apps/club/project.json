@@ -42,6 +42,7 @@
       "options": {
         "buildTarget": "club:build",
         "hmr": true,
+        "port": 4000,
         "proxyConfig": "apps/club/proxy.conf.json"
       },
       "configurations": {

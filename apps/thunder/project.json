@@ -4,19 +4,12 @@
   "sourceRoot": "apps/thunder/src",
   "tags": ["scope:thunder", "type:app"],
   "targets": {
-    "install": {
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "command": "yarn",
-        "cwd": "apps/thunder"
-      }
-    },
     "serve": {
-      "executor": "nx-plugin-vite:serve",
+      "executor": "@nrwl/web:dev-server",
       "options": {
-        "configFile": "apps/thunder/vite.config.ts",
+        "buildTarget": "thunder:build:production",
         "port": 3000,
-        "root": "apps/thunder"
+        "proxyConfig": "apps/thunder/proxy.config.json"
       }
     },
     "deploy": {
@@ -34,16 +27,19 @@
       }
     },
     "build": {
-      "executor": "nx-plugin-vite:build",
+      "executor": "@nrwl/web:webpack",
       "defaultConfiguration": "production",
       "configurations": {
         "production": {
-          "outDir": "dist/apps/thunder",
-          "configFile": "apps/thunder/vite.prod.config.ts",
-          "watch": false,
-          "write": true,
-          "emitAtRootLevel": true,
-          "manifest": true
+          "index": "apps/thunder/src/index.html",
+          "assets": [{ "glob": "**/*", "input": "libs/shared/assets/src", "output": "shared-assets" }],
+          "outputPath": "dist/apps/thunder",
+          "progress": true,
+          "extractCss": true,
+          "tsConfig": "apps/thunder/tsconfig.app.json",
+          "main": "apps/thunder/src/main.tsx",
+          "compiler": "swc",
+          "webpackConfig": "@nrwl/react/plugins/webpack"
         }
       }
     },

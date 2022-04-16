@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { DarkTheme } from '@v-thomas/shared/theme';
+import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
 import { SnackbarProvider } from 'notistack';
 import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -11,7 +11,7 @@ describe('Movie', () => {
     const { baseElement } = render(
       <HashRouter>
         <SnackbarProvider>
-          <ThemeProvider theme={DarkTheme}>
+          <ThemeProvider theme={ThunderDarkTheme}>
             <MovieLayout poster="hello" title="hello">
               <h1>hi</h1>
             </MovieLayout>

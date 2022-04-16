@@ -1,13 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { AuthModalState } from '@v-thomas/thunder/types';
 
 export const AUTH_FEATURE_KEY = 'auth';
-
-export interface AuthModalState {
-  signIn: boolean;
-  signUp: boolean;
-  email: string;
-  password: string;
-}
 
 export const initialState: AuthModalState = {
   signIn: false,

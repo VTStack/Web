@@ -1,14 +1,14 @@
 import { render } from '@testing-library/react';
-import { DarkTheme } from '@v-thomas/shared/theme';
+import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
 import { ThemeProvider } from 'styled-components';
 
-import { Footer } from './footer';
+import { PublicFooter } from './footer';
 
 describe('Footer', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
-      <ThemeProvider theme={DarkTheme}>
-        <Footer />
+      <ThemeProvider theme={ThunderDarkTheme}>
+        <PublicFooter />
       </ThemeProvider>
     );
     expect(baseElement).toBeTruthy();
