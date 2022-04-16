@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 
 export interface ColProps {
@@ -5,7 +6,7 @@ export interface ColProps {
   padding?: string;
 }
 
-export const Col = styled.div<ColProps>`
+export const Col = styled(motion.div)<ColProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

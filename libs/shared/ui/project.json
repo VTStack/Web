@@ -3,6 +3,9 @@
   "sourceRoot": "libs/shared/ui/src",
   "projectType": "library",
   "tags": ["scope:thunder", "type:ui"],
+  "implicitDependencies": [
+    // "!shared-theme"
+  ],
   "targets": {
     "build": {
       "dependsOn": [

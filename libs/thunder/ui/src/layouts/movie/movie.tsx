@@ -1,18 +1,16 @@
 import { Button, Divider, Link, Text } from '@v-thomas/shared/ui';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
-import { PrivateNavbar } from '@v-thomas/thunder/ui';
-import { useNavigate, useParams } from 'react-router-dom';
-import { RemoveMovieButton } from '../../../../app/src/components/remove-movie/remove-movie';
+import { PrivateNavbar } from '../../components/private/navbar';
+import { useNavigate } from 'react-router-dom';
+import { RemoveMovieButton } from '../../components/private/remove-movie/remove-movie';
 import { useSnackbar } from 'notistack';
-import * as React from 'react';
-import { useDispatch } from 'react-redux';
-import { removeMovie } from '@v-thomas/root/libs/thunder/data-access/src/public_api';
 
 export interface MovieProps {
   children: ReactNode;
   poster: string;
   title: string;
+  avatar: string | null;
 }
 
 const MainContainer = styled.div`
@@ -76,16 +74,12 @@ const Poster = styled.img`
   }
 `;
 
-export function MovieLayout({ children, poster, title }: MovieProps) {
+export function MovieLayout({ children, poster, title, avatar }: MovieProps) {
   const router = useNavigate();
 
   const toBack = () => router('..');
 
   const { closeSnackbar, enqueueSnackbar } = useSnackbar();
-
-  const dispatch = useDispatch();
-
-  const { groupId, movieId }: any = useParams();
 
   // const RemoveMovie = () => {
   //   dispatch(removeMovie({ payload: { groupId, movieId } }));
@@ -94,6 +88,7 @@ export function MovieLayout({ children, poster, title }: MovieProps) {
   return (
     <>
       <PrivateNavbar
+        avatar={avatar}
         leftButtons={
           <Button variant="text" onClick={toBack}>
             Go Back

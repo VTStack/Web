@@ -1,4 +1,4 @@
-import { Divider, Link, Text, Col, Row } from '@v-thomas/shared/ui';
+import { Divider, Link, Text, Row } from '@v-thomas/shared/ui';
 import styled from 'styled-components';
 const StyledFooter = styled.footer``;
 

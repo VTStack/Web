@@ -1,5 +1,6 @@
-import Cross from '@v-thomas/thunder/assets/x-mark.svg';
-import { Button, Input, Link, Modal, Text, Title, Col, Row, SharedButtonVariants } from '@v-thomas/shared/ui';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import Cross from '@v-thomas/shared/assets/x-mark.svg';
+import { Button, Input, Link, Modal, Text, Title, Row, SharedButtonVariants } from '@v-thomas/shared/ui';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
@@ -65,7 +66,7 @@ export function SignUpButton({
     if (userState.error === 'ALREADY_EXISTS') {
       dispatch(clearAuthErrors({}));
     }
-  }, [email]);
+  }, [email, dispatch, userState.error]);
 
   return (
     <>
@@ -89,7 +90,6 @@ export function SignUpButton({
             onClick={() => dispatch(toggleSignUpModal({ type: 'CLOSE' }))}
           />
         </Row>
-        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
         {/* @ts-ignore */}
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Input

@@ -1,12 +1,12 @@
-import Cross from '@v-thomas/thunder/assets/x-mark.svg';
-import { Button, Input, Link, Modal, Text, Title, Col, Row, SharedButtonVariants } from '@v-thomas/shared/ui';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import Cross from '@v-thomas/shared/assets/x-mark.svg';
+import { Button, Input, Link, Modal, Text, Title, Row, SharedButtonVariants } from '@v-thomas/shared/ui';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import * as Joi from 'joi';
 import { ErrorMsg, Form } from './sign-in-button.styles';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  closeModal,
   selectAuthModalState,
   getUserState,
   signInUser,
@@ -41,15 +41,12 @@ export function SignInButton({
 
   const userState = useSelector(getUserState);
 
-  const onSubmit = async (values: { email: string; password: string }) =>
-    dispatch(signInUser({ payload: { email: values.email, password: values.password } }));
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onSubmit: (values: any) => void = (values: { email: string; password: string }) =>
+    void dispatch(signInUser({ payload: { email: values.email, password: values.password } }));
 
   const passwordError = formErrors?.['password']?.message;
   const emailError = formErrors?.['email']?.message;
-
-  // useEffect(() => {
-  //   console.log(formErrors, state, userState);
-  // }, [formErrors, state, userState]);
 
   return (
     <>
@@ -62,6 +59,7 @@ export function SignInButton({
         {text}
       </Button>
       <Modal isOpen={state.signIn} width="45" gap="1">
+        {/* @ts-ignore */}
         <Helmet>
           <title>Movie | Sign in</title>
         </Helmet>
@@ -74,8 +72,6 @@ export function SignInButton({
             onClick={() => dispatch(toggleSignInModal({ type: 'CLOSE' }))}
           />
         </Row>
-        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-        {/* @ts-ignore */}
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Input
             type="text"

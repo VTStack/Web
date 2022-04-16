@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import AwayListener from 'react-click-away-listener';
@@ -32,6 +33,7 @@ const Inner = styled(motion.div)`
 
 export function Modal({ isOpen, children, width, onClickAway = () => void 0, gap = '1' }: ModalProps) {
   return (
+    // @ts-ignore
     <AnimatePresence>
       {isOpen ? (
         <Background initial={{ opacity: 0 }} animate={{ opacity: isOpen ? 1 : 0 }} exit={{ opacity: 0 }}>
