@@ -32,7 +32,7 @@
       "configurations": {
         "production": {
           "index": "apps/thunder/src/index.html",
-          "assets": [{ "glob": "**/*", "input": "libs/shared/assets/src", "output": "shared-assets" }],
+          "assets": [{ "glob": "**/*", "input": "libs/thunder/assets", "output": "assets" }],
           "outputPath": "dist/apps/thunder",
           "progress": true,
           "extractCss": true,

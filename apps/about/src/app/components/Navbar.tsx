@@ -6,6 +6,10 @@ const Root = styled.div`
   padding: 1rem 2rem;
   max-width: calc(1400px - 4rem);
   margin-inline: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
 `;
 
 export const Navbar = () => {

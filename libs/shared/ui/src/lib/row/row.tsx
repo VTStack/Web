@@ -4,13 +4,22 @@ import { motion } from 'framer-motion';
 export interface RowInputs {
   gap?: string;
   padding?: string;
+  align?: 'center' | 'right' | 'left';
 }
 
-export const Row = styled(motion.div)`
+const test = {
+  center: 'center',
+  right: 'flex-end',
+  left: 'flex-start'
+};
+
+export const Row = styled(motion.div)<RowInputs>`
   display: flex;
-  align-items: center;
   flex-direction: row;
-  ${({ gap = 'auto' }: RowInputs) =>
+  justify-content: ${({ align = 'left' }) => {
+    return test[align];
+  }};
+  ${({ gap = 'auto' }) =>
     gap === 'auto'
       ? css`
           justify-content: space-between;
@@ -18,7 +27,7 @@ export const Row = styled(motion.div)`
       : css`
           gap: ${gap}rem !important;
         `};
-  padding: ${({ padding = '0' }: RowInputs) => `${padding}rem`};
+  padding: ${({ padding = '0' }) => `${padding}rem`};
 `;
 
 export function RowTest(props: RowInputs) {
