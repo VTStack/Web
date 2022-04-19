@@ -15,10 +15,9 @@ export const AboutDarkTheme = {
     error: 'rgba(200, 50 ,50, 0.7)'
   },
 
-  testing: '',
   background: {
-    primary: 'black',
-    secondary: 'rgba(35, 35, 35, 0.7)',
+    primary: 'rgb(24, 24, 24)',
+    secondary: 'rgb(27, 27, 27)',
     third: 'rgba(90, 90, 90, 0.3)',
     modal: 'rgba(0, 0, 0, 0.7)'
   }

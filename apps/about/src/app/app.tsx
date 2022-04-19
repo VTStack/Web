@@ -1,4 +1,4 @@
-import { AboutDarkTheme } from '@v-thomas/root/libs/about/theme/src';
+import { AboutDarkTheme } from '@v-thomas/about/theme';
 import styled, { ThemeProvider } from 'styled-components';
 import Routes from './routes/router';
 

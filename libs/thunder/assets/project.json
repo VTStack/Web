@@ -1,0 +1,8 @@
+{
+  "root": "libs/thunder/assets",
+  "sourceRoot": "libs/thunder/assets/src",
+  "projectType": "library",
+  "generators": {},
+  "targets": {},
+  "tags": ["type:assets", "scope:thunder"]
+}
