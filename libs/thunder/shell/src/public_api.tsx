@@ -62,6 +62,7 @@ export default () => {
     <StrictMode>
       <Provider store={store}>
         <ThemeProvider theme={ThunderDarkTheme}>
+          {/* @ts-ignore */}
           <SnackbarProvider maxSnack={3}>
             {/* @ts-ignore */}
             <HelmetProvider>

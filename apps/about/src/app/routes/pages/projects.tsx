@@ -1,22 +1,20 @@
 import { Button, Card, Col, Link, Modal, Row, Text, Title } from '@v-thomas/shared/ui';
 import styled from 'styled-components';
-import Cross from '@v-thomas/thunder/assets/x-mark.svg';
-import { useState } from 'react';
+import Cross from '@v-thomas/shared/assets/x-mark.svg';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useToggle } from '@v-thomas/root/libs/thunder/hooks/src/lib';
 const Background = styled(motion.div)``;
 export function ProjectsPage() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, toggleOpen] = useToggle(false);
 
   const router = useNavigate();
 
-  useEffect(() => {
-    setIsOpen(true);
-  }, []);
+  useEffect(toggleOpen, []);
 
   const toHome = () => {
-    setIsOpen(false);
+    toggleOpen();
     router('/');
   };
 
@@ -36,19 +34,17 @@ export function ProjectsPage() {
           </Link>{' '}
           where i put all of my serious projects
         </Text>
-        <Button onClick={() => window.open('https://link.v-thomas.me/movie', '_blank')} noStyle>
-          <Card noHover>
-            <Row gap="1">
-              <img src="https://movie.v-thomas.me/favicon.svg" alt="" height="100%" width="60px" />
-              <Col gap="0.25">
-                <Title size="1.5">MovieReviewer</Title>
-                <Link external to="https://link.v-thomas.me/movie">
-                  https://movie.v-thomas.me
-                </Link>
-              </Col>
-            </Row>
-          </Card>
-        </Button>
+        <Card noHover onClick={() => window.open('https://link.v-thomas.me/movie', '_blank')}>
+          <Row gap="1">
+            <img src="https://movie.v-thomas.me/favicon.svg" alt="" height="100%" width="60px" />
+            <Col gap="0.25">
+              <Title size="1.5">MovieReviewer</Title>
+              <Link external to="https://link.v-thomas.me/movie">
+                https://movie.v-thomas.me
+              </Link>
+            </Col>
+          </Row>
+        </Card>
       </Modal>
     </Background>
   );

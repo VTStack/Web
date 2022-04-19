@@ -4,14 +4,17 @@ import styled, { css } from 'styled-components';
 export interface TextProps {
   restrictWidth?: boolean;
   bold?: boolean;
+  width?: string;
+  align?: 'center' | 'right' | 'left';
 }
 
 export const Text = styled(motion.p)<TextProps>`
   color: ${({ theme }) => theme.text.secondary};
-  ${({ restrictWidth }) => {
+  text-align: ${({ align = 'left' }) => align};
+  ${({ restrictWidth, width = '75' }) => {
     return restrictWidth
       ? css`
-          max-width: 75ch;
+          max-width: ${width}ch;
         `
       : null;
   }}

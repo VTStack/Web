@@ -4,24 +4,29 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "nx-plugin-vite:build",
-      "options": {
-        "outDir": "dist",
-        "configFile": "apps/about/vite.config.ts",
-        "watch": false,
-        "write": true,
-        "emitAtRootLevel": false,
-        "manifest": true
+      "executor": "@nrwl/web:webpack",
+      "defaultConfiguration": "production",
+      "configurations": {
+        "production": {
+          "index": "apps/about/src/index.html",
+          "assets": [{ "glob": "*.svg", "input": "apps/about/src/assets", "output": "assets" }],
+          "outputPath": "dist/apps/about",
+          "progress": true,
+          "extractCss": true,
+          "tsConfig": "apps/about/tsconfig.app.json",
+          "main": "apps/about/src/main.tsx",
+          "compiler": "swc",
+          "webpackConfig": "@nrwl/react/plugins/webpack",
+          "polyfills": "apps/about/src/polyfills.ts",
+          "deployUrl": "http://about.v-thomas.me"
+        }
       }
     },
     "serve": {
-      "executor": "nx-plugin-vite:serve",
+      "executor": "@nrwl/web:dev-server",
       "options": {
-        "configFile": "apps/about/vite.config.ts",
-        "port": 3000,
-        "root": "apps/about",
-        "host": true,
-        "https": false
+        "buildTarget": "about:build:production",
+        "port": 5000
       }
     },
     "lint": {

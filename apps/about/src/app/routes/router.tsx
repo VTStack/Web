@@ -10,7 +10,9 @@ const LRoutes = () => {
 
   return (
     <>
-      <Navbar></Navbar>
+      {/* <Navbar></Navbar> */}
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+      {/* @ts-ignore */}
       <AnimatePresence initial={false} exitBeforeEnter>
         <Routes key={location.pathname} location={location}>
           <Route path="/projects" element={<ProjectsPage />} />
