@@ -4,7 +4,6 @@ import {
   createEntityAdapter,
   createSelector,
   createSlice,
-  EntityState,
   PayloadAction
 } from '@reduxjs/toolkit';
 import { getAllMovies, getExistingMoviesBySearch, removeMovieById } from '../../lib/movies';

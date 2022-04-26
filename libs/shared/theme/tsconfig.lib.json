@@ -6,5 +6,5 @@
     "types": []
   },
   "include": ["libs/thunder/themes/src/**/*.ts"],
-  "exclude": ["**/*.spec.ts", "**/*.test.ts"]
+  "exclude": ["**/*.spec.ts", "**/*.test.ts", "jest.config.ts"]
 }

@@ -1,0 +1,31 @@
+{
+  "name": "@nrwl/nx-cloud",
+  "version": "13.3.1",
+  "description": "Nx Cloud plugin for Nx",
+  "keywords": [
+    "Monorepo",
+    "Nx",
+    "Nx Cloud"
+  ],
+  "main": "index.js",
+  "types": "index.d.ts",
+  "author": "Victor Savkin",
+  "license": "CC-BY-ND-3.0",
+  "bugs": {
+    "url": "https://github.com/nrwl/nx/issues"
+  },
+  "homepage": "https://nx.app",
+  "schematics": "./collection.json",
+  "bin": {
+    "nx-cloud": "./bin/nx-cloud.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "node-machine-id": "^1.1.12",
+    "tar": "6.1.11",
+    "strip-json-comments": "^3.1.1",
+    "chalk": "4.1.0",
+    "@nrwl/devkit": "13.10.2"
+  },
+  "typings": "./index.d.ts"
+}

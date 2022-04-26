@@ -1,0 +1,12 @@
+import { LoadedClerk } from '@clerk/types';
+import React from 'react';
+export declare const withClerk: <P extends {
+    clerk: LoadedClerk;
+}>(Component: React.ComponentType<P>, displayName?: string | undefined) => {
+    (props: Omit<P, "clerk">): JSX.Element | null;
+    displayName: string;
+};
+export declare const WithClerk: React.FC<{
+    children: (clerk: LoadedClerk) => React.ReactNode;
+}>;
+//# sourceMappingURL=withClerk.d.ts.map

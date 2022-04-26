@@ -86,6 +86,6 @@ const { selectAll, selectEntities } = groupsAdapter.getSelectors();
 
 export const getGroupsState = (rootState: any): GroupsState => rootState[GROUPS_FEATURE_KEY];
 
-export const selectAllGroups = createSelector(getGroupsState, selectAll);
+export const selectAllGroups: any = createSelector(getGroupsState, selectAll);
 
-export const selectGroupsEntities = createSelector(getGroupsState, selectEntities);
+export const selectGroupsEntities: any = createSelector(getGroupsState, selectEntities);

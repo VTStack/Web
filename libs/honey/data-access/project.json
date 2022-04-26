@@ -35,7 +35,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/honey/data-access"],
       "options": {
-        "jestConfig": "libs/honey/data-access/jest.config.js",
+        "jestConfig": "libs/honey/data-access/jest.config.ts",
         "passWithNoTests": true
       }
     }

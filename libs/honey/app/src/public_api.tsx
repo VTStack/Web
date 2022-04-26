@@ -17,6 +17,8 @@ export const HoneyShell = () => {
   return (
     <StrictMode>
       <ThemeProvider theme={DarkTheme}>
+        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+        {/* @ts-ignore */}
         <SnackbarProvider maxSnack={3}>
           <Styles>
             <HashRouter>

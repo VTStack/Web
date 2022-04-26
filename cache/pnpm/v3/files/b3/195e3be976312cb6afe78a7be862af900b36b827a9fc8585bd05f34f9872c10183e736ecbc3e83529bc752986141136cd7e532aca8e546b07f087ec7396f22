@@ -1,0 +1,94 @@
+import { useQueryState as useQueryState$1, useQueryReducer as useQueryReducer$1, LOCATION_STATE_KEY, useLocationState as useLocationState$1, useLocationReducer as useLocationReducer$1 } from 'use-location-state';
+import { useLocation, useNavigate } from 'react-router';
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+// Needed for updates that happen right after each other (sync) as we do not have access to the latest history ref (since react router v6)
+var virtualQueryString = '';
+function useReactRouterQueryStringInterface() {
+    var location = useLocation();
+    var navigate = useNavigate();
+    // Use the real one again as soon as location changes and update was incorporated
+    virtualQueryString = '';
+    return {
+        getQueryString: function () { return virtualQueryString || location.search; },
+        setQueryString: function (newQueryString, _a) {
+            var _b = _a.method, method = _b === void 0 ? 'replace' : _b;
+            navigate("".concat(location.pathname, "?").concat(newQueryString).concat(location.hash), {
+                replace: method === 'replace',
+            });
+            virtualQueryString = newQueryString;
+        },
+    };
+}
+
+function useQueryState(itemName, defaultValue, queryStateOpts) {
+    return useQueryState$1(itemName, defaultValue, __assign({ queryStringInterface: useReactRouterQueryStringInterface() }, queryStateOpts));
+}
+function useQueryReducer(itemName, reducer, initialState, queryStateOpts) {
+    return useQueryReducer$1(itemName, reducer, initialState, __assign({ queryStringInterface: useReactRouterQueryStringInterface() }, queryStateOpts));
+}
+
+// Needed for updates that happen right after each other (sync) as we do not have access to the latest history ref (since react router v6)
+var virtualState = null;
+function useReactRouterLocationStateInterface() {
+    var location = useLocation();
+    var navigate = useNavigate();
+    // Use the real one again as soon as location changes and update was incorporated
+    virtualState = null;
+    return {
+        getLocationState: function () {
+            var historyState = virtualState || location.state;
+            return ((historyState &&
+                LOCATION_STATE_KEY in historyState &&
+                historyState[LOCATION_STATE_KEY]) ||
+                {});
+        },
+        setLocationState: function (nextState, _a) {
+            var _b;
+            var _c = _a.method, method = _c === void 0 ? 'replace' : _c;
+            var historyState = (location.state || {});
+            var updatedState = __assign(__assign({}, historyState), (_b = {}, _b[LOCATION_STATE_KEY] = nextState, _b));
+            navigate(location, {
+                state: updatedState,
+                replace: method === 'replace',
+            });
+            virtualState = updatedState;
+        },
+    };
+}
+
+function useLocationState(itemName, defaultValue) {
+    return useLocationState$1(itemName, defaultValue, {
+        locationStateInterface: useReactRouterLocationStateInterface(),
+    });
+}
+function useLocationReducer(itemName, reducer, initialState, locationStateOpts) {
+    return useLocationReducer$1(itemName, reducer, initialState, __assign({ locationStateInterface: useReactRouterLocationStateInterface() }, locationStateOpts));
+}
+
+export { useLocationReducer, useLocationState, useQueryReducer, useQueryState };

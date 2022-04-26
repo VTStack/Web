@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 
 export interface TitleProps {
   size?: string;
-  children: ReactNode;
   align?: 'center' | 'right' | 'left';
+  children: ReactNode;
 }
 export const Title = styled(motion.h1)<TitleProps>`
   font-family: 'Roboto';
@@ -26,6 +26,6 @@ export const Title = styled(motion.h1)<TitleProps>`
   }
 `;
 
-export function TitleTest(props: TitleProps) {
+export const TitleTest: FC<TitleProps> = props => {
   return <Title {...props}>{props.children}</Title>;
-}
+};

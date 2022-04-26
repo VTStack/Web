@@ -1,0 +1,43 @@
+{
+  "root": "libs/shared/hooks",
+  "sourceRoot": "libs/shared/hooks/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/hooks",
+        "tsConfig": "libs/shared/hooks/tsconfig.lib.json",
+        "project": "libs/shared/hooks/package.json",
+        "entryFile": "libs/shared/hooks/src/public_api.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/shared/hooks/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/shared/hooks/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/hooks"],
+      "options": {
+        "jestConfig": "libs/shared/hooks/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

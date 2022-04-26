@@ -1,0 +1,353 @@
+import { useMemo, useState, useEffect, useRef, useLayoutEffect, useCallback } from 'react';
+import { toQueryStateValue, parseQueryState, createMergedQuery, parseQueryStateValue } from 'query-state-core';
+
+var LOCATION_STATE_KEY = '__useLocationState';
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+var hasWindowLocation = typeof window !== "undefined" && 'location' in window && 'history' in window;
+function useHashQueryStringInterface(_a) {
+    var _b = _a === void 0 ? {} : _a, _c = _b.disabled, disabled = _c === void 0 ? false : _c;
+    var enabled = !disabled && hasWindowLocation;
+    var hashQSI = useMemo(function () { return ({
+        getQueryString: function () {
+            if (!enabled)
+                return '';
+            return window.location.hash;
+        },
+        setQueryString: function (newQueryString, _a) {
+            var _b = _a.method, method = _b === void 0 ? 'replace' : _b;
+            if (!enabled)
+                return;
+            // use history to update hash using replace / push
+            window.history[method === 'replace' ? 'replaceState' : 'pushState'](window.history.state, '', '#' + newQueryString);
+            // manually dispatch a hashchange event (replace state does not trigger this event)
+            // so all subscribers get notified (old way for IE11)
+            var customEvent = document.createEvent('CustomEvent');
+            customEvent.initEvent('hashchange', false, false);
+            window.dispatchEvent(customEvent);
+            setR(function (r) { return r + 1; });
+        },
+    }); }, [enabled]);
+    // this state is used to trigger re-renders
+    var _d = useState(0), setR = _d[1];
+    useEffect(function () {
+        if (!enabled)
+            return;
+        var hashChangeHandler = function () {
+            setR(function (r) { return r + 1; });
+        };
+        window.addEventListener('hashchange', hashChangeHandler, false);
+        return function () {
+            return window.removeEventListener('hashchange', hashChangeHandler, false);
+        };
+    }, [enabled]);
+    return hashQSI;
+}
+
+function useRefLatest(value) {
+    var ref = useRef(value);
+    useLayoutEffect(function () {
+        ref.current = value;
+    }, [value]);
+    return ref;
+}
+
+var queryStateOptsDefaults = Object.freeze({});
+function useQueryReducer(itemName, reducer, initialStateOrInitialArg, initStateFnOrOpts, queryStateOpts) {
+    var _a;
+    var mergedQueryStateOpts = Object.assign({}, queryStateOptsDefaults, queryStateOpts, typeof initStateFnOrOpts === 'object' ? initStateFnOrOpts : null);
+    var queryStringInterface = mergedQueryStateOpts.queryStringInterface;
+    var hashQSI = useHashQueryStringInterface(queryStringInterface ? { disabled: true } : undefined);
+    var activeQSI = queryStringInterface || hashQSI;
+    // itemName & defaultValue is not allowed to be changed after init
+    var defaultValue = useState(function () {
+        return initStateFnOrOpts && typeof initStateFnOrOpts === 'function'
+            ? initStateFnOrOpts(initialStateOrInitialArg)
+            : initialStateOrInitialArg;
+    })[0];
+    var defaultQueryStateValue = useMemo(function () { return toQueryStateValue(defaultValue); }, [defaultValue]);
+    if (defaultQueryStateValue === null) {
+        throw new Error('unsupported defaultValue');
+    }
+    var ref = useRefLatest({
+        activeQSI: activeQSI,
+        defaultValue: defaultValue,
+        mergedQueryStateOpts: mergedQueryStateOpts,
+        reducer: reducer,
+    });
+    var resetQueryStateItem = useCallback(function (opts) {
+        var _a;
+        var activeQSI = ref.current.activeQSI;
+        var currentState = parseQueryState(activeQSI.getQueryString()) || {};
+        var newState = __assign(__assign({}, currentState), (_a = {}, _a[itemName] = null, _a));
+        activeQSI.setQueryString(createMergedQuery(newState), opts);
+        setR(function (rC) { return rC + 1; });
+    }, [itemName, ref]);
+    var _b = useState(0), setR = _b[1];
+    var dispatch = useCallback(function (action, opts) {
+        var _a;
+        if (opts === void 0) { opts = {}; }
+        var _b = ref.current, activeQSI = _b.activeQSI, defaultValue = _b.defaultValue, mergedQueryStateOpts = _b.mergedQueryStateOpts, reducer = _b.reducer;
+        var _c = mergedQueryStateOpts.stripDefaults, stripDefaults = _c === void 0 ? true : _c;
+        var currentState = parseQueryState(activeQSI.getQueryString()) || {};
+        var currentValue = itemName in currentState
+            ? parseQueryStateValue(currentState[itemName], defaultValue)
+            : defaultValue;
+        if (action === null) {
+            return resetQueryStateItem(opts);
+        }
+        var newValue = reducer(currentValue !== null && currentValue !== void 0 ? currentValue : defaultValue, action);
+        var newQueryStateValue = toQueryStateValue(newValue);
+        if (newQueryStateValue === null) {
+            console.warn('value of ' +
+                JSON.stringify(newValue) +
+                ' is not supported. "' +
+                itemName +
+                '" will reset to default value of:', defaultValue);
+        }
+        // when a params are set to the same value as in the defaults
+        // we remove them to avoid having two URLs reproducing the same state unless stripDefaults === false
+        if (stripDefaults) {
+            if (Array.isArray(defaultValue) &&
+                sameAsJsonString(newValue, defaultValue)) {
+                return resetQueryStateItem(opts);
+            }
+            else if (newValue === defaultValue) {
+                return resetQueryStateItem(opts);
+            }
+        }
+        activeQSI.setQueryString(createMergedQuery(__assign(__assign({}, currentState), (_a = {}, _a[itemName] = toQueryStateValue(newValue), _a))), opts);
+        // force re-render
+        setR(function (rC) { return rC + 1; });
+    }, [itemName, ref, resetQueryStateItem]);
+    var currentState = parseQueryState(activeQSI.getQueryString()) || {};
+    var currentValue = (_a = (itemName in currentState
+        ? parseQueryStateValue(currentState[itemName], defaultValue)
+        : defaultValue)) !== null && _a !== void 0 ? _a : defaultValue;
+    return [currentValue, dispatch];
+}
+function sameAsJsonString(compareValueA, compareValueB) {
+    return JSON.stringify(compareValueA) === JSON.stringify(compareValueB);
+}
+
+function useQueryState(itemName, initialState, queryStateOpts) {
+    if (queryStateOpts === void 0) { queryStateOpts = {}; }
+    var reducer = useCallback(function (prevState, action) {
+        if (action && typeof action === 'function') {
+            return action(prevState);
+        }
+        return action;
+    }, []);
+    if (typeof initialState === 'function') {
+        return useQueryReducer(itemName, reducer, undefined, initialState, queryStateOpts);
+    }
+    return useQueryReducer(itemName, reducer, initialState, queryStateOpts);
+}
+
+var hasWindowHistory = typeof window !== "undefined" && 'history' in window;
+function useLocationStateInterface(_a) {
+    var _b = _a === void 0 ? {} : _a, _c = _b.disabled, disabled = _c === void 0 ? false : _c;
+    var enabled = !disabled && hasWindowHistory;
+    // this state is used to trigger re-renders
+    var _d = useState(0), setR = _d[1];
+    var locationStateInterface = useMemo(function () { return ({
+        getLocationState: function () {
+            if (!enabled)
+                return {};
+            var historyState = window.history.state;
+            return ((historyState &&
+                LOCATION_STATE_KEY in historyState &&
+                historyState[LOCATION_STATE_KEY]) ||
+                {});
+        },
+        setLocationState: function (nextState, _a) {
+            var _b;
+            var _c = _a.method, method = _c === void 0 ? 'replace' : _c;
+            if (!enabled)
+                return null;
+            var historyState = window.history.state || {};
+            var updatedState = __assign(__assign({}, historyState), (_b = {}, _b[LOCATION_STATE_KEY] = nextState, _b));
+            // update history state using replace / push
+            window.history[method === 'replace' ? 'replaceState' : 'pushState'](updatedState, '', '');
+            // manually dispatch a hashchange event (replace state does not trigger this event)
+            // so all subscribers get notified (old way for IE11)
+            var customEvent = document.createEvent('CustomEvent');
+            customEvent.initEvent('popstate', false, false);
+            window.dispatchEvent(customEvent);
+        },
+    }); }, [enabled]);
+    useEffect(function () {
+        if (!enabled)
+            return;
+        var popstateHandler = function () {
+            setR(function (r) { return r + 1; });
+        };
+        window.addEventListener('popstate', popstateHandler, false);
+        return function () { return window.removeEventListener('popstate', popstateHandler, false); };
+    }, [enabled]);
+    return locationStateInterface;
+}
+
+var validTypes = ['string', 'number', 'boolean', 'object', 'undefined'];
+var locationStateOptsDefaults$1 = Object.freeze({});
+function useLocationReducer(itemName, reducer, initialStateOrInitialArg, maybeInitStateFnOrOpts, opts) {
+    var locationStateInterface = (opts ||
+        (typeof maybeInitStateFnOrOpts === 'object' && maybeInitStateFnOrOpts) ||
+        locationStateOptsDefaults$1).locationStateInterface;
+    // itemName & defaultValue is not allowed to be changed after init
+    var defaultValue = useState(function () {
+        return maybeInitStateFnOrOpts &&
+            typeof maybeInitStateFnOrOpts === 'function'
+            ? maybeInitStateFnOrOpts(initialStateOrInitialArg)
+            : initialStateOrInitialArg;
+    })[0];
+    // throw for invalid values like functions
+    if (!validTypes.includes(typeof defaultValue)) {
+        throw new Error('unsupported defaultValue');
+    }
+    itemName = useState(function () {
+        var suffixObscurer = typeof btoa !== 'undefined' ? btoa : function (s) { return s; };
+        var suffix = suffixObscurer(Array.isArray(defaultValue) ? 'array' : typeof defaultValue).replace(/=/g, '');
+        return "".concat(itemName, "__").concat(suffix);
+    })[0];
+    // the interface to get/set the state
+    var standardLSI = useLocationStateInterface(locationStateInterface && { disabled: true });
+    var activeLSI = locationStateInterface || standardLSI;
+    var ref = useRefLatest({
+        activeLSI: activeLSI,
+        reducer: reducer,
+    });
+    var currentState = activeLSI.getLocationState();
+    var value = useMemo(function () {
+        var value = defaultValue;
+        if (itemName in currentState) {
+            value = currentState[itemName];
+        }
+        return value;
+    }, [currentState, defaultValue, itemName]);
+    var resetLocationStateItem = useCallback(function (opts) {
+        var activeLSI = ref.current.activeLSI;
+        var newState = __assign({}, activeLSI.getLocationState());
+        delete newState[itemName];
+        activeLSI.setLocationState(newState, opts);
+    }, [itemName, ref]);
+    var dispatchAction = useCallback(function (action, opts) {
+        var _a;
+        if (opts === void 0) { opts = {}; }
+        var _b = ref.current, reducer = _b.reducer, _c = _b.activeLSI, getLocationState = _c.getLocationState, setLocationState = _c.setLocationState;
+        var currentState = getLocationState();
+        var currentValue = itemName in currentState
+            ? currentState[itemName]
+            : defaultValue;
+        var newValue = reducer(currentValue, action);
+        if (newValue === defaultValue) {
+            return resetLocationStateItem(opts);
+        }
+        // warn about invalid new values
+        if (!validTypes.includes(typeof newValue)) {
+            console.warn(newValue, 'value is not supported, reset to default');
+            return resetLocationStateItem(opts);
+        }
+        var stateExtendOverwrite = (_a = {},
+            _a[itemName] = newValue,
+            _a);
+        setLocationState(__assign(__assign({}, currentState), stateExtendOverwrite), opts);
+    }, [defaultValue, itemName, ref, resetLocationStateItem]);
+    return [value, dispatchAction];
+}
+
+var locationStateOptsDefaults = Object.freeze({});
+function useLocationState(itemName, initialState, opts) {
+    if (opts === void 0) { opts = locationStateOptsDefaults; }
+    if (typeof initialState === 'function') {
+        return useLocationReducer(itemName, stateReducer, undefined, initialState, opts);
+    }
+    return useLocationReducer(itemName, stateReducer, initialState, opts);
+}
+function stateReducer(prevState, action) {
+    if (action && typeof action === 'function') {
+        return action(prevState);
+    }
+    return action;
+}
+
+function useQueryStateObj(defaultQueryState, queryStateOpts) {
+    var queryStringInterface = queryStateOpts.queryStringInterface;
+    var hashQSI = useHashQueryStringInterface(queryStringInterface && { disabled: true });
+    var activeQSI = queryStringInterface || hashQSI;
+    var queryString = activeQSI.getQueryString();
+    var _a = useState(), setLatestMergedQueryString = _a[1];
+    var queryState = useMemo(function () { return (__assign(__assign({}, defaultQueryState), parseQueryState(queryString))); }, [defaultQueryState, queryString]);
+    var ref = useRef({
+        defaultQueryState: defaultQueryState,
+        queryStateOpts: queryStateOpts,
+        activeQSI: activeQSI,
+    });
+    var setQueryState = useCallback(function (newState, opts) {
+        var _a = ref.current, defaultQueryState = _a.defaultQueryState, queryStateOpts = _a.queryStateOpts, activeQSI = _a.activeQSI;
+        var _b = queryStateOpts.stripDefaults, stripDefaults = _b === void 0 ? true : _b;
+        var stripOverwrite = {};
+        // when a params are set to the same value as in the defaults
+        // we remove them to avoid having two URLs reproducing the same state unless stripDefaults === false
+        if (stripDefaults) {
+            Object.entries(newState).forEach(function (_a) {
+                var key = _a[0];
+                if (defaultQueryState[key] === newState[key]) {
+                    stripOverwrite[key] = null;
+                }
+            });
+        }
+        // retrieve the last value (by re-executing the search getter)
+        var currentQueryState = __assign(__assign({}, defaultQueryState), parseQueryState(activeQSI.getQueryString()));
+        var mergedQueryString = createMergedQuery(currentQueryState || {}, newState, stripOverwrite);
+        activeQSI.setQueryString(mergedQueryString, opts || {});
+        // triggers an update (in case the QueryStringInterface misses to do so)
+        setLatestMergedQueryString(mergedQueryString);
+    }, []);
+    useEffect(function () {
+        ref.current = {
+            defaultQueryState: defaultQueryState,
+            queryStateOpts: queryStateOpts,
+            activeQSI: activeQSI,
+        };
+    });
+    return [queryState, setQueryState];
+}
+
+function useHashQueryStateObj(defaultQueryState, queryStateOpts) {
+    if (queryStateOpts === void 0) { queryStateOpts = {}; }
+    var hashQSI = useHashQueryStringInterface();
+    return useQueryStateObj(defaultQueryState, __assign(__assign({}, queryStateOpts), { queryStringInterface: hashQSI }));
+}
+function useHashQueryState(itemName, defaultValue, queryStateOpts) {
+    if (queryStateOpts === void 0) { queryStateOpts = {}; }
+    var hashQSI = useHashQueryStringInterface();
+    return useQueryState(itemName, defaultValue, __assign(__assign({}, queryStateOpts), { queryStringInterface: hashQSI }));
+}
+
+export { LOCATION_STATE_KEY, useHashQueryState, useHashQueryStateObj, useLocationReducer, useLocationState, useQueryReducer, useQueryState };

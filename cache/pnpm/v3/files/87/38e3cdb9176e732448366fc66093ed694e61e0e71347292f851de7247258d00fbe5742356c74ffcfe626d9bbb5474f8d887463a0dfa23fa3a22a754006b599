@@ -1,0 +1,14 @@
+import { SessionResource, SetSession } from '@clerk/types';
+declare type UseSessionListReturn = {
+    isLoaded: false;
+    sessions: undefined;
+    setSession: undefined;
+} | {
+    isLoaded: true;
+    sessions: SessionResource[];
+    setSession: SetSession;
+};
+declare type UseSessionList = () => UseSessionListReturn;
+export declare const useSessionList: UseSessionList;
+export {};
+//# sourceMappingURL=useSessionList.d.ts.map

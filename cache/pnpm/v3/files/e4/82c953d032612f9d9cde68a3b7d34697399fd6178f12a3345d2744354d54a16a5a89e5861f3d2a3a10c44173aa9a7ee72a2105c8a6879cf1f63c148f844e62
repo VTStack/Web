@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.typesNodeVersion = exports.eslintPluginCypressVersion = exports.cypressVersion = exports.nxVersion = void 0;
+exports.nxVersion = '14.0.2';
+exports.cypressVersion = '^9.1.0';
+exports.eslintPluginCypressVersion = '^2.10.3';
+exports.typesNodeVersion = '16.11.7';
+//# sourceMappingURL=versions.js.map

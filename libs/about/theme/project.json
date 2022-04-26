@@ -23,7 +23,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/about/theme"],
       "options": {
-        "jestConfig": "libs/about/theme/jest.config.js",
+        "jestConfig": "libs/about/theme/jest.config.ts",
         "passWithNoTests": true
       }
     }

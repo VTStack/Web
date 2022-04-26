@@ -1,0 +1,92 @@
+{
+  "name": "@storybook/addon-devkit",
+  "version": "1.4.2",
+  "description": "Storybook Addon Development Kit",
+  "author": {
+    "name": "Oleg Proskurin",
+    "url": "https://github.com/UsulPro"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "tdd": "jest --watch",
+    "prepare-storybook": "yarn prepare-dev && yarn prepare && start-storybook -p 9001 --ci",
+    "start-storybook": "start-storybook -p 9001 --ci",
+    "start": "nodemon --exec yarn start-storybook",
+    "build-storybook": "build-storybook -s public",
+    "dev": "nodemon --exec yarn prepare",
+    "prepare-dev": "babel dev --out-dir dev-dist --verbose",
+    "prepare": "package-prepare && cp src/index.d.ts dist",
+    "postpublish": "node .scripts/npm-postpublish.js"
+  },
+  "dependencies": {
+    "@reach/rect": "^0.2.1",
+    "@storybook/addons": "^6.1.18",
+    "@storybook/core-events": "^6.1.18",
+    "@storybook/theming": "^6.1.18",
+    "deep-equal": "^2.0.2",
+    "prop-types": "^15.6.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.17",
+    "@babel/core": "^7.12.17",
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
+    "@babel/preset-env": "^7.12.17",
+    "@babel/preset-react": "^7.12.13",
+    "@storybook/addon-actions": "^6.1.18",
+    "@storybook/addon-backgrounds": "^6.1.18",
+    "@storybook/addon-links": "^6.1.18",
+    "@storybook/react": "^6.1.18",
+    "@types/react": "^16.9.19",
+    "@usulpro/package-prepare": "^1.1.4",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.2",
+    "nodemon": "^1.18.9",
+    "prettier": "^1.18.2",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-scripts": "3.0.0"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/storybookjs/addon-development-kit"
+  },
+  "keywords": [
+    "storybook",
+    "react",
+    "addon",
+    "decorator",
+    "customization",
+    "boilerplate",
+    "npm",
+    "development",
+    "addons",
+    "storybook-addon",
+    "appearance"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/storybookjs/addon-development-kit/issues"
+  },
+  "homepage": "https://github.com/storybookjs/addon-development-kit",
+  "peerDependencies": {
+    "@storybook/addons": "*",
+    "@storybook/react": "*",
+    "react": "*",
+    "react-dom": "*"
+  },
+  "storybook": {
+    "displayName": "Addon devkit"
+  }
+}

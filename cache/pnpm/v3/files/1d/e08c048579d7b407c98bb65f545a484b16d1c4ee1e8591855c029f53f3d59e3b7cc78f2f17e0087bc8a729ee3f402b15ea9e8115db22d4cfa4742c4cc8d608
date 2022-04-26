@@ -1,0 +1,44 @@
+{
+  "name": "stormdb",
+  "version": "0.5.2",
+  "description": "StormDB is a tiny, lightweight, 0 dependency, easy-to-use JSON-based database for NodeJS, the browser or Electron.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "webpack --config .webpack.config.js",
+    "prepublishOnly": "npm run build",
+    "format": "prettier --write {**,**/**}/*.{js,md}",
+    "test": "mocha ./tests --recursive --exit"
+  },
+  "repository": "TomPrograms/stormdb",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "src/",
+    "dist/",
+    "Readme.md",
+    "Changelog.md",
+    "LICENSE"
+  ],
+  "author": "Tom",
+  "license": "MIT",
+  "devDependencies": {
+    "coveralls": "^3.0.9",
+    "mocha": "^7.1.0",
+    "nyc": "^15.0.0",
+    "prettier": "^1.19.1",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  },
+  "keywords": [
+    "database",
+    "JSON",
+    "file",
+    "embed",
+    "embeddable",
+    "localStorage",
+    "node",
+    "browser",
+    "electron"
+  ]
+}

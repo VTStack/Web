@@ -1,0 +1,1 @@
+{"version":3,"file":"makeContextAndHook.d.ts","sourceRoot":"","sources":["../../src/utils/makeContextAndHook.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAI1B,wBAAgB,kBAAkB,CAAC,QAAQ,EACzC,WAAW,EAAE,MAAM,EACnB,WAAW,GAAE,CAAC,CAAC,EAAE,OAAO,KAAK,OAAO,CAAC,CAAgC,GACpE,CAAC,KAAK,CAAC,OAAO,CAAC;IAAE,KAAK,EAAE,QAAQ,CAAA;CAAE,GAAG,SAAS,CAAC,EAAE,MAAM,QAAQ,CAAC,CASlE"}

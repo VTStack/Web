@@ -35,7 +35,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/thunder/hooks"],
       "options": {
-        "jestConfig": "libs/thunder/hooks/jest.config.js",
+        "jestConfig": "libs/thunder/hooks/jest.config.ts",
         "passWithNoTests": true
       }
     }

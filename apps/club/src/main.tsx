@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { createRoot } from 'react-dom/client';
+import { render } from 'react-dom';
 import { ApolloClient, ApolloLink, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
 import { ClerkProvider } from '@clerk/clerk-react';
 import App from './app/app';
@@ -16,7 +16,7 @@ export const client = new ApolloClient({
 
 const frontendApi = 'clerk.35aal.6a6sb.lcl.dev';
 
-createRoot(document.getElementById('root') as Element).render(
+render(
   <StrictMode>
     {/*  @ts-ignore */}
     <ClerkProvider frontendApi={frontendApi}>
@@ -24,5 +24,6 @@ createRoot(document.getElementById('root') as Element).render(
         <App />
       </ApolloProvider>
     </ClerkProvider>
-  </StrictMode>
+  </StrictMode>,
+  document.getElementById('root') as Element
 );

@@ -1,0 +1,48 @@
+import { OAuthStrategy } from './strategies';
+export interface OAuthProviderData {
+    provider: OAuthProvider;
+    strategy: OAuthStrategy;
+    name: string;
+    docsUrl: string;
+}
+export declare type FacebookOauthProvider = 'facebook';
+export declare type GoogleOauthProvider = 'google';
+export declare type HubspotOauthProvider = 'hubspot';
+export declare type GithubOauthProvider = 'github';
+export declare type TiktokOauthProvider = 'tiktok';
+export declare type GitlabOauthProvider = 'gitlab';
+export declare type DiscordOauthProvider = 'discord';
+export declare type TwitterOauthProvider = 'twitter';
+export declare type TwitchOauthProvider = 'twitch';
+export declare type LinkedinOauthProvider = 'linkedin';
+export declare type DropboxOauthProvider = 'dropbox';
+export declare type BitbucketOauthProvider = 'bitbucket';
+export declare type MicrosoftOauthProvider = 'microsoft';
+export declare type NotionOauthProvider = 'notion';
+export declare type AppleOauthProvider = 'apple';
+export declare type OAuthProvider = FacebookOauthProvider | GoogleOauthProvider | HubspotOauthProvider | GithubOauthProvider | TiktokOauthProvider | GitlabOauthProvider | DiscordOauthProvider | TwitterOauthProvider | TwitchOauthProvider | LinkedinOauthProvider | DropboxOauthProvider | BitbucketOauthProvider | MicrosoftOauthProvider | NotionOauthProvider | AppleOauthProvider;
+export declare const OAUTH_PROVIDERS: OAuthProviderData[];
+interface getOAuthProviderDataProps {
+    provider?: OAuthProvider;
+    strategy?: OAuthStrategy;
+}
+export declare function getOAuthProviderData({ provider, strategy, }: getOAuthProviderDataProps): OAuthProviderData | undefined | null;
+export declare function sortedOAuthProviders(sortingArray: OAuthStrategy[]): OAuthProviderData[];
+export declare type AuthenticateWithRedirectParams = {
+    /**
+     * One of the supported OAuth providers you can use to authenticate with, eg 'oauth_google'.
+     */
+    strategy: OAuthStrategy;
+    /**
+     * Full URL or path to the route that will complete the OAuth flow.
+     * Typically, this will be a simple `/sso-callback` route that calls `Clerk.handleRedirectCallback`
+     * or mounts the <AuthenticateWithRedirectCallback /> component.
+     */
+    redirectUrl: string;
+    /**
+     * Full URL or path to navigate after the OAuth flow completes.
+     */
+    redirectUrlComplete: string;
+};
+export {};
+//# sourceMappingURL=oauth.d.ts.map

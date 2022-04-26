@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "Install",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "projects": {
+      "description": "Which libraries should configurate",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": []
+}

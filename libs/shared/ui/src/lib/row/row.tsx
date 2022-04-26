@@ -5,6 +5,7 @@ export interface RowInputs {
   gap?: string;
   padding?: string;
   align?: 'center' | 'right' | 'left';
+  inline?: boolean;
 }
 
 const test = {
@@ -14,11 +15,10 @@ const test = {
 };
 
 export const Row = styled(motion.div)<RowInputs>`
-  display: flex;
+  display: ${({ inline = false }) => (inline ? 'inline-flex' : 'flex')};
   flex-direction: row;
-  justify-content: ${({ align = 'left' }) => {
-    return test[align];
-  }};
+
+  justify-content: ${({ align = 'left' }) => test[align]};
   ${({ gap = 'auto' }) =>
     gap === 'auto'
       ? css`
@@ -29,7 +29,6 @@ export const Row = styled(motion.div)<RowInputs>`
         `};
   padding: ${({ padding = '0' }) => `${padding}rem`};
 `;
-
 export function RowTest(props: RowInputs) {
   return <Row {...props} />;
 }

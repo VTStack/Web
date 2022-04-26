@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { PrivateNavbar } from '@v-thomas/thunder/ui';
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import MovieSearchCard from '../../components/movie-search-card/movie-search-card';
 import { Button, Input, Title } from '@v-thomas/shared/ui';
 import { useForm } from 'react-hook-form';
@@ -12,8 +12,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Container, Grid, SearchContainer } from './search.styles';
 import { Helmet } from 'react-helmet-async';
 
-import { useQueryState } from 'react-router-use-location-state';
-
 export function GroupSearchPage() {
   const { groupId }: any = useParams();
 
@@ -22,10 +20,7 @@ export function GroupSearchPage() {
   const [movies, dispatchState] = useReducer(searchReducer, {});
 
   const { addMovie: AddMovie, movieState, getMovieRecommendations } = useMovies();
-  const [movieSearch, setMovieSearch] = useQueryState(
-    'movieSearch',
-    new URLSearchParams().get('movieSearch') || ''
-  );
+  const [movieSearch, setMovieSearch] = useState('');
 
   const router = useNavigate();
 

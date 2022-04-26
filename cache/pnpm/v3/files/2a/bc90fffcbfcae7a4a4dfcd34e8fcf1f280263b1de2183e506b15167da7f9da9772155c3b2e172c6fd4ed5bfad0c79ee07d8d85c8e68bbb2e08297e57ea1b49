@@ -1,0 +1,46 @@
+{
+  "name": "ngx-deploy-npm",
+  "version": "3.1.7",
+  "description": "Publish your libraries to NPM with just one command",
+  "main": "src/index.js",
+  "generators": "./generators.json",
+  "executors": "./executors.json",
+  "schematics": "./generators.json",
+  "builders": "./executors.json",
+  "dependencies": {
+    "@nrwl/devkit": "13.10.1"
+  },
+  "ng-add": {
+    "save": "devDependencies"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bikecoders/ngx-deploy-npm.git"
+  },
+  "keywords": [
+    "npm",
+    "angular",
+    "npm-package",
+    "nx",
+    "nx-plugin",
+    "npm-publish",
+    "ng-deploy",
+    "cli",
+    "angular-cli",
+    "deploy",
+    "publish"
+  ],
+  "author": {
+    "name": "Diego Juliao",
+    "email": "dianjuar@gmail.com"
+  },
+  "contributors": [
+    "Yossely Mendoza <yossely7@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bikecoders/ngx-deploy-npm/issues"
+  },
+  "homepage": "https://github.com/bikecoders/ngx-deploy-npm/#readme",
+  "typings": "./src/index.d.ts"
+}

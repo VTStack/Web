@@ -1,0 +1,12 @@
+{
+  "watch": [
+    "./src/",
+    "./dev/",
+    "./.storybook"
+  ],
+  "ext": "js",
+  "ignore": [
+    "__tests__/**/"
+  ]
+
+}

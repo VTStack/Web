@@ -2,8 +2,6 @@
 
 <div align="center">
 
-<br />
-
 🧑‍💻 Codebase
 ===========
 
@@ -99,15 +97,17 @@ All these library types are scoped to the projects they belong to **unless** the
 | **Thunder**           | _Movie Reviewer App_       |               |           👷🏾             |                           |
 | **Honey**             | _Subscription Handler_     |               |           👷🏾             |                           |
 | **Butler**            | _New tab extention_        |               |                          |            🚦             |
-| **Me**                | _Portfolio_                |               |           👷🏾              |                           |
+| **About**                | _Portfolio_                |               |           👷🏾              |                           |
 | **Club**              | _Dashboard for Clubguard_  |               |             👷🏾             |                         |
-|   **Packages**        |                            | ⚡ **Done**   | 🚧 **In Development**    | 🤔 **Planning to build** |
-| **Structer**          | _Data Structures_          |               |           👷🏾             |                           |
-| **Algos**             | _General simple algorithms_|               |           👷🏾             |                           |
-
+|   
 ---
 
 ## 📜 Licensing
 This repository is under the MIT license.
 
 ---
+
+<!-- **Packages**        |                            | ⚡ **Done**   | 🚧 **In Development**    | 🤔 **Planning to build** |
+| **Structer**          | _Data Structures_          |               |           👷🏾             |                           |
+| **Algos**             | _General simple algorithms_|               |           👷🏾             |                           |
+ -->

@@ -3,16 +3,17 @@ import { useDispatch } from 'react-redux';
 import { signOutUser } from '@v-thomas/thunder/data-access';
 
 /* eslint-disable-next-line */
-export interface SignOutButtonProps {}
+console.log('THUUNK', signOutUser());
 
 export function SignOutButton() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   return (
-    <Button variant="outlined" onClick={() => dispatch(signOutUser())}>
+    <Button
+      variant="outlined"
+      // onClick={() => dispatch(signOutUser())}
+    >
       Sign out
     </Button>
   );
 }
-
-export default SignOutButton;

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "ngx-deploy-npm",
+  "version": "0.0.1",
+  "generators": {
+    "init": {
+      "factory": "./src/generators/init/generator",
+      "schema": "./src/generators/init/schema.json",
+      "description": "init generator"
+    },
+    "install": {
+      "factory": "./src/generators/install/generator",
+      "schema": "./src/generators/install/schema.json",
+      "description": "install generator",
+      "aliases": ["ng-add"]
+    }
+  },
+  "schematics": {
+    "ng-add": {
+      "factory": "./src/generators/install/compat",
+      "schema": "./src/generators/install/schema.json",
+      "description": "install generator",
+      "aliases": ["install"]
+    }
+  }
+}

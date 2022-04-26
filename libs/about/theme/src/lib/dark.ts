@@ -12,7 +12,8 @@ export const AboutDarkTheme = {
     secondary: 'rgba(150, 220, 240)',
     secondaryHover: 'rgba(144, 202, 249, 0.1)',
     warn: 'rgb(255,255,0)',
-    error: 'rgba(200, 50 ,50, 0.7)'
+    error: 'rgba(200, 50 ,50, 0.7)',
+    accent: 'rgba(90, 90, 90, 0.3)'
   },
 
   background: {
