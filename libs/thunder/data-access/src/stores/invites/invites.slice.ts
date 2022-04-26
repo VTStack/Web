@@ -114,6 +114,6 @@ const { selectAll, selectEntities } = invitesAdapter.getSelectors();
 
 export const getInvitesState = (rootState: any): InvitesState => rootState[INVITES_FEATURE_KEY];
 
-export const selectAllInvites = createSelector(getInvitesState, selectAll);
+export const selectAllInvites: any = createSelector(getInvitesState, selectAll);
 
-export const selectInvitesEntities = createSelector(getInvitesState, selectEntities);
+export const selectInvitesEntities: any = createSelector(getInvitesState, selectEntities);

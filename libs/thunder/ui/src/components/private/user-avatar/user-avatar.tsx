@@ -15,7 +15,7 @@ const Background = styled.div`
   height: var(--size);
   border-radius: 50%;
   overflow: hidden;
-  background: ${({ theme }) => theme.background.third};
+  background: ${({ theme }) => theme.color.accent};
 `;
 
 export function UserAvatar({ avatar }: { avatar: string | null }) {

@@ -1,11 +1,13 @@
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
 import '@v-thomas/shared/styles';
-import { App } from './app/app';
-import '@v-thomas/shared/web-utils';
+import { AboutShell } from '@v-thomas/about/shell';
+
+const root = document.getElementById('root') as Element;
+
 render(
   <StrictMode>
-    <App />
+    <AboutShell />
   </StrictMode>,
-  document.getElementById('root') as Element
+  root
 );

@@ -12,7 +12,7 @@
         "outputPath": "dist/libs/thunder/feature-home",
         "tsConfig": "libs/thunder/feature-home/tsconfig.lib.json",
         "project": "libs/thunder/feature-home/package.json",
-        "entryFile": "libs/thunder/feature-home/src/public_api.ts",
+        "entryFile": "libs/thunder/feature-home/src/public_api.tsx",
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "swc",
@@ -36,7 +36,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/thunder/feature-home"],
       "options": {
-        "jestConfig": "libs/thunder/feature-home/jest.config.js",
+        "jestConfig": "libs/thunder/feature-home/jest.config.ts",
         "passWithNoTests": true
       }
     }

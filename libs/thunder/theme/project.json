@@ -23,7 +23,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/thunder/theme"],
       "options": {
-        "jestConfig": "libs/thunder/theme/jest.config.js",
+        "jestConfig": "libs/thunder/theme/jest.config.ts",
         "passWithNoTests": true
       }
     }

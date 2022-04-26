@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { ApiMovieModel } from '@v-thomas/thunder/data-access';
@@ -26,7 +26,7 @@ export const useMovies = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { groupId }: any = useParams();
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const rootMovies = useSelector(getMoviesState);
   const movies: MoviesEntity[] = useSelector(selectAllMovies);
 

@@ -2,19 +2,13 @@ dist
 node_modules
 coverage
 
-.env
-.env.*
-.*.env
+.*env*
 
 tmp
 *.tmp
 *.old
 
-/other/config/*
-!/other/config/starship.toml
-
-local
-**/prisma/client
+prisma/client
 
 .yarn
 !/.yarn/releases
@@ -24,4 +18,4 @@ local
 /apps/about/node_modules
 /apps/about/public
 /apps/about/.cache
-vite*config
+packages

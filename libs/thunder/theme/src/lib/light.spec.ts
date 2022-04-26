@@ -1,11 +1,11 @@
-import { LightTheme } from './light';
+import { ThunderLightTheme } from './light';
 
 describe('Light Theme', () => {
   it('should work', () => {
-    expect(LightTheme).toBeDefined();
-    expect(LightTheme.theme).toEqual('light');
-    expect(LightTheme.color).toBeDefined();
-    expect(LightTheme.background).toBeDefined();
-    expect(LightTheme.text).toBeDefined();
+    expect(ThunderLightTheme).toBeDefined();
+    expect(ThunderLightTheme.theme).toEqual('light');
+    expect(ThunderLightTheme.color).toBeDefined();
+    expect(ThunderLightTheme.background).toBeDefined();
+    expect(ThunderLightTheme.text).toBeDefined();
   });
 });

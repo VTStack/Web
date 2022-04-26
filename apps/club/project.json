@@ -15,7 +15,7 @@
         "main": "apps/club/src/main.tsx",
         "polyfills": "apps/club/src/polyfills.ts",
         "tsConfig": "apps/club/tsconfig.app.json",
-        "assets": ["apps/club/src/favicon.ico", "apps/club/src/assets"],
+        "assets": ["apps/club/src/assets"],
         "styles": [],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
@@ -63,7 +63,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/club"],
       "options": {
-        "jestConfig": "apps/club/jest.config.js",
+        "jestConfig": "apps/club/jest.config.ts",
         "passWithNoTests": true
       }
     }

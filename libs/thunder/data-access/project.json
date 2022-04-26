@@ -52,7 +52,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/thunder/data-access"],
       "options": {
-        "jestConfig": "libs/thunder/data-access/jest.config.js",
+        "jestConfig": "libs/thunder/data-access/jest.config.ts",
         "passWithNoTests": true
       }
     },

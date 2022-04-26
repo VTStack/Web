@@ -1,7 +1,0 @@
-{
-  "babelrcRoots": ["*"],
-  "ignore": ["dist", "coverage"],
-  "highlightCode": false,
-  "comments": false,
-  "compact": true
-}

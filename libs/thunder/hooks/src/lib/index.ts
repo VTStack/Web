@@ -5,3 +5,4 @@ export * from './group';
 export * from './auth';
 export * from './other';
 export * from './user';
+export * from './ping';

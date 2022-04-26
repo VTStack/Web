@@ -2,11 +2,12 @@ import { Button, Title } from '@v-thomas/shared/ui';
 import { NavLinks, Navbar as SNavbar } from './navbar.styles';
 import { SignInButton } from '../../auth/sign-in-button/sign-in-button';
 import { SignUpButton } from '../../auth/sign-up-button/sign-up-button';
-import { useUser } from '@v-thomas/root/libs/thunder/hooks/src/lib';
+import { useUser } from '@v-thomas/thunder/hooks';
 import { SignOutButton } from '../../auth';
 import { useNavigate } from 'react-router-dom';
+import { Variants } from 'framer-motion';
 
-const NavbarAni = {
+const NavbarAni: Variants = {
   initial: { opacity: 0, y: -10 },
   animate: {
     y: 0,

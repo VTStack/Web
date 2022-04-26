@@ -4,7 +4,7 @@ import { fetchUser, getUserState, clearAuthErrors } from '@v-thomas/thunder/data
 import { useNavigate } from 'react-router-dom';
 import { closeModal } from '@v-thomas/thunder/data-access';
 export const useAuth = (location = '/') => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const state = useSelector(getUserState);
   const router = useNavigate();
 
@@ -17,7 +17,7 @@ export const useAuth = (location = '/') => {
   }, [location, dispatch, state, router]);
 };
 export const usePublicAuth = (location = '/app') => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const state = useSelector(getUserState);
   const router = useNavigate();
 
