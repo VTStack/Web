@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "NxCloudInit",
+  "title": "Add Nx Cloud Configuration to the workspace",
+  "type": "object",
+  "cli": "nx",
+  "properties": {
+    "analytics": {
+      "type": "boolean",
+      "description": "Anonymously store hashed machine ID for task runs",
+      "default": false
+    }
+  },
+  "additionalProperties": false,
+  "required": []
+}

@@ -1,0 +1,5 @@
+import { GeneratorCallback, Tree } from '@nrwl/devkit';
+export declare function migrateDefaultsGenerator(tree: Tree): GeneratorCallback;
+export declare function migrateAllStorybookInstances(tree: Tree): void;
+export declare function migrateStorybookInstance(tree: Tree, projectName: string, uiFramework: string, configFolder?: string): void;
+export declare function moveDirectory(tree: Tree, from: string, to: string): void;

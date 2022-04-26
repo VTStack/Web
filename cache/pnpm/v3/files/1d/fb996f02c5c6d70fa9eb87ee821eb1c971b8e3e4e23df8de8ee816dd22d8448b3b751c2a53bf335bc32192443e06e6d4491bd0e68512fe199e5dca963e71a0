@@ -1,0 +1,24 @@
+<% if (classComponent) { %>
+import  { Component } from 'react';
+<% } %>
+import NxWelcome from "./nx-welcome";
+
+<% if (classComponent) { %>
+export class App extends Component {
+  render() {
+<% } else { %>
+export function App() {
+<% } %>
+  return (
+    <>
+      <NxWelcome title="<%= projectName %>"/>
+      <div />
+    </>);
+<% if (classComponent) { %>
+  }
+}
+<% } else { %>
+}
+<% } %>
+
+export default App;

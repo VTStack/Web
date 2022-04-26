@@ -36,7 +36,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/thunder/feature-invite"],
       "options": {
-        "jestConfig": "libs/thunder/feature-invite/jest.config.js",
+        "jestConfig": "libs/thunder/feature-invite/jest.config.ts",
         "passWithNoTests": true
       }
     }

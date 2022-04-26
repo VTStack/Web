@@ -1,0 +1,7 @@
+import { CreateOrganizationInvitationParams, OrganizationResource } from '@clerk/types';
+declare type UseOrganization = {
+    inviteMember: (params: CreateOrganizationInvitationParams) => Promise<OrganizationResource>;
+};
+export declare function useOrganization(organizationId: string): UseOrganization;
+export {};
+//# sourceMappingURL=useOrganization.d.ts.map

@@ -17,7 +17,7 @@ export const useGroups = (): {
   clearGroupErrors: () => void;
   addGroup: (T: string) => void;
 } => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const state = useSelector(selectAllGroups);
   const allState = useSelector(getGroupsState);
 
@@ -36,7 +36,7 @@ export const useGroups = (): {
   };
 
   return {
-    groups: state,
+    groups: state as GroupsEntity[],
     clearGroups: () => dispatch(clearGroups()),
     allGroups: allState,
     clearGroupErrors: clearGroupErors,

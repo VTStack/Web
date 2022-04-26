@@ -18,7 +18,7 @@ import {
   Tooltip,
   PieController
 } from 'chart.js';
-import { addCollection, getCollection } from '@v-thomas/honey/data-access';
+// import { addCollection, getCollection } from '@v-thomas/honey/data-access';
 Chart.register(
   BarController,
   ArcElement,
@@ -72,7 +72,7 @@ export function HomePage() {
   //     })
   //   );
   // }, []);
-  const collection = getCollection('0 testing');
+  // const collection = getCollection('0 testing');
   // addCollection({ name: 'tesitng', description: 'fdjklfdskjl', id: '0' });
   // const { colId }: any = useParams();
   // const collection = useCollection(parseInt(colId));
@@ -94,17 +94,17 @@ export function HomePage() {
   //     }
   //   ]
   // };
-  console.log(collection);
+  // console.log(collection);
   return (
     <Grid>
       <Header>
         <Card noHover>
-          {collection && (
+          {/* {collection && (
             <Row padding={'1'}>
               <Title>Collection {collection.name}</Title>
               <Text>{collection.description}</Text>
             </Row>
-          )}
+          )} */}
         </Card>
         {/* <div>
           <PolarArea data={data1}></PolarArea>
@@ -119,7 +119,7 @@ export function HomePage() {
               <Button
                 variant="outlined"
                 onClick={() => {
-                  addCollection({ name: 'jklkl', description: 'fdjklfdskjl' });
+                  // addCollection({ name: 'jklkl', description: 'fdjklfdskjl' });
                 }}>
                 CREATE
               </Button>

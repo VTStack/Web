@@ -1,0 +1,16 @@
+{
+  "builders": {
+    "module-federation-dev-server": {
+      "implementation": "./src/executors/module-federation-dev-server/compat",
+      "schema": "./src/executors/module-federation-dev-server/schema.json",
+      "description": "Serve a host or remote application."
+    }
+  },
+  "executors": {
+    "module-federation-dev-server": {
+      "implementation": "./src/executors/module-federation-dev-server/module-federation-dev-server.impl",
+      "schema": "./src/executors/module-federation-dev-server/schema.json",
+      "description": "Serve a host or remote application."
+    }
+  }
+}

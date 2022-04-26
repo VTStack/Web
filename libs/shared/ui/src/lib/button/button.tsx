@@ -5,7 +5,7 @@ import { TextButton } from './variants/text';
 import { HoverOutlinedButton } from './variants/hover-outlined';
 import { NoStyleButton } from './variants/no-style';
 
-export type SharedButtonVariants = 'contained' | 'outlined' | 'text' | 'hover-outlined' | 'no-style';
+export type SharedButtonVariants = 'contained' | 'outlined' | 'text' | 'hover-outlined';
 
 export interface Props {
   shadow?: `${string}px`;
@@ -20,7 +20,6 @@ export interface Props {
 }
 
 export function Button({ variant = 'contained', children, noStyle = false, ...props }: Props) {
-  console.log(noStyle);
   if (noStyle) {
     return <NoStyleButton {...props}>{children}</NoStyleButton>;
   }

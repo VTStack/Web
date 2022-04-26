@@ -11,8 +11,7 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": ["build", "test", "lint", "package", "prepare", "install"],
-        "accessToken": "M2JlZWYzN2ItYmExMC00MmE0LWE1MjktYjhlNDI5OGUzYWNlfHJlYWQtd3JpdGU=",
-        "useDaemonProcess": true
+        "accessToken": "M2JlZWYzN2ItYmExMC00MmE0LWE1MjktYjhlNDI5OGUzYWNlfHJlYWQtd3JpdGU="
       }
     }
   },
@@ -24,26 +23,24 @@
     ".eslintrc.json": "*"
   },
   "workspaceLayout": {
-    "libsDir": "libs",
-    "appsDir": "apps"
+    "appsDir": "apps",
+    "libsDir": "libs"
   },
   "targetDependencies": {
-    "prepare": [
-      {
-        "target": "prepare",
-        "projects": "dependencies"
-      }
-    ],
-    "package": [
-      {
-        "target": "package",
-        "projects": "dependencies"
-      }
-    ],
     "test": [
       {
         "target": "test",
         "projects": "dependencies"
+      }
+    ],
+    "deploy": [
+      {
+        "target": "test",
+        "projects": "self"
+      },
+      {
+        "target": "build",
+        "projects": "self"
       }
     ]
   }

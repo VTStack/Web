@@ -1,0 +1,68 @@
+import type { ActiveSessionResource, AuthenticateWithMetamaskParams, ClientResource, CreateOrganizationParams, HandleMagicLinkVerificationParams, HandleOAuthCallbackParams, InitialState, OrganizationMembershipResource, OrganizationResource, RedirectOptions, Resources, SignInProps, SignOut, SignUpProps, UserButtonProps, UserProfileProps, UserResource } from '@clerk/types';
+import type { BrowserClerk, ClerkProp, IsomorphicClerkOptions } from './types';
+export interface Global {
+    Clerk?: BrowserClerk;
+}
+declare type NewIsomorphicClerkParams = {
+    frontendApi: string;
+    options: IsomorphicClerkOptions;
+    Clerk: ClerkProp | null;
+    initialState?: InitialState;
+};
+export default class IsomorphicClerk {
+    #private;
+    private mode;
+    private frontendApi;
+    private options;
+    private Clerk;
+    private clerkjs;
+    private preopenSignIn?;
+    private preopenSignUp?;
+    private premountSignInNodes;
+    private premountSignUpNodes;
+    private premountUserProfileNodes;
+    private premountUserButtonNodes;
+    private premountMethodCalls;
+    private loadedListeners;
+    initialState: InitialState | undefined;
+    get loaded(): boolean;
+    static getOrCreateInstance(params: NewIsomorphicClerkParams): IsomorphicClerk;
+    constructor(params: NewIsomorphicClerkParams);
+    loadClerkJS(): Promise<BrowserClerk | undefined>;
+    addOnLoaded: (cb: () => void) => void;
+    emitLoaded: () => void;
+    throwError(errorMsg: string): void;
+    private hydrateClerkJS;
+    get version(): string | undefined;
+    get client(): ClientResource | undefined;
+    get session(): ActiveSessionResource | undefined | null;
+    get user(): UserResource | undefined | null;
+    get __unstable__environment(): any;
+    setSession: (session: ActiveSessionResource | string | null, beforeEmit?: ((session: ActiveSessionResource | null) => void | Promise<any>) | undefined) => Promise<void>;
+    openSignIn: (props?: SignInProps | undefined) => void;
+    closeSignIn: () => void;
+    openSignUp: (props?: SignUpProps | undefined) => void;
+    closeSignUp: () => void;
+    mountSignIn: (node: HTMLDivElement, props: SignInProps) => void;
+    unmountSignIn: (node: HTMLDivElement) => void;
+    mountSignUp: (node: HTMLDivElement, props: SignUpProps) => void;
+    unmountSignUp: (node: HTMLDivElement) => void;
+    mountUserProfile: (node: HTMLDivElement, props: UserProfileProps) => void;
+    unmountUserProfile: (node: HTMLDivElement) => void;
+    mountUserButton: (node: HTMLDivElement, userButtonProps: UserButtonProps) => void;
+    unmountUserButton: (node: HTMLDivElement) => void;
+    addListener: (listener: (emission: Resources) => void) => void;
+    navigate: (to: string) => void;
+    redirectToSignIn: (opts: RedirectOptions) => void;
+    redirectToSignUp: (opts: RedirectOptions) => void;
+    redirectToUserProfile: () => void;
+    handleRedirectCallback: (params: HandleOAuthCallbackParams) => void;
+    handleMagicLinkVerification: (params: HandleMagicLinkVerificationParams) => Promise<void>;
+    authenticateWithMetamask: (params: AuthenticateWithMetamaskParams) => Promise<void>;
+    createOrganization: (params: CreateOrganizationParams) => Promise<OrganizationResource | void>;
+    getOrganizationMemberships: () => Promise<OrganizationMembershipResource[] | void>;
+    getOrganization: (organizationId: string) => Promise<OrganizationResource | undefined | void>;
+    signOut: SignOut;
+}
+export {};
+//# sourceMappingURL=isomorphicClerk.d.ts.map

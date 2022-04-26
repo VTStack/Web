@@ -36,7 +36,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/thunder/feature-groups"],
       "options": {
-        "jestConfig": "libs/thunder/feature-groups/jest.config.js",
+        "jestConfig": "libs/thunder/feature-groups/jest.config.ts",
         "passWithNoTests": true
       }
     }

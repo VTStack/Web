@@ -43,7 +43,7 @@ export function SignInButton({
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit: (values: any) => void = (values: { email: string; password: string }) =>
-    void dispatch(signInUser({ payload: { email: values.email, password: values.password } }));
+    console.log(signInUser({ payload: { email: values.email, password: values.password } }));
 
   const passwordError = formErrors?.['password']?.message;
   const emailError = formErrors?.['email']?.message;
@@ -99,7 +99,10 @@ export function SignInButton({
           <Button disabled={userState.loadingStatus === 'LOADING'}>SUBMIT</Button>
         </Form>
         <Row gap="auto">
-          <Link onClick={() => window.open('mailto:vincent.nathan.thomas@gmail.com')}>
+          <Link
+            onClick={() => {
+              window.open('mailto:vincent.nathan.thomas@gmail.com');
+            }}>
             Forgot your account?
           </Link>
           <Text>

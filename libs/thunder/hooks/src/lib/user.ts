@@ -4,7 +4,7 @@ import { getUserState, fetchUser, signOutUser } from '@v-thomas/thunder/data-acc
 import { useEffect } from 'react';
 
 export const useUser = (): { user: UserState; isAuthed: boolean; signOut: () => void } => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const state = useSelector(getUserState);
   useEffect(() => {
     if (state.loadingStatus === 'NOT_LOADED' && state.error === null) {

@@ -1,0 +1,10 @@
+export declare const nxVersion = "*";
+export declare const storybookVersion = "~6.4.12";
+export declare const babelCoreVersion = "7.12.13";
+export declare const babelLoaderVersion = "8.1.0";
+export declare const babelPresetTypescriptVersion = "7.12.13";
+export declare const svgrVersion = "^5.4.0";
+export declare const urlLoaderVersion = "^3.0.0";
+export declare const webpack5Version = "^5.64.0";
+export declare const storybookReactNativeVersion = "^6.0.1-beta.5";
+export declare const reactNativeStorybookLoader = "^2.0.5";

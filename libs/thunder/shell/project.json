@@ -19,7 +19,7 @@
         "tsConfig": "libs/thunder/shell/tsconfig.lib.json",
         "project": "libs/thunder/shell/package.json",
         "entryFile": "libs/thunder/shell/src/public_api.tsx",
-        "external": ["react/jsx-runtime", "@v-thomas/shared/core-ui", "@v-thomas/thunder/data-access"],
+        "external": ["react/jsx-runtime", "@v-thomas/shared/ui", "@v-thomas/thunder/data-access"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "swc",
         "updateBuildableProjectDepsInPackageJson": true,
@@ -30,8 +30,7 @@
             "glob": "libs/thunder/shell/README.md",
             "input": ".",
             "output": "."
-          },
-          "libs/thunder/shell/assets"
+          }
         ],
         "globals": [
           {
@@ -59,7 +58,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/thunder/shell"],
       "options": {
-        "jestConfig": "libs/thunder/shell/jest.config.js",
+        "jestConfig": "libs/thunder/shell/jest.config.ts",
         "passWithNoTests": true
       }
     },

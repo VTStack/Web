@@ -1,0 +1,26 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ClerkProvider = void 0;
+const tslib_1 = require("tslib");
+const react_1 = tslib_1.__importStar(require("react"));
+const errors_1 = require("../errors");
+const isomorphicClerk_1 = tslib_1.__importDefault(require("../isomorphicClerk"));
+const utils_1 = require("../utils");
+const ClerkContextProvider_1 = require("./ClerkContextProvider");
+const StructureContext_1 = require("./StructureContext");
+function ClerkProviderBase(props) {
+    const [clerkLoaded, setClerkLoaded] = (0, react_1.useState)(false);
+    const clerk = (0, react_1.useMemo)(() => {
+        const { frontendApi = '', Clerk: ClerkConstructor, initialState } = props, options = tslib_1.__rest(props, ["frontendApi", "Clerk", "initialState"]);
+        return isomorphicClerk_1.default.getOrCreateInstance({ frontendApi, options, Clerk: ClerkConstructor, initialState });
+    }, []);
+    (0, react_1.useEffect)(() => {
+        void clerk.loadClerkJS().then(() => setClerkLoaded(true));
+    }, []);
+    return (react_1.default.createElement(StructureContext_1.StructureContext.Provider, { value: StructureContext_1.StructureContextStates.noGuarantees },
+        react_1.default.createElement(ClerkContextProvider_1.ClerkContextProvider, { isomorphicClerk: clerk, clerkLoaded: clerkLoaded }, props.children)));
+}
+const ClerkProvider = (0, utils_1.withMaxAllowedInstancesGuard)(ClerkProviderBase, 'ClerkProvider', errors_1.multipleClerkProvidersError);
+exports.ClerkProvider = ClerkProvider;
+ClerkProvider.displayName = 'ClerkProvider';
+//# sourceMappingURL=ClerkProvider.js.map

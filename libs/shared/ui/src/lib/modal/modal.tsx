@@ -2,7 +2,7 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import AwayListener from 'react-click-away-listener';
-import { Col } from '../../public_api';
+import { Col } from '../col/col';
 import { AnimatePresence, motion } from 'framer-motion';
 
 /* eslint-disable-next-line */

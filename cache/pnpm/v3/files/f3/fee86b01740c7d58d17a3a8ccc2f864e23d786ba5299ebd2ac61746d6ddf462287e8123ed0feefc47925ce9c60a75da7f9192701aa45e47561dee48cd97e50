@@ -1,0 +1,51 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getConfig = exports.setConfig = void 0;
+let ADDON_ID = 'adk';
+let PANEL_ID = `${ADDON_ID}/panel`;
+let PANEL_Title = `${ADDON_ID}/addon`;
+let PARAM_Key = `${ADDON_ID}/parameters`;
+let EVENT_ID_INIT = `${ADDON_ID}/event/init`;
+let EVENT_ID_DATA = `${ADDON_ID}/event/data`;
+let EVENT_ID_BACK = `${ADDON_ID}/event/back`;
+
+const setConfig = ({
+  addonId,
+  panelId,
+  panelTitle,
+  paramKey,
+  eventInit,
+  eventData,
+  eventBack
+}) => {
+  ADDON_ID = addonId || ADDON_ID;
+  PANEL_ID = `${ADDON_ID}/panel`;
+  PANEL_Title = `${ADDON_ID}/addon`;
+  PARAM_Key = `${ADDON_ID}/parameters`;
+  EVENT_ID_INIT = `${ADDON_ID}/event/init`;
+  EVENT_ID_DATA = `${ADDON_ID}/event/data`;
+  EVENT_ID_BACK = `${ADDON_ID}/event/back`;
+  PANEL_ID = panelId || PANEL_ID;
+  PANEL_Title = panelTitle || PANEL_Title;
+  PARAM_Key = paramKey || PARAM_Key;
+  EVENT_ID_INIT = eventInit || EVENT_ID_INIT;
+  EVENT_ID_DATA = eventData || EVENT_ID_DATA;
+  EVENT_ID_BACK = eventBack || EVENT_ID_BACK;
+};
+
+exports.setConfig = setConfig;
+
+const getConfig = () => ({
+  ADDON_ID,
+  PANEL_ID,
+  PANEL_Title,
+  PARAM_Key,
+  EVENT_ID_INIT,
+  EVENT_ID_DATA,
+  EVENT_ID_BACK
+});
+
+exports.getConfig = getConfig;

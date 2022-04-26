@@ -25,7 +25,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/shared/theme"],
       "options": {
-        "jestConfig": "libs/shared/theme/jest.config.js",
+        "jestConfig": "libs/shared/theme/jest.config.ts",
         "passWithNoTests": true
       }
     },

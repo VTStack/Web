@@ -1,0 +1,9 @@
+{
+  "watch": [
+    "./src",
+    "./.storybook/register.js",
+    "../theme-name/dist"
+  ],
+  "ext": "js"
+
+}

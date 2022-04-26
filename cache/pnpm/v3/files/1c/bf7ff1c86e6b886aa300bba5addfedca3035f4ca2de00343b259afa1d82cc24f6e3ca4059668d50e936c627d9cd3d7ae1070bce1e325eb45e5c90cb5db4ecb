@@ -1,0 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.typesNodeVersion = exports.swcLoaderVersion = exports.nxVersion = void 0;
+exports.nxVersion = '14.0.2';
+exports.swcLoaderVersion = '0.1.15';
+exports.typesNodeVersion = '16.11.7';
+//# sourceMappingURL=versions.js.map

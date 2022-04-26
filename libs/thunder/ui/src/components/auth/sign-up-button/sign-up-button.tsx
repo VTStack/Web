@@ -14,7 +14,7 @@ import {
   getUserState,
   clearAuthErrors
 } from '@v-thomas/thunder/data-access';
-import Joi from 'joi';
+import * as Joi from 'joi';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { ErrorMsg } from '../sign-in-button/sign-in-button.styles';
 import { Helmet } from 'react-helmet-async';
@@ -39,6 +39,8 @@ export function SignUpButton({
   type?: SharedButtonVariants;
   text?: string;
 }) {
+  const dispatch = useDispatch<any>();
+
   const onSubmit = (v: { email: string; password: string }) => {
     const { email, password } = v;
     dispatch(signUpUser({ payload: { email, password } }));
@@ -47,8 +49,6 @@ export function SignUpButton({
   const state = useSelector(selectAuthModalState);
 
   const userState = useSelector(getUserState);
-
-  const dispatch = useDispatch();
 
   const {
     register,

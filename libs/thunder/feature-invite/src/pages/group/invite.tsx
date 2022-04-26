@@ -6,7 +6,7 @@ import { addMember, fetchInvite, getInviteState } from '@v-thomas/thunder/data-a
 import InviteOwner from './components/invite-owner';
 
 export function InvitePage() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const state = useSelector(getInviteState);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

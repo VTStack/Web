@@ -1,0 +1,58 @@
+import { ClerkResourceJSON } from './json';
+import { ClerkResource } from './resource';
+import { OAuthStrategy, Web3Strategy } from './strategies';
+declare type Attribute = 'email_address' | 'phone_number' | 'username' | 'first_name' | 'last_name' | 'password' | 'web3_wallet';
+declare type VerificationStrategy = 'email_link' | 'email_code' | 'phone_code';
+export declare type OAuthProviderSettings = {
+    enabled: boolean;
+    required: boolean;
+    authenticatable: boolean;
+    strategy: OAuthStrategy;
+};
+export declare type AttributeData = {
+    enabled: boolean;
+    required: boolean;
+    name: Attribute;
+    verifications: VerificationStrategy[];
+    used_for_first_factor: boolean;
+    first_factors: VerificationStrategy[];
+    used_for_second_factor: boolean;
+    second_factors: VerificationStrategy[];
+    verify_at_sign_up: boolean;
+};
+export declare type SignInData = {
+    second_factor: {
+        required: boolean;
+        enabled: boolean;
+    };
+};
+export declare type SignUpData = {
+    allowlist_only: boolean;
+};
+export declare type OAuthProviders = {
+    [provider in OAuthStrategy]: OAuthProviderSettings;
+};
+export declare type Attributes = {
+    [attribute in Attribute]: AttributeData;
+};
+export interface UserSettingsJSON extends ClerkResourceJSON {
+    id: never;
+    object: never;
+    attributes: Attributes;
+    social: OAuthProviders;
+    sign_in: SignInData;
+    sign_up: SignUpData;
+}
+export interface UserSettingsResource extends ClerkResource {
+    id: undefined;
+    social: OAuthProviders;
+    attributes: Attributes;
+    signIn: SignInData;
+    signUp: SignUpData;
+    socialProviderStrategies: OAuthStrategy[];
+    web3FirstFactors: Web3Strategy[];
+    enabledFirstFactorIdentifiers: Attribute[];
+    instanceIsPasswordBased: boolean;
+}
+export {};
+//# sourceMappingURL=userSettings.d.ts.map

@@ -9,16 +9,26 @@
       "configurations": {
         "production": {
           "index": "apps/about/src/index.html",
-          "assets": [{ "glob": "*.svg", "input": "apps/about/src/assets", "output": "assets" }],
+          "assets": [
+            {
+              "glob": "*.svg",
+              "input": "apps/about/src/assets",
+              "output": "assets"
+            }
+          ],
           "outputPath": "dist/apps/about",
-          "progress": true,
-          "extractCss": true,
           "tsConfig": "apps/about/tsconfig.app.json",
           "main": "apps/about/src/main.tsx",
           "compiler": "swc",
           "webpackConfig": "@nrwl/react/plugins/webpack",
           "polyfills": "apps/about/src/polyfills.ts",
-          "deployUrl": "http://about.v-thomas.me"
+          "budgets": [
+            {
+              "name": "production",
+              "maximumError": "1 b",
+              "type": "allScript"
+            }
+          ]
         }
       }
     },
@@ -40,14 +50,20 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/about"],
       "options": {
-        "jestConfig": "apps/about/jest.config.js",
+        "jestConfig": "apps/about/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "preview": {
-      "executor": "nx-plugin-vite:preview",
+      "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "configFile": "apps/about/vite.config.ts"
+        "command": "serve ./dist/apps/about"
+      }
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "sh ./scripts/about/deploy.sh"
       }
     }
   },

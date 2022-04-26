@@ -1,4 +1,5 @@
-import { moviesAdapter, moviesReducer, MoviesState, clearMovies, fetchGroupMovies } from './movies.slice';
+import { moviesAdapter, moviesReducer, clearMovies, fetchGroupMovies } from './movies.slice';
+import { MoviesState } from '@v-thomas/thunder/types';
 
 describe('movies reducer', () => {
   it('should handle initial state', () => {

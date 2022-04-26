@@ -1,11 +1,11 @@
-import { DarkTheme } from './dark';
+import { AboutDarkTheme } from './dark';
 
 describe('Dark Theme', () => {
   it('should work', () => {
-    expect(DarkTheme).toBeDefined();
-    expect(DarkTheme.theme).toEqual('dark');
-    expect(DarkTheme.color).toBeDefined();
-    expect(DarkTheme.background).toBeDefined();
-    expect(DarkTheme.text).toBeDefined();
+    expect(AboutDarkTheme).toBeDefined();
+    expect(AboutDarkTheme.theme).toEqual('dark');
+    expect(AboutDarkTheme.color).toBeDefined();
+    expect(AboutDarkTheme.background).toBeDefined();
+    expect(AboutDarkTheme.text).toBeDefined();
   });
 });

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import MainError from './main-error';
+import { MainError } from './main-error';
 import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
 import { ThemeProvider } from 'styled-components';
 

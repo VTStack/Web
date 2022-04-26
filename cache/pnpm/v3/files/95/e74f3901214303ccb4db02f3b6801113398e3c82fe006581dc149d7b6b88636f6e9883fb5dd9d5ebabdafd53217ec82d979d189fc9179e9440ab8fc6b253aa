@@ -1,0 +1,40 @@
+{
+  "name": "@react-theming/theme-name",
+  "version": "1.0.3",
+  "main": "dist/index.js",
+  "repository": "https://github.com/UsulPro/theme-name.git",
+  "scripts": {
+    "start": "start-storybook -p 6006 --ci",
+    "dev": "nodemon --exec yarn prepare",
+    "prepare": "package-prepare",
+    "lintfix": "eslint --fix src",
+    "test": "jest",
+    "tdd": "jest --watchAll"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.2.3",
+    "@usulpro/package-prepare": "^1.0.5",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.8.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jest": "^22.5.1",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "jest": "^24.8.0",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.17.1"
+  },
+  "author": "Oleg Proskurin <regx@usul.su>",
+  "license": "MIT",
+  "dependencies": {
+    "color-name-list": "^4.7.1",
+    "nearest-color": "^0.4.4"
+  }
+}

@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import { Row } from './col';
+import { Col } from './col';
 
-describe('Row', () => {
+describe('Col', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Row />);
+    const { baseElement } = render(<Col />);
     expect(baseElement).toBeTruthy();
   });
 });

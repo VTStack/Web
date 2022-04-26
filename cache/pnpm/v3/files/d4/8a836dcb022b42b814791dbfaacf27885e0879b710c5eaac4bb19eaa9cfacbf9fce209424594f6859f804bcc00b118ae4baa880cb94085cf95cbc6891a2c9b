@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const devkit_1 = require("@nrwl/devkit");
+const executor_options_utils_1 = require("@nrwl/workspace/src/utilities/executor-options-utils");
+function update(host) {
+    return tslib_1.__awaiter(this, void 0, void 0, function* () {
+        (0, executor_options_utils_1.forEachExecutorOptions)(host, '@nrwl/node:build', (_, projectName, targetName) => {
+            const projectConfiguration = (0, devkit_1.readProjectConfiguration)(host, projectName);
+            projectConfiguration.targets[targetName].executor = '@nrwl/node:webpack';
+            (0, devkit_1.updateProjectConfiguration)(host, projectName, projectConfiguration);
+        });
+        yield (0, devkit_1.formatFiles)(host);
+    });
+}
+exports.default = update;
+//# sourceMappingURL=rename-build-to-webpack.js.map
