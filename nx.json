@@ -4,13 +4,14 @@
     "defaultBase": "main"
   },
   "cli": {
-    "packageManager": "pnpm"
+    "packageManager": "pnpm",
+    "defaultCollection": "@nrwl/nest"
   },
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "test", "lint", "package", "prepare", "install"],
+        "cacheableOperations": ["build", "test", "lint", "package"],
         "accessToken": "M2JlZWYzN2ItYmExMC00MmE0LWE1MjktYjhlNDI5OGUzYWNlfHJlYWQtd3JpdGU="
       }
     }
@@ -43,5 +44,13 @@
         "projects": "self"
       }
     ]
+  },
+  "defaultProject": "thunder-server",
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    }
   }
 }

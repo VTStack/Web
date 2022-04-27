@@ -1,5 +1,5 @@
-import { useToggle } from '@v-thomas/shared/hooks';
-import { Button, ButtonContainer, Col, Link, Modal, Row, Text, Title } from '@v-thomas/shared/ui';
+import { useToggle } from '@v-thomas/hooks';
+import { Button, ButtonContainer, Col, Link, Modal, Row, Text, Title } from '@v-thomas/core-ui';
 import { usePing } from '@v-thomas/thunder/hooks';
 import { useEffect } from 'react';
 

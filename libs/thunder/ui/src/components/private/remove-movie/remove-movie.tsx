@@ -1,4 +1,4 @@
-import { Button } from '@v-thomas/shared/ui';
+import { Button } from '@v-thomas/core-ui';
 
 /* eslint-disable-next-line */
 export interface RemoveMovieProps {

@@ -1,10 +1,10 @@
-import { Button, Card, Col, Link, Modal, Row, Text, Title } from '@v-thomas/shared/ui';
+import { Button, Card, Col, Link, Modal, Row, Text, Title } from '@v-thomas/core-ui';
 import styled from 'styled-components';
 import Cross from '@v-thomas/shared/assets/x-mark.svg';
 import { useNavigate } from 'react-router-dom';
-import { ReactEventHandler, useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useToggle } from '@v-thomas/shared/hooks';
+import { useToggle } from '@v-thomas/hooks';
 const Background = styled(motion.div)``;
 export function ProjectsPage() {
   const [isOpen, toggleOpen] = useToggle(false);

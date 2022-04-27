@@ -1,7 +1,9 @@
-import { Button, Row, Input, Modal, Title, SharedButtonVariants } from '@v-thomas/shared/ui';
+import { Button, Row, Input, Modal, Title, SharedButtonVariants } from '@v-thomas/core-ui';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { useGroups, useToggle } from '@v-thomas/thunder/hooks';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import Cross from '@v-thomas/shared/assets/x-mark.svg';
 
 const Form = styled.form`

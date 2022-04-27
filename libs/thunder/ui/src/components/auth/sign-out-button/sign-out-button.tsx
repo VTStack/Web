@@ -1,4 +1,4 @@
-import { Button } from '@v-thomas/shared/ui';
+import { Button } from '@v-thomas/core-ui';
 import { useDispatch } from 'react-redux';
 import { signOutUser } from '@v-thomas/thunder/data-access';
 

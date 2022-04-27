@@ -1,0 +1,59 @@
+{
+  "root": "apps/thunder/client",
+  "projectType": "application",
+  "sourceRoot": "apps/thunder/client/src",
+  "tags": ["scope:thunder", "type:app"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "defaultConfiguration": "production",
+      "configurations": {
+        "production": {
+          "index": "apps/thunder/client/src/index.html",
+          "assets": [
+            {
+              "glob": "**/*",
+              "input": "libs/thunder/assets/src",
+              "output": "assets"
+            }
+          ],
+          "outputPath": "dist/apps/thunder/client",
+          "progress": true,
+          "extractCss": true,
+          "tsConfig": "apps/thunder/client/tsconfig.app.json",
+          "main": "apps/thunder/client/src/main.tsx",
+          "compiler": "swc",
+          "webpackConfig": "@nrwl/react/plugins/webpack",
+          "buildLibsFromSource": true,
+          "runtimeChunk": true,
+          "commonChunk": true,
+          "namedChunks": true
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "thunder:build:production",
+        "port": 3000,
+        "proxyConfig": "apps/thunder/client/proxy.conf.json"
+      }
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "sh ./scripts/thunder/deploy.sh",
+        "outputPath": "dist/apps/thunder/client",
+        "parallel": false
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "apps/thunder/client/jest.config.ts",
+        "passWithNoTests": true,
+        "bail": true
+      }
+    }
+  }
+}
