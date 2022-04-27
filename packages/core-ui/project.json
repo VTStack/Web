@@ -1,0 +1,63 @@
+{
+  "root": "packages/core-ui",
+  "sourceRoot": "packages/core-ui/src",
+  "projectType": "library",
+  "tags": ["type:ui"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/core-ui",
+        "tsConfig": "packages/core-ui/tsconfig.lib.json",
+        "project": "packages/core-ui/package.json",
+        "entryFile": "packages/core-ui/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "format": ["esm", "umd"],
+        "globals": [
+          {
+            "global": "framer-motion",
+            "moduleId": "framer-motion"
+          },
+          {
+            "global": "react-router-dom",
+            "moduleId": "react-router-dom"
+          }
+        ],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "packages/core-ui/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/core-ui/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/core-ui"],
+      "options": {
+        "jestConfig": "packages/core-ui/jest.config.ts",
+        "passWithNoTests": true,
+        "codeCoverage": true,
+        "onlyChanged": true
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "noBuild": true,
+        "access": "public"
+      }
+    }
+  }
+}
