@@ -1,0 +1,48 @@
+{
+  "root": "packages/hooks",
+  "sourceRoot": "packages/hooks/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "compiler": "babel",
+        "entryFile": "packages/hooks/src/index.ts",
+        "tsConfig": "packages/hooks/tsconfig.lib.json",
+        "project": "packages/hooks/package.json",
+        "outputPath": "dist/packages/hooks",
+        "globals": [
+          {
+            "global": "react",
+            "moduleId": "react"
+          }
+        ],
+        "external": ["react"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/hooks/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/hooks"],
+      "options": {
+        "jestConfig": "packages/hooks/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public",
+        "noBuild": true
+      }
+    }
+  },
+  "tags": []
+}

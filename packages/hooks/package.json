@@ -1,0 +1,27 @@
+{
+  "name": "@v-thomas/hooks",
+  "version": "0.0.1",
+  "description": "The library containing react-hooks for projects and products from Vincent Thomas",
+  "funding": {
+    "type": "buymeacoffe",
+    "url": "https://link.v-thomas.me/donate"
+  },
+  "author": {
+    "name": "Vincent Thomas",
+    "email": "vincent@v-thomas.me",
+    "url": "https://about.v-thomas.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VT-Codes/Web",
+    "directory": "packages/hooks"
+  },
+  "keywords": [
+    "hooks",
+    "react",
+    "v-thomas"
+  ],
+  "peerDependencies": {
+    "react": "^16.8.6"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@v-thomas/core-ui",
+  "version": "0.0.3",
+  "description": "The ui library used for projects and products from Vincent Thomas",
+  "funding": {
+    "type": "buymeacoffe",
+    "url": "https://link.v-thomas.me/donate"
+  },
+  "author": {
+    "name": "Vincent Thomas",
+    "email": "vincent@v-thomas.me",
+    "url": "https://about.v-thomas.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VT-Codes/Packages"
+  },
+  "keywords": [
+    "ui",
+    "react",
+    "v-thomas"
+  ]
+}
