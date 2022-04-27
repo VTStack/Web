@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { GroupGrid } from './home.styles';
 import { PrivateNavbar } from '@v-thomas/thunder/ui';
-import { Button, Divider, Title } from '@v-thomas/shared/ui';
+import { Button, Divider, Title } from '@v-thomas/core-ui';
 import { useGroups, useUser } from '@v-thomas/thunder/hooks';
 import { useNavigate } from 'react-router-dom';
 import { CreateGroupButton } from './components/create-group/create-group';

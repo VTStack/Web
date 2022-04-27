@@ -12,6 +12,7 @@
         "outputPath": "dist/libs/thunder/ui",
         "tsConfig": "libs/thunder/ui/tsconfig.lib.json",
         "project": "libs/thunder/ui/package.json",
+        "extractCss": true,
         "entryFile": "libs/thunder/ui/src/public_api.ts",
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { PrivateNavbar } from '@v-thomas/thunder/ui';
 
-import { Divider, Title, Button, Input } from '@v-thomas/shared/ui';
+import { Divider, Title, Button, Input } from '@v-thomas/core-ui';
 
 import MovieCard from '../../components/movie-card/movie-card';
 import { Container, Form, Grid, GridAnimation, RemoveAtSmall } from './home.styles';

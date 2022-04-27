@@ -1,0 +1,12 @@
+export interface CardProps {
+    width?: string;
+    height?: string;
+    padding?: string;
+    theme?: {
+        background: {
+            third: string;
+        };
+    };
+    noHover?: boolean;
+}
+export declare const Card: import("styled-components").StyledComponent<import("framer-motion").ForwardRefComponent<HTMLDivElement, import("framer-motion").HTMLMotionProps<"div">>, any, CardProps, never>;

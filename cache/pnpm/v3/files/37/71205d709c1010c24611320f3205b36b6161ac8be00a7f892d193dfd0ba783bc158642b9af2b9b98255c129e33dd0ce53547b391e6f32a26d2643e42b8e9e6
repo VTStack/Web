@@ -1,0 +1,14 @@
+import { ReactNode } from 'react';
+export declare type SharedButtonVariants = 'contained' | 'outlined' | 'text' | 'hover-outlined';
+export interface Props {
+    shadow?: `${string}px`;
+    size?: string;
+    variant?: SharedButtonVariants;
+    onClick?: (e: Record<string, unknown>) => void;
+    children: ReactNode;
+    [key: string]: unknown;
+    id?: string | number;
+    disabled?: boolean;
+    noStyle?: boolean;
+}
+export declare function Button({ variant, children, noStyle, ...props }: Props): JSX.Element;

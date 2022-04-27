@@ -1,4 +1,4 @@
-import { Card, Row, Title, Text, Button, Divider, Col } from '@v-thomas/shared/ui';
+import { Card, Row, Title, Text, Button, Divider, Col } from '@v-thomas/core-ui';
 import styled from 'styled-components';
 import {
   Chart,

@@ -2,16 +2,16 @@
   "root": "libs/thunder/shell",
   "sourceRoot": "libs/thunder/shell",
   "projectType": "library",
-  "implicitDependencies": ["!shared-ui"],
+  "implicitDependencies": [
+    "thunder-feature-groups",
+    "thunder-feature-invite",
+    "thunder-feature-home",
+    "thunder-feature-404-page",
+    "!thunder-ui"
+  ],
   "tags": ["scope:thunder", "type:feature"],
   "targets": {
     "build": {
-      "dependsOn": [
-        {
-          "target": "build",
-          "projects": "dependencies"
-        }
-      ],
       "executor": "@nrwl/web:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
@@ -23,7 +23,6 @@
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "swc",
         "updateBuildableProjectDepsInPackageJson": true,
-        "watch": true,
         "deleteOutputPath": true,
         "assets": [
           {

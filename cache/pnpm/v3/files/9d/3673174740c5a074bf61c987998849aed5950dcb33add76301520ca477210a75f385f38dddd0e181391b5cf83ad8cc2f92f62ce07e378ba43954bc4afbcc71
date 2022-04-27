@@ -1,0 +1,966 @@
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('styled-components'), require('framer-motion'), require('react-router-dom')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'styled-components', 'framer-motion', 'react-router-dom'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.CoreUi = {}, global.styled, global["framer-motion"], global["react-router-dom"]));
+})(this, (function (exports, styled, framerMotion, reactRouterDom) { 'use strict';
+
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
+
+  function _taggedTemplateLiteral$h(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$h() {
+      var data = _taggedTemplateLiteral$h([
+          "\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n"
+      ]);
+      _templateObject$h = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  var Avatar = styled__default["default"].img(_templateObject$h());
+
+  function _taggedTemplateLiteral$g(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$g() {
+      var data = _taggedTemplateLiteral$g([
+          "\n  color: ",
+          ";\n\n  border: none;\n\n  background-color: transparent;\n\n  padding: 0.8rem 1.1rem;\n  border-radius: 4px;\n  /* transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,\n    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,\n    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; */\n  transition: all 0.3s ease;\n  font-size: ",
+          " !important;\n  font-weight: 500;\n  cursor: pointer;\n  position: relative;\n  overflow: hidden;\n\n  /* line-height: 1.75; */\n\n  @media screen and (max-width: 600px) {\n    font-size: ",
+          ";\n  }\n\n  &[disabled] {\n    background-color: ",
+          " !important;\n    color: black !important;\n    cursor: not-allowed;\n    outline: none;\n    border: none;\n  }\n"
+      ]);
+      _templateObject$g = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  var CoreButton = styled__default["default"](framerMotion.motion.button)(_templateObject$g(), function(param) {
+      var theme = param.theme;
+      return theme.color.primary;
+  }, function(param) {
+      var size = param.size;
+      return "".concat(size || "1.05", "rem");
+  }, function(param) {
+      var size = param.size;
+      var digit = parseInt(size || "1.15");
+      return (digit / 1.15).toString() + "rem";
+  }, function(param) {
+      var theme = param.theme;
+      return theme.text.third;
+  });
+
+  function _taggedTemplateLiteral$f(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$f() {
+      var data = _taggedTemplateLiteral$f([
+          "\n  color: black;\n\n  background-color: ",
+          ";\n  &:hover {\n    background-color: ",
+          ";\n  }\n"
+      ]);
+      _templateObject$f = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  var ContainedButton = styled__default["default"](CoreButton)(_templateObject$f(), function(param) {
+      var theme = param.theme;
+      return theme.color.primary;
+  }, function(param) {
+      var theme = param.theme;
+      return theme.color.primaryHover;
+  });
+
+  function _taggedTemplateLiteral$e(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$e() {
+      var data = _taggedTemplateLiteral$e([
+          "\n  --color: ",
+          ";\n\n  color: var(--color);\n  border: 1px solid var(--color);\n  border: 1px solid var(--color);\n\n  &:hover {\n    background-color: ",
+          ";\n  }\n"
+      ]);
+      _templateObject$e = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  var colorTypes$1 = {
+      error: "rgba(200, 50, 50, 1)",
+      warn: "rgb(255,255,0)"
+  };
+  var OutlinedButton = styled__default["default"](CoreButton)(_templateObject$e(), function(param) {
+      var theme = param.theme, color = param.color;
+      if (color) {
+          return colorTypes$1[color];
+      }
+      return theme.color.secondary;
+  }, function(param) {
+      var theme = param.theme;
+      return theme.background.secondary;
+  });
+
+  function _taggedTemplateLiteral$d(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$d() {
+      var data = _taggedTemplateLiteral$d([
+          "\n  &:hover {\n    background-color: ",
+          ";\n  }\n"
+      ]);
+      _templateObject$d = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  var TextButton = styled__default["default"](CoreButton)(_templateObject$d(), function(param) {
+      var theme = param.theme;
+      return theme.color.secondaryHover;
+  });
+
+  function _taggedTemplateLiteral$c(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$c() {
+      var data = _taggedTemplateLiteral$c([
+          "\n  position: relative;\n\n  --color: ",
+          ";\n\n  color: var(--color);\n\n  &::after,\n  &::before {\n    content: '';\n    position: absolute;\n    width: 0;\n    height: 0;\n    transition: all 0.4s ease-in-out;\n    opacity: 0;\n  }\n\n  &::after {\n    bottom: 0;\n    right: 0;\n    border-bottom: 2px solid var(--color);\n    border-right: 2px solid var(--color);\n  }\n\n  &::before {\n    top: 0;\n    left: 0;\n    border-top: 2px solid var(--color);\n    border-left: 2px solid var(--color);\n  }\n\n  &:hover::after,\n  &:hover::before {\n    width: calc(100% - 2px);\n    height: calc(100% - 2px);\n\n    /* width: 15px;\n    height: 15px; */\n\n    transition: all 0.4s ease-in-out, opacity 0.2s border-radius 0s 0.4s;\n    opacity: 1;\n  }\n"
+      ]);
+      _templateObject$c = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  var colorTypes = {
+      error: "rgba(200, 50, 50, 1)",
+      warn: "rgb(255,255,0)"
+  };
+  var HoverOutlinedButton = styled__default["default"](CoreButton)(_templateObject$c(), function(param) {
+      var theme = param.theme, color = param.color;
+      if (color) {
+          return colorTypes[color];
+      }
+      return theme.color.secondary;
+  });
+
+  function _taggedTemplateLiteral$b(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$b() {
+      var data = _taggedTemplateLiteral$b([
+          "\n  outline: initial;\n  border: initial;\n  color: initial;\n  background: none;\n  font-size: initial;\n  text-align: initial;\n  cursor: pointer;\n"
+      ]);
+      _templateObject$b = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  var NoStyleButton = styled__default["default"].button(_templateObject$b());
+
+  function _extends$1() {
+      _extends$1 = Object.assign || function(target) {
+          for(var i = 1; i < arguments.length; i++){
+              var source = arguments[i];
+              for(var key in source){
+                  if (Object.prototype.hasOwnProperty.call(source, key)) {
+                      target[key] = source[key];
+                  }
+              }
+          }
+          return target;
+      };
+      return _extends$1.apply(this, arguments);
+  }
+  function _objectWithoutProperties$1(source, excluded) {
+      if (source == null) return {};
+      var target = _objectWithoutPropertiesLoose$1(source, excluded);
+      var key, i;
+      if (Object.getOwnPropertySymbols) {
+          var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+          for(i = 0; i < sourceSymbolKeys.length; i++){
+              key = sourceSymbolKeys[i];
+              if (excluded.indexOf(key) >= 0) continue;
+              if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+              target[key] = source[key];
+          }
+      }
+      return target;
+  }
+  function _objectWithoutPropertiesLoose$1(source, excluded) {
+      if (source == null) return {};
+      var target = {};
+      var sourceKeys = Object.keys(source);
+      var key, i;
+      for(i = 0; i < sourceKeys.length; i++){
+          key = sourceKeys[i];
+          if (excluded.indexOf(key) >= 0) continue;
+          target[key] = source[key];
+      }
+      return target;
+  }
+  function Button(_param) {
+      var _variant = _param.variant, variant = _variant === void 0 ? "contained" : _variant, children = _param.children, _noStyle = _param.noStyle, noStyle = _noStyle === void 0 ? false : _noStyle, props = _objectWithoutProperties$1(_param, [
+          "variant",
+          "children",
+          "noStyle"
+      ]);
+      if (noStyle) {
+          return /*#__PURE__*/ React.createElement(NoStyleButton, _extends$1({}, props), children);
+      }
+      switch(variant){
+          case "text":
+              return /*#__PURE__*/ React.createElement(TextButton, _extends$1({}, props), children);
+          case "contained":
+              return /*#__PURE__*/ React.createElement(ContainedButton, _extends$1({}, props), children);
+          case "hover-outlined":
+              return /*#__PURE__*/ React.createElement(HoverOutlinedButton, _extends$1({}, props), children);
+          case "outlined":
+              return /*#__PURE__*/ React.createElement(OutlinedButton, _extends$1({}, props), children);
+          default:
+              return /*#__PURE__*/ React.createElement(ContainedButton, _extends$1({}, props), children);
+      }
+  }
+
+  function _taggedTemplateLiteral$a(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$a() {
+      var data = _taggedTemplateLiteral$a([
+          "\n      &:hover {\n        background-color: ",
+          ";\n      }\n    "
+      ]);
+      _templateObject$a = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject1$6() {
+      var data = _taggedTemplateLiteral$a([
+          "\n  padding: ",
+          ";\n  display: flex;\n  flex-direction: column;\n\n  cursor: pointer;\n\n  position: relative;\n\n  width: ",
+          ";\n  height: ",
+          ";\n\n  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);\n  border-radius: 5px;\n\n  background-color: ",
+          ";\n\n  transition: all 0.3s ease;\n\n  ",
+          "\n"
+      ]);
+      _templateObject1$6 = function _templateObject1() {
+          return data;
+      };
+      return data;
+  }
+  var Card = styled__default["default"](framerMotion.motion.div)(_templateObject1$6(), function(param) {
+      var _padding = param.padding, padding = _padding === void 0 ? "1" : _padding;
+      return "".concat(padding, "rem");
+  }, function(props) {
+      return props.width;
+  }, function(props) {
+      return props.height;
+  }, function(param) {
+      var theme = param.theme;
+      return theme.background.secondary;
+  }, function(param1) {
+      var noHover = param1.noHover;
+      return !noHover && styled.css(_templateObject$a(), function(param) {
+          var theme = param.theme;
+          return theme === null || theme === void 0 ? void 0 : theme.background.third;
+      });
+  });
+
+  function _taggedTemplateLiteral$9(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$9() {
+      var data = _taggedTemplateLiteral$9([
+          "\n          margin-bottom: 0;\n        "
+      ]);
+      _templateObject$9 = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject1$5() {
+      var data = _taggedTemplateLiteral$9([
+          "\n  background-color: ",
+          ";\n  height: 1px;\n  margin: 0 auto;\n\n  margin-block: 2rem;\n  ",
+          "\n  width: ",
+          ";\n"
+      ]);
+      _templateObject1$5 = function _templateObject1() {
+          return data;
+      };
+      return data;
+  }
+  var Divider = styled__default["default"].div(_templateObject1$5(), function(param) {
+      var _theme = param.theme, theme = _theme === void 0 ? {} : _theme;
+      var ref;
+      return theme === null || theme === void 0 ? void 0 : (ref = theme.background) === null || ref === void 0 ? void 0 : ref.third;
+  }, function(param) {
+      var _marginUnder = param.marginUnder, marginUnder = _marginUnder === void 0 ? true : _marginUnder;
+      return marginUnder ? null : styled.css(_templateObject$9());
+  }, function(param) {
+      var width = param.width;
+      return width || "97.5%";
+  });
+
+  function _taggedTemplateLiteral$8(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$8() {
+      var data = _taggedTemplateLiteral$8([
+          "\n  padding: 0.9rem;\n  border-radius: 7.5px;\n  border: 2px solid ",
+          ";\n  appearance: none;\n  background: ",
+          ";\n  font-size: 1.1rem;\n  color: ",
+          ";\n"
+      ]);
+      _templateObject$8 = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  var Input = styled__default["default"].input(_templateObject$8(), function(param) {
+      var theme = param.theme;
+      return theme.background.third;
+  }, function(param) {
+      var theme = param.theme;
+      return theme.background.secondary;
+  }, function(param) {
+      var theme = param.theme;
+      return theme.text.third;
+  });
+
+  function _extends() {
+      _extends = Object.assign || function(target) {
+          for(var i = 1; i < arguments.length; i++){
+              var source = arguments[i];
+              for(var key in source){
+                  if (Object.prototype.hasOwnProperty.call(source, key)) {
+                      target[key] = source[key];
+                  }
+              }
+          }
+          return target;
+      };
+      return _extends.apply(this, arguments);
+  }
+  function _objectWithoutProperties(source, excluded) {
+      if (source == null) return {};
+      var target = _objectWithoutPropertiesLoose(source, excluded);
+      var key, i;
+      if (Object.getOwnPropertySymbols) {
+          var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+          for(i = 0; i < sourceSymbolKeys.length; i++){
+              key = sourceSymbolKeys[i];
+              if (excluded.indexOf(key) >= 0) continue;
+              if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+              target[key] = source[key];
+          }
+      }
+      return target;
+  }
+  function _objectWithoutPropertiesLoose(source, excluded) {
+      if (source == null) return {};
+      var target = {};
+      var sourceKeys = Object.keys(source);
+      var key, i;
+      for(i = 0; i < sourceKeys.length; i++){
+          key = sourceKeys[i];
+          if (excluded.indexOf(key) >= 0) continue;
+          target[key] = source[key];
+      }
+      return target;
+  }
+  function _taggedTemplateLiteral$7(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$7() {
+      var data = _taggedTemplateLiteral$7([
+          "\n      --padding: -3px;\n      &::after {\n        content: '';\n        height: 5px;\n        position: absolute;\n        bottom: 0;\n        right: var(--padding);\n        background-color: ",
+          ";\n        transition: height 0.5s;\n        z-index: -1 !important;\n        width: calc(100% - var(--padding) * 2) !important;\n      }\n      &:hover::after {\n        height: 100%;\n        transition: height 0.5s;\n      }\n    "
+      ]);
+      _templateObject$7 = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject1$4() {
+      var data = _taggedTemplateLiteral$7([
+          "\n          &::after {\n            width: calc(100% - 24px + 5px);\n            right: -5px;\n          }\n        "
+      ]);
+      _templateObject1$4 = function _templateObject1() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject2$2() {
+      var data = _taggedTemplateLiteral$7([
+          "\n          &::after {\n            width: 100%;\n          }\n        "
+      ]);
+      _templateObject2$2 = function _templateObject2() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject3() {
+      var data = _taggedTemplateLiteral$7([
+          "\n  color: ",
+          ";\n  text-decoration: none;\n  position: relative;\n  z-index: ",
+          ";\n  width: 100%;\n\n  ",
+          "\n  ",
+          "\n"
+      ]);
+      _templateObject3 = function _templateObject3() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject4() {
+      var data = _taggedTemplateLiteral$7([
+          "\n      --padding: -3px;\n      &::after {\n        content: '';\n        height: 5px;\n        position: absolute;\n        bottom: 0;\n        right: var(--padding);\n        background-color: ",
+          ";\n        transition: height 0.5s;\n        z-index: -1 !important;\n        width: calc(100% - var(--padding) * 2) !important;\n      }\n      &:hover::after {\n        height: 100%;\n        transition: height 0.5s;\n      }\n    "
+      ]);
+      _templateObject4 = function _templateObject4() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject5() {
+      var data = _taggedTemplateLiteral$7([
+          "\n          &::after {\n            width: calc(100% - 24px + 5px);\n            right: -5px;\n          }\n        "
+      ]);
+      _templateObject5 = function _templateObject5() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject6() {
+      var data = _taggedTemplateLiteral$7([
+          "\n          &::after {\n            width: 100%;\n          }\n        "
+      ]);
+      _templateObject6 = function _templateObject6() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject7() {
+      var data = _taggedTemplateLiteral$7([
+          "\n  color: ",
+          ";\n  text-decoration: none;\n  position: relative;\n  z-index: ",
+          ";\n  width: 100%;\n\n  ",
+          "\n  ",
+          "\n"
+      ]);
+      _templateObject7 = function _templateObject7() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject8() {
+      var data = _taggedTemplateLiteral$7([
+          "\n      & > a {\n        position: relative;\n        transition: left 0.25s ease 0.3s;\n        left: 0px;\n        &:hover {\n          left: 28px;\n          transition: left 0.25s ease;\n        }\n      }\n    "
+      ]);
+      _templateObject8 = function _templateObject8() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject9() {
+      var data = _taggedTemplateLiteral$7([
+          "\n  display: inline;\n  width: auto !important;\n  & > .material-symbols-outlined {\n    color: transparent !important;\n    transition: color 0.25s ease;\n  }\n\n  &:hover > .material-symbols-outlined {\n    color: #9aa09a !important;\n    transition: color 0.25s ease 0.25s;\n  }\n\n  ",
+          "\n"
+      ]);
+      _templateObject9 = function _templateObject9() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject10() {
+      var data = _taggedTemplateLiteral$7([
+          "\n  position: absolute;\n"
+      ]);
+      _templateObject10 = function _templateObject10() {
+          return data;
+      };
+      return data;
+  }
+  var StyledLink = styled__default["default"](reactRouterDom.Link)(_templateObject3(), function(param) {
+      var theme = param.theme;
+      return theme.color.primary;
+  }, function(param) {
+      var zIndexOver = param.zIndexOver;
+      return zIndexOver ? "9999 !important" : "999 !important";
+  }, function(param) {
+      var _line = param.line, line = _line === void 0 ? false : _line, theme = param.theme;
+      return line && styled.css(_templateObject$7(), theme.color.accent);
+  }, function(param) {
+      var icon = param.icon;
+      return icon ? styled.css(_templateObject1$4()) : styled.css(_templateObject2$2());
+  });
+  var StyledA = styled__default["default"](framerMotion.motion.a)(_templateObject7(), function(param) {
+      var theme = param.theme;
+      return theme.color.primary;
+  }, function(param) {
+      var _zIndexOver = param.zIndexOver, zIndexOver = _zIndexOver === void 0 ? false : _zIndexOver;
+      return zIndexOver ? "9999 !important" : "999 !important";
+  }, function(param) {
+      var _line = param.line, line = _line === void 0 ? false : _line, theme = param.theme;
+      return line && styled.css(_templateObject4(), theme.color.accent);
+  }, function(param) {
+      var icon = param.icon;
+      return icon ? styled.css(_templateObject5()) : styled.css(_templateObject6());
+  });
+  var CustomRow = styled__default["default"].span(_templateObject9(), function(param) {
+      var icon = param.icon;
+      return icon && styled.css(_templateObject8());
+  });
+  var Icon = styled__default["default"].i(_templateObject10());
+  var Link = function(_param) {
+      var children = _param.children, _external = _param.external, external = _external === void 0 ? false : _external, _to = _param.to, to = _to === void 0 ? "#" : _to, _icon = _param.icon, icon = _icon === void 0 ? false : _icon, props = _objectWithoutProperties(_param, [
+          "children",
+          "external",
+          "to",
+          "icon"
+      ]);
+      return !external ? /*#__PURE__*/ React.createElement(CustomRow, {
+          icon: icon
+      }, icon && /*#__PURE__*/ React.createElement(Icon, {
+          className: "material-symbols-outlined"
+      }, "link"), /*#__PURE__*/ React.createElement(StyledLink, _extends({}, props, {
+          to: to
+      }), children)) : /*#__PURE__*/ React.createElement(CustomRow, {
+          icon: icon
+      }, icon && /*#__PURE__*/ React.createElement(Icon, {
+          className: "material-symbols-outlined"
+      }, "link"), /*#__PURE__*/ React.createElement(StyledA, _extends({
+          href: to
+      }, props, {
+          target: "_blank"
+      }), children));
+  };
+
+  function _taggedTemplateLiteral$6(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$6() {
+      var data = _taggedTemplateLiteral$6([
+          "\n          gap: ",
+          "rem !important;\n        "
+      ]);
+      _templateObject$6 = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject1$3() {
+      var data = _taggedTemplateLiteral$6([
+          "\n  display: flex;\n  flex-direction: column;\n  justify-content: ",
+          ";\n  /* justify-content: space-between; */\n  ",
+          ";\n  padding: ",
+          ";\n"
+      ]);
+      _templateObject1$3 = function _templateObject1() {
+          return data;
+      };
+      return data;
+  }
+  var test$1 = {
+      center: "center",
+      top: "flex-start",
+      bottom: "flex-end"
+  };
+  var Col = styled__default["default"](framerMotion.motion.div)(_templateObject1$3(), function(param) {
+      var _align = param.align, align = _align === void 0 ? "top" : _align;
+      return test$1[align];
+  }, function(param) {
+      var _gap = param.gap, gap = _gap === void 0 ? "1" : _gap;
+      return gap !== "auto" ? styled.css(_templateObject$6(), gap) : null;
+  }, function(param) {
+      var _padding = param.padding, padding = _padding === void 0 ? "0" : _padding;
+      return "".concat(padding, "rem");
+  });
+
+  function _taggedTemplateLiteral$5(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$5() {
+      var data = _taggedTemplateLiteral$5([
+          "\n  z-index: 999999999;\n  background-color: rgba(0, 0, 0, 0.5);\n  position: fixed;\n  inset: 0 0 0 0;\n  display: grid;\n  place-items: center;\n"
+      ]);
+      _templateObject$5 = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject1$2() {
+      var data = _taggedTemplateLiteral$5([
+          "\n  padding: 1.5rem;\n  background-color: ",
+          ";\n  border-radius: 10px;\n  width: ",
+          ";\n  max-width: 85vw;\n"
+      ]);
+      _templateObject1$2 = function _templateObject1() {
+          return data;
+      };
+      return data;
+  }
+  var Background = styled__default["default"](framerMotion.motion.div)(_templateObject$5());
+  var Inner = styled__default["default"](framerMotion.motion.div)(_templateObject1$2(), function(param) {
+      var theme = param.theme;
+      return theme.background.primary;
+  }, function(param) {
+      var _width = param.width, width = _width === void 0 ? "10" : _width;
+      return "".concat(width, "rem");
+  });
+  function Modal(param) {
+      var isOpen = param.isOpen, children = param.children, width = param.width, _gap = param.gap, gap = _gap === void 0 ? "1" : _gap;
+      return /*#__PURE__*/ React.createElement(framerMotion.AnimatePresence, null, isOpen ? /*#__PURE__*/ React.createElement(Background, {
+          initial: {
+              opacity: 0
+          },
+          animate: {
+              opacity: isOpen ? 1 : 0
+          },
+          exit: {
+              opacity: 0
+          }
+      }, /*#__PURE__*/ React.createElement(Inner, {
+          width: width,
+          initial: {
+              scale: 0.95,
+              opacity: 0
+          },
+          animate: {
+              scale: 1,
+              opacity: 1
+          },
+          exit: {
+              scale: 1.05,
+              opacity: 0
+          },
+          transition: {
+              duration: 0.25
+          }
+      }, /*#__PURE__*/ React.createElement(Col, {
+          gap: gap
+      }, children))) : null);
+  }
+
+  function _taggedTemplateLiteral$4(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$4() {
+      var data = _taggedTemplateLiteral$4([
+          "\n          max-width: ",
+          "ch;\n        "
+      ]);
+      _templateObject$4 = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject1$1() {
+      var data = _taggedTemplateLiteral$4([
+          "\n        font-weight: 500;\n      "
+      ]);
+      _templateObject1$1 = function _templateObject1() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject2$1() {
+      var data = _taggedTemplateLiteral$4([
+          "\n  color: ",
+          ";\n  text-align: ",
+          ";\n  ",
+          "\n\n  ",
+          "\n\n\n  width: auto;\n"
+      ]);
+      _templateObject2$1 = function _templateObject2() {
+          return data;
+      };
+      return data;
+  }
+  var Text = styled__default["default"](framerMotion.motion.p)(_templateObject2$1(), function(param) {
+      var theme = param.theme;
+      return theme.text.secondary;
+  }, function(param) {
+      var _align = param.align, align = _align === void 0 ? "left" : _align;
+      return align;
+  }, function(param) {
+      var restrictWidth = param.restrictWidth, _width = param.width, width = _width === void 0 ? "75" : _width;
+      return restrictWidth ? styled.css(_templateObject$4(), width) : null;
+  }, function(param) {
+      var bold = param.bold;
+      if (bold) {
+          return styled.css(_templateObject1$1());
+      } else {
+          return null;
+      }
+  });
+
+  function _taggedTemplateLiteral$3(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$3() {
+      var data = _taggedTemplateLiteral$3([
+          "\n  font-family: 'Roboto';\n  font-weight: 600;\n  font-size: ",
+          ";\n  color: ",
+          ";\n\n  text-align: ",
+          ";\n\n  @media screen and (max-width: 500px) {\n    font-size: ",
+          ";\n  }\n"
+      ]);
+      _templateObject$3 = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  var Title = styled__default["default"](framerMotion.motion.h1)(_templateObject$3(), function(props) {
+      return (props.size || "2") + "rem";
+  }, function(param) {
+      var theme = param.theme;
+      return theme.text.primary;
+  }, function(param) {
+      var align = param.align;
+      return align || "left";
+  }, function(props) {
+      var digit = parseInt(props.size || "2");
+      return (digit / 1.5).toString() + "rem";
+  });
+
+  function _taggedTemplateLiteral$2(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$2() {
+      var data = _taggedTemplateLiteral$2([
+          "\n          justify-content: space-between;\n        "
+      ]);
+      _templateObject$2 = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject1() {
+      var data = _taggedTemplateLiteral$2([
+          "\n          gap: ",
+          "rem !important;\n        "
+      ]);
+      _templateObject1 = function _templateObject1() {
+          return data;
+      };
+      return data;
+  }
+  function _templateObject2() {
+      var data = _taggedTemplateLiteral$2([
+          "\n  display: ",
+          ";\n  flex-direction: row;\n\n  justify-content: ",
+          ";\n  ",
+          ";\n  padding: ",
+          ";\n"
+      ]);
+      _templateObject2 = function _templateObject2() {
+          return data;
+      };
+      return data;
+  }
+  var test = {
+      center: "center",
+      right: "flex-end",
+      left: "flex-start"
+  };
+  var Row = styled__default["default"](framerMotion.motion.div)(_templateObject2(), function(param) {
+      var _inline = param.inline, inline = _inline === void 0 ? false : _inline;
+      return inline ? "inline-flex" : "flex";
+  }, function(param) {
+      var _align = param.align, align = _align === void 0 ? "left" : _align;
+      return test[align];
+  }, function(param) {
+      var _gap = param.gap, gap = _gap === void 0 ? "auto" : _gap;
+      return gap === "auto" ? styled.css(_templateObject$2()) : styled.css(_templateObject1(), gap);
+  }, function(param) {
+      var _padding = param.padding, padding = _padding === void 0 ? "0" : _padding;
+      return "".concat(padding, "rem");
+  });
+
+  function _taggedTemplateLiteral$1(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject$1() {
+      var data = _taggedTemplateLiteral$1([
+          "\n  color: gray;\n  padding: ",
+          ";\n  display: inline-block;\n  background: rgba(0, 0, 0, 0.3);\n  border-radius: 0.4rem;\n"
+      ]);
+      _templateObject$1 = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  var StyledCode = styled__default["default"].code(_templateObject$1(), function(param) {
+      var _padding = param.padding, padding = _padding === void 0 ? "0.5rem" : _padding;
+      return padding;
+  });
+  function Code(param) {
+      var children = param.children, padding = param.padding;
+      return /*#__PURE__*/ React.createElement(StyledCode, {
+          padding: padding
+      }, children);
+  }
+
+  function _taggedTemplateLiteral(strings, raw) {
+      if (!raw) {
+          raw = strings.slice(0);
+      }
+      return Object.freeze(Object.defineProperties(strings, {
+          raw: {
+              value: Object.freeze(raw)
+          }
+      }));
+  }
+  function _templateObject() {
+      var data = _taggedTemplateLiteral([
+          "\n  display: flex;\n  gap: 1rem !important;\n  align-items: center;\n"
+      ]);
+      _templateObject = function _templateObject() {
+          return data;
+      };
+      return data;
+  }
+  var ButtonContainer = styled__default["default"](Row)(_templateObject());
+
+  exports.Avatar = Avatar;
+  exports.Button = Button;
+  exports.ButtonContainer = ButtonContainer;
+  exports.Card = Card;
+  exports.Code = Code;
+  exports.Col = Col;
+  exports.Divider = Divider;
+  exports.Input = Input;
+  exports.Link = Link;
+  exports.Modal = Modal;
+  exports.Row = Row;
+  exports.Text = Text;
+  exports.Title = Title;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+}));

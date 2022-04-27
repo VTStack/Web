@@ -1,4 +1,4 @@
-import { Text, Title } from '@v-thomas/shared/ui';
+import { Text, Title } from '@v-thomas/core-ui';
 import styled from 'styled-components';
 
 /* eslint-disable-next-line */

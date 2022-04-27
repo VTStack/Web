@@ -1,0 +1,2 @@
+import { Props } from '../button';
+export declare const NoStyleButton: import("styled-components").StyledComponent<"button", any, Props, never>;

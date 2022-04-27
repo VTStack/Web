@@ -1,0 +1,11 @@
+import { ReactNode } from 'react';
+export interface LinkProps {
+    to?: string;
+    onClick?: () => void;
+    external?: boolean;
+    line?: boolean;
+    icon?: boolean;
+    zIndexOver?: boolean;
+    children: ReactNode;
+}
+export declare const Link: ({ children, external, to, icon, ...props }: LinkProps) => JSX.Element;

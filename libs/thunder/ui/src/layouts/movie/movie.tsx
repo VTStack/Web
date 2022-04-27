@@ -1,4 +1,4 @@
-import { Button, Divider, Link, Text } from '@v-thomas/shared/ui';
+import { Button, Divider, Link, Text } from '@v-thomas/core-ui';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { PrivateNavbar } from '../../components/private/navbar';
