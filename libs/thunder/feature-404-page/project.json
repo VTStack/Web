@@ -1,0 +1,43 @@
+{
+  "root": "libs/thunder/feature-404-page",
+  "sourceRoot": "libs/thunder/feature-404-page/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/thunder/feature-404-page",
+        "tsConfig": "libs/thunder/feature-404-page/tsconfig.lib.json",
+        "project": "libs/thunder/feature-404-page/package.json",
+        "entryFile": "libs/thunder/feature-404-page/src/public_api.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/thunder/feature-404-page/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/thunder/feature-404-page/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/thunder/feature-404-page"],
+      "options": {
+        "jestConfig": "libs/thunder/feature-404-page/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

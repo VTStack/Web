@@ -1,5 +1,5 @@
 import styled, { ThemeProvider } from 'styled-components';
-import { DarkTheme } from '@v-thomas/shared/theme';
+import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
 import { HoneyApp } from './router';
 import { SnackbarProvider } from 'notistack';
 import { HashRouter } from 'react-router-dom';
@@ -16,9 +16,7 @@ const Styles = styled.div`
 export const HoneyShell = () => {
   return (
     <StrictMode>
-      <ThemeProvider theme={DarkTheme}>
-        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-        {/* @ts-ignore */}
+      <ThemeProvider theme={ThunderDarkTheme}>
         <SnackbarProvider maxSnack={3}>
           <Styles>
             <HashRouter>

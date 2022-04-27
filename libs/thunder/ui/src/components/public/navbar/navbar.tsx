@@ -1,4 +1,4 @@
-import { Button, Title } from '@v-thomas/shared/ui';
+import { Button, Title } from '@v-thomas/core-ui';
 import { NavLinks, Navbar as SNavbar } from './navbar.styles';
 import { SignInButton } from '../../auth/sign-in-button/sign-in-button';
 import { SignUpButton } from '../../auth/sign-up-button/sign-up-button';

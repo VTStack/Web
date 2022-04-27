@@ -1,4 +1,4 @@
-import { Title } from '@v-thomas/shared/ui';
+import { Title } from '@v-thomas/core-ui';
 import { InviteButton } from '../invite-button/button';
 import { ReactNode } from 'react';
 import { Container, LeftContainer, NavLinks, Middle } from './navbar.styles';

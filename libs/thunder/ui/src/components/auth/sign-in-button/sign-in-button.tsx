@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-ignore
 import Cross from '@v-thomas/shared/assets/x-mark.svg';
-import { Button, Input, Link, Modal, Text, Title, Row, SharedButtonVariants } from '@v-thomas/shared/ui';
+import { Button, Input, Link, Modal, Text, Title, Row, SharedButtonVariants } from '@v-thomas/core-ui';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import * as Joi from 'joi';

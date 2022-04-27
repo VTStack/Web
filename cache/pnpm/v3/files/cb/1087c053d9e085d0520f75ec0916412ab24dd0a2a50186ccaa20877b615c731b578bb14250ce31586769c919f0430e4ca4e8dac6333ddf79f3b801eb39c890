@@ -1,0 +1,7 @@
+export interface RowInputs {
+    gap?: string;
+    padding?: string;
+    align?: 'center' | 'right' | 'left';
+    inline?: boolean;
+}
+export declare const Row: import("styled-components").StyledComponent<import("framer-motion").ForwardRefComponent<HTMLDivElement, import("framer-motion").HTMLMotionProps<"div">>, any, RowInputs, never>;

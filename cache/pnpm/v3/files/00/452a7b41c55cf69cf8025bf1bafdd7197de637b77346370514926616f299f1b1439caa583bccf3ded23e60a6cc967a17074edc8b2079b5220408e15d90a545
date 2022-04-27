@@ -1,0 +1,1 @@
+export declare const Avatar: import("styled-components").StyledComponent<"img", any, {}, never>;

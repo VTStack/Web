@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Button, Text, Title, ButtonContainer } from '@v-thomas/shared/ui';
+import { Button, Text, Title, ButtonContainer } from '@v-thomas/core-ui';
 import { PublicFooter, PublicNavbar, SignUpButton } from '@v-thomas/thunder/ui';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
