@@ -18,4 +18,3 @@ prisma/client
 /apps/about/node_modules
 /apps/about/public
 /apps/about/.cache
-packages
