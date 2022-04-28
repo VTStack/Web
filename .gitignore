@@ -10,9 +10,6 @@ tmp
 
 prisma/client
 
-.yarn
-!/.yarn/releases
-
 .aws
 *prod*
 /apps/about/node_modules
