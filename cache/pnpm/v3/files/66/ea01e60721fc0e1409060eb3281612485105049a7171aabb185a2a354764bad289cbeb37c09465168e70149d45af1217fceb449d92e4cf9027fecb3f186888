@@ -1,1 +1,0 @@
-export declare const ButtonContainer: import("styled-components").StyledComponent<import("framer-motion").ForwardRefComponent<HTMLDivElement, import("framer-motion").HTMLMotionProps<"div">>, any, import("../row/row").RowInputs, never>;

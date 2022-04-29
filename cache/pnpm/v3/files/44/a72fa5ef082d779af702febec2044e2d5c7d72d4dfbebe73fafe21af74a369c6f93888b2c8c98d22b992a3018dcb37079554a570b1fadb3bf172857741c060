@@ -1,5 +1,0 @@
-export interface DividerProps {
-    width?: string;
-    marginUnder?: boolean;
-}
-export declare const Divider: import("styled-components").StyledComponent<"div", any, DividerProps, never>;

@@ -1,1 +1,0 @@
-{"version":3,"file":"useOrganization.d.ts","sourceRoot":"","sources":["../../src/hooks/useOrganization.ts"],"names":[],"mappings":"AAAA,OAAO,EACL,kCAAkC,EAClC,oBAAoB,EACrB,MAAM,cAAc,CAAC;AAOtB,aAAK,eAAe,GAAG;IACrB,YAAY,EAAE,CACZ,MAAM,EAAE,kCAAkC,KACvC,OAAO,CAAC,oBAAoB,CAAC,CAAC;CACpC,CAAC;AAEF,wBAAgB,eAAe,CAAC,cAAc,EAAE,MAAM,GAAG,eAAe,CAUvE"}

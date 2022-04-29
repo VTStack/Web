@@ -1,4 +1,0 @@
-import { CloudTaskRunnerOptions } from '../../models/cloud-task-runner-options';
-import type { Observable } from 'rxjs';
-import { Task } from '../../models/run-context.model';
-export declare function cloudEnabledTasksRunner(tasks: Task[], options: CloudTaskRunnerOptions, context: any): Observable<any>;
