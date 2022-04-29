@@ -16,7 +16,7 @@ export interface Props {
   [key: string]: unknown;
   id?: string | number;
   disabled?: boolean;
-  type: 'reset' | 'submit' | 'button';
+  type?: 'reset' | 'submit' | 'button';
   noStyle?: boolean;
 }
 

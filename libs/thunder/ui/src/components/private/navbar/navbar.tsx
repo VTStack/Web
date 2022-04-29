@@ -1,9 +1,8 @@
-import { Title } from '@v-thomas/core-ui';
+import { Avatar, Title } from '@v-thomas/core-ui';
 import { InviteButton } from '../invite-button/button';
 import { ReactNode } from 'react';
 import { Container, LeftContainer, NavLinks, Middle } from './navbar.styles';
 import styled from 'styled-components';
-import UserAvatar from '../user-avatar/user-avatar';
 
 interface NavbarProps {
   title: string;
@@ -24,7 +23,7 @@ export function PrivateNavbar({
   leftButtons,
   rightButtons,
   middle,
-  avatar,
+  avatar = '',
   inviteButton = false
 }: NavbarProps) {
   return (
@@ -37,7 +36,7 @@ export function PrivateNavbar({
       <NavLinks>
         {rightButtons}
         {inviteButton && <InviteButton />}
-        <UserAvatar avatar={avatar} />
+        <Avatar avatar={avatar || ''} />
       </NavLinks>
     </Container>
   );

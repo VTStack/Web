@@ -1,0 +1,33 @@
+{
+  "root": "libs/gatekeeper/server/feature-auth",
+  "sourceRoot": "libs/gatekeeper/server/feature-auth/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/gatekeeper/server/feature-auth",
+        "tsConfig": "libs/gatekeeper/server/feature-auth/tsconfig.lib.json",
+        "packageJson": "libs/gatekeeper/server/feature-auth/package.json",
+        "main": "libs/gatekeeper/server/feature-auth/src/public_api.ts",
+        "assets": ["libs/gatekeeper/server/feature-auth/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/gatekeeper/server/feature-auth/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/gatekeeper/server/feature-auth"],
+      "options": {
+        "jestConfig": "libs/gatekeeper/server/feature-auth/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,33 @@
+{
+  "root": "libs/gatekeeper/server/feature-users",
+  "sourceRoot": "libs/gatekeeper/server/feature-users/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/gatekeeper/server/feature-users",
+        "tsConfig": "libs/gatekeeper/server/feature-users/tsconfig.lib.json",
+        "packageJson": "libs/gatekeeper/server/feature-users/package.json",
+        "main": "libs/gatekeeper/server/feature-users/src/public_api.ts",
+        "assets": ["libs/gatekeeper/server/feature-users/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/gatekeeper/server/feature-users/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/gatekeeper/server/feature-users"],
+      "options": {
+        "jestConfig": "libs/gatekeeper/server/feature-users/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

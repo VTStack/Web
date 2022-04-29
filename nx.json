@@ -4,8 +4,7 @@
     "defaultBase": "main"
   },
   "cli": {
-    "packageManager": "pnpm",
-    "defaultCollection": "@nrwl/nest"
+    "packageManager": "pnpm"
   },
   "tasksRunnerOptions": {
     "default": {
@@ -43,14 +42,16 @@
         "target": "build",
         "projects": "self"
       }
-    ]
-  },
-  "defaultProject": "thunder-server",
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "babel": true
+    ],
+    "publish": [
+      {
+        "target": "test",
+        "projects": "self"
+      },
+      {
+        "target": "build",
+        "projects": "self"
       }
-    }
+    ]
   }
 }

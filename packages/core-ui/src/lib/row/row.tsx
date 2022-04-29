@@ -11,7 +11,7 @@ export interface RowInputs {
 const test = {
   center: 'center',
   right: 'flex-end',
-  left: 'flex-start',
+  left: 'flex-start'
 };
 
 export const Row = styled(motion.div)<RowInputs>`

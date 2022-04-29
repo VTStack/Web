@@ -1,9 +1,9 @@
 import { Button, Title } from '@v-thomas/core-ui';
 import { NavLinks, Navbar as SNavbar } from './navbar.styles';
-import { SignInButton } from '../../auth/sign-in-button/sign-in-button';
-import { SignUpButton } from '../../auth/sign-up-button/sign-up-button';
+// import { SignInButton } from '../../auth/sign-in-button/sign-in-button';
+// import { SignUpButton } from '../../auth/sign-up-button/sign-up-button';
 import { useUser } from '@v-thomas/thunder/hooks';
-import { SignOutButton } from '../../auth';
+// import { SignOutButton } from '../../auth';
 import { useNavigate } from 'react-router-dom';
 import { Variants } from 'framer-motion';
 
@@ -31,13 +31,13 @@ export function PublicNavbar() {
       <NavLinks variants={NavbarAni} initial="initial" animate="animate" exit="exit">
         {isAuthed ? (
           <>
-            <SignOutButton />
+            <Button>Sign Out</Button>
             <Button onClick={() => router('/app')}>To Lobby</Button>
           </>
         ) : (
           <>
-            <SignInButton />
-            <SignUpButton />
+            <Button variant="hover-outlined">Sign in</Button>
+            <Button>Sign up</Button>
           </>
         )}
       </NavLinks>

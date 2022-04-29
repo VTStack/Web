@@ -1,7 +1,8 @@
 {
   "name": "@v-thomas/core-ui",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "The ui library used for projects and products from Vincent Thomas",
+  "license": "MIT",
   "funding": {
     "type": "buymeacoffe",
     "url": "https://link.v-thomas.me/donate"
@@ -13,7 +14,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/VT-Codes/Packages"
+    "url": "https://github.com/VT-Codes/Web",
+    "directory": "packages/core-ui"
   },
   "keywords": [
     "ui",
