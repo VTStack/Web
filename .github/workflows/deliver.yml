@@ -41,8 +41,8 @@ jobs:
         uses: martijnhols/actions-cache/restore@v3
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-
-          restore-keys: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-
+          key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
@@ -80,7 +80,7 @@ jobs:
         uses: martijnhols/actions-cache/restore@v3
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-
+          key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - run: npx nx affected --target=lint --parallel=1 --base=$NX_BASE --head=$NX_HEAD
 
@@ -109,6 +109,6 @@ jobs:
         uses: martijnhols/actions-cache/restore@v3
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-
+          key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - run: npx nx affected --target=test --parallel=1 --base=$NX_BASE --head=$NX_HEAD
