@@ -61,7 +61,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': 5.18.0
   '@typescript-eslint/parser': 5.18.0
   '@v-thomas/core-ui': latest
-  '@v-thomas/hooks': ^0.0.1
+  '@v-thomas/hooks': latest
   apollo-server-core: ^3.6.7
   axios: ^0.26.1
   babel-eslint: ^10.0.0
