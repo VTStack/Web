@@ -18,6 +18,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Node.js environment
+        uses: actions/setup-node@3.1.1
+        with:
+          node-version: '16'
+
       - name: Setup PNPM
         uses: pnpm/action-setup@v2.2.1
         with:
@@ -61,9 +66,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.1.1
+        with:
+          node-version: '16'
+
       - uses: nrwl/nx-set-shas@v2
 
-      - name: Print node/npm/yarn versions
+      - name: Print node/pnpm versions
         id: versions
         run: |
           node_ver=$( node --version )
@@ -94,8 +104,10 @@ jobs:
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.1.1
+        with:
+          node-version: '16'
 
-      - name: Print node/npm/yarn versions
+      - name: Print node/pnpm versions
         id: versions
         run: |
           node_ver=$( node --version )
