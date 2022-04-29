@@ -18,6 +18,8 @@ jobs:
         with:
           fetch-depth: 0
 
+      - run: source ~/.bashrc
+
       - name: Setup PNPM
         uses: pnpm/action-setup@v2.2.1
         with:
