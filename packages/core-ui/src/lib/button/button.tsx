@@ -16,13 +16,16 @@ export interface Props {
   [key: string]: unknown;
   id?: string | number;
   disabled?: boolean;
+  type?: 'reset' | 'submit' | 'button';
   noStyle?: boolean;
 }
 
 export function Button({ variant = 'contained', children, noStyle = false, ...props }: Props) {
-  if (noStyle) {
-    return <NoStyleButton {...props}>{children}</NoStyleButton>;
-  }
+  const type = props.type || 'button';
+
+  props = { ...props, type };
+
+  if (noStyle) return <NoStyleButton {...props}>{children}</NoStyleButton>;
   switch (variant) {
     case 'text':
       return <TextButton {...props}>{children}</TextButton>;

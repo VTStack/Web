@@ -9,7 +9,7 @@ const colorTypes = {
 export const HoverOutlinedButton = styled(CoreButton)`
   position: relative;
 
-  --color: ${({ theme, color }: { color: 'error' | 'warn'; theme: any }) => {
+  --color: ${({ theme, color }: { color: 'error' | 'warn'; theme: { color: { secondary: string } } }) => {
     if (color) {
       return colorTypes[color];
     }

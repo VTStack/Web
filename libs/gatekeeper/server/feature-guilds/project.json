@@ -1,0 +1,33 @@
+{
+  "root": "libs/gatekeeper/server/feature-guilds",
+  "sourceRoot": "libs/gatekeeper/server/feature-guilds/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/gatekeeper/server/feature-guilds",
+        "tsConfig": "libs/gatekeeper/server/feature-guilds/tsconfig.lib.json",
+        "packageJson": "libs/gatekeeper/server/feature-guilds/package.json",
+        "main": "libs/gatekeeper/server/feature-guilds/src/index.ts",
+        "assets": ["libs/gatekeeper/server/feature-guilds/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/gatekeeper/server/feature-guilds/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/gatekeeper/server/feature-guilds"],
+      "options": {
+        "jestConfig": "libs/gatekeeper/server/feature-guilds/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

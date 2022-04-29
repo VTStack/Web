@@ -1,6 +1,0 @@
-export interface ColProps {
-    gap?: string;
-    padding?: string;
-    align?: 'top' | 'center' | 'bottom';
-}
-export declare const Col: import("styled-components").StyledComponent<import("framer-motion").ForwardRefComponent<HTMLDivElement, import("framer-motion").HTMLMotionProps<"div">>, any, ColProps, never>;

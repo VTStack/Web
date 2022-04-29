@@ -1,7 +1,0 @@
-export interface TextProps {
-    restrictWidth?: boolean;
-    bold?: boolean;
-    width?: string;
-    align?: 'center' | 'right' | 'left';
-}
-export declare const Text: import("styled-components").StyledComponent<import("framer-motion").ForwardRefComponent<HTMLParagraphElement, import("framer-motion").HTMLMotionProps<"p">>, any, TextProps, never>;

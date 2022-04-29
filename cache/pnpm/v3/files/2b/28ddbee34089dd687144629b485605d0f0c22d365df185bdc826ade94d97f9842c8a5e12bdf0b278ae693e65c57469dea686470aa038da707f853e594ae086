@@ -1,3 +1,0 @@
-import { LoadedClerk } from '@clerk/types';
-export declare const useClerk: () => LoadedClerk;
-//# sourceMappingURL=useClerk.d.ts.map

@@ -1,4 +1,0 @@
-export declare const OutlinedButton: import("styled-components").StyledComponent<import("framer-motion").ForwardRefComponent<HTMLButtonElement, import("framer-motion").HTMLMotionProps<"button">>, any, import("../button").Props & {
-    color: 'error' | 'warn';
-    theme: any;
-}, never>;

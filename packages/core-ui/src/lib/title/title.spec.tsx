@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { DarkTheme } from '@v-thomas/test-theme';
 import { FC } from 'react';
 
-export const TitleTest: FC<TitleProps> = (props) => {
+export const TitleTest: FC<TitleProps> = props => {
   return <Title {...props}>{props.children}</Title>;
 };
 

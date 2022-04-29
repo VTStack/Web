@@ -52,7 +52,7 @@
         "onlyChanged": true
       }
     },
-    "deploy": {
+    "publish": {
       "executor": "ngx-deploy-npm:deploy",
       "options": {
         "noBuild": true,

@@ -4,7 +4,7 @@ import { Divider, DividerProps } from './divider';
 export default {
   component: Divider,
   title: 'Divider'
-};
+} as Meta;
 
 const Template: Story<DividerProps> = args => <Divider {...args} />;
 

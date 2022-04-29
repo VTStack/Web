@@ -1,0 +1,32 @@
+{
+  "root": "libs/thunder/auth/hooks",
+  "sourceRoot": "libs/thunder/auth/hooks/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/thunder/auth/hooks",
+        "main": "libs/thunder/auth/hooks/src/public_api.ts",
+        "tsConfig": "libs/thunder/auth/hooks/tsconfig.lib.json",
+        "assets": ["libs/thunder/auth/hooks/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/thunder/auth/hooks/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/thunder/auth/hooks"],
+      "options": {
+        "jestConfig": "libs/thunder/auth/hooks/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

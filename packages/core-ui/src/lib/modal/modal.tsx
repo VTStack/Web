@@ -25,7 +25,7 @@ const Inner = styled(motion.div)`
   padding: 1.5rem;
   background-color: ${({ theme }) => theme.background.primary};
   border-radius: 10px;
-  width: ${({ width = '10' }: { width?: string }) => `${width}rem`};
+  width: ${({ width = 'auto' }: { width?: string }) => (width === 'auto' ? width : `${width}rem`)};
   max-width: 85vw;
 `;
 
@@ -33,18 +33,13 @@ export function Modal({ isOpen, children, width, gap = '1' }: ModalProps) {
   return (
     <AnimatePresence>
       {isOpen ? (
-        <Background
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isOpen ? 1 : 0 }}
-          exit={{ opacity: 0 }}
-        >
+        <Background initial={{ opacity: 0 }} animate={{ opacity: isOpen ? 1 : 0 }} exit={{ opacity: 0 }}>
           <Inner
             width={width}
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 1.05, opacity: 0 }}
-            transition={{ duration: 0.25 }}
-          >
+            transition={{ duration: 0.25 }}>
             <Col gap={gap}>{children}</Col>
           </Inner>
         </Background>

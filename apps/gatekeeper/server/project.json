@@ -1,0 +1,53 @@
+{
+  "root": "apps/gatekeeper/server",
+  "sourceRoot": "apps/gatekeeper/server/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/gatekeeper/server",
+        "main": "apps/gatekeeper/server/src/main.ts",
+        "tsConfig": "apps/gatekeeper/server/tsconfig.app.json"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/gatekeeper/server/src/environments/environment.ts",
+              "with": "apps/gatekeeper/server/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "gatekeeper-server:build",
+        "watch": true,
+        "port": 5200
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/gatekeeper/server/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/gatekeeper/server"],
+      "options": {
+        "jestConfig": "apps/gatekeeper/server/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:server", "scope:gatekeeper"]
+}

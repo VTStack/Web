@@ -1,0 +1,44 @@
+{
+  "root": "libs/thunder/invite/feature",
+  "sourceRoot": "libs/thunder/invite/feature/src",
+  "projectType": "library",
+  "implicitDependencies": ["!thunder-theme", "!thunder-ui", "!thunder-data-access"],
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/thunder/invite/feature",
+        "tsConfig": "libs/thunder/invite/feature/tsconfig.lib.json",
+        "project": "libs/thunder/invite/feature/package.json",
+        "entryFile": "libs/thunder/invite/feature/src/public_api.tsx",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/thunder/invite/feature/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/thunder/invite/feature/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/thunder/invite/feature"],
+      "options": {
+        "jestConfig": "libs/thunder/invite/feature/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

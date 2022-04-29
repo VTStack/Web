@@ -1,1 +1,0 @@
-export declare const useToggle: (initial?: boolean) => [boolean, (value?: boolean | undefined) => void];
