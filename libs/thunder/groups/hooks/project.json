@@ -1,0 +1,32 @@
+{
+  "root": "libs/thunder/groups/hooks",
+  "sourceRoot": "libs/thunder/groups/hooks/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/thunder/groups/hooks",
+        "main": "libs/thunder/groups/hooks/src/public_api.ts",
+        "tsConfig": "libs/thunder/groups/hooks/tsconfig.lib.json",
+        "assets": ["libs/thunder/groups/hooks/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/thunder/groups/hooks/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/thunder/groups/hooks"],
+      "options": {
+        "jestConfig": "libs/thunder/groups/hooks/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,33 @@
+{
+  "root": "libs/gatekeeper/server/feature-welcome",
+  "sourceRoot": "libs/gatekeeper/server/feature-welcome/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/gatekeeper/server/feature-welcome",
+        "tsConfig": "libs/gatekeeper/server/feature-welcome/tsconfig.lib.json",
+        "packageJson": "libs/gatekeeper/server/feature-welcome/package.json",
+        "main": "libs/gatekeeper/server/feature-welcome/src/public_api.ts",
+        "assets": ["libs/gatekeeper/server/feature-welcome/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/gatekeeper/server/feature-welcome/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/gatekeeper/server/feature-welcome"],
+      "options": {
+        "jestConfig": "libs/gatekeeper/server/feature-welcome/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

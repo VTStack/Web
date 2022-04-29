@@ -3,6 +3,7 @@
   "projectType": "application",
   "sourceRoot": "apps/thunder/client/src",
   "tags": ["scope:thunder", "type:app"],
+  "implicitDependencies": ["thunder-invite-feature", "thunder-groups-feature", "thunder-other-pages"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:webpack",
@@ -14,6 +15,11 @@
             {
               "glob": "**/*",
               "input": "libs/thunder/assets/src",
+              "output": "assets"
+            },
+            {
+              "glob": "**/*",
+              "input": "libs/shared/assets/src",
               "output": "assets"
             }
           ],
@@ -34,9 +40,8 @@
     "serve": {
       "executor": "@nrwl/web:dev-server",
       "options": {
-        "buildTarget": "thunder:build:production",
-        "port": 3000,
-        "proxyConfig": "apps/thunder/client/proxy.conf.json"
+        "buildTarget": "thunder-client:build:production",
+        "port": 3000
       }
     },
     "deploy": {

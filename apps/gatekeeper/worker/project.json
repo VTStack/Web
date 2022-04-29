@@ -1,0 +1,60 @@
+{
+  "root": "apps/gatekeeper",
+  "sourceRoot": "apps/gatekeeper/worker/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/gatekeeper",
+        "main": "apps/gatekeeper/worker/src/main.ts",
+        "tsConfig": "apps/gatekeeper/worker/tsconfig.app.json",
+        "assets": ["apps/gatekeeper/worker/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/gatekeeper/worker/src/environments/environment.ts",
+              "with": "apps/gatekeeper/worker/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "gatekeeper:build",
+        "watch": true
+      }
+    },
+    "deploy-commands": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "cwd": "apps/gatekeeper",
+        "command": "npx ts-node ./src/app/deploy-commands.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/gatekeeper/worker/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/gatekeeper"],
+      "options": {
+        "jestConfig": "apps/gatekeeper/worker/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:gatekeeper", "type:app"]
+}
