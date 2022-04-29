@@ -1,7 +1,7 @@
 {
   "npmScope": "v-thomas",
   "affected": {
-    "defaultBase": "main"
+    "defaultBase": "dev"
   },
   "cli": {
     "packageManager": "pnpm"

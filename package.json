@@ -7,12 +7,15 @@
     "nx": "nx",
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
   },
   "engines": {
     "node": "16 || 14"
   },
   "optionalDependencies": {
+    "all-contributors-cli": "^6.20.0",
     "cypress": "^9.1.0"
   },
   "license": "MIT",
