@@ -18,7 +18,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@3.1.1
+      - uses: actions/setup-node@v3.1.1
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v2.2.1
@@ -63,7 +63,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@3.1.1
+      - uses: actions/setup-node@v3.1.1
 
       - uses: nrwl/nx-set-shas@v2
 
@@ -94,7 +94,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@3.1.1
+      - uses: actions/setup-node@v3.1.1
 
       - uses: nrwl/nx-set-shas@v2
 
