@@ -1,0 +1,29 @@
+{
+  "root": "apps/thunder/e2e",
+  "sourceRoot": "apps/thunder/e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/thunder/e2e/cypress.json",
+        "devServerTarget": "thunder-client:serve",
+        "headed": true
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "thunder-client:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/thunder/e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["thunder-client"]
+}

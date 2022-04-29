@@ -1,7 +1,0 @@
-import { ReactNode } from 'react';
-export interface TitleProps {
-    size?: string;
-    align?: 'center' | 'right' | 'left';
-    children: ReactNode;
-}
-export declare const Title: import("styled-components").StyledComponent<import("framer-motion").ForwardRefComponent<HTMLHeadingElement, import("framer-motion").HTMLMotionProps<"h1">>, any, TitleProps, never>;

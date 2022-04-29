@@ -1,2 +1,0 @@
-import { Props } from '../button';
-export declare const CoreButton: import("styled-components").StyledComponent<import("framer-motion").ForwardRefComponent<HTMLButtonElement, import("framer-motion").HTMLMotionProps<"button">>, any, Props, never>;

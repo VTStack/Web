@@ -1,4 +1,4 @@
-import { pingServer } from '../../../data-access/src/public_api';
+import { pingServer } from '@v-thomas/thunder/data-access';
 
 export const usePing = () => {
   return pingServer();

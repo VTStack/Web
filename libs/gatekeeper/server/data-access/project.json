@@ -1,0 +1,33 @@
+{
+  "root": "libs/gatekeeper/server/data-access",
+  "sourceRoot": "libs/gatekeeper/server/data-access/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/gatekeeper/server/data-access",
+        "tsConfig": "libs/gatekeeper/server/data-access/tsconfig.lib.json",
+        "packageJson": "libs/gatekeeper/server/data-access/package.json",
+        "main": "libs/gatekeeper/server/data-access/src/public_api.ts",
+        "assets": ["libs/gatekeeper/server/data-access/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/gatekeeper/server/data-access/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/gatekeeper/server/data-access"],
+      "options": {
+        "jestConfig": "libs/gatekeeper/server/data-access/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

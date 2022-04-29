@@ -1,3 +1,0 @@
-export declare type MetamaskWeb3Provider = 'metamask';
-export declare type Web3Provider = MetamaskWeb3Provider;
-//# sourceMappingURL=web3.d.ts.map

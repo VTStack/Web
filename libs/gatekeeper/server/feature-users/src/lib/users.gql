@@ -1,0 +1,21 @@
+type User {
+  guildId: String!
+  enabled: Boolean
+  channelId: String
+}
+
+input SelectUserInput {
+  guildId: String!
+  enabled: Boolean
+  channelId: String
+}
+
+type Query {
+  user(guildId: String!): User
+}
+
+type Mutation {
+  createUser(guild: SelectUserInput!): User!
+  updateUser(guild: SelectUserInput!): User!
+  removeUser(guildId: String!): User
+}

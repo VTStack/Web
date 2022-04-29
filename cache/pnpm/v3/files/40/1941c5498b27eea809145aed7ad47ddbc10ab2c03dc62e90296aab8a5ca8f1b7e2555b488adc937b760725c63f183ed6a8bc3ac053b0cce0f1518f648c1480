@@ -1,1 +1,0 @@
-export declare const ContainedButton: import("styled-components").StyledComponent<import("framer-motion").ForwardRefComponent<HTMLButtonElement, import("framer-motion").HTMLMotionProps<"button">>, any, import("../button").Props, never>;

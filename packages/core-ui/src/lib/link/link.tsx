@@ -132,7 +132,7 @@ const Icon = styled.i`
   position: absolute;
 `;
 
-export const Link = ({ children, external = false, to = '#', icon = false, ...props }: LinkProps) => {
+export const Link: FC<LinkProps> = ({ children, external = false, to = '#', icon = false, ...props }) => {
   return !external ? (
     <CustomRow icon={icon}>
       {icon && <Icon className="material-symbols-outlined">link</Icon>}

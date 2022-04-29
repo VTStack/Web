@@ -10,7 +10,7 @@ export interface TitleProps {
 export const Title = styled(motion.h1)<TitleProps>`
   font-family: 'Roboto';
   font-weight: 600;
-  font-size: ${(props) => (props.size || '2') + 'rem'};
+  font-size: ${({ size }) => (size || '2') + 'rem'};
   color: ${({ theme }) => theme.text.primary};
 
   text-align: ${({ align }) => {

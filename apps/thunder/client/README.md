@@ -14,7 +14,7 @@
   <img alt="Netlify" src="https://img.shields.io/netlify/16d309af-627a-471e-a5ec-8d739bbeb358?style=flat-square"></a>
 </p>
 
-> This is the movie-reviewer project. Alias `thunder`
+> This is the movie-reviewer project. Alias `thunder-client`
 
 ### 🏠 [Homepage](https://github.com/VincentThomas06/Codebase#readme)
 
@@ -27,7 +27,7 @@ npm install
 ## Run tests
 
 ```sh
-nx test thunder
+nx test thunder-client
 ```
 
 ## Author
@@ -38,9 +38,7 @@ nx test thunder
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check
-[issues page](https://github.com/VincentThomas06/Codebase/issues). You can also take a look at the
-[contributing guide](https://github.com/VincentThomas06/Codebase/blob/main/CONTRIBUTING.md).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/VincentThomas06/Codebase/issues). You can also take a look at the [contributing guide](https://github.com/VincentThomas06/Codebase/blob/main/CONTRIBUTING.md).
 
 ## Show your support
 
@@ -48,8 +46,7 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2022 [Vincent Thomas](https://github.com/VincentThomas06).<br /> This project is
-[MIT](https://github.com/VincentThomas06/Codebase/blob/main/LICENSE) licensed.
+Copyright © 2022 [Vincent Thomas](https://github.com/VincentThomas06).<br /> This project is [MIT](https://github.com/VincentThomas06/Codebase/blob/main/LICENSE) licensed.
 
 ---
 

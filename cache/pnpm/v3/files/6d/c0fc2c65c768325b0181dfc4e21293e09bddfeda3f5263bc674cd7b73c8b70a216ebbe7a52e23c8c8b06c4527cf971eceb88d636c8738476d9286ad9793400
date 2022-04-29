@@ -1,6 +1,0 @@
-import { ReactNode } from 'react';
-export interface CodeProps {
-    children: ReactNode;
-    padding?: string;
-}
-export declare function Code({ children, padding }: CodeProps): JSX.Element;

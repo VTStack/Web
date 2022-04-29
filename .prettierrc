@@ -11,5 +11,13 @@
   "trailingComma": "none",
   "tabWidth": 2,
   "proseWrap": "never",
-  "requirePragma": false
+  "requirePragma": false,
+  "overrides": [
+    {
+      "files": "tsconfig.base.json",
+      "options": {
+        "printWidth": 130
+      }
+    }
+  ]
 }
