@@ -13,8 +13,26 @@ jobs:
 
   lint:
     needs: install_deps
+<<<<<<< HEAD
     name: Linting files...
     uses: VT-Codes/actions/.github/workflows/lint.yml@main
+=======
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3.1.1
+        with:
+          node-version: '16'
+
+      - uses: nrwl/nx-set-shas@v2
+
+      - uses: VT-Codes/actions/.github/workflows/restore.yml@main
+
+      - run: npx nx affected --target=lint --parallel=1 --base=$NX_BASE --head=$NX_HEAD
+>>>>>>> ebbaec60d5636502c9cf9b4953dc39084e477171
 
   test:
     name: Testing files...
