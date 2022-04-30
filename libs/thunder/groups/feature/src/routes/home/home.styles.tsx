@@ -29,11 +29,12 @@ const container = {
   }
 };
 
-export const GroupGrid = ({ groups }: { groups: { name: string }[] }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const GroupGrid = ({ groups }: { groups: { data: any[] } }) => {
   console.log(groups);
   return (
     <SGrid key="modal" variants={container} initial="initial" animate={'animate'} exit={'exit'}>
-      {groups.data.map((group: GroupsEntity, index: number) => (
+      {groups.data.map((group: { _id: string; name: string }, index: number) => (
         <GroupCard
           group={group}
           variants={item}

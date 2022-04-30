@@ -1,7 +1,7 @@
 import { Button, Row, Input, Modal, Title, SharedButtonVariants } from '@v-thomas/core-ui';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
-import { useToggle } from '@v-thomas/thunder/hooks';
+import { useToggle } from '@v-thomas/hooks';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries

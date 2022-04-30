@@ -48,7 +48,6 @@
       "options": {
         "jestConfig": "packages/core-ui/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true,
         "onlyChanged": true
       }
     },

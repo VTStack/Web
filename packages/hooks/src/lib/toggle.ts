@@ -1,6 +1,21 @@
 import { useState } from 'react';
 
-export const useToggle = (initial = false): [boolean, (value?: boolean) => void] => {
-  const [toggle, setToggle] = useState(initial);
-  return [toggle, (value?: boolean) => setToggle(val => (value ? value : !val))];
+export const useToggle = (initial: boolean | [unknown, unknown] = false): [unknown, () => void] => {
+  const [toggle, setToggle] = useState(initial instanceof Array ? initial[0] : initial);
+
+  return [
+    toggle,
+    () =>
+      setToggle((val: unknown) => {
+        if (initial instanceof Array) {
+          if (val === initial[0]) {
+            return initial[1];
+          } else {
+            return initial[0];
+          }
+        } else {
+          return !val;
+        }
+      })
+  ];
 };

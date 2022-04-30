@@ -2,7 +2,7 @@ import { Card, Title } from '@v-thomas/core-ui';
 import { useNavigate } from 'react-router-dom';
 
 export interface GroupCardProps {
-  group: { name: string };
+  group: { name: string; _id: string };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }

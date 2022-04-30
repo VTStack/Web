@@ -50,6 +50,7 @@ specifiers:
   '@swc/helpers': ~0.3.3
   '@swc/jest': 0.2.20
   '@testing-library/react': 13.1.1
+  '@testing-library/react-hooks': ^8.0.0
   '@types/jest': 27.4.1
   '@types/node': ^17.0.24
   '@types/passport': ^1.0.7
@@ -253,6 +254,7 @@ devDependencies:
   '@swc/helpers': 0.3.8
   '@swc/jest': 0.2.20_@swc+core@1.2.155
   '@testing-library/react': 13.1.1_react-dom@18.0.0+react@18.0.0
+  '@testing-library/react-hooks': 8.0.0_c026fd5dc744a26a225eee95beee2974
   '@types/jest': 27.4.1
   '@types/node': 17.0.28
   '@types/passport': 1.0.7
@@ -6705,6 +6707,30 @@ packages:
       dom-accessibility-api: 0.5.14
       lz-string: 1.4.4
       pretty-format: 27.5.1
+    dev: true
+
+  /@testing-library/react-hooks/8.0.0_c026fd5dc744a26a225eee95beee2974:
+    resolution: {integrity: sha512-uZqcgtcUUtw7Z9N32W13qQhVAD+Xki2hxbTR461MKax8T6Jr8nsUvZB+vcBTkzY2nFvsUet434CsgF0ncW2yFw==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      '@types/react': ^16.9.0 || ^17.0.0
+      react: ^16.9.0 || ^17.0.0
+      react-dom: ^16.9.0 || ^17.0.0
+      react-test-renderer: ^16.9.0 || ^17.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      react-dom:
+        optional: true
+      react-test-renderer:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.17.9
+      '@types/react': 18.0.1
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
+      react-error-boundary: 3.1.4_react@18.0.0
+      react-test-renderer: 18.0.0_react@18.0.0
     dev: true
 
   /@testing-library/react/13.1.1_react-dom@18.0.0+react@18.0.0:
@@ -17949,6 +17975,16 @@ packages:
       react: 18.0.0
       react-dom: 18.0.0_react@18.0.0
       react-is: 17.0.2
+    dev: true
+
+  /react-error-boundary/3.1.4_react@18.0.0:
+    resolution: {integrity: sha512-uM9uPzZJTF6wRQORmSrvOIgt4lJ9MC1sNgEOj2XGsDTRE4kmpWxg7ENK9EWNKJRMAOY9z0MuF4yIfl6gp4sotA==}
+    engines: {node: '>=10', npm: '>=6'}
+    peerDependencies:
+      react: '>=16.13.1'
+    dependencies:
+      '@babel/runtime': 7.17.9
+      react: 18.0.0
     dev: true
 
   /react-fast-compare/3.2.0:
