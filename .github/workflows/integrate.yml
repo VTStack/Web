@@ -38,8 +38,6 @@ jobs:
           node-version: '16'
 
       - uses: nrwl/nx-set-shas@v2
-        with:
-          main-branch-name: 'dev'
 
       - uses: VT-Codes/actions/.github/workflows/restore.yml@main
 
