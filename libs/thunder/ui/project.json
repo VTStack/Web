@@ -43,7 +43,8 @@
       "outputs": ["coverage/libs/thunder/ui"],
       "options": {
         "jestConfig": "libs/thunder/ui/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   }

@@ -1,9 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   createAsyncThunk,
   createEntityAdapter,
   createSelector,
   createSlice,
-  EntityState,
   PayloadAction
 } from '@reduxjs/toolkit';
 import { InvitesEntity, InvitesState } from '@v-thomas/thunder/types';
@@ -33,7 +33,7 @@ export const invitesAdapter = createEntityAdapter<InvitesEntity>();
  * }, [dispatch]);
  * ```
  */
-export const fetchInvites = createAsyncThunk('invites/fetchStatus', async (_, thunkAPI) => {
+export const fetchInvites = createAsyncThunk('invites/fetchStatus', async () => {
   /**
    * Replace this with your custom fetch call.
    * For example, `return myApi.getInvitess()`;

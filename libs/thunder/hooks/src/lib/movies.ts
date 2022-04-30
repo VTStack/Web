@@ -3,9 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { ApiMovieModel } from '@v-thomas/thunder/data-access';
 import {
-  AddMovie,
   clearMovies,
-  fetchGroupMovies,
   getMoviesState,
   selectAllMovies,
   getMovieRecommendations as getMovieRecommendationsAction
@@ -20,27 +18,27 @@ export const useMovies = (
   clearMovies: () => void;
   movieState?: MoviesState;
   addMovie: (movie: ApiMovieModel) => void;
-  getMovieRecommendations: (searchString?: string) => Promise<any[]>;
+  getMovieRecommendations: (searchString?: string) => Promise<unknown>;
   forceFetchMovies: () => void;
 } => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { groupId }: any = useParams();
 
-  const dispatch = useDispatch<any>();
+  const dispatch = useDispatch();
   const rootMovies = useSelector(getMoviesState);
   const movies: MoviesEntity[] = useSelector(selectAllMovies);
 
   const checkgroupMovies = useCallback(() => {
-    if (rootMovies.groupId !== groupId && rootMovies.loadingStatus === 'NOT_LOADED')
-      dispatch(fetchGroupMovies({ payload: { groupId } }));
-  }, [groupId, rootMovies, dispatch]);
+    // if (rootMovies.groupId !== groupId && rootMovies.loadingStatus === 'NOT_LOADED')
+    // dispatch(fetchGroupMovies({ payload: { groupId } }));
+  }, []);
 
   const addMovie = (movie: ApiMovieModel) => {
-    dispatch(AddMovie({ payload: { movie, groupId } }));
+    // dispatch(AddMovie({ payload: { movie, groupId } }));
   };
 
   const forceFetchMovies = () => {
-    dispatch(fetchGroupMovies({ payload: { groupId } }));
+    // dispatch(fetchGroupMovies({ payload: { groupId } }));
   };
 
   const getMovieRecommendations = async (searchString?: string) => {

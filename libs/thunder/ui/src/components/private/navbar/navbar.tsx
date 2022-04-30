@@ -14,7 +14,7 @@ interface NavbarProps {
 }
 
 const NavbarTitle = styled(Title)`
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 600px) {
     display: none;
   }
 `;
@@ -29,7 +29,7 @@ export function PrivateNavbar({
   return (
     <Container>
       <LeftContainer>
-        <NavbarTitle>{title}</NavbarTitle>
+        <NavbarTitle size="1.5">{title}</NavbarTitle>
         {leftButtons}
       </LeftContainer>
       {middle && <Middle>{middle}</Middle>}

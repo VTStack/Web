@@ -1,6 +1,8 @@
 {
   "root": "libs/gatekeeper/server/feature-guilds",
   "sourceRoot": "libs/gatekeeper/server/feature-guilds/src",
+  "tags": ["type:feature"],
+
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
@@ -25,9 +27,9 @@
       "outputs": ["coverage/libs/gatekeeper/server/feature-guilds"],
       "options": {
         "jestConfig": "libs/gatekeeper/server/feature-guilds/jest.config.js",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
-  },
-  "tags": []
+  }
 }

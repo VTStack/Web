@@ -1,6 +1,7 @@
 {
   "root": "libs/thunder/groups/hooks",
   "sourceRoot": "libs/thunder/groups/hooks/src",
+  "tags": ["scope:thunder", "type:data-access"],
   "targets": {
     "build": {
       "executor": "@nrwl/js:swc",
@@ -24,9 +25,9 @@
       "outputs": ["coverage/libs/thunder/groups/hooks"],
       "options": {
         "jestConfig": "libs/thunder/groups/hooks/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
-  },
-  "tags": []
+  }
 }

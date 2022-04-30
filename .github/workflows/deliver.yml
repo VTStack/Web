@@ -65,6 +65,8 @@ jobs:
           fetch-depth: 0
 
       - uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: 'dev'
 
       - name: Print node/pnpm versions
         id: versions
@@ -94,6 +96,8 @@ jobs:
           fetch-depth: 0
 
       - uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: 'dev'
 
       - name: Print node/pnpm versions
         id: versions

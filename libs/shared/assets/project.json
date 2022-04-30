@@ -4,5 +4,5 @@
   "projectType": "library",
   "generators": {},
   "targets": {},
-  "tags": ["type:assets", "scope:shared"]
+  "tags": ["scope:shared"]
 }

@@ -2,7 +2,7 @@
   "root": "libs/about/feature-home",
   "sourceRoot": "libs/about/feature-home/src",
   "projectType": "library",
-  "tags": ["scope:about type:feature"],
+  "tags": ["scope:about", "type:feature"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",
@@ -36,7 +36,8 @@
       "outputs": ["coverage/libs/about/feature-home"],
       "options": {
         "jestConfig": "libs/about/feature-home/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   }

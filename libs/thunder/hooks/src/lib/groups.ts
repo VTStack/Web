@@ -2,10 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   clearGroups,
-  fetchGroups,
   getGroupsState,
   clearGroupErrors,
-  addGroup,
   selectAllGroups
 } from '@v-thomas/thunder/data-access';
 import { GroupsEntity, GroupsState } from '@v-thomas/thunder/types';
@@ -17,13 +15,13 @@ export const useGroups = (): {
   clearGroupErrors: () => void;
   addGroup: (T: string) => void;
 } => {
-  const dispatch = useDispatch<any>();
+  const dispatch = useDispatch();
   const state = useSelector(selectAllGroups);
   const allState = useSelector(getGroupsState);
 
   useEffect(() => {
     if (allState.loadingStatus === 'NOT_LOADED') {
-      dispatch(fetchGroups());
+      // dispatch(fetchGroups());
     }
   }, [allState.loadingStatus, dispatch]);
 
@@ -32,7 +30,7 @@ export const useGroups = (): {
   };
 
   const addgroup = (name: string) => {
-    dispatch(addGroup({ payload: { name } }));
+    // dispatch(addGroup({ payload: { name } }));
   };
 
   return {

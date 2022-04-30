@@ -1,10 +1,12 @@
 import { Button, Row, Input, Modal, Title, SharedButtonVariants } from '@v-thomas/core-ui';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
-import { useGroups, useToggle } from '@v-thomas/thunder/hooks';
+import { useToggle } from '@v-thomas/thunder/hooks';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import Cross from '@v-thomas/shared/assets/x-mark.svg';
+import { useGroups } from '@v-thomas/thunder/groups/hooks';
 
 const Form = styled.form`
   display: flex;
@@ -16,20 +18,21 @@ export function CreateGroupButton({ variant = 'contained' }: { variant?: SharedB
   const { register, handleSubmit } = useForm();
 
   const [isOpen, toggleOpen] = useToggle(false);
-  const { addGroup } = useGroups();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSubmit = ({ groupName }: any) => {
+  const onSubmit = (data: any) => {
     toggleOpen();
-    addGroup(groupName);
+    createGroup(data);
   };
+
+  const { createGroup } = useGroups();
 
   return (
     <>
       <Button variant={variant} onClick={toggleOpen}>
         Create Group
       </Button>
-      <Modal isOpen={isOpen} width="30" onClickAway={toggleOpen}>
+      <Modal isOpen={isOpen} width="20" onClickAway={toggleOpen}>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Row>
             <Title>Create Group</Title>

@@ -1,4 +1,4 @@
-import { authReducer, initialState } from './auth-modal.slice';
+import { initialState } from './auth-modal.slice';
 
 describe('auth reducer', () => {
   it('should handle initial state', () => {

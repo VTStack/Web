@@ -2,7 +2,7 @@
   "root": "libs/honey/app",
   "sourceRoot": "libs/honey/app/src",
   "projectType": "library",
-  "tags": ["scope:honey"],
+  "tags": ["scope:honey", "type:shell"],
   "implicitDependencies": ["!thunder-theme"],
   "targets": {
     "build": {

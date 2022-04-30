@@ -1,0 +1,45 @@
+{
+  "root": "libs/thunder/other-pages/ui",
+  "sourceRoot": "libs/thunder/other-pages/ui/src",
+  "projectType": "library",
+  "tags": ["type:ui", "scope:thunder"],
+  "implicitDependencies": ["!thunder-theme"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/thunder/other-pages/ui",
+        "tsConfig": "libs/thunder/other-pages/ui/tsconfig.lib.json",
+        "project": "libs/thunder/other-pages/ui/package.json",
+        "entryFile": "libs/thunder/other-pages/ui/src/public_api.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/thunder/other-pages/ui/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/thunder/other-pages/ui/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/thunder/other-pages/ui"],
+      "options": {
+        "jestConfig": "libs/thunder/other-pages/ui/jest.config.ts",
+        "passWithNoTests": true,
+        "onlyChanged": true
+      }
+    }
+  }
+}

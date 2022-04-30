@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 export interface TitleProps {

@@ -70,6 +70,8 @@ jobs:
           node-version: '16'
 
       - uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: 'dev'
 
       - name: Print node/pnpm versions
         id: versions
@@ -103,6 +105,8 @@ jobs:
           node-version: '16'
 
       - uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: 'dev'
 
       - name: Print node/pnpm versions
         id: versions

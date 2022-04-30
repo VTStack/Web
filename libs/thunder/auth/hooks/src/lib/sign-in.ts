@@ -1,20 +1,28 @@
-import { signInWithEmailAndPassword, UserCredential } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, UserCredential } from 'firebase/auth';
 import { ObservableStatus, SigninCheckResult, useAuth as useAuthF, useSigninCheck } from 'reactfire';
 
-interface SignInOutput {
-  signOut: () => Promise<void>;
-  signIn: ({ email, password }: { email: string; password: string }) => Promise<UserCredential>;
-  user: ObservableStatus<SigninCheckResult>;
+interface EmailPassword {
+  email: string;
+  password: string;
 }
 
-export const useAuth = ({ idField = '' }): SignInOutput => {
+interface AuthOutput {
+  signOut: () => Promise<void>;
+  signIn: ({ email, password }: EmailPassword) => Promise<UserCredential>;
+  user: ObservableStatus<SigninCheckResult>;
+  signUp: ({ email, password }: EmailPassword) => Promise<UserCredential>;
+}
+
+export const useAuth = (props: { idField: string } = { idField: '_id' }): AuthOutput => {
   const auth = useAuthF();
 
-  const signIn = ({ email, password }: { email: string; password: string }) => {
-    return signInWithEmailAndPassword(auth, email, password);
-  };
+  const signIn = ({ email, password }: EmailPassword) => signInWithEmailAndPassword(auth, email, password);
 
   const signOut = () => auth.signOut();
 
-  return { signIn, signOut, user: useSigninCheck({ idField }) };
+  const signUp = ({ email, password }: EmailPassword) =>
+    createUserWithEmailAndPassword(auth, email, password);
+  const user = useSigninCheck({ idField: props.idField });
+
+  return { signIn, signOut, signUp, user };
 };
