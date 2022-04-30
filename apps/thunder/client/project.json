@@ -3,7 +3,7 @@
   "projectType": "application",
   "sourceRoot": "apps/thunder/client/src",
   "tags": ["scope:thunder", "type:app"],
-  "implicitDependencies": ["thunder-invite-feature", "thunder-groups-feature", "thunder-other-pages"],
+  "implicitDependencies": ["thunder-invite-feature", "thunder-groups-feature", "thunder-other-pages-feature"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:webpack",
@@ -57,7 +57,14 @@
       "options": {
         "jestConfig": "apps/thunder/client/jest.config.ts",
         "passWithNoTests": true,
-        "bail": true
+        "onlyChanged": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "eslintConfig": "apps/thunder/client/.eslintrc.json",
+        "lintFilePatterns": ["apps/thunder/client/src/**/*.{ts,tsx,html,css}", "libs/thunder/**/*.{ts,tsx}"]
       }
     }
   }

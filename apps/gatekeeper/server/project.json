@@ -45,7 +45,8 @@
       "outputs": ["coverage/apps/gatekeeper/server"],
       "options": {
         "jestConfig": "apps/gatekeeper/server/jest.config.js",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   },

@@ -25,7 +25,8 @@
       "outputs": ["coverage/libs/gatekeeper/server/feature-auth"],
       "options": {
         "jestConfig": "libs/gatekeeper/server/feature-auth/jest.config.js",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   },

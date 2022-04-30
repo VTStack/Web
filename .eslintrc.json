@@ -74,8 +74,16 @@
             "allow": ["@v-thomas/shared/assets"],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": ["type:feature", "type:theme"]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": ["type:ui", "type:data-access", "type:types"]
+              },
+              {
+                "sourceTag": "scope:thunder",
+                "onlyDependOnLibsWithTags": ["scope:thunder", "scope:shared"]
               }
             ]
           }

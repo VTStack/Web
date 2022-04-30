@@ -1,0 +1,44 @@
+{
+  "root": "libs/thunder/auth/ui",
+  "sourceRoot": "libs/thunder/auth/ui/src",
+  "projectType": "library",
+  "tags": ["scope:thunder", "type:ui"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/thunder/auth/ui",
+        "tsConfig": "libs/thunder/auth/ui/tsconfig.lib.json",
+        "project": "libs/thunder/auth/ui/package.json",
+        "entryFile": "libs/thunder/auth/ui/src/public_api.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/thunder/auth/ui/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/thunder/auth/ui/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/thunder/auth/ui"],
+      "options": {
+        "jestConfig": "libs/thunder/auth/ui/jest.config.ts",
+        "passWithNoTests": true,
+        "onlyChanged": true
+      }
+    }
+  }
+}

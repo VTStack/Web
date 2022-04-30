@@ -25,7 +25,8 @@
       "outputs": ["coverage/libs/gatekeeper/server/feature-guilds"],
       "options": {
         "jestConfig": "libs/gatekeeper/server/feature-guilds/jest.config.js",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   },

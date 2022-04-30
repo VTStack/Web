@@ -2,8 +2,8 @@
   "root": "libs/thunder/groups/ui",
   "sourceRoot": "libs/thunder/groups/ui/src",
   "projectType": "library",
-  "implicitDependencies": ["!thunder-ui"],
-  "tags": [],
+  "implicitDependencies": ["!thunder-ui", "!thunder-theme"],
+  "tags": ["type:ui", "scope:thunder"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",
@@ -37,7 +37,8 @@
       "outputs": ["coverage/libs/thunder/groups/ui"],
       "options": {
         "jestConfig": "libs/thunder/groups/ui/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   }

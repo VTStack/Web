@@ -51,7 +51,8 @@
       "outputs": ["coverage/apps/about"],
       "options": {
         "jestConfig": "apps/about/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     },
     "preview": {

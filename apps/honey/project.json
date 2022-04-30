@@ -33,7 +33,8 @@
       "outputs": ["coverage/apps/honey"],
       "options": {
         "jestConfig": "apps/honey/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   },

@@ -36,7 +36,8 @@
       "outputs": ["coverage/libs/about/feature-projects"],
       "options": {
         "jestConfig": "libs/about/feature-projects/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   }

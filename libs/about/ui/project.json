@@ -36,7 +36,8 @@
       "outputs": ["coverage/libs/about/ui"],
       "options": {
         "jestConfig": "libs/about/ui/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   }

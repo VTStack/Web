@@ -36,7 +36,8 @@
       "outputs": ["coverage/libs/about/shell"],
       "options": {
         "jestConfig": "libs/about/shell/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   }

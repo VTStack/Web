@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import type { GroupsEntity } from '@v-thomas/thunder/types';
 
 export interface GroupCardProps {
-  group: GroupsEntity;
+  group: any;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
@@ -20,7 +20,7 @@ export function GroupCard({ group, ...props }: GroupCardProps) {
         alignItems: 'center'
       }}
       {...props}
-      onClick={() => router(`${group.id}`)}>
+      onClick={() => router(`${group._id}`)}>
       <Title>{group.name}</Title>
     </Card>
   );

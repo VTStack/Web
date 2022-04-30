@@ -1,14 +1,12 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { lazy, StrictMode, Suspense } from 'react';
 import { SnackbarProvider } from 'notistack';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
 
 import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
-// import { CheckServer } from './check_server';
 import { ThunderStore } from '@v-thomas/thunder/data-access';
 import '@v-thomas/shared/assets/globals.css';
 import { FeatureGroupsRouter, FeatureInviteRouter, HomePage, NotFoundPage } from './routes';
@@ -67,8 +65,7 @@ const App = () => {
           <ThemeProvider theme={ThunderDarkTheme}>
             <SnackbarProvider maxSnack={3}>
               <HelmetProvider>
-                {/* <CheckServer /> */}
-                <BrowserRouter>
+                <HashRouter>
                   <Suspense fallback={<div>loading...</div>}>
                     <RootE>
                       <Routes>
@@ -80,7 +77,7 @@ const App = () => {
                       </Routes>
                     </RootE>
                   </Suspense>
-                </BrowserRouter>
+                </HashRouter>
               </HelmetProvider>
             </SnackbarProvider>
           </ThemeProvider>
