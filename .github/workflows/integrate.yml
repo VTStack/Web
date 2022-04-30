@@ -22,39 +22,7 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v2.2.1
-        with:
-          version: 6.32.11
-
-      - name: Print node/pnpm versions
-        id: versions
-        run: |
-          node_ver=$( node --version )
-          pnpm_ver=$( pnpm --version || true )
-          echo "Node: ${node_ver:1}"
-          echo "PNPM: ${pnpm_ver:1}"
-          if [[ $pnpm_ver != '' ]]; then echo "PNPM: $pnpm_ver"; fi
-          echo "::set-output name=node_version::${node_ver:1}"
-
-      - name: Restore "node_modules" from cache
-        id: cache
-        uses: martijnhols/actions-cache/restore@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
-
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: pnpm install
-
-      - name: Save "node_modules" to cache
-        if: steps.cache.outputs.cache-hit != 'true'
-        uses: martijnhols/actions-cache/save@v3
-        with:
-          path: node_modules
-          key: ${{ steps.cache.outputs.primary-key }}
+      - uses: VT-Codes/actions/.github/workflows/install.yml@main
 
   lint:
     runs-on: ubuntu-latest
@@ -73,21 +41,7 @@ jobs:
         with:
           main-branch-name: 'dev'
 
-      - name: Print node/pnpm versions
-        id: versions
-        run: |
-          node_ver=$( node --version )
-          pnpm_ver=$( pnpm --version || true )
-          echo "Node: ${node_ver:1}"
-          echo "PNPM: ${pnpm_ver:1}"
-          if [[ $pnpm_ver != '' ]]; then echo "PNPM: $pnpm_ver"; fi
-          echo "::set-output name=node_version::${node_ver:1}"
-
-      - name: Restore "node_modules" from cache
-        uses: martijnhols/actions-cache/restore@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
+      - uses: VT-Codes/actions/.github/workflows/restore.yml@main
 
       - run: npx nx affected --target=lint --parallel=1 --base=$NX_BASE --head=$NX_HEAD
 
@@ -125,3 +79,5 @@ jobs:
           key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - run: npx nx affected --target=test --parallel=1 --base=$NX_BASE --head=$NX_HEAD
+
+      - uses: VT-Codes/actions/test.yml@main
