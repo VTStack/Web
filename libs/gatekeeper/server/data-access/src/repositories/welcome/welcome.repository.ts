@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -21,6 +22,9 @@ export class WelcomeRepository {
   async updateWelcome(data: UpdateWelcomeDto): Promise<any> {
     const { guildId } = data;
     delete data.guildId;
-    return await this.welcomeModel.findOneAndUpdate((document: any) => document.guildId === guildId, data);
+    return await this.welcomeModel.findOneAndUpdate(
+      (document: { guildId: string | undefined }) => document.guildId === guildId,
+      data
+    );
   }
 }

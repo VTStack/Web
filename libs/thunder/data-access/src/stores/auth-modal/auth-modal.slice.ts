@@ -57,4 +57,5 @@ export const authReducer = authSlice.reducer;
 export const { closeModal, toggleSignInModal, toggleSignUpModal, updatePassword, updateEmail, clearFields } =
   authSlice.actions;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const selectAuthModalState = (rootState: any): AuthModalState => rootState[AUTH_FEATURE_KEY];

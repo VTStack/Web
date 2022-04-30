@@ -2,7 +2,7 @@
   "root": "libs/thunder/groups/feature",
   "sourceRoot": "libs/thunder/groups/feature/src",
   "projectType": "library",
-  "tags": [],
+  "tags": ["type:feature", "scope:thunder"],
   "implicitDependencies": ["!thunder-theme", "!thunder-ui", "!thunder-types", "!thunder-hooks"],
   "targets": {
     "build": {
@@ -37,7 +37,8 @@
       "outputs": ["coverage/libs/thunder/groups/feature"],
       "options": {
         "jestConfig": "libs/thunder/groups/feature/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   }

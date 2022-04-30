@@ -2,7 +2,7 @@
   "root": "libs/thunder/hooks",
   "sourceRoot": "libs/thunder/hooks/src",
   "projectType": "library",
-  "tags": [],
+  "tags": ["scope:thunder", "type:data-access"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",
@@ -36,7 +36,8 @@
       "outputs": ["coverage/libs/thunder/hooks"],
       "options": {
         "jestConfig": "libs/thunder/hooks/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   }

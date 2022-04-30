@@ -24,9 +24,10 @@
       "outputs": ["coverage/libs/shared/web-utils"],
       "options": {
         "jestConfig": "libs/shared/web-utils/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   },
-  "tags": ["type:other platform:web"]
+  "tags": ["type:other", "scope:shared"]
 }
