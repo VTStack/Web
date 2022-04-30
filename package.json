@@ -7,18 +7,14 @@
     "nx": "nx",
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "prepare": "husky install"
   },
   "engines": {
     "node": "16 || 14"
   },
   "optionalDependencies": {
     "cypress": "^9.1.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "license": "MIT",
   "devDependencies": {

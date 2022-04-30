@@ -4,7 +4,7 @@ import { Modal, ModalProps } from './modal';
 export default {
   component: Modal,
   title: 'Modal'
-};
+} as Meta;
 
 const Template: Story<ModalProps> = args => <Modal {...args} />;
 
