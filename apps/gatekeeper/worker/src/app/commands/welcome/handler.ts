@@ -1,7 +1,6 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, CacheType } from 'discord.js';
 import { ChannelType } from 'discord-api-types/v9';
-import { AppClient } from '../../client';
 import { request } from '../../helpers';
 import { dispayStatus } from '../../helpers/displayStatus';
 import { Command } from '../../models/command';
@@ -28,7 +27,7 @@ export default class extends Command {
     );
   }
 
-  async run(interaction: CommandInteraction<CacheType>, client: AppClient): Promise<void> {
+  async run(interaction: CommandInteraction<CacheType>): Promise<void> {
     const { options } = interaction;
     const action = options.getString('action');
     const channel = options.getChannel('channel');
@@ -48,7 +47,7 @@ export default class extends Command {
         channelId: null,
         message: null
       });
-    const { user, auth, welcome } = await request(getStatusQuery(), {
+    const { auth, welcome } = await request(getStatusQuery(), {
       guildId: interaction.guild.id
     });
     dispayStatus({

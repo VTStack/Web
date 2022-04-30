@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import axios from 'axios';
 import { url } from '../url';
 
@@ -68,6 +69,7 @@ export const getExistingMoviesBySearch = async (groupId: string, searchTerm: str
   }
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const removeMovieById = async (movieId: any, groupId: string) => {
   try {
     const { data: result } = await axios.delete(url + `/groups/${groupId}/movies`, {

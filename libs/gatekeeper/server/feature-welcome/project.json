@@ -25,9 +25,10 @@
       "outputs": ["coverage/libs/gatekeeper/server/feature-welcome"],
       "options": {
         "jestConfig": "libs/gatekeeper/server/feature-welcome/jest.config.js",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   },
-  "tags": []
+  "tags": ["type:feature"]
 }

@@ -2,7 +2,7 @@
   "root": "libs/about/ui",
   "sourceRoot": "libs/about/ui/src",
   "projectType": "library",
-  "tags": ["type:ui"],
+  "tags": ["type:ui", "scope:about"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",
@@ -36,7 +36,8 @@
       "outputs": ["coverage/libs/about/ui"],
       "options": {
         "jestConfig": "libs/about/ui/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   }

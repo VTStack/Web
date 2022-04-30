@@ -1,9 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Controller, Get, Body, Patch, Param, Delete, UseGuards, Req } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
 import { AuthedGuard } from './guards/authed.guard';
-import { Request } from 'express';
 import { AuthGuard } from './guards/auth.guard';
 
 @Controller('auth')

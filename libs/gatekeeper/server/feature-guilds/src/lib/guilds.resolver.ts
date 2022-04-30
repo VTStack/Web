@@ -1,10 +1,5 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
-import {
-  GuildRepository,
-  CreateGuildDto,
-  WelcomeRepository,
-  AuthRepository
-} from '@v-thomas/gatekeeper/server/data-access';
+import { GuildRepository, WelcomeRepository, AuthRepository } from '@v-thomas/gatekeeper/server/data-access';
 
 @Resolver('Testing')
 export class TestingResolver {

@@ -36,7 +36,8 @@
       "outputs": ["coverage/libs/honey/data-access"],
       "options": {
         "jestConfig": "libs/honey/data-access/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   }

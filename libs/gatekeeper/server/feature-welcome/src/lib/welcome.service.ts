@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { CreateWelcomeInput } from './dto/create-welcome.input';
-import { UpdateWelcomeInput } from './dto/update-welcome.input';
-
 @Injectable()
 export class WelcomeService {
-  create(createWelcomeInput: CreateWelcomeInput) {
+  create() {
     return 'This action adds a new welcome';
   }
 
@@ -16,7 +13,7 @@ export class WelcomeService {
     return `This action returns a #${id} welcome`;
   }
 
-  update(id: number, updateWelcomeInput: UpdateWelcomeInput) {
+  update(id: number) {
     return `This action updates a #${id} welcome`;
   }
 

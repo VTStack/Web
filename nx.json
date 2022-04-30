@@ -1,10 +1,11 @@
 {
   "npmScope": "v-thomas",
   "affected": {
-    "defaultBase": "main"
+    "defaultBase": "dev"
   },
   "cli": {
-    "packageManager": "pnpm"
+    "packageManager": "pnpm",
+    "defaultCollection": "@nrwl/react"
   },
   "tasksRunnerOptions": {
     "default": {
@@ -53,5 +54,12 @@
         "projects": "self"
       }
     ]
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    }
   }
 }

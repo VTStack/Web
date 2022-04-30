@@ -29,11 +29,11 @@ const container = {
   }
 };
 
-export const GroupGrid = ({ groups }: { groups: GroupsEntity[] }) => {
-  // const [open, setOpen] = useState(true);
+export const GroupGrid = ({ groups }: { groups: { name: string }[] }) => {
+  console.log(groups);
   return (
     <SGrid key="modal" variants={container} initial="initial" animate={'animate'} exit={'exit'}>
-      {groups.map((group: GroupsEntity, index: number) => (
+      {groups.data.map((group: GroupsEntity, index: number) => (
         <GroupCard
           group={group}
           variants={item}

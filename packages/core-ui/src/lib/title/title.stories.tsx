@@ -4,7 +4,7 @@ import { Title, TitleProps } from './title';
 export default {
   component: Title,
   title: 'Title'
-};
+} as Meta;
 
 const Template: Story<TitleProps> = args => <Title {...args} />;
 

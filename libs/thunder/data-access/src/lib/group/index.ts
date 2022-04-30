@@ -9,6 +9,7 @@ export const addMovieToGroup = async (movie: ApiMovieModel, groupId: DBGroupMode
       url + `/groups/${groupId}/movies`,
       {
         ...movie,
+        // eslint-disable-next-line camelcase
         movie_id: id
       },
       { withCredentials: true }

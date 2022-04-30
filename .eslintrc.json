@@ -14,6 +14,7 @@
     "eol-last": "error",
     "prefer-arrow-callback": "error",
     "no-trailing-spaces": "error",
+
     "node/shebang": "off",
     "quotes": ["warn", "single", { "avoidEscape": true }],
     "no-restricted-properties": [
@@ -44,6 +45,7 @@
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/ban-types": "off",
         "@typescript-eslint/camelcase": "off",
+        "@typescript-eslint/no-explicit-any": 0,
         "node/no-missing-import": "off",
         "node/no-empty-function": "off",
         "node/no-unsupported-features/es-syntax": "off",
@@ -71,11 +73,27 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": ["@v-thomas/shared/assets"],
+            "allow": ["@v-thomas/thunder/theme", "@v-thomas/about/theme"],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": ["type:feature", "type:theme", "type:shell", "scope:shared"]
+              },
+              {
+                "sourceTag": "type:shell",
+                "onlyDependOnLibsWithTags": ["type:feature", "type:theme", "type:shell", "scope:shared"]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": ["type:ui", "type:data-access", "type:types"]
+              },
+              {
+                "sourceTag": "scope:thunder",
+                "onlyDependOnLibsWithTags": ["scope:thunder", "scope:shared"]
+              },
+              {
+                "sourceTag": "scope:about",
+                "onlyDependOnLibsWithTags": ["scope:about", "scope:shared"]
               }
             ]
           }

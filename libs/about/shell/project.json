@@ -2,7 +2,7 @@
   "root": "libs/about/shell",
   "sourceRoot": "libs/about/shell/src",
   "projectType": "library",
-  "tags": [],
+  "tags": ["type:shell", "scope:about"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",
@@ -36,7 +36,8 @@
       "outputs": ["coverage/libs/about/shell"],
       "options": {
         "jestConfig": "libs/about/shell/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   }
