@@ -1,22 +1,14 @@
-import { lazy, StrictMode, Suspense } from 'react';
+import { StrictMode, Suspense } from 'react';
 import { SnackbarProvider } from 'notistack';
-import { BrowserRouter, HashRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
 
-import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
-import { ThunderStore } from '@v-thomas/thunder/data-access';
 import '@v-thomas/shared/assets/globals.css';
 import { FeatureGroupsRouter, FeatureInviteRouter, HomePage, NotFoundPage } from './routes';
-import {
-  AuthProvider,
-  FirebaseAppProvider,
-  FirestoreProvider,
-  useFirebaseApp,
-  useFirestore
-} from 'reactfire';
+import { AuthProvider, FirebaseAppProvider, FirestoreProvider, useFirebaseApp } from 'reactfire';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
@@ -61,27 +53,25 @@ const App = () => {
   return (
     <FirestoreProvider sdk={firestoreInstance}>
       <AuthProvider sdk={authInstance}>
-        <Provider store={ThunderStore}>
-          <ThemeProvider theme={ThunderDarkTheme}>
-            <SnackbarProvider maxSnack={3}>
-              <HelmetProvider>
-                <HashRouter>
-                  <Suspense fallback={<div>loading...</div>}>
-                    <RootE>
-                      <Routes>
-                        <Route path="app" element={<Navigate to="groups" replace />} />
-                        <Route path="app/groups/*" element={<FeatureGroupsRouter />} />
-                        <Route path="app/invite/*" element={<FeatureInviteRouter />} />
-                        <Route index element={<HomePage />} />
-                        <Route path="*" element={<NotFoundPage />} />
-                      </Routes>
-                    </RootE>
-                  </Suspense>
-                </HashRouter>
-              </HelmetProvider>
-            </SnackbarProvider>
-          </ThemeProvider>
-        </Provider>
+        <ThemeProvider theme={ThunderDarkTheme}>
+          <SnackbarProvider maxSnack={3}>
+            <HelmetProvider>
+              <HashRouter>
+                <Suspense fallback={<div>loading...</div>}>
+                  <RootE>
+                    <Routes>
+                      <Route path="app" element={<Navigate to="groups" replace />} />
+                      <Route path="app/groups/*" element={<FeatureGroupsRouter />} />
+                      <Route path="app/invite/*" element={<FeatureInviteRouter />} />
+                      <Route index element={<HomePage />} />
+                      <Route path="*" element={<NotFoundPage />} />
+                    </Routes>
+                  </RootE>
+                </Suspense>
+              </HashRouter>
+            </HelmetProvider>
+          </SnackbarProvider>
+        </ThemeProvider>
       </AuthProvider>
     </FirestoreProvider>
   );

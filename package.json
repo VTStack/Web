@@ -7,21 +7,25 @@
     "nx": "nx",
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test",
-    "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate"
+    "test": "nx test"
   },
   "engines": {
     "node": "16 || 14"
   },
   "optionalDependencies": {
-    "all-contributors-cli": "^6.20.0",
     "cypress": "^9.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "7.17.9",
     "@babel/preset-env": "^7.16.11",
+    "@commitlint/cli": "^16.2.4",
+    "@commitlint/config-conventional": "^16.2.4",
     "@nestjs/schematics": "^8.0.0",
     "@nestjs/testing": "^8.0.0",
     "@nrwl/cli": "14.0.2",
@@ -71,6 +75,7 @@
     "commitizen": "^4.2.4",
     "csstype": "^3.0.10",
     "cz-conventional-changelog": "^3.3.0",
+    "cz-git": "^1.2.8",
     "dotenv": "^16.0.0",
     "esbuild": "^0.14.26",
     "eslint": "8.12.0",
@@ -82,6 +87,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.4.0",
+    "husky": "^7.0.4",
     "jest": "27.5.1",
     "jest-svg-transformer": "^1.0.0",
     "ngx-deploy-npm": "^3.1.2",

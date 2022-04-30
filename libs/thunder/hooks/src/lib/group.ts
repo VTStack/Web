@@ -7,16 +7,17 @@ export const useGroup = (): {
   group: GroupsEntity;
   clearGroups: () => void;
   allGroups: GroupsState;
-  getGroupByField: (payload: any) => any;
+  getGroupByField: (payload: unknown) => unknown;
   clearGroupErrors: () => void;
 } => {
-  const { groupId }: any = useParams();
+  const { groupId } = useParams();
 
   const { groups, clearGroups, allGroups, clearGroupErrors } = useGroups();
 
   const group = useMemo(() => groups.filter(v => v?.id === groupId)?.[0], [groups, groupId]);
 
-  const getGroupByField = (payload: any): any => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getGroupByField = (payload: any) => {
     const { value, field }: { field: 'name' | 'id' | 'createdAt'; value: string } = payload;
     return groups.filter(v => v[field] === value)?.[0];
   };

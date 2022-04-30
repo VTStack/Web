@@ -1,5 +1,6 @@
 import { Button, Card, Col, Link, Modal, Row, Text, Title } from '@v-thomas/core-ui';
 import styled from 'styled-components';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import Cross from '@v-thomas/shared/assets/x-mark.svg';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -18,7 +19,7 @@ export function ProjectsPage() {
     router('/');
   };
 
-  const handleClick = (e: any) => {
+  const handleClick = (e: Record<string, unknown>) => {
     if (e.target.href) return;
     window.open('https://link.v-thomas.me/movie', '_blank');
   };

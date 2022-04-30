@@ -2,6 +2,7 @@
   "root": "apps/gatekeeper/server",
   "sourceRoot": "apps/gatekeeper/server/src",
   "projectType": "application",
+  "tags": ["type:app", "scope:gatekeeper"],
   "targets": {
     "build": {
       "executor": "@nrwl/node:webpack",
@@ -49,6 +50,5 @@
         "onlyChanged": true
       }
     }
-  },
-  "tags": ["type:server", "scope:gatekeeper"]
+  }
 }

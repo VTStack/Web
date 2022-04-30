@@ -1,6 +1,5 @@
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
-import { addDoc, collection, doc } from 'firebase/firestore';
-import { v4 as uuid } from 'uuid';
+import { addDoc, collection } from 'firebase/firestore';
 interface GroupsProps {
   idField: string;
 }

@@ -1,5 +1,6 @@
 {
   "root": "libs/gatekeeper/server/feature-users",
+  "tags": ["type:feature"],
   "sourceRoot": "libs/gatekeeper/server/feature-users/src",
   "targets": {
     "build": {
@@ -29,6 +30,5 @@
         "onlyChanged": true
       }
     }
-  },
-  "tags": []
+  }
 }

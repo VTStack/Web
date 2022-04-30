@@ -2,7 +2,7 @@
   "root": "libs/about/feature-projects",
   "sourceRoot": "libs/about/feature-projects/src",
   "projectType": "library",
-  "tags": [],
+  "tags": ["scope:about", "type:feature"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",

@@ -2,7 +2,7 @@
   "root": "libs/about/shell",
   "sourceRoot": "libs/about/shell/src",
   "projectType": "library",
-  "tags": [],
+  "tags": ["type:shell", "scope:about"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",

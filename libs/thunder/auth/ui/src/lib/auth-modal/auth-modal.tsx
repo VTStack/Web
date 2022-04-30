@@ -1,6 +1,5 @@
 import { Button, Input, Modal, Row, Text, Title } from '@v-thomas/core-ui';
 import { useAuth } from '@v-thomas/thunder/auth/hooks';
-import { UserCredential } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import { ErrorMsg, Form } from './sign-in-modal.styles';
 interface Props {
@@ -11,7 +10,7 @@ interface Props {
 }
 
 export function AuthModal({ isOpen, onClose, title = 'Sign in', type }: Props) {
-  const [pastUsernamePassword, setPastUsernamePassword] = useState<any>('');
+  const [pastUsernamePassword, setPastUsernamePassword] = useState<string>('');
 
   const { signIn, signUp } = useAuth();
 

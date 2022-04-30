@@ -35,8 +35,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/thunder/ui/**/*.{ts,tsx,js,jsx}"],
-        "ignorePath": "libs/thunder/ui/.eslintignore"
+        "lintFilePatterns": ["libs/thunder/ui/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {

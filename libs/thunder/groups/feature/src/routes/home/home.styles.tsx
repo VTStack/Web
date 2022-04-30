@@ -29,7 +29,7 @@ const container = {
   }
 };
 
-export const GroupGrid = ({ groups }: { groups: any }) => {
+export const GroupGrid = ({ groups }: { groups: { name: string }[] }) => {
   console.log(groups);
   return (
     <SGrid key="modal" variants={container} initial="initial" animate={'animate'} exit={'exit'}>

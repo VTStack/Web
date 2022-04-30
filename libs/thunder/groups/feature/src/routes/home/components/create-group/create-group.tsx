@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useToggle } from '@v-thomas/thunder/hooks';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import Cross from '@v-thomas/shared/assets/x-mark.svg';
 import { useGroups } from '@v-thomas/thunder/groups/hooks';
 
@@ -18,6 +19,7 @@ export function CreateGroupButton({ variant = 'contained' }: { variant?: SharedB
 
   const [isOpen, toggleOpen] = useToggle(false);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = (data: any) => {
     toggleOpen();
     createGroup(data);

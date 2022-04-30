@@ -64,7 +64,7 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "eslintConfig": "apps/thunder/client/.eslintrc.json",
-        "lintFilePatterns": ["apps/thunder/client/src/**/*.{ts,tsx,html,css}", "libs/thunder/**/*.{ts,tsx}"]
+        "lintFilePatterns": ["apps/thunder/client/src/**/*.{ts,tsx,css}"]
       }
     }
   }

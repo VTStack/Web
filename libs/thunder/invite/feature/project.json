@@ -3,7 +3,7 @@
   "sourceRoot": "libs/thunder/invite/feature/src",
   "projectType": "library",
   "implicitDependencies": ["!thunder-theme", "!thunder-ui", "!thunder-data-access"],
-  "tags": ["type:feature"],
+  "tags": ["type:feature", "scope:thunder"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",

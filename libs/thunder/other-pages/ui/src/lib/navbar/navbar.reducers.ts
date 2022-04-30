@@ -1,5 +1,6 @@
 type Action = 'TOGGLE_SIGNUP' | 'TOGGLE_SIGNIN' | 'CLOSE';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const modalStateReducer = (state: any, action: Action) => {
   switch (action) {
     case 'TOGGLE_SIGNUP':

@@ -1,7 +1,7 @@
 {
   "root": "libs/thunder/theme",
   "sourceRoot": "libs/thunder/theme/src",
-  "tags": ["scope:thunder", "type:other"],
+  "tags": ["scope:thunder", "type:theme"],
   "targets": {
     "build": {
       "executor": "@nrwl/js:swc",

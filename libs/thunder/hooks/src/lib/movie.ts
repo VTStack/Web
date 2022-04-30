@@ -4,11 +4,12 @@ import { initialMoviesState } from '@v-thomas/thunder/data-access';
 
 export const useMovie = (
   movieId: string
-): { movie: MoviesEntity; clearMovies: () => void; addMovie: (movi) => void } => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+): { movie: MoviesEntity; clearMovies: () => void; addMovie: (movie: any) => void } => {
   const { movies, clearMovies, addMovie } = useMovies();
 
   return {
-    movie: movies.filter((v: any) => v.id === movieId)[0] || initialMoviesState,
+    movie: movies.filter((v: { id: string }) => v.id === movieId)[0] || initialMoviesState,
     clearMovies,
     addMovie
   };
