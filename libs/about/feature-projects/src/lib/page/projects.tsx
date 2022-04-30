@@ -12,6 +12,7 @@ export function ProjectsPage() {
 
   const router = useNavigate();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(toggleOpen, []);
 
   const toHome = () => {
