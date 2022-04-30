@@ -26,7 +26,7 @@ export const signInUser = createAsyncThunk('user/signInUser', async (action: Act
   const { payload } = action;
 
   const { email, password } = payload;
-  const response: any = (await signIn(email, password))[1];
+  const response = (await signIn(email, password))[1];
   if (response && response.toJSON().status === 401) {
     return thunkAPI.rejectWithValue('WRONG_CREDENTIALS');
   }
@@ -124,7 +124,7 @@ export const userSlice: Slice = createSlice({
           id: null
         };
       })
-      .addCase(signOutUser.rejected, (state: UserState, action: any) => {
+      .addCase(signOutUser.rejected, (state: UserState, action) => {
         state.loadingStatus = 'ERROR';
         state.error = action.error.message;
       });
@@ -143,7 +143,8 @@ export const userSlice: Slice = createSlice({
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .addCase(
         signUpUser.rejected,
-        (state: UserState, action: any): UserState => ({
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (state: UserState, action: { payload: any }): UserState => ({
           ...state,
           loadingStatus: 'ERROR',
           error: action.payload

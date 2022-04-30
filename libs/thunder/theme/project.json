@@ -1,6 +1,7 @@
 {
   "root": "libs/thunder/theme",
   "sourceRoot": "libs/thunder/theme/src",
+  "tags": ["scope:thunder", "type:theme"],
   "targets": {
     "build": {
       "executor": "@nrwl/js:swc",
@@ -24,9 +25,9 @@
       "outputs": ["coverage/libs/thunder/theme"],
       "options": {
         "jestConfig": "libs/thunder/theme/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
-  },
-  "tags": []
+  }
 }

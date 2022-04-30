@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { InviteState } from '@v-thomas/thunder/types';
@@ -18,9 +19,9 @@ export const fetchInvite = createAsyncThunk(
 
 export const addMember = createAsyncThunk(
   'invite/addMember',
-  async (action: { payload: { inviteId: string } }, thunkAPI) => {
+  async (action: { payload: { inviteId: string } }) => {
     const { inviteId } = action.payload;
-    const [member, error] = await addMemberToGroup(inviteId);
+    const [member] = await addMemberToGroup(inviteId);
     // if (error) return thunkAPI.rejectWithValue({ type: 'OWNER_OF_INVITE' });
     return member;
   }

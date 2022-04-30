@@ -1,6 +1,5 @@
 import { CommandInteraction } from 'discord.js';
-import { AppClient } from '../../client';
-import { createEmbed, request } from '../../helpers';
+import { request } from '../../helpers';
 import { dispayStatus } from '../../helpers/displayStatus';
 import { Command } from '../../models/command';
 import { getStatusQuery } from './query';

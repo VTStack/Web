@@ -24,9 +24,10 @@
       "outputs": ["coverage/libs/about/theme"],
       "options": {
         "jestConfig": "libs/about/theme/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     }
   },
-  "tags": []
+  "tags": ["ype:theme", "scope:about"]
 }

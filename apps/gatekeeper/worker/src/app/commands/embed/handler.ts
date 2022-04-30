@@ -1,6 +1,5 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction } from 'discord.js';
-import { ApplicationCommandOptionTypes } from 'discord.js/typings/enums';
 import { AppClient } from '../../client';
 import { createEmbed } from '../../helpers';
 import { Command } from '../../models/command';

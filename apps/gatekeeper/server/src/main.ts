@@ -1,8 +1,3 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import passport from 'passport';
@@ -29,7 +24,7 @@ async function bootstrap() {
         mongoUrl: process.env['NX_GATEKEEPER_DB'] as string,
         dbName: 'session-store',
         stringify: true,
-        serialize: (session: any) => JSON.stringify(session),
+        serialize: session => JSON.stringify(session),
         unserialize: (serialized: string) => JSON.parse(serialized)
       })
     })

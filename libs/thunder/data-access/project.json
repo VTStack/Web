@@ -53,7 +53,8 @@
       "outputs": ["coverage/libs/thunder/data-access"],
       "options": {
         "jestConfig": "libs/thunder/data-access/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "onlyChanged": true
       }
     },
     "version": {

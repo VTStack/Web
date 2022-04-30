@@ -4,7 +4,6 @@ import {
   createEntityAdapter,
   createSelector,
   createSlice,
-  EntityState,
   PayloadAction
 } from '@reduxjs/toolkit';
 import { getAllGroups } from '../../lib/groups';
@@ -72,7 +71,7 @@ export const groupsSlice = createSlice({
 
       state.loadingStatus = 'LOADED';
     });
-    builder.addCase(addGroup.rejected, (state, action) => {
+    builder.addCase(addGroup.rejected, state => {
       state.loadingStatus = 'ERROR';
     });
   }

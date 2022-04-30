@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { url } from '../url';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const signUp = async (email: string, password: string): Promise<[any, any]> => {
   try {
     const data = await axios.post(url + '/auth/signup', {
