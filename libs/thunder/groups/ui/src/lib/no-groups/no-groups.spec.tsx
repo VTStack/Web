@@ -1,38 +1,22 @@
-import { Matcher, MatcherOptions, render } from '@testing-library/react';
+import { act, Matcher, MatcherOptions, render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
-import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
+import { TestTheme } from '@v-thomas/thunder/test-utils';
 import { NoGroups } from './no-groups';
-import { AuthProvider, FirebaseAppProvider, FirestoreProvider, useFirebaseApp } from 'reactfire';
-import { getFirestore } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyBF6geOiV5lxyg2eU5WpDeCOo0YgaxXXl0',
-  authDomain: 'movie-2a28c.firebaseapp.com',
-  projectId: 'movie-2a28c',
-  storageBucket: 'movie-2a28c.appspot.com',
-  messagingSenderId: '681444141056',
-  appId: '1:681444141056:web:55d91b33860e421fda50e5'
-};
-const OtherComponents = () => {
-  return (
-    <FirestoreProvider sdk={getFirestore(useFirebaseApp())}>
-      <AuthProvider sdk={getAuth(useFirebaseApp())}>
-        <ThemeProvider theme={ThunderDarkTheme}>
-          <NoGroups />
-        </ThemeProvider>
-      </AuthProvider>
-    </FirestoreProvider>
-  );
-};
-
+import { SetupAuth, SetupFirebase, SetupFirestore } from '@v-thomas/thunder/test-utils';
 describe('NoGroups', () => {
   let baseElement: HTMLElement, getByTestId: (id: Matcher, options?: MatcherOptions | any) => HTMLElement;
   beforeEach(() => {
     const element = render(
-      <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-        <OtherComponents />
-      </FirebaseAppProvider>
+      <SetupFirebase>
+        <SetupFirestore>
+          <SetupAuth>
+            <ThemeProvider theme={TestTheme}>
+              <NoGroups />
+            </ThemeProvider>
+          </SetupAuth>
+        </SetupFirestore>
+      </SetupFirebase>
     );
     baseElement = element.baseElement;
     getByTestId = element.getByTestId;

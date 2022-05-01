@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
+import { TestTheme } from '@v-thomas/thunder/test-utils';
 import { ThemeProvider } from 'styled-components';
 
 import { NotFoundPage } from './home';
@@ -7,7 +7,7 @@ import { NotFoundPage } from './home';
 describe('Home', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
-      <ThemeProvider theme={ThunderDarkTheme}>
+      <ThemeProvider theme={TestTheme}>
         <NotFoundPage />
       </ThemeProvider>
     );

@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
+import { TestTheme } from '@v-thomas/thunder/test-utils';
 import { GroupCard } from './group-card';
 
 enum Objects {
@@ -13,7 +13,7 @@ describe('GroupCard', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
       <HashRouter>
-        <ThemeProvider theme={ThunderDarkTheme}>
+        <ThemeProvider theme={TestTheme}>
           <GroupCard group={{ _id: Objects.TEST_ID, name: Objects.TEST_NAME }} />
         </ThemeProvider>
       </HashRouter>

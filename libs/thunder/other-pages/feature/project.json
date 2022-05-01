@@ -2,7 +2,6 @@
   "root": "libs/thunder/other-pages/feature/",
   "sourceRoot": "libs/thunder/other-pages/feature/src",
   "projectType": "library",
-  "implicitDependencies": ["!thunder-theme"],
   "tags": ["type:feature", "scope:thunder"],
   "targets": {
     "build": {

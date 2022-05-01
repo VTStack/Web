@@ -2,7 +2,6 @@
   "root": "libs/thunder/groups/ui",
   "sourceRoot": "libs/thunder/groups/ui/src",
   "projectType": "library",
-  "implicitDependencies": ["!thunder-ui", "!thunder-theme"],
   "tags": ["type:ui", "scope:thunder"],
   "targets": {
     "build": {

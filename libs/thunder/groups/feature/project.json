@@ -3,7 +3,6 @@
   "sourceRoot": "libs/thunder/groups/feature/src",
   "projectType": "library",
   "tags": ["type:feature", "scope:thunder"],
-  "implicitDependencies": ["!thunder-theme", "!thunder-ui", "!thunder-types", "!thunder-hooks"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",

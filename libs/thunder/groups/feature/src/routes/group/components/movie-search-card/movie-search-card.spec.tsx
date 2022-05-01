@@ -2,11 +2,11 @@ import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 
 import { MovieSearchCard } from './movie-search-card';
-import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
+import { TestTheme } from '@v-thomas/thunder/test-utils';
 describe('MovieSearchCard', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
-      <ThemeProvider theme={ThunderDarkTheme}>
+      <ThemeProvider theme={TestTheme}>
         <MovieSearchCard
           movie={{ title: 'sj' }}
           onAdd={() => {

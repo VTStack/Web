@@ -4,6 +4,7 @@ import { OutlinedButton } from './variants/outlined';
 import { TextButton } from './variants/text';
 import { HoverOutlinedButton } from './variants/hover-outlined';
 import { NoStyleButton } from './variants/no-style';
+import { DetailedHTMLProps } from 'react';
 
 export type SharedButtonVariants = 'contained' | 'outlined' | 'text' | 'hover-outlined';
 
@@ -20,7 +21,12 @@ export interface Props {
   noStyle?: boolean;
 }
 
-export function Button({ variant = 'contained', children, noStyle = false, ...props }: Props) {
+export function Button({
+  variant = 'contained',
+  children,
+  noStyle = false,
+  ...props
+}: Props & DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) {
   const type = props.type || 'button';
 
   props = { ...props, type };

@@ -2,7 +2,6 @@
   "root": true,
   "plugins": ["@nrwl/nx", "prettier"],
   "extends": ["eslint:recommended", "prettier"],
-  "ignorePatterns": "**/*",
   "rules": {
     "prettier/prettier": "error",
     "block-scoped-var": "error",
@@ -85,7 +84,7 @@
               },
               {
                 "sourceTag": "type:feature",
-                "onlyDependOnLibsWithTags": ["type:ui", "type:data-access", "type:types"]
+                "onlyDependOnLibsWithTags": ["type:ui", "type:data-access", "type:types", "type:utils"]
               },
               {
                 "sourceTag": "scope:thunder",

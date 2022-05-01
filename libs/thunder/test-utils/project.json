@@ -11,7 +11,7 @@
         "outputPath": "dist/libs/thunder/test-utils",
         "tsConfig": "libs/thunder/test-utils/tsconfig.lib.json",
         "project": "libs/thunder/test-utils/package.json",
-        "entryFile": "libs/thunder/test-utils/src/index.ts",
+        "entryFile": "libs/thunder/test-utils/src/public_api.tsx",
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "swc",

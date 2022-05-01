@@ -2,12 +2,12 @@ import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 
 import { NoMovies } from './no-movies';
-import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
+import { TestTheme } from '@v-thomas/thunder/test-utils';
 
 describe('NoMovies', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
-      <ThemeProvider theme={ThunderDarkTheme}>
+      <ThemeProvider theme={TestTheme}>
         <NoMovies />
       </ThemeProvider>
     );

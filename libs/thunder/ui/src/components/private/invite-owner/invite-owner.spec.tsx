@@ -2,13 +2,13 @@ import { render } from '@testing-library/react';
 
 import { InviteOwner } from './invite-owner';
 
-import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
+import { TestTheme } from '@v-thomas/thunder/test-utils';
 import { ThemeProvider } from 'styled-components';
 
 describe('InviteOwner', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
-      <ThemeProvider theme={ThunderDarkTheme}>
+      <ThemeProvider theme={TestTheme}>
         <InviteOwner />
       </ThemeProvider>
     );

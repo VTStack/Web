@@ -5,6 +5,7 @@ import { Config } from '@jest/types';
 export default {
   projects: getJestProjects(),
   collectCoverage: true,
+  collectCoverageFrom: ['./**/*.{ts,tsx,js,jsx}', '!**/node_modules', '!*config*'],
   coverageThreshold: {
     global: {
       lines: 90,
@@ -12,5 +13,6 @@ export default {
       statements: 90,
       branches: 90
     }
-  }
+  },
+  lastCommit: false
 } as Config.InitialOptions;

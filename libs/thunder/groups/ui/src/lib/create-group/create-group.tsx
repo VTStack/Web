@@ -2,8 +2,6 @@ import { Button, Row, Input, Modal, Title, SharedButtonVariants } from '@v-thoma
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { useToggle } from '@v-thomas/hooks';
-// @ts-ignore
-// import Cross from '@v-thomas/shared/assets/x-mark.svg';
 import { useGroups } from '@v-thomas/thunder/groups/hooks';
 
 const Form = styled.form`
