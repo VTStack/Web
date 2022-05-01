@@ -1,8 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Controller, Get, Body, Patch, Param, Delete, UseGuards, Req } from '@nestjs/common';
+import { Controller, Get, Patch, Param, Delete, UseGuards, Req } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { CreateAuthDto } from './dto/create-auth.dto';
-import { UpdateAuthDto } from './dto/update-auth.dto';
 import { AuthedGuard } from './guards/authed.guard';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -19,13 +16,13 @@ export class AuthController {
 
   @Get('callback')
   @UseGuards(AuthGuard)
-  findAll(@Req() req: any) {
+  findAll(@Req() req: Request & { user: { id: string } }) {
     return req.user;
   }
 
   @Get('status')
   @UseGuards(AuthedGuard)
-  findOne(@Req() req: any) {
+  findOne(@Req() req: Request & { user: { id: string } }) {
     console.log(req.user);
     return 'testig';
   }
