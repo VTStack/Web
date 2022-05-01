@@ -2,6 +2,8 @@ import rootJestConfig from '../../../../jest.config';
 import { Config } from '@jest/types';
 
 delete rootJestConfig.projects;
+delete rootJestConfig.coverageThreshold;
+
 export default {
   ...rootJestConfig,
   displayName: 'thunder-groups-feature',
