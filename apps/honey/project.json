@@ -39,5 +39,5 @@
       }
     }
   },
-  "tags": ["scope:honey"]
+  "tags": ["scope:honey", "type:app"]
 }

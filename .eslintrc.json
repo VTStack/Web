@@ -92,6 +92,10 @@
               {
                 "sourceTag": "scope:about",
                 "onlyDependOnLibsWithTags": ["scope:about", "scope:shared"]
+              },
+              {
+                "sourceTag": "scope:honey",
+                "onlyDependOnLibsWithTags": ["scope:honey", "scope:shared"]
               }
             ]
           }
