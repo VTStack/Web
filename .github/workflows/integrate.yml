@@ -13,10 +13,8 @@ jobs:
 
   lint:
     needs: install_deps
-    name: Linting files...
     uses: VT-Codes/actions/.github/workflows/lint.yml@main
 
   test:
-    name: Testing files...
     needs: install_deps
     uses: VT-Codes/actions/.github/workflows/test.yml@main

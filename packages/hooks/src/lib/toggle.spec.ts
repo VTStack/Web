@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 
 describe('Toggle', () => {
   test('Toggle Function using normal mode', () => {
-    const hook = renderHook(() => useToggle()) as any;
+    const hook = renderHook(() => useToggle());
     let hookInfo = hook.result.current;
     expect(hookInfo[0]).toEqual(false);
 

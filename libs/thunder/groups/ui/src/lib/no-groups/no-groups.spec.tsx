@@ -1,11 +1,11 @@
-import { act, Matcher, MatcherOptions, render } from '@testing-library/react';
+import { Matcher, MatcherOptions, render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { TestTheme } from '@v-thomas/thunder/test-utils';
 import { NoGroups } from './no-groups';
 
 import { SetupAuth, SetupFirebase, SetupFirestore } from '@v-thomas/thunder/test-utils';
 describe('NoGroups', () => {
-  let baseElement: HTMLElement, getByTestId: (id: Matcher, options?: MatcherOptions | any) => HTMLElement;
+  let baseElement: HTMLElement, getByTestId: (id: Matcher, options?: MatcherOptions) => HTMLElement;
   beforeEach(() => {
     const element = render(
       <SetupFirebase>

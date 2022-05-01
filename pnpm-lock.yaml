@@ -108,6 +108,7 @@ specifiers:
   jest: 27.5.1
   jest-svg-transformer: ^1.0.0
   joi: ^17.6.0
+  mongodb: ^4.5.0
   mongoose: ^6.3.1
   ngx-deploy-npm: ^3.1.2
   notistack: ^3.0.0-alpha.2
@@ -174,7 +175,7 @@ dependencies:
   chart.js: 3.7.1
   class-transformer: 0.5.1
   class-validator: 0.13.2
-  connect-mongo: 4.6.0
+  connect-mongo: 4.6.0_mongodb@4.5.0
   cookie-parser: 1.4.6
   core-js: 3.22.2
   discord-api-types: 0.32.0
@@ -187,6 +188,7 @@ dependencies:
   graphql: 16.4.0
   graphql-request: 4.2.0_encoding@0.1.13+graphql@16.4.0
   joi: 17.6.0
+  mongodb: 4.5.0
   mongoose: 6.3.1
   notistack: 3.0.0-alpha.2_aee3b59847029cfc9aee5217330a3daf
   passport: 0.5.2
@@ -9717,7 +9719,7 @@ packages:
     engines: {node: '>=0.8'}
     dev: true
 
-  /connect-mongo/4.6.0:
+  /connect-mongo/4.6.0_mongodb@4.5.0:
     resolution: {integrity: sha512-8new4Z7NLP3CGP65Aw6ls3xDBeKVvHRSh39CXuDZTQsvpeeU9oNMzfFgvqmHqZ6gWpxIl663RyoVEmCAGf1yOg==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -9725,6 +9727,7 @@ packages:
     dependencies:
       debug: 4.3.4
       kruptein: 3.0.4
+      mongodb: 4.5.0
     transitivePeerDependencies:
       - supports-color
     dev: false
