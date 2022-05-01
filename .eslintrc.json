@@ -71,7 +71,12 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": ["@v-thomas/thunder/theme", "@v-thomas/about/theme", "@v-thomas/shared/assets"],
+            "allow": [
+              "@v-thomas/thunder/theme",
+              "@v-thomas/about/theme",
+              "@v-thomas/shared/assets",
+              "@v-thomas/shared/utils-test"
+            ],
             "depConstraints": [
               {
                 "sourceTag": "type:app",
@@ -83,7 +88,13 @@
               },
               {
                 "sourceTag": "type:feature",
-                "onlyDependOnLibsWithTags": ["type:ui", "type:data-access", "type:types", "type:utils"]
+                "onlyDependOnLibsWithTags": [
+                  "type:ui",
+                  "type:data-access",
+                  "type:types",
+                  "type:utils",
+                  "scope:shared"
+                ]
               },
               {
                 "sourceTag": "scope:thunder",

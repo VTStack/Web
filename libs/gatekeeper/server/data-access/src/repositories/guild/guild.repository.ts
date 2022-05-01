@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model, Query, Document } from 'mongoose';
+import { Model } from 'mongoose';
 import { DeleteResult } from 'mongodb';
 import { Models } from '../../constants/models';
 import { AuthDocument } from '../../schemas/auth.schema';
-import { Guild, GuildDocument } from '../../schemas/guild.schema';
+import { GuildDocument } from '../../schemas/guild.schema';
 import { WelcomeDocument } from '../../schemas/welcome.schema';
 import { RemoveGuildDto, findGuildDto, CreateGuildDto } from './dto';
 import { ModifyGuildDto } from './dto/modify-guild.dto';

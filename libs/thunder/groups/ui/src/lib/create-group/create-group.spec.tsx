@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
-import { TestTheme } from '@v-thomas/thunder/test-utils';
+import { TestTheme } from '@v-thomas/shared/utils-test';
 import { CreateGroupButton } from './create-group';
-import { SetupFirebase, SetupFirestore } from '@v-thomas/thunder/test-utils';
+import { SetupFirebase, SetupFirestore } from '@v-thomas/shared/utils-test';
 
 describe('GroupCard', () => {
   it('should render successfully', () => {

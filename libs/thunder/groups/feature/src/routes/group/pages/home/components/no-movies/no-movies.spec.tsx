@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 
 import { NoMovies } from './no-movies';
-import { TestTheme } from '@v-thomas/thunder/test-utils';
+import { TestTheme } from '@v-thomas/shared/utils-test';
 
 describe('NoMovies', () => {
   it('should render successfully', () => {

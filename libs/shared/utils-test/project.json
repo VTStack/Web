@@ -1,23 +1,23 @@
 {
-  "root": "libs/thunder/test-utils",
-  "sourceRoot": "libs/thunder/test-utils/src",
+  "root": "libs/shared/utils-test",
+  "sourceRoot": "libs/shared/utils-test/src",
   "projectType": "library",
-  "tags": ["scope:thunder", "type:utils"],
+  "tags": ["scope:shared", "type:utils"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/thunder/test-utils",
-        "tsConfig": "libs/thunder/test-utils/tsconfig.lib.json",
-        "project": "libs/thunder/test-utils/package.json",
-        "entryFile": "libs/thunder/test-utils/src/public_api.tsx",
+        "outputPath": "dist/libs/shared/utils-test",
+        "tsConfig": "libs/shared/utils-test/tsconfig.lib.json",
+        "project": "libs/shared/utils-test/package.json",
+        "entryFile": "libs/shared/utils-test/src/public_api.tsx",
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "swc",
         "assets": [
           {
-            "glob": "libs/thunder/test-utils/README.md",
+            "glob": "libs/shared/utils-test/README.md",
             "input": ".",
             "output": "."
           }
@@ -28,14 +28,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/thunder/test-utils/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["libs/shared/utils-test/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/thunder/test-utils"],
+      "outputs": ["coverage/libs/shared/utils-test"],
       "options": {
-        "jestConfig": "libs/thunder/test-utils/jest.config.ts",
+        "jestConfig": "libs/shared/utils-test/jest.config.ts",
         "passWithNoTests": true
       }
     }

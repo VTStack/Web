@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { TestTheme } from '@v-thomas/thunder/test-utils';
+import { TestTheme } from '@v-thomas/shared/utils-test';
 import { GroupCard } from './group-card';
 
 enum Objects {

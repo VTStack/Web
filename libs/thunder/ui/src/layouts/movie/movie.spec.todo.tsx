@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { TestTheme } from '@v-thomas/thunder/test-utils';
+import { TestTheme } from '@v-thomas/shared/utils-test';
 import { SnackbarProvider } from 'notistack';
 import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';

@@ -20,8 +20,8 @@ export function ProjectsPage() {
     router('/');
   };
 
-  const handleClick = (e: Record<string, unknown>) => {
-    if (e.target.href) return;
+  const handleClick = (e: Record<string, { href: string }>) => {
+    if (e['target'].href) return;
     window.open('https://link.v-thomas.me/movie', '_blank');
   };
   return (
@@ -40,7 +40,7 @@ export function ProjectsPage() {
           </Link>{' '}
           where i put all of my serious projects
         </Text>
-        <Button onClick={e => handleClick(e)} noStyle>
+        <Button onClick={e => handleClick(e as Record<string, { href: string }>)} noStyle>
           <Card noHover>
             <Row gap="1">
               <img src="https://movie.v-thomas.me/favicon.svg" alt="" height="100%" width="60px" />

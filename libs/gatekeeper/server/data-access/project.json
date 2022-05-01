@@ -1,8 +1,7 @@
 {
   "root": "libs/gatekeeper/server/data-access",
   "sourceRoot": "libs/gatekeeper/server/data-access/src",
-  "tags": ["type:data-access"],
-
+  "tags": ["type:data-access", "scope:gatekeeper"],
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",

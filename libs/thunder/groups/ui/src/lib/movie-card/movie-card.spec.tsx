@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import { findByTestId, render } from '@testing-library/react';
-import { TestTheme } from '@v-thomas/thunder/test-utils';
+import { TestTheme } from '@v-thomas/shared/utils-test';
 import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 

@@ -1,7 +1,7 @@
 {
   "root": "libs/gatekeeper/server/feature-auth",
   "sourceRoot": "libs/gatekeeper/server/feature-auth/src",
-  "tags": ["type:feature"],
+  "tags": ["type:feature", "scope:gatekeeper"],
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",

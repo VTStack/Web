@@ -2,12 +2,11 @@ import { render } from '@testing-library/react';
 
 import Modal from './modal';
 import { ThemeProvider } from 'styled-components';
-import { DarkTheme } from '@v-thomas/test-theme';
-
+import { TestTheme } from '@v-thomas/shared/utils-test';
 describe('Modal', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
-      <ThemeProvider theme={DarkTheme}>
+      <ThemeProvider theme={TestTheme}>
         <Modal isOpen={true} />
       </ThemeProvider>
     );

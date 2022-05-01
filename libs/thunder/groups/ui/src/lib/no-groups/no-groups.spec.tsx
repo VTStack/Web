@@ -1,9 +1,9 @@
 import { Matcher, MatcherOptions, render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
-import { TestTheme } from '@v-thomas/thunder/test-utils';
+import { TestTheme } from '@v-thomas/shared/utils-test';
 import { NoGroups } from './no-groups';
 
-import { SetupAuth, SetupFirebase, SetupFirestore } from '@v-thomas/thunder/test-utils';
+import { SetupAuth, SetupFirebase, SetupFirestore } from '@v-thomas/shared/utils-test';
 describe('NoGroups', () => {
   let baseElement: HTMLElement, getByTestId: (id: Matcher, options?: MatcherOptions) => HTMLElement;
   beforeEach(() => {

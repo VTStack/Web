@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { fetchUser, getUserState } from '@v-thomas/thunder/data-access';
+import { getUserState } from '@v-thomas/thunder/data-access';
 import { useNavigate } from 'react-router-dom';
 export const useAuth = (location = '/') => {
   const state = useSelector(getUserState);
@@ -19,7 +19,7 @@ export const usePublicAuth = (location = '/app') => {
   const router = useNavigate();
 
   useEffect(() => {
-    if (state.loadingStatus === 'NOT_LOADED' && !state.error && !state?.id) dispatch(fetchUser());
+    // if (state.loadingStatus === 'NOT_LOADED' && !state.error && !state?.id) dispatch(fetchUser());
     if (state.loadingStatus === 'AUTHED') {
       // dispatch(closeModal());
       if (state.hasAuthedInSession === true) setTimeout(() => router(location), 500);

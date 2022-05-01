@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 
 import { MovieNavbar } from './movie-navbar';
-import { TestTheme } from '@v-thomas/thunder/test-utils';
+import { TestTheme } from '@v-thomas/shared/utils-test';
 
 describe('MovieNavbar', () => {
   it('should render successfully', () => {

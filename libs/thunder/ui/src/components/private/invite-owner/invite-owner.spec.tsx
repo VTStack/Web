@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 
 import { InviteOwner } from './invite-owner';
 
-import { TestTheme } from '@v-thomas/thunder/test-utils';
+import { TestTheme } from '@v-thomas/shared/utils-test';
 import { ThemeProvider } from 'styled-components';
 
 describe('InviteOwner', () => {

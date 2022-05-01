@@ -2,7 +2,6 @@
   "root": "libs/gatekeeper/server/feature-guilds",
   "sourceRoot": "libs/gatekeeper/server/feature-guilds/src",
   "tags": ["type:feature"],
-
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",

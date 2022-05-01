@@ -12,8 +12,9 @@ export class AuthController {
 
   @Get('login')
   @UseGuards(AuthGuard)
-  create(@Body() createAuthDto: CreateAuthDto) {
-    return this.authService.create(createAuthDto);
+  create() {
+    // @Body() createAuthDto: CreateAuthDto
+    return this.authService.create();
   }
 
   @Get('callback')
@@ -30,8 +31,14 @@ export class AuthController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAuthDto: UpdateAuthDto) {
-    return this.authService.update(+id, updateAuthDto);
+  update(
+    @Param('id') id: string
+    //  @Body() updateAuthDto: UpdateAuthDto
+  ) {
+    return this.authService.update(
+      +id
+      // updateAuthDto
+    );
   }
 
   @Delete(':id')

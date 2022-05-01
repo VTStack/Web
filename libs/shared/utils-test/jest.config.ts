@@ -1,9 +1,9 @@
 module.exports = {
-  displayName: 'thunder-test-utils',
+  displayName: 'shared-utils-test',
   preset: '../../../jest.preset.ts',
   transform: {
     '^.+\\.[tj]sx?$': ['@swc/jest', { jsc: { transform: { react: { runtime: 'automatic' } } } }]
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/thunder/test-utils'
+  coverageDirectory: '../../../coverage/libs/shared/utils-test'
 };
