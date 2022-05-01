@@ -1,4 +1,3 @@
-// eslint-disable-next-line node/no-unpublished-require
 import { getJestProjects } from '@nrwl/jest';
 import { Config } from '@jest/types';
 
