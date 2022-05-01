@@ -27,7 +27,7 @@
       "options": {
         "jestConfig": "libs/gatekeeper/server/feature-auth/jest.config.js",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
       }
     }
   }

@@ -48,7 +48,7 @@
       "options": {
         "jestConfig": "packages/core-ui/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
       }
     },
     "publish": {

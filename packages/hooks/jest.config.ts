@@ -1,11 +1,12 @@
+import rootConfig from '../../jest.config';
+
+delete rootConfig.projects;
+
 module.exports = {
+  ...rootConfig,
   displayName: 'hooks',
   preset: '../../jest.preset.ts',
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json'
-    }
-  },
+
   transform: {
     '^.+\\.[tj]sx?$': 'ts-jest'
   },

@@ -40,6 +40,7 @@
     "thunder-invite-feature": "libs/thunder/invite/feature",
     "thunder-other-pages-feature": "libs/thunder/other-pages/feature",
     "thunder-other-pages-ui": "libs/thunder/other-pages/ui",
+    "thunder-test-utils": "libs/thunder/test-utils",
     "thunder-theme": "libs/thunder/theme",
     "thunder-types": "libs/thunder/types",
     "thunder-ui": "libs/thunder/ui"

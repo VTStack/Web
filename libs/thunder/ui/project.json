@@ -44,7 +44,7 @@
       "options": {
         "jestConfig": "libs/thunder/ui/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
       }
     }
   }

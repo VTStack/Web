@@ -24,7 +24,7 @@ export class TicketResolver {
 
   @Mutation('updateTicket')
   update(@Args('updateTicketInput') updateTicketInput: UpdateTicketInput) {
-    return this.ticketService.update(updateTicketInput.id, updateTicketInput);
+    return this.ticketService.update(updateTicketInput.id);
   }
 
   @Mutation('removeTicket')

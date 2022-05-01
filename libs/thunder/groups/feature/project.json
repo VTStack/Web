@@ -38,7 +38,13 @@
       "options": {
         "jestConfig": "libs/thunder/groups/feature/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
       }
     }
   }

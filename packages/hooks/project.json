@@ -33,8 +33,14 @@
       "outputs": ["coverage/packages/hooks"],
       "options": {
         "jestConfig": "packages/hooks/jest.config.ts",
-        "passWithNoTests": true,
-        "onlyChanged": true
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "bail": 1,
+          "codeCoverage": true
+        }
       }
     },
     "publish": {

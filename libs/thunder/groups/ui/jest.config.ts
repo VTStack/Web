@@ -1,4 +1,10 @@
+import rootConfig from '../../../../jest.config';
+
+delete rootConfig.projects;
+
 module.exports = {
+  ...rootConfig,
+
   displayName: 'thunder-groups-ui',
   preset: '../../../../jest.preset.ts',
   transform: {

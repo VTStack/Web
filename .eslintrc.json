@@ -73,7 +73,7 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": ["@v-thomas/thunder/theme", "@v-thomas/about/theme"],
+            "allow": ["@v-thomas/thunder/theme", "@v-thomas/about/theme", "@v-thomas/shared/assets"],
             "depConstraints": [
               {
                 "sourceTag": "type:app",

@@ -28,7 +28,7 @@
       "options": {
         "jestConfig": "libs/gatekeeper/server/data-access/jest.config.js",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
       }
     }
   }

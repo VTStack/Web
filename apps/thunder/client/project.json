@@ -63,7 +63,7 @@
       "options": {
         "jestConfig": "apps/thunder/client/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
       }
     },
     "lint": {

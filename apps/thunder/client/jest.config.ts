@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'APP: Thunder',
+  displayName: 'thunder',
 
   transform: {
     '^.+/.[tj]s$': '@swc/jest'

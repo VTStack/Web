@@ -14,8 +14,8 @@ const Container = styled.div`
 export function NoGroups() {
   return (
     <Container>
-      <Title>You dont have any groups!</Title>
-      <Text>You can create a group here:</Text>
+      <Title data-testid="nogroups-title">You dont have any groups!</Title>
+      <Text data-testid="nogroups-description">You can create a group here:</Text>
       <CreateGroupButton variant="outlined" />
     </Container>
   );
