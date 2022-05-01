@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { UpdateTicketInput } from './dto/update-ticket.input';
 
 @Injectable()
 export class TicketService {

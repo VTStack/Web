@@ -4,8 +4,7 @@
     "defaultBase": "dev"
   },
   "cli": {
-    "packageManager": "pnpm",
-    "defaultCollection": "@nrwl/react"
+    "packageManager": "pnpm"
   },
   "tasksRunnerOptions": {
     "default": {
@@ -28,12 +27,6 @@
     "libsDir": "libs"
   },
   "targetDependencies": {
-    "test": [
-      {
-        "target": "test",
-        "projects": "dependencies"
-      }
-    ],
     "deploy": [
       {
         "target": "test",
@@ -54,12 +47,5 @@
         "projects": "self"
       }
     ]
-  },
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "babel": true
-      }
-    }
   }
 }

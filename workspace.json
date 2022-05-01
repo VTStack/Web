@@ -27,6 +27,7 @@
     "package-hooks": "packages/hooks",
     "shared-assets": "libs/shared/assets",
     "shared-core-ui-e2e": "apps/e2e/core-ui",
+    "shared-utils-test": "libs/shared/utils-test",
     "shared-web-utils": "libs/shared/web-utils",
     "thunder-auth-hooks": "libs/thunder/auth/hooks",
     "thunder-auth-ui": "libs/thunder/auth/ui",

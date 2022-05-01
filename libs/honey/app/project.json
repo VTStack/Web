@@ -3,7 +3,6 @@
   "sourceRoot": "libs/honey/app/src",
   "projectType": "library",
   "tags": ["scope:honey", "type:shell"],
-  "implicitDependencies": ["!thunder-theme"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",

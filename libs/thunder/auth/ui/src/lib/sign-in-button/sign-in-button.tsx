@@ -1,7 +1,7 @@
 import { Button, SharedButtonVariants } from '@v-thomas/core-ui';
 
 import { AuthModal } from '../auth-modal';
-import { useToggle } from '@v-thomas/thunder/hooks';
+import { useToggle } from '@v-thomas/hooks';
 
 export function SignInButton({
   type = 'hover-outlined',
@@ -14,7 +14,7 @@ export function SignInButton({
 
   return (
     <>
-      <Button variant={type} onClick={toggle} id="sign-up-button">
+      <Button variant={type} onClick={() => toggle()} id="sign-up-button">
         {text}
       </Button>
       <AuthModal isOpen={isOpen} title="Sign up Today!" onClose={toggle} type="sign-in" />

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
+import { TestTheme } from '@v-thomas/shared/utils-test';
 import { ThemeProvider } from 'styled-components';
 
 import { PublicFooter } from './footer';
@@ -7,7 +7,7 @@ import { PublicFooter } from './footer';
 describe('Footer', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
-      <ThemeProvider theme={ThunderDarkTheme}>
+      <ThemeProvider theme={TestTheme}>
         <PublicFooter />
       </ThemeProvider>
     );

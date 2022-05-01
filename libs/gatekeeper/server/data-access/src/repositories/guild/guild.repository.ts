@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { DeleteResult } from 'mongodb';
 import { Models } from '../../constants/models';
 import { AuthDocument } from '../../schemas/auth.schema';
-import { Guild, GuildDocument } from '../../schemas/guild.schema';
+import { GuildDocument } from '../../schemas/guild.schema';
 import { WelcomeDocument } from '../../schemas/welcome.schema';
 import { RemoveGuildDto, findGuildDto, CreateGuildDto } from './dto';
 import { ModifyGuildDto } from './dto/modify-guild.dto';
@@ -40,13 +41,12 @@ export class GuildRepository {
     return await this.guildModel.findOne(data);
   }
 
-  async removeGuild(data: RemoveGuildDto): Promise<any> {
-    const res = await this.guildModel.deleteOne(data);
-    return res;
+  removeGuild(data: RemoveGuildDto): Promise<DeleteResult> {
+    return this.guildModel.deleteOne(data).exec();
   }
-  async modifyGuild(data: ModifyGuildDto): Promise<any> {
+  async modifyGuild(data: ModifyGuildDto) {
     return await this.guildModel.findOneAndUpdate(
-      (document: any) => document.guildId === data.guildId,
+      (document: { guildId: string }) => document.guildId === data.guildId,
       data.data
     );
   }

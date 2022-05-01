@@ -1,14 +1,14 @@
 import { render } from '@testing-library/react';
-import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
+import { TestTheme } from '@v-thomas/shared/utils-test';
 import { ThemeProvider } from 'styled-components';
 
-import { FeatureHomePage } from './home';
+import { HomePage } from './home';
 
 describe('Home', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
-      <ThemeProvider theme={ThunderDarkTheme}>
-        <FeatureHomePage />
+      <ThemeProvider theme={TestTheme}>
+        <HomePage />
       </ThemeProvider>
     );
     expect(baseElement).toBeTruthy();

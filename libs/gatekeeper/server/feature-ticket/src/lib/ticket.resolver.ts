@@ -1,6 +1,5 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { TicketService } from './ticket.service';
-import { CreateTicketInput } from './dto/create-ticket.input';
 import { UpdateTicketInput } from './dto/update-ticket.input';
 
 @Resolver('Ticket')
@@ -8,8 +7,9 @@ export class TicketResolver {
   constructor(private readonly ticketService: TicketService) {}
 
   @Mutation('createTicket')
-  create(@Args('createTicketInput') createTicketInput: CreateTicketInput) {
-    return this.ticketService.create(createTicketInput);
+  create() {
+    // @Args('createTicketInput') createTicketInput: CreateTicketInput
+    return this.ticketService.create();
   }
 
   @Query('ticket')
@@ -24,7 +24,7 @@ export class TicketResolver {
 
   @Mutation('updateTicket')
   update(@Args('updateTicketInput') updateTicketInput: UpdateTicketInput) {
-    return this.ticketService.update(updateTicketInput.id, updateTicketInput);
+    return this.ticketService.update(updateTicketInput.id);
   }
 
   @Mutation('removeTicket')

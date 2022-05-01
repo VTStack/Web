@@ -54,7 +54,7 @@
       "options": {
         "jestConfig": "libs/thunder/data-access/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
       }
     },
     "version": {

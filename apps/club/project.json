@@ -64,7 +64,7 @@
       "outputs": ["coverage/apps/club"],
       "options": {
         "jestConfig": "apps/club/jest.config.ts",
-        "onlyChanged": true,
+        "bail": 1,
         "passWithNoTests": true
       }
     }

@@ -2,7 +2,6 @@
 // import { ThemeProvider } from 'styled-components';
 
 // import { Navbar } from './navbar';
-// import { DarkTheme } from '@v-thomas/libs/thunder/themes';
 
 // describe('Navbar', () => {
 //   it('should render successfully', () => {
