@@ -2,7 +2,6 @@
   "root": true,
   "plugins": ["@nrwl/nx", "prettier"],
   "extends": ["eslint:recommended", "prettier"],
-  "ignorePatterns": "**/*",
   "rules": {
     "prettier/prettier": "error",
     "block-scoped-var": "error",
@@ -45,7 +44,6 @@
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/ban-types": "off",
         "@typescript-eslint/camelcase": "off",
-        "@typescript-eslint/no-explicit-any": 0,
         "node/no-missing-import": "off",
         "node/no-empty-function": "off",
         "node/no-unsupported-features/es-syntax": "off",
@@ -73,7 +71,12 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": ["@v-thomas/thunder/theme", "@v-thomas/about/theme"],
+            "allow": [
+              "@v-thomas/thunder/theme",
+              "@v-thomas/about/theme",
+              "@v-thomas/shared/assets",
+              "@v-thomas/shared/utils-test"
+            ],
             "depConstraints": [
               {
                 "sourceTag": "type:app",
@@ -85,7 +88,13 @@
               },
               {
                 "sourceTag": "type:feature",
-                "onlyDependOnLibsWithTags": ["type:ui", "type:data-access", "type:types"]
+                "onlyDependOnLibsWithTags": [
+                  "type:ui",
+                  "type:data-access",
+                  "type:types",
+                  "type:utils",
+                  "scope:shared"
+                ]
               },
               {
                 "sourceTag": "scope:thunder",
@@ -94,6 +103,10 @@
               {
                 "sourceTag": "scope:about",
                 "onlyDependOnLibsWithTags": ["scope:about", "scope:shared"]
+              },
+              {
+                "sourceTag": "scope:honey",
+                "onlyDependOnLibsWithTags": ["scope:honey", "scope:shared"]
               }
             ]
           }

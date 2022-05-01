@@ -3,7 +3,6 @@
   "sourceRoot": "libs/thunder/other-pages/ui/src",
   "projectType": "library",
   "tags": ["type:ui", "scope:thunder"],
-  "implicitDependencies": ["!thunder-theme"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",
@@ -38,7 +37,7 @@
       "options": {
         "jestConfig": "libs/thunder/other-pages/ui/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
       }
     }
   }

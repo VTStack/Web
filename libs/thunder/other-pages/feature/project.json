@@ -2,7 +2,6 @@
   "root": "libs/thunder/other-pages/feature/",
   "sourceRoot": "libs/thunder/other-pages/feature/src",
   "projectType": "library",
-  "implicitDependencies": ["!thunder-theme"],
   "tags": ["type:feature", "scope:thunder"],
   "targets": {
     "build": {
@@ -38,7 +37,7 @@
       "options": {
         "jestConfig": "libs/thunder/other-pages/feature/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
       }
     }
   }

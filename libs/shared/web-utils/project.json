@@ -25,7 +25,7 @@
       "options": {
         "jestConfig": "libs/shared/web-utils/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
       }
     }
   },

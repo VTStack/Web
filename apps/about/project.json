@@ -52,7 +52,7 @@
       "options": {
         "jestConfig": "apps/about/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
       }
     },
     "preview": {

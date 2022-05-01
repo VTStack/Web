@@ -4,6 +4,7 @@ import { User, UserDocument } from '../../schemas/user.schema';
 import { Model } from 'mongoose';
 import { CreateUserDto, UpdateUserDto } from './dto';
 import { Models } from '../../constants/models';
+import { DeleteResult, Document } from 'mongodb';
 
 @Injectable()
 export class UserRepository {
@@ -21,13 +22,15 @@ export class UserRepository {
     return await this.userModel.findOne({ guildId });
   }
 
-  async removeUser(guildId: string): Promise<any> {
-    return await this.userModel.deleteOne({ guildId }).exec();
+  removeUser(guildId: string): Promise<DeleteResult> {
+    return this.userModel.deleteOne({ guildId }).exec();
   }
 
-  async updateUser(data: UpdateUserDto): Promise<any> {
+  updateUser(data: UpdateUserDto): Promise<(User & Document & { _id: string }) | null> {
     const { guildId } = data;
     delete data.guildId;
-    return await this.userModel.findOneAndUpdate((document: any) => document.guildId === guildId, data);
+    return this.userModel
+      .findOneAndUpdate((document: { guildId: string }) => document.guildId === guildId, data)
+      .exec();
   }
 }

@@ -37,7 +37,7 @@
       "options": {
         "jestConfig": "libs/about/ui/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
       }
     }
   }

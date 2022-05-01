@@ -16,22 +16,28 @@
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org)
 
 
-### [Tech used](#tech-used) **·** [Structure](#frontend-sructure) **·** [Projects](#projects)
+### [License](//mit-license.org) **·** [Structure](#-frontend-structure) **·** [Projects](#-projects)
 
 </div>
 
 ---
 
-## Setup Monorepo and dependencies
+## 🤷🏼‍♂️ How to
+### Setup Monorepo and dependencies
 
-```bash
+```shell
 make install
+```
+
+### Test code
+```shell
+make test
 ```
 
 For this to work, you need to have `pnpm` installed.
 
 
-## 👷🏻 Frontend Sructure
+## 👷🏻 Frontend Structure
 
 Apps are divided into 4 library-types. These apps are not developed like monoliths but will be bundled together for ease of deployment.
 
@@ -85,11 +91,17 @@ Projects with a `?` are not required.
     <th>
       types?
     </th>
+    <th>
+      feature
+    </th>
   </tr>
   <tr>
 
   <td>
     This is where all the typescript types are. They are buildable libraries because nx requires them to be if other buildable libraries depend on this.
+  </td>
+  <td>
+    This is where all the routes are. Its also where most of the libraries are consumed. This can consume all libraries except other features.
   </td>
   </tr>
 
@@ -97,7 +109,7 @@ Projects with a `?` are not required.
 
 ---
 
-<h2 id="projects">🔧 Projects</h2>
+## 🔧 Projects
 
 | 🕶️ Alias              | 🏷️ Name                   |              |                           |                           |
 | --------------------- | -------------------------- | :----------: | :-----------------------: | :-----------------------: |

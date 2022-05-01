@@ -1,25 +1,23 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Text, Title } from '@v-thomas/core-ui';
-import { useParams } from 'react-router-dom';
-import { MovieLayout } from '@v-thomas/thunder/ui';
-import { MainContainer, Preview, HeaderContainer, PreviewContainer, ReviewContainer } from './movie.styles';
-import { IslandContainerVariant, IslandVariant } from './movie.variants';
+// import { Text, Title } from '@v-thomas/core-ui';
+// import { useParams } from 'react-router-dom';
+// import { MovieLayout } from '@v-thomas/thunder/ui';
+// import { MainContainer, Preview, HeaderContainer, PreviewContainer, ReviewContainer } from './movie.styles';
+// import { IslandContainerVariant, IslandVariant } from './movie.variants';
 import { Helmet } from 'react-helmet-async';
-import { useUser, useMovie } from '@v-thomas/thunder/hooks';
+// import { useUser, useMovie } from '@v-thomas/thunder/hooks';
 
 export function GroupMoviePage() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { movieId }: any = useParams();
-  const { movie } = useMovie(movieId);
-  const { user } = useUser();
+  // const { movieId }: any = useParams();
+  // const { movie } = useMovie(movieId);
+  // const { user } = useUser();
 
   return (
     <>
       {/* @ts-ignore */}
-      <Helmet>
-        <title>Movie | {movie.title}</title>
-      </Helmet>
-      <MovieLayout poster={movie?.poster_path} title={movie.title} avatar={user.avatar}>
+      <Helmet>{/* <title>Movie | {movie.title}</title> */}</Helmet>
+      {/* <MovieLayout poster={movie?.poster_path} title={movie.title} avatar={user.avatar}>
         <MainContainer gap="2" variants={IslandContainerVariant} initial="hidden" animate="show" exit="exit">
           <HeaderContainer variants={IslandVariant} animate="animate" initial="initial">
             <Title>{movie?.title}</Title>
@@ -27,7 +25,7 @@ export function GroupMoviePage() {
           </HeaderContainer>
           <ReviewContainer variants={IslandVariant} animate="animate" initial="initial">
             <Title size="1.2">Rating a movie, coming soon...</Title>
-            {/* <Rating value={4} /> */}
+            {/* <Rating value={4} /> 
           </ReviewContainer>
           <PreviewContainer variants={IslandVariant} animate="animate" initial="initial">
             {movie.ytKey ? (
@@ -45,7 +43,7 @@ export function GroupMoviePage() {
             )}
           </PreviewContainer>
         </MainContainer>
-      </MovieLayout>
+      </MovieLayout> */}
     </>
   );
 }

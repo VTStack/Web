@@ -5,11 +5,11 @@ export class Serializer extends PassportSerializer {
   constructor() {
     super();
   }
-  deserializeUser(payload: any, done: (f: any, F: any) => any) {
+  deserializeUser(payload: unknown, done: (f: unknown, F: unknown) => unknown) {
     console.log('DE', payload);
     return done(null, payload);
   }
-  serializeUser(user: any, done: (f: any, kk: any) => any) {
+  serializeUser(user: unknown, done: (f: unknown, kk: unknown) => unknown) {
     console.log('SE', user);
     return done(null, user);
   }

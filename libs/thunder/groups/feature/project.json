@@ -3,7 +3,6 @@
   "sourceRoot": "libs/thunder/groups/feature/src",
   "projectType": "library",
   "tags": ["type:feature", "scope:thunder"],
-  "implicitDependencies": ["!thunder-theme", "!thunder-ui", "!thunder-types", "!thunder-hooks"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",
@@ -38,7 +37,13 @@
       "options": {
         "jestConfig": "libs/thunder/groups/feature/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
       }
     }
   }

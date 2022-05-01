@@ -82,7 +82,7 @@ export const moviesSlice = createSlice({
   },
   extraReducers: (builder: any) => {
     builder
-      .addCase(fetchGroupMovies.pending, (state: MoviesState, action: PayloadAction<MoviesEntity[]>) => {
+      .addCase(fetchGroupMovies.pending, (state: MoviesState) => {
         if (Object.keys(state.entities).length === 0 && state.ids.length === 0)
           state.loadingStatus = 'LOADING';
         state.error = null;

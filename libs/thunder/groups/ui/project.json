@@ -2,7 +2,6 @@
   "root": "libs/thunder/groups/ui",
   "sourceRoot": "libs/thunder/groups/ui/src",
   "projectType": "library",
-  "implicitDependencies": ["!thunder-ui", "!thunder-theme"],
   "tags": ["type:ui", "scope:thunder"],
   "targets": {
     "build": {
@@ -38,7 +37,14 @@
       "options": {
         "jestConfig": "libs/thunder/groups/ui/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "bail": 1,
+          "codeCoverage": true
+        }
       }
     }
   }

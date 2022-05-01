@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { Title, TitleProps } from './title';
 import { ThemeProvider } from 'styled-components';
-import { DarkTheme } from '@v-thomas/test-theme';
+import { TestTheme } from '@v-thomas/shared/utils-test';
 import { FC } from 'react';
 
 export const TitleTest: FC<TitleProps> = props => {
@@ -11,7 +11,7 @@ export const TitleTest: FC<TitleProps> = props => {
 describe('Title', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
-      <ThemeProvider theme={DarkTheme}>
+      <ThemeProvider theme={TestTheme}>
         <TitleTest>hello</TitleTest>
       </ThemeProvider>
     );

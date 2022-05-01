@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Input, Modal, Row, Text, Title } from '@v-thomas/core-ui';
 import { useAuth } from '@v-thomas/thunder/auth/hooks';
 import { useEffect, useState } from 'react';

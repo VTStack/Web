@@ -32,11 +32,12 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/honey"],
       "options": {
+        "codeCoverage": true,
         "jestConfig": "apps/honey/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
       }
     }
   },
-  "tags": ["scope:honey"]
+  "tags": ["scope:honey", "type:app"]
 }
