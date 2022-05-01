@@ -46,17 +46,15 @@
       "@v-thomas/thunder/assets/*": ["./libs/thunder/assets/src/*"],
       "@v-thomas/thunder/auth/hooks": ["libs/thunder/auth/hooks/src/public_api.ts"],
       "@v-thomas/thunder/auth/ui": ["libs/thunder/auth/ui/src/public_api.ts"],
-      "@v-thomas/thunder/data-access": ["./libs/thunder/data-access/src/public_api.ts"],
+      "@v-thomas/thunder/common/theme": ["./libs/thunder/common/theme/src/public_api.ts"],
+      "@v-thomas/thunder/common/types": ["./libs/thunder/common/types/src/index.ts"],
+      "@v-thomas/thunder/common/ui": ["./libs/thunder/common/ui/src/public_api.ts"],
       "@v-thomas/thunder/groups/feature": ["./libs/thunder/groups/feature/src/public_api.tsx"],
       "@v-thomas/thunder/groups/hooks": ["./libs/thunder/groups/hooks/src/public_api.ts"],
       "@v-thomas/thunder/groups/ui": ["libs/thunder/groups/ui/src/public_api.ts"],
-      "@v-thomas/thunder/hooks": ["./libs/thunder/hooks/src/public_api.ts"],
       "@v-thomas/thunder/invite/feature": ["./libs/thunder/invite/feature/src/public_api.tsx"],
       "@v-thomas/thunder/other-pages": ["libs/thunder/other-pages/feature/src/public_api.ts"],
-      "@v-thomas/thunder/other-pages/ui": ["libs/thunder/other-pages/ui/src/public_api.ts"],
-      "@v-thomas/thunder/theme": ["./libs/thunder/theme/src/public_api.ts"],
-      "@v-thomas/thunder/types": ["./libs/thunder/types/src/index.ts"],
-      "@v-thomas/thunder/ui": ["./libs/thunder/ui/src/public_api.ts"]
+      "@v-thomas/thunder/other-pages/ui": ["libs/thunder/other-pages/ui/src/public_api.ts"]
     }
   }
 }
