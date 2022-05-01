@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import type { GroupsEntity } from '@v-thomas/thunder/types';
-import GroupCard from './components/group-card/group-card';
+import { GroupCard } from '@v-thomas/thunder/groups/ui';
 
 const SGrid = styled(motion.div)`
   display: grid;
@@ -29,11 +28,12 @@ const container = {
   }
 };
 
-export const GroupGrid = ({ groups }: { groups: { name: string }[] }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const GroupGrid = ({ groups }: { groups: { data: any[] } }) => {
   console.log(groups);
   return (
     <SGrid key="modal" variants={container} initial="initial" animate={'animate'} exit={'exit'}>
-      {groups.data.map((group: GroupsEntity, index: number) => (
+      {groups.data.map((group: { _id: string; name: string }, index: number) => (
         <GroupCard
           group={group}
           variants={item}

@@ -1,3 +1,5 @@
+import { Config } from '@jest/types';
+
 module.exports = {
   displayName: 'about',
 
@@ -8,4 +10,4 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/apps/about',
   preset: '../../jest.preset.ts'
-};
+} as Config.InitialOptions;

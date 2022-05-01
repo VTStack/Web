@@ -47,7 +47,7 @@
       "options": {
         "jestConfig": "apps/gatekeeper/server/jest.config.js",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
       }
     }
   }

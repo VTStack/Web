@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   displayName: 'honey',
 
   transform: {
@@ -6,6 +6,6 @@ module.exports = {
     '^.+/.[tj]sx?$': ['@swc/jest', { jsc: { transform: { react: { runtime: 'automatic' } } } }]
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/apps/tmp/test-honey',
+  coverageDirectory: '../../coverage/apps/thunder',
   preset: '../../jest.preset.ts'
 };

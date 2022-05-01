@@ -10,12 +10,12 @@
 // import { email, password } from '../fixtures/example.json';
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
-declare namespace Cypress {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  interface Chainable<Subject> {
-    login(): void;
-  }
-}
+// declare namespace Cypress {
+//   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+//   interface Chainable<Subject> {
+//     login(): void;
+//   }
+// }
 
 //
 // -- This is a parent command --

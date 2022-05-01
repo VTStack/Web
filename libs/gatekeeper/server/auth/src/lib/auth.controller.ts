@@ -1,8 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Controller, Get, Body, Patch, Param, Delete, UseGuards, Req } from '@nestjs/common';
+import { Controller, Get, Patch, Param, Delete, UseGuards, Req } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { CreateAuthDto } from './dto/create-auth.dto';
-import { UpdateAuthDto } from './dto/update-auth.dto';
 import { AuthedGuard } from './guards/authed.guard';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -12,26 +9,33 @@ export class AuthController {
 
   @Get('login')
   @UseGuards(AuthGuard)
-  create(@Body() createAuthDto: CreateAuthDto) {
-    return this.authService.create(createAuthDto);
+  create() {
+    // @Body() createAuthDto: CreateAuthDto
+    return this.authService.create();
   }
 
   @Get('callback')
   @UseGuards(AuthGuard)
-  findAll(@Req() req: any) {
+  findAll(@Req() req: Request & { user: { id: string } }) {
     return req.user;
   }
 
   @Get('status')
   @UseGuards(AuthedGuard)
-  findOne(@Req() req: any) {
+  findOne(@Req() req: Request & { user: { id: string } }) {
     console.log(req.user);
     return 'testig';
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAuthDto: UpdateAuthDto) {
-    return this.authService.update(+id, updateAuthDto);
+  update(
+    @Param('id') id: string
+    //  @Body() updateAuthDto: UpdateAuthDto
+  ) {
+    return this.authService.update(
+      +id
+      // updateAuthDto
+    );
   }
 
   @Delete(':id')

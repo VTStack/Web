@@ -7,7 +7,7 @@ export interface CodeProps {
   padding?: string;
 }
 
-const StyledCode = styled.code`
+export const Code = styled.code`
   color: gray;
   padding: ${({ padding = '0.5rem' }: CodeProps) => padding};
   display: inline-block;
@@ -15,6 +15,6 @@ const StyledCode = styled.code`
   border-radius: 0.4rem;
 `;
 
-export function Code({ children, padding }: CodeProps) {
-  return <StyledCode padding={padding}>{children}</StyledCode>;
+export function TestCode({ children, padding }: CodeProps) {
+  return <Code padding={padding}>{children}</Code>;
 }

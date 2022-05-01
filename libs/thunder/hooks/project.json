@@ -37,7 +37,7 @@
       "options": {
         "jestConfig": "libs/thunder/hooks/jest.config.ts",
         "passWithNoTests": true,
-        "onlyChanged": true
+        "bail": 1
       }
     }
   }
