@@ -54,7 +54,9 @@
       "@v-thomas/thunder/groups/ui": ["libs/thunder/groups/ui/src/public_api.ts"],
       "@v-thomas/thunder/invite/feature": ["./libs/thunder/invite/feature/src/public_api.tsx"],
       "@v-thomas/thunder/other-pages": ["libs/thunder/other-pages/feature/src/public_api.ts"],
-      "@v-thomas/thunder/other-pages/ui": ["libs/thunder/other-pages/ui/src/public_api.ts"]
+      "@v-thomas/thunder/other-pages/ui": ["libs/thunder/other-pages/ui/src/public_api.ts"],
+      "@v-thomas/core-ui": ["packages/core-ui/src/index.ts"],
+      "@v-thomas/hooks": ["packages/hooks/src/index.ts"]
     }
   }
 }

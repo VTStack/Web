@@ -8,7 +8,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "prepare": "husky install"
+    "prepare": "husky install .husky"
   },
   "engines": {
     "node": "16 || 14"
@@ -84,7 +84,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.4.0",
-    "husky": "^7.0.4",
+    "husky": "^7.0.0",
     "jest": "27.5.1",
     "jest-svg-transformer": "^1.0.0",
     "ngx-deploy-npm": "^3.1.2",
@@ -117,8 +117,6 @@
     "@nestjs/platform-express": "^8.0.0",
     "@prisma/client": "^3.14.0-dev.11",
     "@reduxjs/toolkit": "1.8.1",
-    "@v-thomas/core-ui": "latest",
-    "@v-thomas/hooks": "latest",
     "apollo-server-core": "^3.6.7",
     "axios": "^0.26.1",
     "cache-manager": "^3.6.0",
