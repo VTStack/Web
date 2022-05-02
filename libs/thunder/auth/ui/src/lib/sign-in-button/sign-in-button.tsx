@@ -1,7 +1,7 @@
-import { Button, SharedButtonVariants } from '@v-thomas/core-ui';
+import { Button, SharedButtonVariants } from '@v-thomas/external/core-ui';
 
 import { AuthModal } from '../auth-modal';
-import { useToggle } from '@v-thomas/hooks';
+import { useToggle } from '@v-thomas/external/hooks';
 
 export function SignInButton({
   type = 'hover-outlined',
