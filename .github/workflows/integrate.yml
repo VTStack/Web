@@ -42,6 +42,7 @@ jobs:
         uses: martijnhols/actions-cache/restore@v3
         with:
           path: node_modules
+          restore-keys: ${{ runner.os }}-node_modules
           key: ${{ runner.os }}-node-${{ steps.node-version.outputs.node_version }}-${{ steps.pnpm-version.outputs.pnpm_version}}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install dependencies
@@ -95,6 +96,7 @@ jobs:
         uses: martijnhols/actions-cache/restore@v3
         with:
           path: node_modules
+          restore-keys: ${{ runner.os }}-node_modules
           key: ${{ runner.os }}-node-${{ steps.node-version.outputs.node_version }}-${{ steps.pnpm-version.outputs.pnpm_version}}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - run: npx nx affected --target=${{ matrix.job }} --parallel=1 --base=$NX_BASE --head=$NX_HEAD
