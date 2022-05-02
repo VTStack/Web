@@ -1,7 +1,6 @@
-import { useGroups } from '@v-thomas/thunder/groups/hooks';
 import { useAuth } from '@v-thomas/thunder/auth/hooks';
 import { SignOutButton } from '@v-thomas/thunder/auth/ui';
-import { PrivateNavbar } from '@v-thomas/thunder/ui';
+import { PrivateNavbar } from '@v-thomas/thunder/groups/ui';
 import { NoGroups } from '@v-thomas/thunder/groups/ui';
 import { Divider, Title } from '@v-thomas/core-ui';
 
@@ -9,6 +8,7 @@ import { GroupGrid } from './home.styles';
 
 import { FC } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useGroups } from '@v-thomas/thunder/groups/hooks';
 
 export const GroupsHomePage: FC = () => {
   const { groupsData } = useGroups({ idField: '_id' });

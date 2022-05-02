@@ -97,6 +97,10 @@
                 ]
               },
               {
+                "sourceTag": "type:hooks",
+                "notDependOnLibsWithTags": ["type:ui", "type:feature", "type:app"]
+              },
+              {
                 "sourceTag": "scope:thunder",
                 "onlyDependOnLibsWithTags": ["scope:thunder", "scope:shared"]
               },

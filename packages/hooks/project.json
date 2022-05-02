@@ -2,6 +2,7 @@
   "root": "packages/hooks",
   "sourceRoot": "packages/hooks/src",
   "projectType": "library",
+  "tags": ["scope:shared"],
   "targets": {
     "build": {
       "executor": "@nrwl/web:rollup",
@@ -50,6 +51,5 @@
         "noBuild": true
       }
     }
-  },
-  "tags": []
+  }
 }
