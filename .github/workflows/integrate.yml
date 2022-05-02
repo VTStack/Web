@@ -52,8 +52,105 @@ jobs:
           path: node_modules
           key: ${{ steps.cache.outputs.primary-key }}
 
-  lint:
+  # lint:
+  #   runs-on: ubuntu-latest
+  #   needs: install_deps
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
+
+  #     - uses: actions/setup-node@v3.1.1
+  #       with:
+  #         node-version: '16'
+
+  #     - uses: nrwl/nx-set-shas@v2
+  #       with:
+  #         main-branch-name: main
+
+  #     - name: Print node/pnpm versions
+  #       id: versions
+  #       run: |
+  #         node_ver=$( node --version )
+  #         echo "Node: ${node_ver:1}"
+  #         echo "::set-output name=node_version::${node_ver:1}"
+  #     - name: Restore "node_modules" from cache
+  #       uses: martijnhols/actions-cache/restore@v3
+  #       with:
+  #         path: node_modules
+  #         key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+  #     - run: npx nx affected --target=lint --parallel=4 --base=$NX_BASE --head=$NX_HEAD
+
+  # test:
+  #   runs-on: ubuntu-latest
+  #   needs: install_deps
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
+
+  #     - uses: actions/setup-node@v3.1.1
+  #       with:
+  #         node-version: '16'
+
+  #     - uses: nrwl/nx-set-shas@v2
+  #       with:
+  #         main-branch-name: main
+
+  #     - name: Print node/pnpm versions
+  #       id: versions
+  #       run: |
+  #         node_ver=$( node --version )
+  #         echo "Node: ${node_ver:1}"
+  #         echo "::set-output name=node_version::${node_ver:1}"
+  #     - name: Restore "node_modules" from cache
+  #       uses: martijnhols/actions-cache/restore@v3
+  #       with:
+  #         path: node_modules
+  #         key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+  #     - run: npx nx affected --target=test --parallel=1 --base=$NX_BASE --head=$NX_HEAD
+
+  # build:
+  #   runs-on: ubuntu-latest
+  #   needs: install_deps
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
+
+  #     - uses: actions/setup-node@v3.1.1
+  #       with:
+  #         node-version: '16'
+
+  #     - uses: nrwl/nx-set-shas@v2
+  #       with:
+  #         main-branch-name: main
+
+  #     - name: Print node/pnpm versions
+  #       id: versions
+  #       run: |
+  #         node_ver=$( node --version )
+  #         echo "Node: ${node_ver:1}"
+  #         echo "::set-output name=node_version::${node_ver:1}"
+  #     - name: Restore "node_modules" from cache
+  #       uses: martijnhols/actions-cache/restore@v3
+  #       with:
+  #         path: node_modules
+  #         key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+  #     - run: npx nx affected --target=build --parallel=4 --base=$NX_BASE --head=$NX_HEAD
+
+  test2:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        job: ['test', 'lint', 'build']
     needs: install_deps
     steps:
       - name: Checkout
@@ -81,66 +178,4 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
 
-      - run: npx nx affected --target=lint --parallel=4 --base=$NX_BASE --head=$NX_HEAD
-
-  test:
-    runs-on: ubuntu-latest
-    needs: install_deps
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - uses: actions/setup-node@v3.1.1
-        with:
-          node-version: '16'
-
-      - uses: nrwl/nx-set-shas@v2
-        with:
-          main-branch-name: main
-
-      - name: Print node/pnpm versions
-        id: versions
-        run: |
-          node_ver=$( node --version )
-          echo "Node: ${node_ver:1}"
-          echo "::set-output name=node_version::${node_ver:1}"
-      - name: Restore "node_modules" from cache
-        uses: martijnhols/actions-cache/restore@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
-
-      - run: npx nx affected --target=test --parallel=1 --base=$NX_BASE --head=$NX_HEAD
-
-  build:
-    runs-on: ubuntu-latest
-    needs: install_deps
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - uses: actions/setup-node@v3.1.1
-        with:
-          node-version: '16'
-
-      - uses: nrwl/nx-set-shas@v2
-        with:
-          main-branch-name: main
-
-      - name: Print node/pnpm versions
-        id: versions
-        run: |
-          node_ver=$( node --version )
-          echo "Node: ${node_ver:1}"
-          echo "::set-output name=node_version::${node_ver:1}"
-      - name: Restore "node_modules" from cache
-        uses: martijnhols/actions-cache/restore@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
-
-      - run: npx nx affected --target=build --parallel=4 --base=$NX_BASE --head=$NX_HEAD
+      - run: npx nx affected --target=${{ matrix.job }} --parallel=1 --base=$NX_BASE --head=$NX_HEAD
