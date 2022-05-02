@@ -1,11 +1,11 @@
-import { Button, Card, Col, Link, Modal, Row, Text, Title } from '@v-thomas/core-ui';
+import { Button, Card, Col, Link, Modal, Row, Text, Title } from '@v-thomas/external/core-uil/core-ui';
 import styled from 'styled-components';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import Cross from '@v-thomas/shared/assets/x-mark.svg';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useToggle } from '@v-thomas/hooks';
+import { useToggle } from '@v-thomas/external/hooks';
 const Background = styled(motion.div)``;
 export function ProjectsPage() {
   const [isOpen, toggleOpen] = useToggle(false);

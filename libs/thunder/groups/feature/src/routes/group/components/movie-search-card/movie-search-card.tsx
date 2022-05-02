@@ -1,4 +1,4 @@
-import { Button, Card, Col, Text, Title, ButtonContainer } from '@v-thomas/core-ui';
+import { Button, Card, Col, Text, Title, ButtonContainer } from '@v-thomas/external/core-uil/core-ui';
 import styled from 'styled-components';
 
 export interface MovieSearchCardProps {

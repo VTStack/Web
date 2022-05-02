@@ -1,7 +1,7 @@
-import { Button, Row, Input, Modal, Title, SharedButtonVariants } from '@v-thomas/core-ui';
+import { Button, Row, Input, Modal, Title, SharedButtonVariants } from '@v-thomas/external/core-uil/core-ui';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
-import { useToggle } from '@v-thomas/hooks';
+import { useToggle } from '@v-thomas/external/hooks';
 import { useGroups } from '@v-thomas/thunder/groups/hooks';
 
 const Form = styled.form`

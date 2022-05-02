@@ -1,4 +1,4 @@
-import { Title, Text, Col, Link, Card, Row } from '@v-thomas/core-ui';
+import { Title, Text, Col, Link, Card, Row } from '@v-thomas/external/core-uil/core-ui';
 import ThunderIcon from '@v-thomas/thunder/assets/favicon.svg';
 import styled from 'styled-components';
 import { Footer } from '@v-thomas/about/ui';

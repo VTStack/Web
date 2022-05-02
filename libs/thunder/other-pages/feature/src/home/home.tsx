@@ -1,4 +1,4 @@
-import { Button, Text, Title, ButtonContainer } from '@v-thomas/core-ui';
+import { Button, Text, Title, ButtonContainer } from '@v-thomas/external/core-ui';
 import { PublicFooter, PublicNavbar } from '@v-thomas/thunder/other-pages/ui';
 import { AuthModal } from '@v-thomas/thunder/auth/ui';
 
