@@ -39,6 +39,7 @@ jobs:
           echo "::set-output name=pnpm_version::${pnpm_ver:1}"
 
       - name: Restore "node_modules" from cache
+        id: cache
         uses: martijnhols/actions-cache/restore@v3
         with:
           path: node_modules
