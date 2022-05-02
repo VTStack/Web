@@ -24,22 +24,25 @@ jobs:
         with:
           version: 6.32.11
 
-      - name: Print node/pnpm versions
-        id: versions
+      - name: Print node version
+        id: node-version
         run: |
           node_ver=$( node --version )
-          pnpm_ver=$( pnpm --version || true )
           echo "Node: ${node_ver:1}"
-          echo "PNPM: ${pnpm_ver:1}"
-          if [[ $pnpm_ver != '' ]]; then echo "PNPM: $pnpm_ver"; fi
           echo "::set-output name=node_version::${node_ver:1}"
+
+      - name: Print pnpm version
+        id: pnpm-version
+        run: |
+          pnpm_ver=$( pnpm --version )
+          echo "Node: ${pnpm_ver:1}"
+          echo "::set-output name=pnpm_version::${pnpm_ver:1}"
+
       - name: Restore "node_modules" from cache
-        id: cache
         uses: martijnhols/actions-cache/restore@v3
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-node-${{ steps.node-version.outputs.node_version }}-${{ steps.pnpm-version.outputs.pnpm_version}}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
