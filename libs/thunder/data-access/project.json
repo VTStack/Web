@@ -1,0 +1,68 @@
+{
+  "root": "libs/thunder/data-access",
+  "sourceRoot": "libs/thunder/data-access/src",
+  "projectType": "library",
+  "targets": {
+    "install": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "yarn",
+        "cwd": "libs/thunder/data-access"
+      }
+    },
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/thunder/data-access",
+        "tsConfig": "libs/thunder/data-access/tsconfig.lib.json",
+        "project": "libs/thunder/data-access/package.json",
+        "entryFile": "libs/thunder/data-access/src/public_api.ts",
+        "external": ["react/jsx-runtime"],
+        "deleteOutputPath": true,
+        "globals": [
+          {
+            "global": "axios",
+            "moduleId": "axios"
+          },
+          {
+            "global": "@reduxjs/toolkit",
+            "moduleId": "@reduxjs/toolkit"
+          }
+        ],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/thunder/data-access/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/thunder/data-access/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/thunder/data-access"],
+      "options": {
+        "jestConfig": "libs/thunder/data-access/jest.config.ts",
+        "passWithNoTests": true,
+        "bail": 1
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "commitMessageFormat": "chore(${projectName}): release version ${version}"
+      }
+    }
+  },
+  "tags": ["scope:thunder", "type:data-access"]
+}
