@@ -1,15 +1,25 @@
 import { useState } from 'react';
 
-export const useToggle = (initial: boolean | [unknown, unknown] = false): [unknown, () => void] => {
-  const [toggle, setToggle] = useState(initial instanceof Array ? initial[0] : initial);
+export const useToggle = (initial = false): [boolean, () => void] => {
+  const [toggle, setToggle] = useState(initial);
+  const doToggle = () => setToggle((val: unknown) => !val);
+  return [toggle as boolean, doToggle];
+};
 
-  const doToggle = () => {
-    setToggle((val: unknown) => {
-      const initialIsArray = initial instanceof Array;
+export const usePagination = <T = boolean>(
+  initial: T[]
+): { currentState: T; next: () => void; previous: () => void } => {
+  const [index, setIndex] = useState(0);
 
-      if (initialIsArray) return val === initial[0] ? initial[1] : initial[0];
-      else return !val;
-    });
+  const next = () => {
+    if (index === initial.length - 1) setIndex(0);
+    else setIndex(index + 1);
   };
-  return [toggle, doToggle];
+
+  const previous = () => {
+    if (index === 0) setIndex(initial.length - 1);
+    else setIndex(index - 1);
+  };
+
+  return { currentState: initial[index], next, previous };
 };

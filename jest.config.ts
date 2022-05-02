@@ -4,7 +4,6 @@ import { Config } from '@jest/types';
 export default {
   projects: getJestProjects(),
   collectCoverage: true,
-  collectCoverageFrom: ['./**/*.{ts,tsx,js,jsx}', '!**/node_modules', '!*config*'],
   coverageThreshold: {
     global: {
       lines: 90,

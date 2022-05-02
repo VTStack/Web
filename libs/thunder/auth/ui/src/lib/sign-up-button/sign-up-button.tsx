@@ -10,7 +10,7 @@ export function SignUpButton({
   type?: SharedButtonVariants;
   text?: string;
 }) {
-  const [isOpen, toggle] = useToggle(false);
+  const [isOpen, toggle] = useToggle();
 
   return (
     <>
