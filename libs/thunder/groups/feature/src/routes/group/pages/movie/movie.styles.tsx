@@ -1,4 +1,4 @@
-import { Row } from '@v-thomas/external/core-uil/core-ui';
+import { Row } from '@v-thomas/external/core-ui';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 

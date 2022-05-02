@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-// import { Text, Title } from '@v-thomas/external/core-uil/core-ui';
+// import { Text, Title } from '@v-thomas/external/core-ui';
 // import { useParams } from 'react-router-dom';
 // import { MovieLayout } from '@v-thomas/thunder/ui';
 // import { MainContainer, Preview, HeaderContainer, PreviewContainer, ReviewContainer } from './movie.styles';

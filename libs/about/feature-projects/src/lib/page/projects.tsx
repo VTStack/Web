@@ -1,4 +1,4 @@
-import { Button, Card, Col, Link, Modal, Row, Text, Title } from '@v-thomas/external/core-uil/core-ui';
+import { Button, Card, Col, Link, Modal, Row, Text, Title } from '@v-thomas/external/core-ui';
 import styled from 'styled-components';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import Cross from '@v-thomas/shared/assets/x-mark.svg';
