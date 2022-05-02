@@ -75,6 +75,11 @@ jobs:
         with:
           node-version: '16'
 
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2.2.1
+        with:
+          version: 6.32.11
+
       - uses: nrwl/nx-set-shas@v2
         with:
           main-branch-name: main
@@ -90,7 +95,7 @@ jobs:
         id: pnpm-version
         run: |
           pnpm_ver=$( pnpm --version )
-          echo "Node: ${pnpm_ver:1}"
+          echo "Pnpm: ${pnpm_ver:1}"
           echo "::set-output name=pnpm_version::${pnpm_ver:1}"
 
       - name: Restore "node_modules" from cache
