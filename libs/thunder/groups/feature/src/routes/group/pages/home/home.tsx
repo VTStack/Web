@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { PrivateNavbar } from '@v-thomas/thunder/ui';
+import { PrivateNavbar } from '@v-thomas/thunder/groups/ui';
 import { Helmet } from 'react-helmet-async';
 import { useGroups } from '@v-thomas/thunder/groups/hooks';
 import { useAuth } from '@v-thomas/thunder/auth/hooks';

@@ -3,7 +3,7 @@ import { SnackbarProvider } from 'notistack';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import { HelmetProvider } from 'react-helmet-async';
-import { ThunderDarkTheme } from '@v-thomas/thunder/theme';
+import { ThunderDarkTheme } from '@v-thomas/thunder/common/theme';
 
 import { createRoot } from 'react-dom/client';
 import '@v-thomas/shared/assets/globals.css';

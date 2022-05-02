@@ -63,8 +63,6 @@ specifiers:
   '@types/uuid': ^8.3.4
   '@typescript-eslint/eslint-plugin': 5.18.0
   '@typescript-eslint/parser': 5.18.0
-  '@v-thomas/core-ui': latest
-  '@v-thomas/hooks': latest
   apollo-server-core: ^3.6.7
   axios: ^0.26.1
   babel-eslint: ^10.0.0
@@ -104,7 +102,7 @@ specifiers:
   framer-motion: ^6.2.9
   graphql: ^16.3.0
   graphql-request: ^4.2.0
-  husky: ^7.0.4
+  husky: ^7.0.0
   jest: 27.5.1
   jest-svg-transformer: ^1.0.0
   joi: ^17.6.0
@@ -167,8 +165,6 @@ dependencies:
   '@nestjs/platform-express': 8.4.4_a78378ec5f3cecc3c353ed91b578f3e6
   '@prisma/client': 3.14.0-dev.11_prisma@3.14.0-dev.11
   '@reduxjs/toolkit': 1.8.1_react-redux@8.0.0+react@18.0.0
-  '@v-thomas/core-ui': 0.0.5_f61749a9a3c94ce09563643bd7d5c2c0
-  '@v-thomas/hooks': 0.0.1_react@18.0.0
   apollo-server-core: 3.6.7_encoding@0.1.13+graphql@16.4.0
   axios: 0.26.1
   cache-manager: 3.6.1
@@ -7416,28 +7412,6 @@ packages:
     transitivePeerDependencies:
       - encoding
     dev: true
-
-  /@v-thomas/core-ui/0.0.5_f61749a9a3c94ce09563643bd7d5c2c0:
-    resolution: {integrity: sha512-494dpRLTdz4PiNh1yXBfcy5TF3UyR6oz1r8csETsfa+c5nC7hZrjto4U3QkLwwX2LTj0d6LV7STXjx9zWjq64Q==}
-    peerDependencies:
-      framer-motion: ^6.2.9
-      react: 18.0.0
-      react-router-dom: 6.3.0
-      styled-components: 5.3.5
-    dependencies:
-      framer-motion: 6.3.2_react-dom@18.0.0+react@18.0.0
-      react: 18.0.0
-      react-router-dom: 6.3.0_react-dom@18.0.0+react@18.0.0
-      styled-components: 5.3.5_1a79be909b93ec9b98501cf963be33c8
-    dev: false
-
-  /@v-thomas/hooks/0.0.1_react@18.0.0:
-    resolution: {integrity: sha512-wsgnZXmwUzbOu3cnmfehKzwhVte/wr+jJntW+Klt/4G0dMsZ5gRzsgyiA6zVBfislbf3oglR5oijxs/VHxlBbg==}
-    peerDependencies:
-      react: ^16.8.6
-    dependencies:
-      react: 18.0.0
-    dev: false
 
   /@webassemblyjs/ast/1.11.1:
     resolution: {integrity: sha512-ukBh14qFLjxTQNTXocdyksN5QdM28S1CxHt2rdskFyL+xFV7VremuBLVbmCePj+URalXBENx/9Lm7lnhihtCSw==}

@@ -2,7 +2,6 @@
   "root": "libs/thunder/invite/feature",
   "sourceRoot": "libs/thunder/invite/feature/src",
   "projectType": "library",
-  "implicitDependencies": ["!thunder-theme", "!thunder-ui", "!thunder-data-access"],
   "tags": ["type:feature", "scope:thunder"],
   "targets": {
     "build": {

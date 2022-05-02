@@ -1,0 +1,33 @@
+{
+  "root": "libs/thunder/common/theme",
+  "sourceRoot": "libs/thunder/common/theme/src",
+  "tags": ["scope:thunder", "type:theme"],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/thunder/common/theme",
+        "main": "libs/thunder/common/theme/src/index.ts",
+        "tsConfig": "libs/thunder/common/theme/tsconfig.lib.json",
+        "assets": ["libs/thunder/common/theme/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/thunder/common/theme/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/thunder/common/theme"],
+      "options": {
+        "jestConfig": "libs/thunder/common/theme/jest.config.ts",
+        "passWithNoTests": true,
+        "bail": 1
+      }
+    }
+  }
+}

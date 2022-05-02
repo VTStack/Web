@@ -1,8 +1,9 @@
 install:
 	pnpm install --frozen-lockfile
+	pnpm install nx -g
 
 test:
-	pnpm exec nx run-many --target=test --all
+	nx run-many --target=test --all
 
 build:
-	pnpm exec nx run-many --target=build --all
+	nx run-many --target=build --all
