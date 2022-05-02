@@ -1,5 +1,4 @@
 import { Avatar, Title } from '@v-thomas/external/core-ui';
-import { InviteButton } from '../invite-button/button';
 import { ReactNode } from 'react';
 import { Container, LeftContainer, NavLinks, Middle } from './navbar.styles';
 import styled from 'styled-components';
@@ -35,7 +34,6 @@ export function PrivateNavbar({
       {middle && <Middle>{middle}</Middle>}
       <NavLinks>
         {rightButtons}
-        {inviteButton && <InviteButton />}
         <Avatar avatar={avatar || ''} />
       </NavLinks>
     </Container>
