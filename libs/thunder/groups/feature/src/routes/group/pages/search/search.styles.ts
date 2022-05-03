@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Row } from '@v-thomas/external/core-ui';
+import { Row } from '@v-thomas/core/ui';
 import { motion } from 'framer-motion';
 
 export const SearchContainer = styled(Row)`

@@ -1,4 +1,4 @@
-import { Button, SharedButtonVariants } from '@v-thomas/external/core-ui';
+import { Button, SharedButtonVariants } from '@v-thomas/core/ui';
 import { useAuth } from '@v-thomas/thunder/auth/hooks';
 
 export function SignOutButton({ variant }: { variant?: SharedButtonVariants }) {

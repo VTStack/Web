@@ -6,8 +6,8 @@
   "supportFile": "./src/support/index.ts",
   "pluginsFile": false,
   "video": true,
-  "videosFolder": "../../../dist/cypress/apps/e2e/core-ui/videos",
-  "screenshotsFolder": "../../../dist/cypress/apps/e2e/core-ui/screenshots",
+  "videosFolder": "../../dist/cypress/e2e/core-ui-e2e/videos",
+  "screenshotsFolder": "../../dist/cypress/e2e/core-ui-e2e/screenshots",
   "chromeWebSecurity": false,
   "baseUrl": "http://localhost:4400"
 }

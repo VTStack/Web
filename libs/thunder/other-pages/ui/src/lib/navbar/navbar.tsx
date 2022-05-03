@@ -1,4 +1,4 @@
-import { Button, Title } from '@v-thomas/external/core-ui';
+import { Button, Title } from '@v-thomas/core/ui';
 import { NavLinks, Navbar as SNavbar } from './navbar.styles';
 import { useNavigate } from 'react-router-dom';
 import { Variants } from 'framer-motion';
