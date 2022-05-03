@@ -166,7 +166,7 @@
     "rxjs": "^7.0.0",
     "stormdb": "^0.5.2",
     "styled-components": "5.3.5",
-    "tslib": "^2.4.0",
+    "tslib": "2.3.0",
     "uuid": "^8.3.2"
   }
 }
