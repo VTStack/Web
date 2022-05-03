@@ -1,17 +1,17 @@
 {
-  "root": "apps/club-e2e",
-  "sourceRoot": "apps/club-e2e/src",
+  "root": "e2e/about-e2e",
+  "sourceRoot": "e2e/about-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/club-e2e/cypress.json",
-        "devServerTarget": "club:serve"
+        "cypressConfig": "e2e/about-e2e/cypress.json",
+        "devServerTarget": "about:serve"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "club:serve:production"
+          "devServerTarget": "about:serve:production"
         }
       }
     },
@@ -19,10 +19,10 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/club-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["e2e/about-e2e/**/*.{js,ts}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["club"]
+  "implicitDependencies": ["about"]
 }
