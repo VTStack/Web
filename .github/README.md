@@ -33,6 +33,10 @@ make install
 ```shell
 make test
 ```
+### Build code
+```shell
+make build
+```
 
 For this to work, you need to have `pnpm` installed.
 
