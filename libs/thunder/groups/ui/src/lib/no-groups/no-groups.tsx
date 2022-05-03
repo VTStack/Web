@@ -1,4 +1,4 @@
-import { Text, Title } from '@v-thomas/external/core-ui';
+import { Text, Title } from '@v-thomas/core/ui';
 import styled from 'styled-components';
 import { CreateGroupButton } from '../create-group/create-group';
 

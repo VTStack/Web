@@ -1,7 +1,7 @@
 // import { PrivateNavbar } from '@v-thomas/thunder/ui';
 // import { useEffect, useReducer, useState } from 'react';
 // import MovieSearchCard from '../../components/movie-search-card/movie-search-card';
-// import { Button, Input, Title } from '@v-thomas/external/core-ui';
+// import { Button, Input, Title } from '@v-thomas/core/ui';
 // import { useForm } from 'react-hook-form';
 // import { useSnackbar } from 'notistack';
 // import { useGroup, useMovies, useUser } from '@v-thomas/thunder/hooks';
