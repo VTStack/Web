@@ -1,4 +1,4 @@
-import { Button, SharedButtonVariants } from '@v-thomas/external/core-ui';
+import { Button, SharedButtonVariants } from '@v-thomas/core-ui';
 
 import { AuthModal } from '../auth-modal';
 import { useToggle } from '@v-thomas/external/hooks';

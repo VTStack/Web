@@ -20,6 +20,7 @@
   "devDependencies": {
     "@babel/core": "7.17.9",
     "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "7.12.13",
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
     "@nestjs/schematics": "^8.0.0",
@@ -71,6 +72,7 @@
     "babel-plugin-styled-components": "2.0.6",
     "commitizen": "^4.2.4",
     "csstype": "^3.0.10",
+    "cypress": "^9.1.0",
     "cz-conventional-changelog": "^3.3.0",
     "cz-git": "^1.2.8",
     "dotenv": "^16.0.0",

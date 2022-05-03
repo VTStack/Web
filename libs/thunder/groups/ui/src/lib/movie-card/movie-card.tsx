@@ -1,4 +1,4 @@
-import { Title } from '@v-thomas/external/core-ui';
+import { Title } from '@v-thomas/core-ui';
 import { useNavigate } from 'react-router-dom';
 import { Image, Container, LowerContainer } from './movie-card.styles';
 import { MovieCardProps } from './movie-card.types';

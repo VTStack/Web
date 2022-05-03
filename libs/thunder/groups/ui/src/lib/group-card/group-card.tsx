@@ -1,4 +1,4 @@
-import { Card, Title } from '@v-thomas/external/core-ui';
+import { Card, Title } from '@v-thomas/core-ui';
 import { useNavigate } from 'react-router-dom';
 
 export interface GroupCardProps {

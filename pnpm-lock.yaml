@@ -4,6 +4,7 @@ specifiers:
   '@apollo/client': ^3.5.10
   '@babel/core': 7.17.9
   '@babel/preset-env': ^7.16.11
+  '@babel/preset-typescript': 7.12.13
   '@clerk/clerk-react': ^3.2.4
   '@commitlint/cli': ^16.2.4
   '@commitlint/config-conventional': ^16.2.4
@@ -221,6 +222,7 @@ optionalDependencies:
 devDependencies:
   '@babel/core': 7.17.9
   '@babel/preset-env': 7.16.11_@babel+core@7.17.9
+  '@babel/preset-typescript': 7.12.13_@babel+core@7.17.9
   '@commitlint/cli': 16.2.4_@swc+core@1.2.155
   '@commitlint/config-conventional': 16.2.4
   '@nestjs/schematics': 8.0.10_typescript@4.6.3
@@ -1773,6 +1775,19 @@ packages:
       '@babel/plugin-transform-react-jsx': 7.17.3_@babel+core@7.17.9
       '@babel/plugin-transform-react-jsx-development': 7.16.7_@babel+core@7.17.9
       '@babel/plugin-transform-react-pure-annotations': 7.16.7_@babel+core@7.17.9
+    dev: true
+
+  /@babel/preset-typescript/7.12.13_@babel+core@7.17.9:
+    resolution: {integrity: sha512-gYry7CeXwD2wtw5qHzrtzKaShEhOfTmKb4i0ZxeYBcBosN5VuAudsNbjX7Oj5EAfQ3K4s4HsVMQRRcqGsPvs2A==}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    dependencies:
+      '@babel/core': 7.17.9
+      '@babel/helper-plugin-utils': 7.16.7
+      '@babel/helper-validator-option': 7.16.7
+      '@babel/plugin-transform-typescript': 7.16.8_@babel+core@7.17.9
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@babel/preset-typescript/7.16.7_@babel+core@7.17.9:

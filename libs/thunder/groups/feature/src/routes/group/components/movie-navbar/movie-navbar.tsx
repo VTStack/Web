@@ -1,4 +1,4 @@
-import { Title } from '@v-thomas/external/core-ui';
+import { Title } from '@v-thomas/core-ui';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 

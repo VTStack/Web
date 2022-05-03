@@ -1,4 +1,4 @@
-import { Avatar, Title } from '@v-thomas/external/core-ui';
+import { Avatar, Title } from '@v-thomas/core-ui';
 import { ReactNode } from 'react';
 import { Container, LeftContainer, NavLinks, Middle } from './navbar.styles';
 import styled from 'styled-components';

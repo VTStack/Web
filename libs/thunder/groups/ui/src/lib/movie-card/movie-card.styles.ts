@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Card } from '@v-thomas/external/core-ui';
+import { Card } from '@v-thomas/core-ui';
 
 export const Image = styled.img`
   width: 100%;

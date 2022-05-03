@@ -1,4 +1,4 @@
-import { Button, Row, Input, Modal, Title, SharedButtonVariants } from '@v-thomas/external/core-ui';
+import { Button, Row, Input, Modal, Title, SharedButtonVariants } from '@v-thomas/core-ui';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { useToggle } from '@v-thomas/external/hooks';

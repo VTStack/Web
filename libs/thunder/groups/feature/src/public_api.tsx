@@ -1,4 +1,4 @@
-import { Title } from '@v-thomas/external/core-ui';
+import { Title } from '@v-thomas/core-ui';
 import { Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useSigninCheck } from 'reactfire';
