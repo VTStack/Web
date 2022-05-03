@@ -1,4 +1,4 @@
-import { Title, Link, Col } from '@v-thomas/core-ui';
+import { Title, Link, Col } from '@v-thomas/core/ui';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet-async';
 

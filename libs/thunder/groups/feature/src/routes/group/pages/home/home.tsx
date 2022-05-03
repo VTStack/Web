@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { useGroups } from '@v-thomas/thunder/groups/hooks';
 import { useAuth } from '@v-thomas/thunder/auth/hooks';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Button, Divider, Title } from '@v-thomas/core-ui';
+import { Button, Divider, Title } from '@v-thomas/core/ui';
 
 export function GroupHomePage() {
   const { groupsData } = useGroups();

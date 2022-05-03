@@ -1,4 +1,4 @@
-import { Divider } from '@v-thomas/core-ui';
+import { Divider } from '@v-thomas/core/ui';
 
 export function InvitePage() {
   // const dispatch = useDispatch<any>();
