@@ -8,7 +8,7 @@ module.exports = {
   displayName: 'thunder-common-types',
 
   transform: {
-    '^.+\\.[tj]s$': ['@swc/jest', swcJestConfig]
+    '^.+/.[tj]s$': ['@swc/jest', swcJestConfig]
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../../../coverage/libs/thunder/common/types',

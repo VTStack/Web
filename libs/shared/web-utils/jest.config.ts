@@ -8,7 +8,7 @@ module.exports = {
   displayName: 'shared-web-utils',
 
   transform: {
-    '^.+\\.[tj]s$': ['@swc/jest', swcJestConfig]
+    '^.+/.[tj]s$': ['@swc/jest', swcJestConfig]
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../../coverage/libs/shared/web-utils',

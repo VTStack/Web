@@ -8,7 +8,7 @@ module.exports = {
   displayName: 'thunder-groups-hooks',
   preset: '../../../../jest.preset.ts',
   transform: {
-    '^.+\\.[tj]s$': ['@swc/jest', swcJestConfig]
+    '^.+/.[tj]s$': ['@swc/jest', swcJestConfig]
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../../../coverage/libs/thunder/groups/hooks'
