@@ -11,7 +11,6 @@
     "club": "apps/club",
     "club-e2e": "e2e/club-e2e",
     "core-ui": "packages/core-ui",
-    "core-ui-e2e": "e2e/core-ui-e2e",
     "external-hooks": "packages/hooks",
     "gatekeeper-server": "apps/gatekeeper/server",
     "gatekeeper-server-auth": "libs/gatekeeper/server/auth",

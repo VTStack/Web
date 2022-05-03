@@ -2,6 +2,14 @@
   "root": "libs/gatekeeper/server/data-access",
   "sourceRoot": "libs/gatekeeper/server/data-access/src",
   "tags": ["type:data-access", "scope:gatekeeper"],
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "self"
+      }
+    ]
+  },
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",

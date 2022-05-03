@@ -143,7 +143,7 @@ specifiers:
   swc-loader: 0.1.15
   ts-jest: 27.1.4
   ts-node: 9.1.1
-  tslib: ^2.4.0
+  tslib: 2.3.0
   typescript: ^4.5
   url-loader: ^4.1.1
   uuid: ^8.3.2
@@ -213,7 +213,7 @@ dependencies:
   rxjs: 7.5.5
   stormdb: 0.5.2
   styled-components: 5.3.5_1a79be909b93ec9b98501cf963be33c8
-  tslib: 2.4.0
+  tslib: 2.3.0
   uuid: 8.3.2
 
 optionalDependencies:
@@ -20395,6 +20395,10 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
+
+  /tslib/2.3.0:
+    resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==}
+    dev: false
 
   /tslib/2.3.1:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}

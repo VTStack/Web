@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-pnpm install --frozen-lockfile && nx affected:lint --parallel=4 & nx affected:test --parallel=4
+pnpm install --frozen-lockfile

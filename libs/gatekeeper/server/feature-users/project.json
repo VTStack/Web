@@ -1,17 +1,25 @@
 {
   "root": "libs/gatekeeper/server/feature-users",
-  "tags": ["type:feature"],
+  "tags": ["type:feature", "scope:gatekeeper"],
   "sourceRoot": "libs/gatekeeper/server/feature-users/src",
   "targets": {
     "build": {
-      "executor": "@nrwl/js:tsc",
+      "executor": "@nrwl/js:swc",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/gatekeeper/server/feature-users",
         "tsConfig": "libs/gatekeeper/server/feature-users/tsconfig.lib.json",
         "packageJson": "libs/gatekeeper/server/feature-users/package.json",
         "main": "libs/gatekeeper/server/feature-users/src/public_api.ts",
-        "assets": ["libs/gatekeeper/server/feature-users/*.md"]
+        "assets": ["libs/gatekeeper/server/feature-users/*.md"],
+        "swcExclude": [
+          "./src/**/.*.spec.ts$",
+          "./**/.*.spec.ts$",
+          "./src/**/jest-setup.ts$",
+          "./**/jest-setup.ts$",
+          "./**/.*.js$",
+          "jest.config.js"
+        ]
       }
     },
     "lint": {
