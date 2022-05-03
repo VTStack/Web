@@ -14,7 +14,7 @@
   <img alt="Netlify" src="https://img.shields.io/netlify/16d309af-627a-471e-a5ec-8d739bbeb358?style=flat-square"></a>
 </p>
 
-> This is the movie-reviewer project. Alias `thunder-client`
+> This is the movie-reviewer project. Alias `thunder`
 
 ### 🏠 [Homepage](https://github.com/VincentThomas06/Codebase#readme)
 
@@ -27,7 +27,7 @@ npm install
 ## Run tests
 
 ```sh
-nx test thunder-client
+nx test thunder
 ```
 
 ## Author

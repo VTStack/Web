@@ -1,5 +1,9 @@
 {
+<<<<<<<< HEAD:e2e/core-ui-e2e/.eslintrc.json
   "extends": ["plugin:cypress/recommended", "../../.eslintrc.json"],
+========
+  "extends": ["plugin:cypress/recommended", "..\\..\\.eslintrc.json"],
+>>>>>>>> a855bb31b4cd5faa5eb92b69260e153cab9cfa35:e2e/about-e2e/.eslintrc.json
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {

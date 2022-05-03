@@ -1,7 +1,7 @@
 {
-  "root": "apps/thunder/client",
+  "root": "apps/thunder",
   "projectType": "application",
-  "sourceRoot": "apps/thunder/client/src",
+  "sourceRoot": "apps/thunder/src",
   "tags": ["scope:thunder", "type:app"],
   "implicitDependencies": ["thunder-invite-feature", "thunder-groups-feature", "thunder-other-pages-feature"],
   "targets": {
@@ -21,12 +21,12 @@
             "output": "assets"
           }
         ],
-        "outputPath": "dist/apps/thunder/client",
+        "outputPath": "dist/apps/thunder",
         "progress": true,
-        "tsConfig": "apps/thunder/client/tsconfig.app.json",
-        "main": "apps/thunder/client/src/main.tsx",
+        "tsConfig": "apps/thunder/tsconfig.app.json",
+        "main": "apps/thunder/src/main.tsx",
         "webpackConfig": "@nrwl/react/plugins/webpack",
-        "index": "apps/thunder/client/src/index.html",
+        "index": "apps/thunder/src/index.html",
         "buildLibsFromSource": true,
         "runtimeChunk": true,
         "commonChunk": true
@@ -46,7 +46,7 @@
     "serve": {
       "executor": "@nrwl/web:dev-server",
       "options": {
-        "buildTarget": "thunder-client:build:production",
+        "buildTarget": "thunder:build:production",
         "port": 3000
       }
     },
@@ -54,14 +54,14 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "command": "sh ./scripts/thunder/deploy.sh",
-        "outputPath": "dist/apps/thunder/client",
+        "outputPath": "dist/apps/thunder",
         "parallel": false
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "options": {
-        "jestConfig": "apps/thunder/client/jest.config.ts",
+        "jestConfig": "apps/thunder/jest.config.ts",
         "passWithNoTests": true,
         "bail": 1
       }
@@ -69,8 +69,8 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "eslintConfig": "apps/thunder/client/.eslintrc.json",
-        "lintFilePatterns": ["apps/thunder/client/src/**/*.{ts,tsx,css}"]
+        "eslintConfig": "apps/thunder/.eslintrc.json",
+        "lintFilePatterns": ["apps/thunder/src/**/*.{ts,tsx,css}"]
       }
     }
   }
