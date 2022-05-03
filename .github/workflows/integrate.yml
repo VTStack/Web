@@ -63,7 +63,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        job: ['test', 'lint', 'build']
+        job: ['test', 'build']
+        test: [{ testing: '', testing2: '' }]
     needs: install_deps
     steps:
       - name: Checkout
@@ -106,3 +107,4 @@ jobs:
           key: ${{ runner.os }}-node-${{ steps.node-version.outputs.node_version }}-${{ steps.pnpm-version.outputs.pnpm_version}}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - run: npx nx affected --target=${{ matrix.job }} --parallel=1 --base=$NX_BASE --head=$NX_HEAD
+      - run: echo '${{ matrix.test }}'
