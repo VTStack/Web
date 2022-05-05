@@ -1,6 +1,6 @@
 import { StrictMode, Suspense } from 'react';
 import { SnackbarProvider } from 'notistack';
-import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThunderDarkTheme } from './theme';
@@ -56,7 +56,7 @@ const App = () => {
         <ThemeProvider theme={ThunderDarkTheme}>
           <SnackbarProvider maxSnack={3}>
             <HelmetProvider>
-              <HashRouter>
+              <BrowserRouter>
                 <Suspense fallback={<div>loading...</div>}>
                   <RootE>
                     <Routes>
@@ -68,7 +68,7 @@ const App = () => {
                     </Routes>
                   </RootE>
                 </Suspense>
-              </HashRouter>
+              </BrowserRouter>
             </HelmetProvider>
           </SnackbarProvider>
         </ThemeProvider>

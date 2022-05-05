@@ -23,6 +23,8 @@ export const Col = styled(motion.div)<ColProps>`
       ? css`
           gap: ${gap}rem !important;
         `
-      : null};
+      : css`
+          justify-content: space-between;
+        `};
   padding: ${({ padding = '0' }) => `${padding}rem`};
 `;

@@ -27,6 +27,7 @@
         "main": "apps/thunder/src/main.tsx",
         "webpackConfig": "@nrwl/react/plugins/webpack",
         "index": "apps/thunder/src/index.html",
+        "generateIndexHtml": false,
         "buildLibsFromSource": true,
         "runtimeChunk": true,
         "commonChunk": true
@@ -46,8 +47,9 @@
     "serve": {
       "executor": "@nrwl/web:dev-server",
       "options": {
-        "buildTarget": "thunder:build:production",
-        "port": 3000
+        "buildTarget": "thunder:build:development",
+        "port": 3000,
+        "hmr": true
       }
     },
     "deploy": {

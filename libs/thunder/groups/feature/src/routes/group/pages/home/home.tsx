@@ -1,21 +1,29 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { PrivateNavbar } from '@v-thomas/thunder/groups/ui';
+import { CreateGroupButton, PrivateNavbar } from '@v-thomas/thunder/groups/ui';
 import { Helmet } from 'react-helmet-async';
-import { useGroups } from '@v-thomas/thunder/groups/hooks';
+import { useGroups, useMovies } from '@v-thomas/thunder/groups/hooks';
 import { useAuth } from '@v-thomas/thunder/auth/hooks';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Button, Divider, Title } from '@v-thomas/core/ui';
+import { Button, Card, Divider, Link, Text, Title } from '@v-thomas/core/ui';
+import { NoMovies } from './components/no-movies';
 
 export function GroupHomePage() {
   const { groupsData } = useGroups();
 
   const { groupId } = useParams();
 
-  const group = groupsData.data?.find(group => group['_id'] === groupId) || { name: '' };
+  const group = groupsData.data?.find(group => group['_id'] === groupId);
+
+  const { movies, movieData } = useMovies({ groupId: group?.['_id'] || 'f' });
 
   const { user } = useAuth();
 
   const router = useNavigate();
+
+  const loadingStatus = groupsData.status;
+
+  const finishedLoading =
+    loadingStatus === 'success' && movieData.status === 'success' && movies !== undefined;
 
   return (
     <>
@@ -23,19 +31,35 @@ export function GroupHomePage() {
         <title>{`Movie | ${group?.['name'] || 'Loading...'}`}</title>
       </Helmet>
       <PrivateNavbar
-        avatar={`https://avatars.dicebear.com/api/avataaars/${user.data?.user?.uid}.svg`}
-        title={group['name']}
+        avatar
+        title={group?.['name'] || ''}
         leftButtons={
           <Button onClick={() => router('..')} variant="text">
             To lobby
           </Button>
         }
+        rightButtons={
+          <Link to={`/app/groups/${groupId}/search`}>
+            <Button>Add Movie</Button>
+          </Link>
+        }
       />
 
       <Divider />
 
-      {groupsData.status === 'success'}
-      <Title>coming soon...</Title>
+      {loadingStatus === 'loading' && <Title>loading...</Title>}
+      {finishedLoading && movies.length ? (
+        movies?.map((movie, index: number) => (
+          <Link to={movie['_id']} key={movie['_id']}>
+            <Card key={index}>
+              <Title>{movie['name']}</Title>
+              <Text>{movie['description']}</Text>
+            </Card>
+          </Link>
+        ))
+      ) : (
+        <NoMovies />
+      )}
 
       {/* <Container>
         <PrivateNavbar

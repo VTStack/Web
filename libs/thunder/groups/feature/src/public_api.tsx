@@ -10,19 +10,17 @@ import { GroupsHomePage } from './routes/home';
 export const FeatureGroupsRouter = () => {
   const AuthCheck = useSigninCheck({ suspense: true });
 
+  if (!AuthCheck.data?.signedIn && AuthCheck.status === 'success') return <Navigate to="/" />;
+
   return (
     <Suspense fallback={<Title>loading...</Title>}>
-      {!AuthCheck.data?.signedIn && AuthCheck.status === 'success' ? (
-        <Navigate to="/" />
-      ) : (
-        <Routes>
-          <Route index element={<GroupsHomePage />} />
-          <Route path=":groupId/search" element={<GroupSearchPage />} />
-          <Route path=":groupId" element={<Navigate to={'m'} replace />} />
-          <Route path=":groupId/m" element={<GroupHomePage />} />
-          <Route path=":groupId/m/:movieId" element={<GroupMoviePage />} />
-        </Routes>
-      )}
+      <Routes>
+        <Route index element={<GroupsHomePage />} />
+        <Route path=":groupId/search" element={<GroupSearchPage />} />
+        <Route path=":groupId" element={<Navigate to={'m'} replace />} />
+        <Route path=":groupId/m" element={<GroupHomePage />} />
+        <Route path=":groupId/m/:movieId" element={<GroupMoviePage />} />
+      </Routes>
     </Suspense>
   );
 };

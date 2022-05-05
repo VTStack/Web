@@ -35,7 +35,9 @@
     "thunder-e2e": "e2e/thunder-e2e",
     "thunder-groups-feature": "libs/thunder/groups/feature",
     "thunder-groups-hooks": "libs/thunder/groups/hooks",
+    "thunder-groups-types": "libs/thunder/groups/types",
     "thunder-groups-ui": "libs/thunder/groups/ui",
+    "thunder-groups-utils": "libs/thunder/groups/utils",
     "thunder-invite-feature": "libs/thunder/invite/feature",
     "thunder-other-pages-feature": "libs/thunder/other-pages/feature",
     "thunder-other-pages-ui": "libs/thunder/other-pages/ui"

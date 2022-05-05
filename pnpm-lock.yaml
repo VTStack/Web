@@ -146,6 +146,7 @@ specifiers:
   tslib: 2.3.0
   typescript: ^4.5
   url-loader: ^4.1.1
+  use-url-search-params: ^2.5.1
   uuid: ^8.3.2
   webpack: 5.71.0
 
@@ -214,6 +215,7 @@ dependencies:
   stormdb: 0.5.2
   styled-components: 5.3.5_1a79be909b93ec9b98501cf963be33c8
   tslib: 2.3.0
+  use-url-search-params: 2.5.1_react@18.0.0
   uuid: 8.3.2
 
 optionalDependencies:
@@ -20803,6 +20805,14 @@ packages:
     resolution: {integrity: sha512-AFVsxg5GkFg8GDcxnl+Z0lMAz9rE8DGJCc28qnBuQF7lac57B5smLcT37aXpXIIPz75rW4g3eXHPjhHwdGskOw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0-rc
+    dependencies:
+      react: 18.0.0
+    dev: false
+
+  /use-url-search-params/2.5.1_react@18.0.0:
+    resolution: {integrity: sha512-tzFTatO7b1VJx9rcP1utVU152PAPt5J4uVLCMteOUZFGBe+u8CzFVs3T74yrpZ/bOJLGjRbv46GBrjHq94XlTg==}
+    peerDependencies:
+      react: '*'
     dependencies:
       react: 18.0.0
     dev: false
