@@ -24,7 +24,7 @@
   },
   "workspaceLayout": {
     "appsDir": "apps",
-    "libsDir": "packages"
+    "libsDir": "libs"
   },
   "targetDependencies": {
     "deploy": [

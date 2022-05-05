@@ -30,7 +30,6 @@ const container = {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const GroupGrid = ({ groups }: { groups: { data: any[] } }) => {
-  console.log(groups);
   return (
     <SGrid key="modal" variants={container} initial="initial" animate={'animate'} exit={'exit'}>
       {groups.data.map((group: { _id: string; name: string }, index: number) => (

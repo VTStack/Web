@@ -1,4 +1,4 @@
-import { Matcher, MatcherOptions, render } from '@testing-library/react';
+import { act, Matcher, MatcherOptions, render, RenderResult } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { TestTheme } from '@v-thomas/shared/utils-test';
 import { NoGroups } from './no-groups';
@@ -9,13 +9,13 @@ describe('NoGroups', () => {
   beforeEach(() => {
     const element = render(
       <SetupFirebase>
-        <SetupFirestore>
-          <SetupAuth>
+        <SetupAuth>
+          <SetupFirestore>
             <ThemeProvider theme={TestTheme}>
               <NoGroups />
             </ThemeProvider>
-          </SetupAuth>
-        </SetupFirestore>
+          </SetupFirestore>
+        </SetupAuth>
       </SetupFirebase>
     );
     baseElement = element.baseElement;

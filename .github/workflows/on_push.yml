@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  super_linter:
+    runs-on: ubuntu-latest
+    name: SuperLinter
+    needs: install_deps
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Github SuperLinter
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_TYPESCRIPT_STANDARD: false
+          VALIDATE_YAML: false

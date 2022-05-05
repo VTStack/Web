@@ -7,7 +7,7 @@ export interface MovieSearchCardProps {
     poster_path: string;
     overview: string;
   };
-  onAdd: () => void;
+  onAdd?: () => void;
 }
 
 const SMovieSearchCard = styled(Card)`
@@ -15,6 +15,7 @@ const SMovieSearchCard = styled(Card)`
   display: flex;
 
   flex-direction: row;
+  height: 100%;
 `;
 
 // const Container = styled(Row)`
@@ -30,7 +31,7 @@ export function MovieSearchCard({ movie, onAdd }: MovieSearchCardProps) {
   return (
     <SMovieSearchCard>
       <img src={poster} alt="" width="200" height="300" />
-      <Col padding="2" gap="1rem">
+      <Col padding="2" gap="auto">
         <div>
           <Title>{movie.title}</Title>
           <Text>{movie.overview}</Text>

@@ -51,7 +51,9 @@
       "@v-thomas/thunder/common/types": ["./libs/thunder/common/types/src/index.ts"],
       "@v-thomas/thunder/groups/feature": ["./libs/thunder/groups/feature/src/public_api.tsx"],
       "@v-thomas/thunder/groups/hooks": ["./libs/thunder/groups/hooks/src/public_api.ts"],
+      "@v-thomas/thunder/groups/types": ["libs/thunder/groups/types/src/public_api.ts"],
       "@v-thomas/thunder/groups/ui": ["libs/thunder/groups/ui/src/public_api.ts"],
+      "@v-thomas/thunder/groups/utils": ["libs/thunder/groups/utils/src/public_api.ts"],
       "@v-thomas/thunder/invite/feature": ["./libs/thunder/invite/feature/src/public_api.tsx"],
       "@v-thomas/thunder/other-pages": ["libs/thunder/other-pages/feature/src/public_api.ts"],
       "@v-thomas/thunder/other-pages/ui": ["libs/thunder/other-pages/ui/src/public_api.ts"]

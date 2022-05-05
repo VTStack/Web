@@ -6,6 +6,7 @@ export interface RowInputs {
   padding?: string;
   align?: 'center' | 'right' | 'left';
   inline?: boolean;
+  grid?: string[];
 }
 
 const test = {
@@ -27,5 +28,15 @@ export const Row = styled(motion.div)<RowInputs>`
       : css`
           gap: ${gap}rem !important;
         `};
+  ${({ grid }) => {
+    if (grid) {
+      const stringLayout = grid.join(' ');
+      return css`
+        display: grid;
+        grid-template-columns: ${stringLayout};
+      `;
+    }
+    return null;
+  }}
   padding: ${({ padding = '0' }) => `${padding}rem`};
 `;

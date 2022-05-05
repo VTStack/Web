@@ -2,6 +2,7 @@
   "root": true,
   "plugins": ["@nrwl/nx", "prettier"],
   "extends": ["eslint:recommended", "prettier"],
+  "ignorePatterns": ["**/*"],
   "rules": {
     "prettier/prettier": "error",
     "block-scoped-var": "error",

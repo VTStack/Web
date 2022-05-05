@@ -1,0 +1,32 @@
+{
+  "root": "libs/thunder/groups/utils",
+  "sourceRoot": "libs/thunder/groups/utils/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/thunder/groups/utils",
+        "main": "libs/thunder/groups/utils/src/index.ts",
+        "tsConfig": "libs/thunder/groups/utils/tsconfig.lib.json",
+        "assets": ["libs/thunder/groups/utils/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/thunder/groups/utils/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/thunder/groups/utils"],
+      "options": {
+        "jestConfig": "libs/thunder/groups/utils/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:thunder", "type:utils"]
+}
