@@ -75,6 +75,7 @@ jobs:
 
   static_testing_2:
     name: Static Testing with Snyk
+    needs: install_deps
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
