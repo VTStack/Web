@@ -93,7 +93,7 @@ jobs:
       fail-fast: true
       matrix:
         job: ['test', 'build']
-        test: [{ test1: 'test', test2: 'test2' }]
+        test: [{ test1: 'test', test2: 'test2', test3: 'test3' }]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -135,4 +135,4 @@ jobs:
           key: ${{ runner.os }}-node-${{ steps.node-version.outputs.node_version }}-${{ steps.pnpm-version.outputs.pnpm_version}}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - run: npx nx affected --target=${{ matrix.job }} --parallel=1 --base=$NX_BASE --head=$NX_HEAD
-      - run: echo '${{ matrix.test.test1 }} ${{ matrix.test.test2 }}'
+      - run: echo '${{ matrix.test.test1 }} ${{ matrix.test.test2 }} ${{ matrix.test.test3 }}'
