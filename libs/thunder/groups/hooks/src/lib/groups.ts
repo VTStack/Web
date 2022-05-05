@@ -16,8 +16,6 @@ export const useGroups = ({ idField }: GroupsProps = { idField: '_id' }) => {
 
   const groupsData = useFirestoreCollectionData(dataQuery, { idField });
 
-  // const groupsData = useFirestoreCollectionData(colRef, { idField: props.idField });
-
   const createGroup = ({ groupName, description }: { groupName: string; description: string }) => {
     if (!user.data.signedIn) {
       throw new Error('USER-NOT_SIGNED_IN');
