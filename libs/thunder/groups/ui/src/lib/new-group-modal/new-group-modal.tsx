@@ -10,13 +10,17 @@ const Form = styled.form`
 `;
 
 export function NewGroupModal({ isOpen, toggleOpen }: { isOpen: boolean; toggleOpen: () => void }) {
-  const { register, handleSubmit } = useForm({ shouldUseNativeValidation: true });
+  const { register } = useForm({ shouldUseNativeValidation: true });
   const { createGroup } = useGroups();
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (e: any) => {
+    e.preventDefault();
+
     toggleOpen();
 
-    const { groupName, description } = data;
+    const groupName = e.currentTarget[0].value;
+    const description = e.currentTarget[1].value;
+
     createGroup({ groupName, description });
   };
 
@@ -26,7 +30,7 @@ export function NewGroupModal({ isOpen, toggleOpen }: { isOpen: boolean; toggleO
         <Title>Create Group</Title>
         <img src={'/assets/x-mark.svg'} alt="" onClick={() => toggleOpen()} style={{ cursor: 'pointer' }} />
       </Row>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={onSubmit}>
         <Col gap="0.3">
           <Input {...register('groupName', { required: true, minLength: 3 })} />
           <Text>* Group name</Text>

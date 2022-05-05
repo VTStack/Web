@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useAuth } from '@v-thomas/thunder/auth/hooks';
 import { SignOutButton } from '@v-thomas/thunder/auth/ui';
 import { NewGroupModal, PrivateNavbar } from '@v-thomas/thunder/groups/ui';
@@ -9,20 +10,17 @@ import { GroupGrid } from './home.styles';
 import { FC } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useGroups } from '@v-thomas/thunder/groups/hooks';
-import { useUrlSearchParams } from 'use-url-search-params';
-
-const types = {
-  createGroupModal: Boolean
-};
+import { useSearchParams } from 'react-router-dom';
 
 export const GroupsHomePage: FC = () => {
   const { groupsData } = useGroups({ idField: '_id' });
 
-  const [params, setParams] = useUrlSearchParams({ createGroupModal: false }, types, true);
+  const [params, setParams] = useSearchParams({ createGroupModal: false as any });
 
   const { user } = useAuth();
 
-  const switchOpen = () => setParams({ createGroupModal: !params['createGroupModal'] });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const switchOpen = () => setParams({ createGroupModal: !params.get('createGroupModal') as any });
 
   return (
     <>
@@ -35,7 +33,7 @@ export const GroupsHomePage: FC = () => {
         leftButtons={<SignOutButton variant="text" />}
         rightButtons={<Button onClick={switchOpen}>Create Group</Button>}
       />
-      <NewGroupModal isOpen={params['createGroupModal'] as boolean} toggleOpen={switchOpen} />
+      <NewGroupModal isOpen={params.get('createGroupModal') as unknown as boolean} toggleOpen={switchOpen} />
       <Divider />
       {groupsData.status === 'success' ? (
         groupsData.data.length ? (

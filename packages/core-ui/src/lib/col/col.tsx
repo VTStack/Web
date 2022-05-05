@@ -17,14 +17,14 @@ export const Col = styled(motion.div)<ColProps>`
   justify-content: ${({ align = 'top' }) => {
     return test[align];
   }};
-  /* justify-content: space-between; */
-  ${({ gap = '1' }) =>
-    gap !== 'auto'
+  ${({ gap = '1' }) => {
+    return gap === 'auto'
       ? css`
-          gap: ${gap}rem !important;
+          justify-content: space-between;
         `
       : css`
-          justify-content: space-between;
-        `};
+          gap: ${gap}rem !important;
+        `;
+  }}
   padding: ${({ padding = '0' }) => `${padding}rem`};
 `;

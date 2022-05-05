@@ -57,15 +57,71 @@ jobs:
           path: node_modules
           key: ${{ steps.cache.outputs.primary-key }}
 
+  static_testing:
+    name: Static Testing
+    runs-on: ubuntu-latest
+    needs: install_deps
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3.1.1
+        with:
+          node-version: '16'
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2.2.1
+        with:
+          version: 6.32.11
+
+      - uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: main
+
+      - name: Print node version
+        id: node-version
+        run: |
+          node_ver=$( node --version )
+          echo "Node: ${node_ver:1}"
+          echo "::set-output name=node_version::${node_ver:1}"
+
+      - name: Print pnpm version
+        id: pnpm-version
+        run: |
+          pnpm_ver=$( pnpm --version )
+          echo "Pnpm: ${pnpm_ver:1}"
+          echo "::set-output name=pnpm_version::${pnpm_ver:1}"
+
+      - name: Restore "node_modules" from cache
+        uses: martijnhols/actions-cache/restore@v3
+        with:
+          path: node_modules
+          restore-keys: ${{ runner.os }}-node_modules
+          key: ${{ runner.os }}-node-${{ steps.node-version.outputs.node_version }}-${{ steps.pnpm-version.outputs.pnpm_version}}-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: Github SuperLinter
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: SonarCloud Static Analysis
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
   jobs:
     name: Jobs
     runs-on: ubuntu-latest
+    needs: static_testing
     strategy:
       fail-fast: true
       matrix:
         job: ['test', 'build']
         test: [{ testing: '', testing2: '' }]
-    needs: install_deps
     steps:
       - name: Checkout
         uses: actions/checkout@v3

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
-import { TestTheme } from '@v-thomas/shared/utils-test';
+import { SetupAuth, TestTheme } from '@v-thomas/shared/utils-test';
 import { CreateGroupButton } from './create-group';
 import { SetupFirebase, SetupFirestore } from '@v-thomas/shared/utils-test';
 
@@ -9,9 +9,11 @@ describe('GroupCard', () => {
     const { baseElement } = render(
       <SetupFirebase>
         <SetupFirestore>
-          <ThemeProvider theme={TestTheme}>
-            <CreateGroupButton />
-          </ThemeProvider>
+          <SetupAuth>
+            <ThemeProvider theme={TestTheme}>
+              <CreateGroupButton />
+            </ThemeProvider>
+          </SetupAuth>
         </SetupFirestore>
       </SetupFirebase>
     );
